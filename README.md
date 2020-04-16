@@ -1,13 +1,12 @@
-# README
+Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version 2.6.3  
 
-Things you may want to cover:
-
-* Ruby version
+* Rails version 6.0.2 
 
 * System dependencies
+  - NodeJS, rails dependencies  
+  - bundle/bundler
 
 * Configuration
 
@@ -21,4 +20,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+```bash
+git clone https://github.com/datauy/DondeReciclo-3B.git
+cd DondeReciclo-3B
+bundle install
+rails s
+```
