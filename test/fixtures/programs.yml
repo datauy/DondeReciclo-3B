@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  responsable: MyText
+  responsable_url: MyString
+  supporters: 
+  more_info: MyString
+  reception_conditions: MyText
+  contact: MyString
+  information: MyText
+  benefits: MyText
+  lifecycle: MyText
+  materials: one
+  receives: MyText
+  receives_no: MyText
+
+two:
+  name: MyString
+  responsable: MyText
+  responsable_url: MyString
+  supporters: 
+  more_info: MyString
+  reception_conditions: MyText
+  contact: MyString
+  information: MyText
+  benefits: MyText
+  lifecycle: MyText
+  materials: two
+  receives: MyText
+  receives_no: MyText

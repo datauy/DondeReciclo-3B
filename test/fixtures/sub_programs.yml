@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  program: one
+  name: MyString
+  reception_conditions: MyText
+  receives: MyText
+  receives_no: MyText
+
+two:
+  program: two
+  name: MyString
+  reception_conditions: MyText
+  receives: MyText
+  receives_no: MyText

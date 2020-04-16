@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material: one
+  name: MyString
+  deposition: MyText
+
+two:
+  material: two
+  name: MyString
+  deposition: MyText

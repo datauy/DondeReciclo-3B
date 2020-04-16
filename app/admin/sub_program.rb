@@ -1,0 +1,38 @@
+ActiveAdmin.register SubProgram do
+  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id
+  config.create_another = true
+  index do
+    selectable_column
+    id_column
+    column :program_id
+    column :name
+    column :created_at
+    actions
+  end
+
+  filter :name
+  filter :program_id, :label => 'Programa', :as => :select, :collection => Program.all.map{|s| [s.name, s.id]}
+  filter :created_at
+
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :program_id, :label => 'Programa', :as => :select, :collection => Program.all.map{|s| [s.name, s.id]}
+      f.input :reception_conditions
+      f.input :receives
+      f.input :receives_no
+    end
+    f.actions
+  end
+=begin
+  controller do
+    def scoped_collection
+      if current_user.subprogram.nil?
+        resource_class
+      else
+        resource_class.where(collage: current_user.school_type)
+      end
+    end
+  end
+=end
+end
