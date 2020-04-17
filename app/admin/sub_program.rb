@@ -1,5 +1,5 @@
 ActiveAdmin.register SubProgram do
-  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id
+  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, material_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   config.create_another = true
   index do
     selectable_column
@@ -21,6 +21,16 @@ ActiveAdmin.register SubProgram do
       f.input :reception_conditions
       f.input :receives
       f.input :receives_no
+      f.inputs "Materiales" do
+        f.input :materials, as: :check_boxes
+        #f.object.materials.build
+        f.has_many :materials, new_record: 'Agregar Material' do |m|
+          m.input :name
+          m.input :information
+          m.input :video
+          m.input :color
+        end
+      end
     end
     f.actions
   end

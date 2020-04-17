@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :information
       t.string :video
-      t.integer :barcode, 
+      t.integer :barcode
 
       t.timestamps
     end

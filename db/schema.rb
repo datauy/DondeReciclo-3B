@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_033852) do
+ActiveRecord::Schema.define(version: 2020_04_17_013554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 2020_04_16_033852) do
     t.bigint "material_id", null: false
   end
 
-  create_table "materials_subprograms", id: false, force: :cascade do |t|
-    t.bigint "subprogram_id", null: false
+  create_table "materials_sub_programs", id: false, force: :cascade do |t|
     t.bigint "material_id", null: false
+    t.bigint "sub_program_id", null: false
   end
 
   create_table "products", force: :cascade do |t|
