@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_013554) do
+ActiveRecord::Schema.define(version: 2020_04_27_023636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_013554) do
   create_table "containers_schedules", id: false, force: :cascade do |t|
     t.bigint "container_id", null: false
     t.bigint "schedule_id", null: false
+    t.index ["container_id", "schedule_id"], name: "index_containers_schedules_on_container_id_and_schedule_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -106,23 +107,24 @@ ActiveRecord::Schema.define(version: 2020_04_17_013554) do
   end
 
   create_table "materials_sub_programs", id: false, force: :cascade do |t|
-    t.bigint "material_id", null: false
     t.bigint "sub_program_id", null: false
+    t.bigint "material_id", null: false
+    t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "information"
     t.string "video"
+    t.integer "barcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "barcode"
-    t.integer "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
   end
 
   create_table "products_wastes", id: false, force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "waste_id", null: false
+    t.index ["product_id", "waste_id"], name: "index_products_wastes_on_product_id_and_waste_id"
   end
 
   create_table "programs", force: :cascade do |t|
@@ -139,6 +141,13 @@ ActiveRecord::Schema.define(version: 2020_04_17_013554) do
     t.text "receives_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "shortname"
+  end
+
+  create_table "programs_wastes", id: false, force: :cascade do |t|
+    t.bigint "waste_id", null: false
+    t.bigint "program_id", null: false
+    t.index ["program_id", "waste_id"], name: "index_programs_wastes_on_program_id_and_waste_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -159,6 +168,18 @@ ActiveRecord::Schema.define(version: 2020_04_17_013554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["program_id"], name: "index_sub_programs_on_program_id"
+  end
+
+  create_table "sub_programs_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sub_program_id", null: false
+    t.index ["user_id", "sub_program_id"], name: "index_sub_programs_users_on_user_id_and_sub_program_id"
+  end
+
+  create_table "sub_programs_wastes", id: false, force: :cascade do |t|
+    t.bigint "waste_id", null: false
+    t.bigint "sub_program_id", null: false
+    t.index ["sub_program_id", "waste_id"], name: "index_sub_programs_wastes_on_sub_program_id_and_waste_id"
   end
 
   create_table "supporters", force: :cascade do |t|
@@ -183,7 +204,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_013554) do
   end
 
   create_table "wastes", force: :cascade do |t|
-    t.bigint "material_id", null: false
+    t.bigint "material_id"
     t.string "name"
     t.text "deposition"
     t.datetime "created_at", precision: 6, null: false
