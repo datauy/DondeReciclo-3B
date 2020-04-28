@@ -5,7 +5,7 @@ ActiveAdmin.register Program do
     selectable_column
     id_column
     column :logo do |l|
-      image_tag url_for(l.logo)
+      image_tag url_for(l.logo) if l.logo.attached?
     end
     column :name
     column :responsable
