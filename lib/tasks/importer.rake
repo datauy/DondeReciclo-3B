@@ -55,7 +55,7 @@ namespace :importer do
   end
   task :containers, [:year] => [:environment] do |_, args|
     #Update container types
-    CSV.foreach('db/data/container_types.csv', headers: true) do |row|
+    CSV.foreach('db/data/container_types.csv') do |row|
       if ( ContainerType.where(name: row[0]).empty? )
         ContainerType.create(name: row[0])
       end
@@ -75,8 +75,8 @@ namespace :importer do
       latlong = row[16].split(', ')
       if ( Container.where({
           sub_program_id: subPprogramMatch[row[14]],
-          lat: latlong[0],
-          long: latlong[1],
+          latitude: latlong[0],
+          longitude: latlong[1],
           container_type_id: @type.id,
         }).empty? )
         containers << {
@@ -89,25 +89,22 @@ namespace :importer do
           external_id: row[12],
           sub_program_id: subPprogramMatch[row[14]],
           site_type: row[15],
-          lat: latlong[0],
-          long: latlong[1],
+          latitude: latlong[0],
+          longitude: latlong[1],
           container_type_id: @type.id,
         }
         created += 1
       else
         duplicated += 1
       end
-      if (processed == 100)
-        #puts containers.inspect
-        result = Container.import containers
-        fails = result.failed_instances.length()
-        #result.failed_instances.each do |failure|
-        # handle failure.errors
-        #end
-        puts "Se procesaron #{processed}, se crearon #{created}, fallaron #{fails} y no se crearon #{duplicated} por estar duplicados"
-        exit
-      end
     end
+    #puts containers.inspect
+    result = Container.import containers
+    fails = result.failed_instances.length()
+    #result.failed_instances.each do |failure|
+    # handle failure.errors
+    #end
+    puts "Se procesaron #{processed}, se crearon #{created}, fallaron #{fails} y no se crearon #{duplicated} por estar duplicados"
   end
 
   task :waste, [:year] => [:environment] do |_, args|
@@ -117,7 +114,7 @@ namespace :importer do
       end
     end
     #wastes = []
-    CSV.foreach('db/data/residuos2.csv', headers: true) do |row|
+    CSV.foreach('db/data/residuos.csv', headers: true) do |row|
       processed += 1
       if ( waste = Waste.where({
           name: row[1],

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_023636) do
+ActiveRecord::Schema.define(version: 2020_04_27_143823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_023636) do
   create_table "containers", force: :cascade do |t|
     t.bigint "sub_program_id", null: false
     t.string "external_id"
-    t.decimal "lat"
-    t.decimal "long"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.string "site"
     t.string "address"
     t.string "location"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_023636) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
+    t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
   end
 

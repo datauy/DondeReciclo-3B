@@ -1,18 +1,6 @@
 ActiveAdmin.register SubProgram do
   permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, material_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   config.create_another = true
-  index do
-    selectable_column
-    id_column
-    column :program_id
-    column :name
-    column :created_at
-    actions
-  end
-
-  filter :name
-  filter :program_id, :label => 'Programa', :as => :select, :collection => Program.all.map{|s| [s.name, s.id]}
-  filter :created_at
 
   form do |f|
     f.inputs do
