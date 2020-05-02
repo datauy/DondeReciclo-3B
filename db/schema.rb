@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_143823) do
+ActiveRecord::Schema.define(version: 2020_05_02_185348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_143823) do
     t.integer "barcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "material_id", null: false
+    t.index ["material_id"], name: "index_products_on_material_id"
   end
 
   create_table "products_wastes", id: false, force: :cascade do |t|
@@ -216,6 +218,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_143823) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
+  add_foreign_key "products", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
