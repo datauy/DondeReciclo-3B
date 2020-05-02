@@ -21,6 +21,17 @@ class ApiController < ApplicationController
   def materials
     render json: Materials.all.map{|mat| ({ id: mat.id, name: mat.name, icon: url_for(cont.image) })}
   end
+  def search
+    if ( params[:q].length > 2 )
+      @str = params[:q].downcase
+      render json:
+        Material.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Material', material_id: mat.id })} +
+        Waste.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: mat.deposition, type: 'Waste', material_id: mat.material.nil? ? 0 : mat.material.id })} +
+        Product.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Product', material_id: mat.material.nil? ? 0 : mat.material.id })}
+    else
+      render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
+    end
+  end
 
   private
   def format_pins(objs)
