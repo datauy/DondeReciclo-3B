@@ -16,18 +16,18 @@ class ApiController < ApplicationController
     render json: format_pins(@cont)
   end
   def container_types
-    render json: ContainerType.all.map{|cont| ({ id: cont.id, name: cont.name, icon: url_for(cont.icon) })}
+    render json: ContainerType.all.map{|cont| ({ id: cont.id, name: cont.name, icon: cont.icon.attached? ? url_for(cont.icon) : '' })}
   end
   def materials
-    render json: Materials.all.map{|mat| ({ id: mat.id, name: mat.name, icon: url_for(cont.image) })}
+    render json: Materials.all.map{|mat| ({ id: mat.id, name: mat.name, icon: cont.image.attached? ? url_for(cont.image) : '' })}
   end
   def search
     if ( params[:q].length > 2 )
       @str = params[:q].downcase
       render json:
-        Material.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Material', material_id: mat.id })} +
+        (Material.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Material', material_id: mat.id })} +
         Waste.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: mat.deposition, type: 'Waste', material_id: mat.material.nil? ? 0 : mat.material.id })} +
-        Product.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Product', material_id: mat.material.nil? ? 0 : mat.material.id })}
+        Product.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Product', material_id: mat.material.nil? ? 0 : mat.material.id })}).sort_by! {|r| r[:name]}
     else
       render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
     end
