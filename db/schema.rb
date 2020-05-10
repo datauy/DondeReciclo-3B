@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_185348) do
+ActiveRecord::Schema.define(version: 2020_05_09_224955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_05_02_185348) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "predefined_search"
   end
 
   create_table "materials_programs", id: false, force: :cascade do |t|
@@ -212,6 +213,7 @@ ActiveRecord::Schema.define(version: 2020_05_02_185348) do
     t.text "deposition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "predefined_search"
     t.index ["material_id"], name: "index_wastes_on_material_id"
   end
 

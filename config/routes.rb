@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'api/containers'
   get 'api/containers_nearby'
   get 'api/search'
-
+  get 'api/search_predefined'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

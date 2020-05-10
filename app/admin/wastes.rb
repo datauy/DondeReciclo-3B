@@ -5,7 +5,7 @@ ActiveAdmin.register Waste do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :material_id, :name, :deposition
+  permit_params :material_id, :name, :deposition, :predefined_search
   #
   # or
   #

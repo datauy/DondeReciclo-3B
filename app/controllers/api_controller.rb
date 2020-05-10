@@ -1,9 +1,10 @@
 class ApiController < ApplicationController
+  #
   def containers_nearby
     @cont = Container
-      .near([params[:lat], params[:lon]], 5)
+      .near([params[:lat], params[:lon]])
       .includes( sub_program:[:program, :materials] )
-      .limit(30)
+      .limit(20)
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
@@ -15,24 +16,35 @@ class ApiController < ApplicationController
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
+  #
   def container_types
     render json: ContainerType.all.map{|cont| ({ id: cont.id, name: cont.name, icon: cont.icon.attached? ? url_for(cont.icon) : '' })}
   end
+  #
   def materials
-    render json: Materials.all.map{|mat| ({ id: mat.id, name: mat.name, icon: cont.image.attached? ? url_for(cont.image) : '' })}
+    render json: Materials.all.map{|mat| ({ id: mat.id, name: mat.name, icon: cont.icon.attached? ? url_for(cont.icon) : '' })}
   end
+  #
   def search
     if ( params[:q].length > 2 )
       @str = params[:q].downcase
-      render json:
-        (Material.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Material', material_id: mat.id })} +
-        Waste.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: mat.deposition, type: 'Waste', material_id: mat.material.nil? ? 0 : mat.material.id })} +
-        Product.search(@str).map{|mat| ({ id: mat.id, name: mat.name, deposition: '', type: 'Product', material_id: mat.material.nil? ? 0 : mat.material.id })}).sort_by! {|r| r[:name]}
+      render json: format_search(
+        Material.search(@str)+
+        Waste.search(@str)+
+        Product.search(@str)
+      ).sort_by! {|r| r[:name]}
     else
       render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
     end
   end
-
+  #
+  def search_predefined
+    render json: format_search(
+      Material.where( predefined_search: true ) +
+      Waste.where( predefined_search: true )
+    )
+  end
+  #
   private
   def format_pins(objs)
     return objs.map{|cont| ({
@@ -46,5 +58,19 @@ class ApiController < ApplicationController
       type_id: cont.container_type_id,
       materials: cont.sub_program.materials.ids,
     }) }
+  end
+  def format_search(objs)
+    res = []
+    objs.each do |mat|
+      oa = { id: mat.id, name: mat.name, deposition: nil, type: mat.class.name, material_id: mat.id }
+      if mat.class.name == 'Waste'
+        oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
+        oa[:deposition] = mat.deposition
+      elsif mat.class.name == 'Product'
+        oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
+      end
+      res << oa
+    end
+    return res
   end
 end
