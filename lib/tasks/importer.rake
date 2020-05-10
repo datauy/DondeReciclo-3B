@@ -108,7 +108,7 @@ namespace :importer do
   end
 
   task :waste, [:year] => [:environment] do |_, args|
-    CSV.foreach('db/data/materiales.csv') do |row|
+    CSV.foreach('db/data/materiales.csv', headers: true) do |row|
       if ( Material.where(name: row[0]).empty? )
         Material.create(name: row[0], color: row[4])
       end

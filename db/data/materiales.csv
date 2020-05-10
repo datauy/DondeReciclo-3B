@@ -1,11 +1,11 @@
-Nombre,Información,Foto,Video,Color,
-Residuos mezclados,,,,#9ba498,
-Materiales reciclables,,,,#63b563,
-Residuos compostables,,,,#827b61,
-Plástico,,,,#ffcb00,
-Papel y cartón,,,,#75aaf1,
-Metales,,,,#4a4a4a,
-Vidrios,,,,#ffffff,
-Residuos peligrosos,,,,#f64b4b,
-Residuos electrónicos,,,,#9ba498,
+Nombre,Información,Foto,Video,Color
+Metales,,,,#4a4a4a
+Papel y cartón,,,,#75aaf1
+Plástico,,,,#ffcb00
+Vidrios,,,,#ffffff
+Residuos mezclados,,,,#9ba498
+Materiales reciclables,,,,#63b563
+Residuos compostables,,,,#827b61
+Residuos peligrosos,,,,#f64b4b
+Residuos electrónicos,,,,#9ba498
 Residuos voluminosos,,,,#9ba498
