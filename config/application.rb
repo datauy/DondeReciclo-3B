@@ -10,7 +10,9 @@ module DondeRecicloBack
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-
+    # Hack for allowing SVG files. While this hack is here, we should **not**
+    # allow arbitrary SVG uploads. https://github.com/rails/rails/issues/34665
+    config.active_storage.content_types_to_serve_as_binary -= ['image/svg+xml']
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

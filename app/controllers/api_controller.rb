@@ -22,7 +22,7 @@ class ApiController < ApplicationController
   end
   #
   def materials
-    render json: Material.all.map{|mat| ({ id: mat.id, name: mat.name, color: mat.color, icon: mat.icon.attached? ? url_for(mat.icon) : '' })}
+    render json: Material.all.map{|mat| [mat.id, { id: mat.id, name: mat.name, color: mat.color, icon: mat.icon.attached? ? url_for(mat.icon) : '' }]}.to_h
   end
   #
   def search
