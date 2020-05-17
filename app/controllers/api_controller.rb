@@ -18,11 +18,12 @@ class ApiController < ApplicationController
   end
   #
   def container_types
-    render json: ContainerType.all.map{|cont| ({ id: cont.id, name: cont.name, icon: cont.icon.attached? ? url_for(cont.icon) : '' })}
+    render json: ContainerType.all.map{|cont| [cont.id, { id: cont.id, name: cont.name, class: cont.name.gsub!(/\s/,'-').downcase }]}.to_h
   end
   #
   def materials
-    render json: Material.all.map{|mat| [mat.id, { id: mat.id, name: mat.name, color: mat.color, icon: mat.icon.attached? ? url_for(mat.icon) : '' }]}.to_h
+    render json: Material.all.map{|mat| [mat.id, { id: mat.id, name: mat.name, class: mat.name.gsub!(/\s/,'-').downcase }]}.to_h
+      #color: mat.color, icon: mat.icon.attached? ? url_for(mat.icon) : '' }]}.to_h
   end
   #
   def search
@@ -49,14 +50,17 @@ class ApiController < ApplicationController
   def format_pins(objs)
     return objs.map{|cont| ({
       id: cont.id,
-      program: cont.sub_program.program.name,
+      type_id: cont.container_type_id,
       program_id: cont.sub_program.program_id,
       latitude: cont.latitude,
       longitude: cont.longitude,
+      program: cont.sub_program.program.name,
       location: cont.site,
+      address: cont.address,
       public: cont.public_site,
-      type_id: cont.container_type_id,
       materials: cont.sub_program.materials.ids,
+      photos: cont.photos.attached? ? url_for(cont.photos) : '',  #.map {|ph| url_for(ph) } : '',
+      receives_no: cont.sub_program.receives_no
     }) }
   end
   def format_search(objs)

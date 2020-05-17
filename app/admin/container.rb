@@ -1,33 +1,37 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :lat, :long, :site, :address, :location, :state, :site_type, :public_site, :container_type_id
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :container_type_id, :photos
   config.create_another = true
   index do
     selectable_column
     id_column
     column :sub_program_id
     column :external_id
-    column :lat
-    column :long
+    column :latitude
+    column :longitude
     column :site
     column :state
     column :public_site
     column :container_type_id
     column :created_at
+    column :photos do |l|
+      image_tag url_for(l.photos) if l.photos.attached?
+    end
     actions
   end
 
+  filter :id
   filter :sub_program_id, as: :select, collection: SubProgram.all.map{|s| [s.name, s.id]}
   filter :state
   filter :public_site
   filter :container_type_id, as: :select, collection: ContainerType.all.map{|s| [s.name, s.id]}
   filter :created_at
 
-  form do |f|
+  form :html => { :multipart => true } do |f|
     f.inputs do
       f.input :sub_program_id, :label => 'Subprograma', :as => :select, :collection => SubProgram.all.map{|s| [s.name, s.id]}
       f.input :external_id
-      f.input :lat
-      f.input :long
+      f.input :latitude
+      f.input :longitude
       f.input :site
       f.input :address
       f.input :location
@@ -35,6 +39,7 @@ ActiveAdmin.register Container do
       f.input :site_type
       f.input :public_site
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
+      f.input :photos, as: :file #, input_html: { multiple: true }
     end
     f.actions
   end
