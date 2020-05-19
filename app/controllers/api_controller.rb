@@ -21,7 +21,7 @@ class ApiController < ApplicationController
     render json: ContainerType.all.map{|cont| [cont.id, {
       id: cont.id,
       name: cont.name,
-      class: cont.name.downcase.gsub(/\s/,'-'),
+      class: cont.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       icon: cont.icon.attached? ? url_for(cont.icon) : ''
     }]}.to_h
   end
@@ -30,7 +30,7 @@ class ApiController < ApplicationController
     render json: Material.all.map{|mat| [mat.id, {
       id: mat.id,
       name: mat.name,
-      class: mat.name.downcase.gsub(/\s/,'-'),
+      class: mat.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       color: mat.color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
     }]}.to_h
