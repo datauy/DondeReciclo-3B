@@ -18,12 +18,22 @@ class ApiController < ApplicationController
   end
   #
   def container_types
-    render json: ContainerType.all.map{|cont| [cont.id, { id: cont.id, name: cont.name, class: cont.name.gsub!(/\s/,'-').downcase }]}.to_h
+    render json: ContainerType.all.map{|cont| [cont.id, {
+      id: cont.id,
+      name: cont.name,
+      class: cont.name.downcase.gsub(/\s/,'-'),
+      icon: cont.icon.attached? ? url_for(cont.icon) : ''
+    }]}.to_h
   end
   #
   def materials
-    render json: Material.all.map{|mat| [mat.id, { id: mat.id, name: mat.name, class: mat.name.gsub!(/\s/,'-').downcase }]}.to_h
-      #color: mat.color, icon: mat.icon.attached? ? url_for(mat.icon) : '' }]}.to_h
+    render json: Material.all.map{|mat| [mat.id, {
+      id: mat.id,
+      name: mat.name,
+      class: mat.name.downcase.gsub(/\s/,'-'),
+      color: mat.color,
+      icon: mat.icon.attached? ? url_for(mat.icon) : ''
+    }]}.to_h
   end
   #
   def search
