@@ -3,7 +3,7 @@ class ApiController < ApplicationController
   def containers_nearby
     @cont = Container
       .near([params[:lat], params[:lon]])
-      .includes( sub_program:[:program, :materials] )
+      .includes( :sub_program )
       .limit(20)
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
@@ -16,14 +16,18 @@ class ApiController < ApplicationController
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
+  #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
+  #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
   def containers4materials
     if (params[:materials])
       materials_by = params[:materials].split(',')
     else
-      self.containers_nearby
+      return self.containers_nearby
     end
     @cont = Container
-      .includes( sub_program:[:materials] )
+      .includes( :sub_program )
+      .near( [params[:lat], params[:lon]] )
+      .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
       .limit(20)
 
@@ -78,6 +82,7 @@ class ApiController < ApplicationController
       latitude: cont.latitude,
       longitude: cont.longitude,
       program: cont.sub_program.program.name,
+      subprogram: cont.sub_program.name,
       location: cont.site,
       address: cont.address,
       public: cont.public_site,
