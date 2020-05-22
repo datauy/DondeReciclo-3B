@@ -22,7 +22,15 @@ namespace :importer do
   desc 'Importing everything'
 
   task :all, [:year] => [:environment] do |_, args|
-    @year = args[:year]
+    Rake::Task['importer:all'].enhance do
+      Rake::Task['importer:programs'].invoke
+      Rake::Task['importer:subprograms'].invoke
+      Rake::Task['importer:containers'].invoke
+      Rake::Task['importer:waste'].invoke
+    end
+  end
+
+  task :programs, [:year] => [:environment] do |_, args|
     programs = []
     CSV.foreach('db/data/programas.csv', headers: true) do |row|
      programs << {
@@ -41,7 +49,7 @@ namespace :importer do
     Program.import programs
   end
   task :subprograms, [:year] => [:environment] do |_, args|
-    @year = args[:year]
+
     programs = []
     CSV.foreach('db/data/sub-programas.csv', headers: true) do |row|
       programs << {

@@ -1,6 +1,7 @@
 class Container < ApplicationRecord
   belongs_to :sub_program
   belongs_to :container_type
+  #has_many :materials, :through => :sub_program
 
   has_one_attached :photos
   geocoded_by latitude: :lat, longitude: :lon

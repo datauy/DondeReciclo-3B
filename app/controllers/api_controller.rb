@@ -16,6 +16,19 @@ class ApiController < ApplicationController
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
+  def containers4materials
+    if (params[:materials])
+      materials_by = params[:materials].split(',')
+    else
+      self.containers_nearby
+    end
+    @cont = Container
+      .includes( sub_program:[:materials] )
+      .where( :"materials_sub_programs.material_id" => materials_by )
+      .limit(20)
+
+    render json: format_pins(@cont)
+  end
   #
   def container_types
     render json: ContainerType.all.map{|cont| [cont.id, {

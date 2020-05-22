@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get 'api/containers_nearby'
   get 'api/search'
   get 'api/search_predefined'
+  get 'api/containers4materials'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
