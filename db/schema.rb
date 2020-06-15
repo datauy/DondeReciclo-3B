@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_224955) do
+ActiveRecord::Schema.define(version: 2020_06_12_183354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 2020_05_09_224955) do
     t.index ["container_id", "schedule_id"], name: "index_containers_schedules_on_container_id_and_schedule_id"
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "materials", force: :cascade do |t|
     t.string "name"
     t.text "information"
@@ -108,10 +114,26 @@ ActiveRecord::Schema.define(version: 2020_05_09_224955) do
     t.bigint "material_id", null: false
   end
 
-  create_table "materials_sub_programs", id: false, force: :cascade do |t|
+  create_table "materials_relations", force: :cascade do |t|
+    t.bigint "materials_id", null: false
+    t.bigint "predefined_searches_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["materials_id"], name: "index_materials_relations_on_materials_id"
+    t.index ["predefined_searches_id"], name: "index_materials_relations_on_predefined_searches_id"
+  end
+
+  create_table "materials_sub_programs", primary_key: ["material_id", "sub_program_id"], force: :cascade do |t|
     t.bigint "sub_program_id", null: false
     t.bigint "material_id", null: false
     t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
+  end
+
+  create_table "predefined_searches", force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_predefined_searches_on_country_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -220,6 +242,9 @@ ActiveRecord::Schema.define(version: 2020_05_09_224955) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
+  add_foreign_key "materials_relations", "materials", column: "materials_id"
+  add_foreign_key "materials_relations", "predefined_searches", column: "predefined_searches_id"
+  add_foreign_key "predefined_searches", "countries"
   add_foreign_key "products", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
