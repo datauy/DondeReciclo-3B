@@ -27,9 +27,9 @@ ActiveAdmin.register PredefinedSearch do
     f.inputs do
       f.input :country
       f.input :materials, as: :check_boxes
-      #f.inputs "Residuos" do
-      #  f.input :wastes, as: :check_boxes
-      #end
+      f.inputs "Residuos" do
+        f.input :wastes, as: :check_boxes
+      end
     end
     f.actions
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_183354) do
+ActiveRecord::Schema.define(version: 2020_06_15_225236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,12 +115,12 @@ ActiveRecord::Schema.define(version: 2020_06_12_183354) do
   end
 
   create_table "materials_relations", force: :cascade do |t|
-    t.bigint "materials_id", null: false
-    t.bigint "predefined_searches_id"
+    t.bigint "material_id", null: false
+    t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["materials_id"], name: "index_materials_relations_on_materials_id"
-    t.index ["predefined_searches_id"], name: "index_materials_relations_on_predefined_searches_id"
+    t.index ["material_id"], name: "index_materials_relations_on_materials_id"
+    t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_searches_id"
   end
 
   create_table "materials_sub_programs", primary_key: ["material_id", "sub_program_id"], force: :cascade do |t|
@@ -239,14 +239,25 @@ ActiveRecord::Schema.define(version: 2020_06_12_183354) do
     t.index ["material_id"], name: "index_wastes_on_material_id"
   end
 
+  create_table "wastes_relations", force: :cascade do |t|
+    t.bigint "waste_id", null: false
+    t.bigint "predefined_search_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["predefined_search_id"], name: "index_wastes_relations_on_predefined_search_id"
+    t.index ["waste_id"], name: "index_wastes_relations_on_waste_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
-  add_foreign_key "materials_relations", "materials", column: "materials_id"
-  add_foreign_key "materials_relations", "predefined_searches", column: "predefined_searches_id"
+  add_foreign_key "materials_relations", "materials"
+  add_foreign_key "materials_relations", "predefined_searches"
   add_foreign_key "predefined_searches", "countries"
   add_foreign_key "products", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
+  add_foreign_key "wastes_relations", "predefined_searches"
+  add_foreign_key "wastes_relations", "wastes"
 end

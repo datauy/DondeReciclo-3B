@@ -67,9 +67,18 @@ class ApiController < ApplicationController
   end
   #
   def search_predefined
+    country = 1 #load Uruguay/first by default
+    country = params[:country] if params[:country]
+    psearch = PredefinedSearch
+      .where( :country_id => country )
+      .first
     render json: format_search(
-      Material.where( predefined_search: true ) +
-      Waste.where( predefined_search: true )
+      Material
+       .joins(:predefined_searches)
+       .where( :"predefined_searches.id" => psearch.id ) +
+      Waste
+       .joins(:predefined_searches)
+       .where( :"predefined_searches.id" => psearch.id )
     )
   end
   #
