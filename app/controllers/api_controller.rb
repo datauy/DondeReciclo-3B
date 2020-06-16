@@ -81,7 +81,7 @@ class ApiController < ApplicationController
        .where( :"predefined_searches.id" => psearch.id )
     )
   end
-  #
+  # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
   def format_pins(objs)
     return objs.map{|cont| ({
@@ -96,6 +96,8 @@ class ApiController < ApplicationController
       address: cont.address,
       public: cont.public_site,
       materials: cont.sub_program.materials.ids,
+      wastes: cont.sub_program.wastes.ids,
+      main_material: cont.sub_program.material.id,
       photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no
     }) }

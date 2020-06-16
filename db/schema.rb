@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_225236) do
+ActiveRecord::Schema.define(version: 2020_06_16_023744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_225236) do
     t.text "receives_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "material_id", default: 1, null: false
+    t.index ["material_id"], name: "index_sub_programs_on_material_id"
     t.index ["program_id"], name: "index_sub_programs_on_program_id"
   end
 
@@ -255,6 +257,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_225236) do
   add_foreign_key "materials_relations", "predefined_searches"
   add_foreign_key "predefined_searches", "countries"
   add_foreign_key "products", "materials"
+  add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
