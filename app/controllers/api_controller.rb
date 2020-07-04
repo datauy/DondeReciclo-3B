@@ -93,6 +93,11 @@ class ApiController < ApplicationController
         prog.logo_url = prog.logo.attached? ? url_for(prog.logo) : ""
         prog.materials_arr = prog.materials.map{ |mat| mat.id }
         prog.wastes_arr = prog.wastes.map{ |mat| mat.id }
+        prog.supporters_arr = prog.supporters.map{ |sup| {
+          :name => sup.name,
+          :url => sup.url
+          }
+        }
         res << prog
       end
     render json: res
