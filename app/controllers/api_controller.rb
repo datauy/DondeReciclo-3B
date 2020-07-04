@@ -84,11 +84,17 @@ class ApiController < ApplicationController
   def programs
     # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
     res = []
-    Program.all.includes(:materials).with_attached_logo.each do |prog|
-      prog.logo_url = prog.logo.attached? ? url_for(prog.logo) : ""
-      prog.materials_arr = prog.materials.map{ |mat| mat.id }
-      res << prog
-    end
+    Program.all.
+      includes(:materials).
+      includes(:supporters).
+      includes(:wastes).
+      with_attached_logo.
+      each do |prog|
+        prog.logo_url = prog.logo.attached? ? url_for(prog.logo) : ""
+        prog.materials_arr = prog.materials.map{ |mat| mat.id }
+        prog.wastes_arr = prog.wastes.map{ |mat| mat.id }
+        res << prog
+      end
     render json: res
   end
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
