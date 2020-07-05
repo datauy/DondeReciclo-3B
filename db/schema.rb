@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_023744) do
+ActiveRecord::Schema.define(version: 2020_07_05_184636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,23 @@ ActiveRecord::Schema.define(version: 2020_06_16_023744) do
   end
 
   create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "location_relations", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.bigint "program_id"
+    t.bigint "sub_program_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_location_relations_on_location_id"
+    t.index ["program_id"], name: "index_location_relations_on_program_id"
+    t.index ["sub_program_id"], name: "index_location_relations_on_sub_program_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -253,6 +270,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_023744) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
+  add_foreign_key "location_relations", "locations"
+  add_foreign_key "location_relations", "programs"
+  add_foreign_key "location_relations", "sub_programs"
   add_foreign_key "materials_relations", "materials"
   add_foreign_key "materials_relations", "predefined_searches"
   add_foreign_key "predefined_searches", "countries"

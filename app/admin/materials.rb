@@ -1,5 +1,5 @@
 ActiveAdmin.register Material do
-  permit_params :name, :icon, :information,:icon, :video, :color, :predefined_search
+  permit_params :name, :icon, :information,:icon, :video, :color
 
   index do
     selectable_column
@@ -21,7 +21,6 @@ ActiveAdmin.register Material do
       f.input :icon, as: :file
       f.input :video
       f.input :color
-      f.input :predefined_search
     end
     f.actions
   end

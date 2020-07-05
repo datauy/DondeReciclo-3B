@@ -88,11 +88,13 @@ class ApiController < ApplicationController
       includes(:materials).
       includes(:supporters).
       includes(:wastes).
+      includes(:locations).
       with_attached_logo.
       each do |prog|
         prog.logo_url = prog.logo.attached? ? url_for(prog.logo) : ""
         prog.materials_arr = prog.materials.map{ |mat| mat.id }
         prog.wastes_arr = prog.wastes.map{ |mat| mat.id }
+        prog.locations_arr = prog.locations.map{ |loc| loc.name }
         prog.supporters_arr = prog.supporters.map{ |sup| {
           :name => sup.name,
           :url => sup.url
