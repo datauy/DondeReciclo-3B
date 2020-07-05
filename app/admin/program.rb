@@ -1,5 +1,5 @@
 ActiveAdmin.register Program do
-  permit_params :name, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, material_ids: [], waste_ids: []
+  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, material_ids: [], waste_ids: []
   config.create_another = true
   index do
     selectable_column
@@ -22,6 +22,7 @@ ActiveAdmin.register Program do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :shortname
       f.input :logo, as: :file
       f.input :responsable
       f.input :responsable_url
