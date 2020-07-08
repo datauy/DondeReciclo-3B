@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'api/materials'
   get 'api/container_types'
   get 'api/containers'
+  get 'api/containers_bbox'
   get 'api/containers_nearby'
   get 'api/search'
   get 'api/search_predefined'

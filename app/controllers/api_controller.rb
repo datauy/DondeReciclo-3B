@@ -1,5 +1,12 @@
 class ApiController < ApplicationController
   #
+  def containers_bbox
+    @cont = Container
+      .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+      .includes( :sub_program )
+    render json: format_pins(@cont)
+  end
+  #
   def containers_nearby
     @cont = Container
       .near([params[:lat], params[:lon]])
