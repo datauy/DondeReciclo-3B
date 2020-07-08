@@ -1,5 +1,32 @@
 class ApiController < ApplicationController
   #
+  def news
+    render json: News.
+    with_attached_images.
+    limit(10).map{ |ns| ({
+      id: ns.id,
+      title: ns.title,
+      summary: ns.summary,
+      created_at: ns.created_at,
+      image: ns.images.attached? ? url_for(ns.images.first) : ''
+    })}
+  end
+  #
+  def new
+    res = News.
+      with_attached_images.
+      find(params[:id])
+    imgs = []
+    if res.images.attached?
+      res.images.map { |img|
+        imgs << url_for(img)
+      }
+    end
+    response = res.attributes.slice('information', 'video')
+    response["imgs"] = imgs
+    render json: response
+  end
+  #
   def containers_bbox
     @cont = Container
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
