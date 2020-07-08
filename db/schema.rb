@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_184636) do
+ActiveRecord::Schema.define(version: 2020_07_08_035315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(version: 2020_07_05_184636) do
     t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
   end
 
+  create_table "news", force: :cascade do |t|
+    t.string "title"
+    t.text "information"
+    t.string "video"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "predefined_searches", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -263,7 +271,9 @@ ActiveRecord::Schema.define(version: 2020_07_05_184636) do
     t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "supporter_id"
     t.index ["predefined_search_id"], name: "index_wastes_relations_on_predefined_search_id"
+    t.index ["supporter_id"], name: "index_wastes_relations_on_supporter_id"
     t.index ["waste_id"], name: "index_wastes_relations_on_waste_id"
   end
 
@@ -282,5 +292,6 @@ ActiveRecord::Schema.define(version: 2020_07_05_184636) do
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
   add_foreign_key "wastes_relations", "predefined_searches"
+  add_foreign_key "wastes_relations", "supporters"
   add_foreign_key "wastes_relations", "wastes"
 end
