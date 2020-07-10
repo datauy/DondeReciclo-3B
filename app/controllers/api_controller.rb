@@ -22,7 +22,11 @@ class ApiController < ApplicationController
         imgs << url_for(img)
       }
     end
-    response = res.attributes.slice('information', 'video')
+    if ( params[:full].blank? )
+      response = res.attributes.slice('information', 'video')
+    else
+      response = res.attributes
+    end
     response["imgs"] = imgs
     render json: response
   end
