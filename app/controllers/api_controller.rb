@@ -3,13 +3,13 @@ class ApiController < ApplicationController
   def news
     render json: News.
     with_attached_images.
-    limit(10).map{ |ns| ({
+    limit(10).map{ |ns| [ns.id, {
       id: ns.id,
       title: ns.title,
       summary: ns.summary,
       created_at: ns.created_at,
       image: ns.images.attached? ? url_for(ns.images.first) : ''
-    })}
+    }]}.to_h
   end
   #
   def new

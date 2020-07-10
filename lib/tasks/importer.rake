@@ -23,10 +23,10 @@ namespace :importer do
 
   task :all, [:year] => [:environment] do |_, args|
     Rake::Task['importer:all'].enhance do
+      Rake::Task['importer:waste'].invoke
       Rake::Task['importer:programs'].invoke
       Rake::Task['importer:subprograms'].invoke
       Rake::Task['importer:containers'].invoke
-      Rake::Task['importer:waste'].invoke
     end
   end
 
