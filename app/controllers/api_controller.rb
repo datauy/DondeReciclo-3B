@@ -8,7 +8,7 @@ class ApiController < ApplicationController
       title: ns.title,
       summary: ns.summary,
       created_at: ns.created_at,
-      image: ns.images.attached? ? url_for(ns.images.first) : ''
+      images: ns.images.attached? ? [ url_for(ns.images.first)] : []
     }]}.to_h
   end
   #
@@ -27,7 +27,7 @@ class ApiController < ApplicationController
     else
       response = res.attributes
     end
-    response["imgs"] = imgs
+    response["images"] = imgs
     render json: response
   end
   #
