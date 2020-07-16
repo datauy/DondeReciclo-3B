@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get 'api/programs'
   get 'api/news'
   get "api/new/:id", to: "api#new"
-  get 'api/contact', to: "utils#contact_email"
+  post 'api/contact', to: "utils#contact_email"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

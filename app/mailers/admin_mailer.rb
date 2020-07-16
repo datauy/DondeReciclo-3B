@@ -3,6 +3,6 @@ class AdminMailer < ApplicationMailer
     @body = params[:body]
     @email  =  params[:email]
     @name  =  params[:name]
-    mail(to: 'fernando@data.org.uy', subject: params[:subject])
+    mail(to: 'soporte@data.org.uy', subject: params[:subject], from: params[:email])
   end
 end
