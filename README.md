@@ -1,5 +1,6 @@
+#Donde Reciclo 3.0 Backend
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 0.0.2
+## Versión 0.0.3
 Ésta versión tiene la base completa importada desde la versión 2 con las nuevas relaciones. Podríamos pensar en una primer versión funcional de la base.
 
 * Ruby version 2.6.3  

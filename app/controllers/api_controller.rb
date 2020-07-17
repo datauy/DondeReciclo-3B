@@ -8,7 +8,7 @@ class ApiController < ApplicationController
       title: ns.title,
       summary: ns.summary,
       created_at: ns.created_at,
-      image: ns.images.attached? ? url_for(ns.images.first) : ''
+      images: ns.images.attached? ? [ url_for(ns.images.first)] : []
     }]}.to_h
   end
   #
@@ -22,8 +22,12 @@ class ApiController < ApplicationController
         imgs << url_for(img)
       }
     end
-    response = res.attributes.slice('information', 'video')
-    response["imgs"] = imgs
+    if ( params[:full].blank? )
+      response = res.attributes.slice('information', 'video')
+    else
+      response = res.attributes
+    end
+    response["images"] = imgs
     render json: response
   end
   #
@@ -31,6 +35,19 @@ class ApiController < ApplicationController
     @cont = Container
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
       .includes( :sub_program )
+    render json: format_pins(@cont)
+  end
+  #
+  def containers_bbox4materials
+    if (params[:materials])
+      materials_by = params[:materials].split(',')
+    else
+      return self.containers_bbox
+    end
+    @cont = Container
+      .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+      .includes( sub_program: [:materials] )
+      .where( :"materials_sub_programs.material_id" => materials_by )
     render json: format_pins(@cont)
   end
   #
@@ -60,7 +77,7 @@ class ApiController < ApplicationController
     end
     @cont = Container
       .includes( :sub_program )
-      .near( [params[:lat], params[:lon]] )
+      .near( [params[:lat], params[:lon]], 300, units: :km )
       .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
       .limit(20)

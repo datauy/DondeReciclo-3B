@@ -45,7 +45,7 @@ ActiveAdmin.register Program do
         #end
       end
       f.inputs "Wastes" do
-        f.input :wastes, as: :select, multiple: true
+        f.input :wastes, as: :check_boxes
       end
       f.input :locations, as: :check_boxes
     end
