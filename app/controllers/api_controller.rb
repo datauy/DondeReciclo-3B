@@ -38,6 +38,19 @@ class ApiController < ApplicationController
     render json: format_pins(@cont)
   end
   #
+  def containers_bbox4materials
+    if (params[:materials])
+      materials_by = params[:materials].split(',')
+    else
+      return self.containers_bbox
+    end
+    @cont = Container
+      .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+      .includes( sub_program: [:materials] )
+      .where( :"materials_sub_programs.material_id" => materials_by )
+    render json: format_pins(@cont)
+  end
+  #
   def containers_nearby
     @cont = Container
       .near([params[:lat], params[:lon]])
@@ -64,7 +77,7 @@ class ApiController < ApplicationController
     end
     @cont = Container
       .includes( :sub_program )
-      .near( [params[:lat], params[:lon]] )
+      .near( [params[:lat], params[:lon]], 300, units: :km )
       .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
       .limit(20)
