@@ -81,7 +81,7 @@ class ApiController < ApplicationController
       .near( [params[:lat], params[:lon]], 300, units: :km )
       .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
-      .limit(20)
+      .limit(5)
 
     render json: format_pins(@cont)
   end
