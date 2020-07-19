@@ -31,6 +31,15 @@ class ApiController < ApplicationController
     render json: response
   end
   #
+  def containers
+    @cont = Container
+    .where( sub_program_id: params[:sub_id] )
+    .includes( sub_program:[:program, :materials, :wastes] )
+    .limit(5)
+    #.pluck(:'materials.name', :container_types.icon).where()
+    render json: format_pins(@cont)
+  end
+  #
   def containers_bbox
     @cont = Container
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
@@ -53,16 +62,8 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
-      .near([params[:lat], params[:lon]])
+      .near([params[:lat], params[:lon]], 300, units: :km)
       .includes( :sub_program )
-      .limit(20)
-      #.pluck(:'materials.name', :container_types.icon).where()
-    render json: format_pins(@cont)
-  end
-  def containers
-    @cont = Container
-      .where( sub_program_id: params[:sub_id] )
-      .includes( sub_program:[:program, :materials, :wastes] )
       .limit(5)
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
