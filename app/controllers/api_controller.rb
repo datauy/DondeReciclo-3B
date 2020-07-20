@@ -31,6 +31,13 @@ class ApiController < ApplicationController
     render json: response
   end
   #
+  def container
+    @cont = Container
+    .find( params[:id] )
+    #.pluck(:'materials.name', :container_types.icon).where()
+    render json: format_container(@cont)
+  end
+  #
   def containers
     @cont = Container
     .where( sub_program_id: params[:sub_id] )
@@ -55,7 +62,7 @@ class ApiController < ApplicationController
     end
     @cont = Container
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
-      .includes( sub_program: [:materials] )
+      .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
     render json: format_pins(@cont)
   end
@@ -161,6 +168,28 @@ class ApiController < ApplicationController
   def format_pins(objs)
     return objs.map{|cont| ({
       id: cont.id,
+      #type_id: cont.container_type_id,
+      #program_id: cont.sub_program.program_id,
+      latitude: cont.latitude,
+      longitude: cont.longitude,
+      #program: cont.sub_program.program.name,
+      #subprogram: cont.sub_program.name,
+      #location: cont.site,
+      #address: cont.address,
+      #public: cont.public_site,
+      #materials: cont.sub_program.materials.ids,
+      #wastes: cont.sub_program.wastes.ids,
+      main_material: cont.sub_program.material.id,
+      class: cont.sub_program.material.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+      #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
+      #receives_no: cont.sub_program.receives_no
+    }) }
+  end
+  # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
+  private
+  def format_container(cont)
+    return {
+      id: cont.id,
       type_id: cont.container_type_id,
       program_id: cont.sub_program.program_id,
       latitude: cont.latitude,
@@ -176,7 +205,7 @@ class ApiController < ApplicationController
       class: cont.sub_program.material.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no
-    }) }
+    }
   end
   def format_search(objs)
     res = []
