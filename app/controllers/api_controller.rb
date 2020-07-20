@@ -173,6 +173,7 @@ class ApiController < ApplicationController
       materials: cont.sub_program.materials.ids,
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
+      class: cont.sub_program.material.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no
     }) }
