@@ -62,7 +62,7 @@ class ApiController < ApplicationController
     end
     @cont = Container
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
-      .includes( sub_program: [:materials] )
+      .joins( sub_program: [:materials] )
       .where( :"materials_sub_programs.material_id" => materials_by )
     render json: format_pins(@cont)
   end
