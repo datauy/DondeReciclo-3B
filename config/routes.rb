@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'api/materials'
   get 'api/container_types'
+  get 'api/container/:id', to: 'api#container'
   get 'api/containers'
   get 'api/containers_bbox'
   get 'api/containers_bbox4materials'

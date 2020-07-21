@@ -1,6 +1,6 @@
 #Donde Reciclo 3.0 Backend
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 0.0.3
+## Versión 0.0.8
 Ésta versión tiene la base completa importada desde la versión 2 con las nuevas relaciones. Podríamos pensar en una primer versión funcional de la base.
 
 * Ruby version 2.6.3  
@@ -10,18 +10,6 @@ Repositorio del backend de Dónde Reciclo en su última edición con Rails con o
 * System dependencies
   - NodeJS, rails dependencies  
   - bundle/bundler
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 ```bash
 git clone https://github.com/datauy/DondeReciclo-3B.git
@@ -37,3 +25,19 @@ yarn install [npm install -g yarn]
 rails db:seed
 rails s
 ```
+
+##Services
+get 'api/materials'
+get 'api/container_types'
+get 'api/container/:id'
+get 'api/containers'
+get 'api/containers_bbox'
+get 'api/containers_bbox4materials'
+get 'api/containers_nearby'
+get 'api/search'
+get 'api/search_predefined'
+get 'api/containers4materials'
+get 'api/programs'
+get 'api/news'
+get "api/new/:id"
+post 'api/contact'
