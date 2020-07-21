@@ -1,15 +1,18 @@
 ActiveAdmin.register Program do
-  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, material_ids: [], waste_ids: [], location_ids: []
+  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, material_ids: [], waste_ids: [], location_ids: []
   config.create_another = true
   index do
     selectable_column
     id_column
-    column :logo do |l|
-      image_tag url_for(l.logo) if l.logo.attached?
-    end
     column :name
     column :responsable
     column :contact
+    column :logo do |l|
+      image_tag url_for(l.logo) if l.logo.attached?
+    end
+    column :icon do |l|
+      image_tag url_for(l.icon) if l.icon.attached?
+    end
     column :created_at
     actions
   end
@@ -24,6 +27,7 @@ ActiveAdmin.register Program do
       f.input :name
       f.input :shortname
       f.input :logo, as: :file
+      f.input :icon, as: :file
       f.input :responsable
       f.input :responsable_url
       f.input :more_info
