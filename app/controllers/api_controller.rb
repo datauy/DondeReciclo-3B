@@ -55,15 +55,19 @@ class ApiController < ApplicationController
   end
   #
   def containers_bbox4materials
+    cont = Container
+      .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
     if (params[:materials])
-      materials_by = params[:materials].split(',')
+      @cont = cont.
+        joins( sub_program: [:materials] ).
+        where( :"materials_sub_programs.material_id" => params[:materials].split(',') )
+    elsif params[:wastes]
+      @cont = cont.
+        joins( sub_program: [:wastes] ).
+        where( :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
     else
       return self.containers_bbox
     end
-    @cont = Container
-      .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
-      .joins( sub_program: [:materials] )
-      .where( :"materials_sub_programs.material_id" => materials_by )
     render json: format_pins(@cont)
   end
   #
@@ -78,18 +82,22 @@ class ApiController < ApplicationController
   #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
   #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
   def containers4materials
+    cont = Container
+      .includes( :sub_program )
+      .near( [params[:lat], params[:lon]], 300, units: :km )
     if (params[:materials])
-      materials_by = params[:materials].split(',')
+      @cont = cont.
+        joins( sub_program: [:materials] ).
+        where( :"materials_sub_programs.material_id" => params[:materials].split(',') ).
+        limit(5)
+    elsif params[:wastes]
+      @cont = cont.
+        joins( sub_program: [:wastes] ).
+        where( :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
+        limit(5)
     else
       return self.containers_nearby
     end
-    @cont = Container
-      .includes( :sub_program )
-      .near( [params[:lat], params[:lon]], 300, units: :km )
-      .joins( sub_program: [:materials] )
-      .where( :"materials_sub_programs.material_id" => materials_by )
-      .limit(5)
-
     render json: format_pins(@cont)
   end
   #
@@ -210,7 +218,7 @@ class ApiController < ApplicationController
   def format_search(objs)
     res = []
     objs.each do |mat|
-      oa = { id: mat.id, name: mat.name, deposition: nil, type: mat.class.name, material_id: mat.id }
+      oa = { id: mat.id, name: mat.name, deposition: nil, type: mat.class.name.downcase.pluralize, material_id: mat.id }
       if mat.class.name == 'Waste'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
         oa[:deposition] = mat.deposition
