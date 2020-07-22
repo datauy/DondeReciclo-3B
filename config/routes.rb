@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'api/materials'
+  get 'api/wastes'
   get 'api/container_types'
   get 'api/container/:id', to: 'api#container'
   get 'api/containers'
