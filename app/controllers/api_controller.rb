@@ -171,6 +171,16 @@ class ApiController < ApplicationController
       end
     render json: res
   end
+  def programs_sum
+    # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
+    render json: Program.all.
+      with_attached_icon.
+      map{ |pg| [pg.id, {
+      id: pg.id,
+      name: pg.name,
+      icon: pg.icon.attached? ? url_for(pg.icon) : ''
+    }]}.to_h
+  end
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
   def format_pins(objs)

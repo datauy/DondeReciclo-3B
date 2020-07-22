@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   get 'api/containers_bbox'
   get 'api/containers_bbox4materials'
   get 'api/containers_nearby'
+  get 'api/containers4materials'
   get 'api/search'
   get 'api/search_predefined'
-  get 'api/containers4materials'
   get 'api/programs'
+  get 'api/programs_sum'
   get 'api/news'
   get "api/new/:id", to: "api#new"
   post 'api/contact', to: "utils#contact_email"
