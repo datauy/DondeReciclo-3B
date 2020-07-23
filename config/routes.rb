@@ -6,16 +6,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'api/materials'
+  get 'api/wastes'
   get 'api/container_types'
   get 'api/container/:id', to: 'api#container'
   get 'api/containers'
   get 'api/containers_bbox'
   get 'api/containers_bbox4materials'
   get 'api/containers_nearby'
+  get 'api/containers4materials'
   get 'api/search'
   get 'api/search_predefined'
-  get 'api/containers4materials'
   get 'api/programs'
+  get 'api/programs_sum'
   get 'api/news'
   get "api/new/:id", to: "api#new"
   post 'api/contact', to: "utils#contact_email"

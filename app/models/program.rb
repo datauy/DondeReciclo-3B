@@ -1,5 +1,6 @@
 class Program < ApplicationRecord
   has_one_attached :logo
+  has_one_attached :icon
   has_many :supporters
 
   has_and_belongs_to_many :materials

@@ -114,10 +114,21 @@ class ApiController < ApplicationController
     render json: Material.all.map{|mat| [mat.id, {
       id: mat.id,
       name: mat.name,
-      class: mat.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+      class: mat.name_class,
       color: mat.color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
     }]}.to_h
+  end
+  #
+  def wastes
+    render json: Waste.
+      find(params[:ids].split(',')).
+      map{|mat| [mat.id, {
+        id: mat.id,
+        name: mat.name,
+        class: mat.material.name_class,
+      }]}.
+      to_h
   end
   #
   def search
@@ -171,6 +182,16 @@ class ApiController < ApplicationController
       end
     render json: res
   end
+  def programs_sum
+    # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
+    render json: Program.all.
+      with_attached_icon.
+      map{ |pg| [pg.id, {
+      id: pg.id,
+      name: pg.name,
+      icon: pg.icon.attached? ? url_for(pg.icon) : ''
+    }]}.to_h
+  end
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
   def format_pins(objs)
@@ -188,7 +209,7 @@ class ApiController < ApplicationController
       #materials: cont.sub_program.materials.ids,
       #wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
-      class: cont.sub_program.material.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+      class: cont.sub_program.material.name_class,
       #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       #receives_no: cont.sub_program.receives_no
     }) }
@@ -204,15 +225,18 @@ class ApiController < ApplicationController
       longitude: cont.longitude,
       program: cont.sub_program.program.name,
       subprogram: cont.sub_program.name,
-      location: cont.site,
+      site: cont.site,
       address: cont.address,
+      location: cont.location,
+      state: cont.state,
       public: cont.public_site,
       materials: cont.sub_program.materials.ids,
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
-      class: cont.sub_program.material.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+      class: cont.sub_program.material.name_class,
       photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
-      receives_no: cont.sub_program.receives_no
+      receives_no: cont.sub_program.receives_no,
+      reception_conditions: cont.sub_program.reception_conditions
     }
   end
   def format_search(objs)
