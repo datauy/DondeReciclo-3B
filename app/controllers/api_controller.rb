@@ -105,7 +105,7 @@ class ApiController < ApplicationController
     render json: ContainerType.all.map{|cont| [cont.id, {
       id: cont.id,
       name: cont.name,
-      class: cont.name_class,
+      class: cont.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       icon: cont.icon.attached? ? url_for(cont.icon) : ''
     }]}.to_h
   end
