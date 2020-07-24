@@ -123,12 +123,11 @@ class ApiController < ApplicationController
   def wastes
     render json: Waste.
       find(params[:ids].split(',')).
-      map{|mat| [mat.id, {
+      map{|mat| ({
         id: mat.id,
         name: mat.name,
         class: mat.material.name_class,
-      }]}.
-      to_h
+      })}
   end
   #
   def search
