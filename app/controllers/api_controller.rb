@@ -73,9 +73,9 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
-      .near([params[:lat], params[:lon]], 300, units: :km)
+      .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
-      .limit(5)
+      .limit(20)
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
