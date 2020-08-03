@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  use_doorkeeper do
+    # No need to register client application
+    skip_controllers :applications, :authorized_applications
+  end
   #default_url_options Rails.application.config.action_mailer.default_url_options
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self) rescue ActiveAdmin::DatabaseHitDuringLoad
   root to: "static_pages#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'registrations',
+   }, skip: [:sessions, :password]
 
   get 'api/materials'
   get 'api/wastes'
@@ -21,5 +27,6 @@ Rails.application.routes.draw do
   get 'api/news'
   get "api/new/:id", to: "api#new"
   post 'api/contact', to: "utils#contact_email"
+  get 'api/user', to: "user_api#me"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

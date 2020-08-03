@@ -73,9 +73,9 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
-      .near([params[:lat], params[:lon]], 300, units: :km)
+      .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
-      .limit(5)
+      .limit(50)
       #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
@@ -89,12 +89,12 @@ class ApiController < ApplicationController
       @cont = cont.
         joins( sub_program: [:materials] ).
         where( :"materials_sub_programs.material_id" => params[:materials].split(',') ).
-        limit(5)
+        limit(50)
     elsif params[:wastes]
       @cont = cont.
         joins( sub_program: [:wastes] ).
         where( :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
-        limit(5)
+        limit(50)
     else
       return self.containers_nearby
     end
