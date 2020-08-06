@@ -1,5 +1,5 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :container_type_id, :photos
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :hidden, :container_type_id, :photos
   config.create_another = true
   index do
     selectable_column
@@ -11,6 +11,7 @@ ActiveAdmin.register Container do
     column :site
     column :state
     column :public_site
+    column :hidden
     column :container_type_id
     column :created_at
     column :photos do |l|
@@ -38,6 +39,7 @@ ActiveAdmin.register Container do
       f.input :state
       f.input :site_type
       f.input :public_site
+      f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
       f.input :photos, as: :file #, input_html: { multiple: true }
     end
@@ -54,4 +56,8 @@ ActiveAdmin.register Container do
     end
   end
 =end
+  batch_action :hide, confirm: "Seguro que querés ocultarlos?" do |ids|
+    Container.where(:id => ids).update_all( :hidden => true )
+    redirect_to collection_path, alert: "Se ocultaron los contenedores seleccionados"
+  end
 end

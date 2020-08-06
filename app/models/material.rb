@@ -12,6 +12,6 @@ class Material < ApplicationRecord
     Material.where("lower(name) like :value or lower(information) like :value", value: "%#{str}%")
   end
   def name_class
-    self.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+    self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
   end
 end

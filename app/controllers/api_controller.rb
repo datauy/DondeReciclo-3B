@@ -49,6 +49,7 @@ class ApiController < ApplicationController
   #
   def containers_bbox
     @cont = Container
+      .where(:hidden => false, :public_site => true)
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
       .includes( :sub_program )
     render json: format_pins(@cont)
@@ -60,11 +61,11 @@ class ApiController < ApplicationController
     if (params[:materials])
       @cont = cont.
         joins( sub_program: [:materials] ).
-        where( :"materials_sub_programs.material_id" => params[:materials].split(',') )
+        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
     elsif params[:wastes]
       @cont = cont.
         joins( sub_program: [:wastes] ).
-        where( :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
+        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
     else
       return self.containers_bbox
     end
@@ -73,6 +74,7 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
+      .where(:hidden => false, :public_site => true)
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
       .limit(50)
@@ -88,12 +90,12 @@ class ApiController < ApplicationController
     if (params[:materials])
       @cont = cont.
         joins( sub_program: [:materials] ).
-        where( :"materials_sub_programs.material_id" => params[:materials].split(',') ).
+        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') ).
         limit(50)
     elsif params[:wastes]
       @cont = cont.
         joins( sub_program: [:wastes] ).
-        where( :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
+        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
         limit(50)
     else
       return self.containers_nearby
@@ -105,7 +107,7 @@ class ApiController < ApplicationController
     render json: ContainerType.all.map{|cont| [cont.id, {
       id: cont.id,
       name: cont.name,
-      class: cont.name.downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+      class: cont.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
       icon: cont.icon.attached? ? url_for(cont.icon) : ''
     }]}.to_h
   end
