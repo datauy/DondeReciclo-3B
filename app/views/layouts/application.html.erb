@@ -22,7 +22,7 @@
       <%= link_to 'Editar usuario', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
     <% else %>
-      <%= link_to "Acceder", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Acceder", new_user_registration_path, :class => 'navbar-link'  %>
     <% end %>
     </div>
     <%= yield %>
