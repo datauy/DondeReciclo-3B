@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get 'api/programs_sum'
   get 'api/news'
   get "api/new/:id", to: "api#new"
-  get 'api/user', to: "user_api#me"
   post 'api/contact', to: "utils#contact_email"
-  post 'api/report', to: "utils#report"
+  get 'api/user', to: "user_api#me"
+  post 'api/report', to: "user_api#report"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
