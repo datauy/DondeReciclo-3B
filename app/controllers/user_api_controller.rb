@@ -15,7 +15,7 @@ class UserApiController < ApplicationController
         body: params[:comment],
         subject: "DR: Reportan #{params[:subject]}"
       }
-      if !params[:photo].empty? || params[:subject] == 'foto'
+      if params[:photo].present? || params[:subject] == 'foto'
         #attachments['file-name.jpg'] = File.read('file-name.jpg').
         name = params[:ClientFilename]#.split('\\').last
         tmp_file = "#{Rails.root}/tmp/#{name}"
