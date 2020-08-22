@@ -28,5 +28,8 @@ Rails.application.routes.draw do
   get "api/new/:id", to: "api#new"
   post 'api/contact', to: "utils#contact_email"
   get 'api/user', to: "user_api#me"
+  post 'api/report', to: "user_api#report"
+  post 'password/forgot', to: 'utils#forgot'
+  post 'password/reset', to: 'utils#reset'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

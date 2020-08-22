@@ -104,28 +104,36 @@ class ApiController < ApplicationController
   end
   #
   def container_types
-    render json: ContainerType.all.map{|cont| [cont.id, {
-      id: cont.id,
-      name: cont.name,
-      class: cont.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
-      icon: cont.icon.attached? ? url_for(cont.icon) : ''
-    }]}.to_h
+    render json: ContainerType
+      .with_attached_icon
+      .all
+      .map{|cont| [cont.id, {
+        id: cont.id,
+        name: cont.name,
+        class: cont.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-'),
+        icon: cont.icon.attached? ? url_for(cont.icon) : ''
+      }]}
+      .to_h
   end
   #
   def materials
-    render json: Material.all.map{|mat| [mat.id, {
+    render json: Material
+      .with_attached_icon
+      .all
+      .map{|mat| [mat.id, {
       id: mat.id,
       name: mat.name,
       class: mat.name_class,
       color: mat.color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
-    }]}.to_h
+    }]}
+    .to_h
   end
   #
   def wastes
-    render json: Waste.
-      find(params[:ids].split(',')).
-      map{|mat| ({
+    render json: Waste
+      .find(params[:ids].split(','))
+      .map{|mat| ({
         id: mat.id,
         name: mat.name,
         class: mat.material.name_class,
