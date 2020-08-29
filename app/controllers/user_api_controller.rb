@@ -6,6 +6,13 @@ class UserApiController < ApplicationController
     render json: current_resource_owner
   end
 
+  def update
+    user = current_resource_owner
+    new_data = params[:user_api].permit(:name, :email, :sex, :state, :neighborhood, :age)
+    user.update!(new_data)
+    render json: user
+  end
+
   def report
     begin
       user = current_resource_owner
@@ -24,7 +31,6 @@ class UserApiController < ApplicationController
         end
         mail_params[:file] = tmp_file
       end
-      logger.info("\n\nVPI\n\n")
       AdminMailer.
         with( mail_params ).
         contact.
