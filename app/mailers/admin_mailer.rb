@@ -1,6 +1,6 @@
 class AdminMailer < ApplicationMailer
   def contact
-    if !params[:file].empty?
+    if params[:file].present?
       name = params[:file].split('/').last
       attachments[name] = File.read(params[:file])
     end
