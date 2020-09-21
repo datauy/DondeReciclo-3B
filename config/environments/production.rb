@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.schema_search_path = "public,postgis"
   config.action_mailer.default_url_options = { host: 'backend.dondereciclo.uy', port: 443 }
   # Settings specified here will take precedence over those in config/application.rb.
 

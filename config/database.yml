@@ -5,12 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  database: dr
+  database: dr3
   username: ats
   password: test4321
   host:     <%= ENV['ATUSERVICIO_DB_HOST'] %>
