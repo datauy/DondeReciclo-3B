@@ -1,4 +1,16 @@
 class ApiController < ApplicationController
+  #Location Subprograms
+  def subprograms4location
+    render json: SubProgram.
+    joins(:locations).
+    where( "ST_contains( locations.geometry, ST_GeomFromText(?) ) = true", params[:wkt] )
+  end
+  #Locations by Point
+  def locations4Point
+    render json: Location.
+    #where("ST_Contains(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-75.2879 5.9671)'),4326),4326), ST_Transform(geometry,   4326))")
+    where("ST_contains( geometry, ST_GeomFromText('POINT(-75.2879 5.9671)') ) = true")
+  end
   #
   def news
     render json: News.

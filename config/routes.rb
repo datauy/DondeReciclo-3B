@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     registrations: 'registrations',
    }, skip: [:sessions, :password]
 
+  get 'api/subprograms4location'
   get 'api/materials'
   get 'api/wastes'
   get 'api/container_types'

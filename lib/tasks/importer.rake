@@ -1,4 +1,29 @@
 namespace :importer do
+  task :geojson  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/cobertura-Colombia-4326.geojson'))
+    f.each do |feature|
+      loc = {
+        name: feature.properties["Cobertura"],
+        geometry: feature.geometry
+      }
+      loc = Location.find_or_create_by(loc)
+      sub_prog = {
+        program_id: 17,
+        city:  feature.properties["Ciudad"],
+        address: feature.properties["Dirección"],
+        email: feature.properties["Correo"],
+        phone: feature.properties["Teléfono"],
+        name: feature.properties["Organizaci"],
+        full_name: feature.properties["OR_"]
+      }
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      sub_program.locations = [loc]
+      sub_program.save
+    end
+  end
+end
+namespace :previous_importer do
   subPprogramMatch = {
     '33822' => 1,
     '33821' => 2,
@@ -21,6 +46,21 @@ namespace :importer do
   duplicated = 0
   desc 'Importing everything'
 
+  task :programs, [:year] => [:environment] do |_, args|
+    require 'csv'
+
+    file = "#{Rails.root}/public/data.csv"
+
+
+    CSV.open( file, 'w' ) do |writer|
+      table = User.all; # ";0" stops output.  Change "User" to any model.
+      writer << table.first.attributes.map { |a,v| a }
+      table.each do |s|
+        writer << s.attributes.map { |a,v| v }
+      end
+    end
+
+  end
   task :all, [:year] => [:environment] do |_, args|
     Rake::Task['importer:all'].enhance do
       Rake::Task['importer:waste'].invoke
