@@ -1,9 +1,19 @@
-class ApiController < ApplicationController
+  class ApiController < ApplicationController
   #Location Subprograms
   def subprograms4location
     render json: SubProgram.
     joins(:locations).
     where( "ST_contains( locations.geometry, ST_GeomFromText(?) ) = true", params[:wkt] )
+    .map{ |ns| {
+      id: ns.id,
+      name: ns.name,
+      city: ns.city,
+      address: ns.address,
+      email: ns.email,
+      phone: ns.phone,
+      locations: ns.program.locations.map{ |loc| loc.name },
+      icon: ns.program.icon.attached? ? url_for(ns.program.icon) : nil
+    }}
   end
   #Locations by Point
   def locations4Point
@@ -148,7 +158,7 @@ class ApiController < ApplicationController
       .map{|mat| ({
         id: mat.id,
         name: mat.name,
-        class: mat.material.name_class,
+        class: mat.material.present? ? mat.material.name_class : 'default',
       })}
   end
   #

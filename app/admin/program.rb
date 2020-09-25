@@ -51,7 +51,6 @@ ActiveAdmin.register Program do
       f.inputs "Wastes" do
         f.input :wastes, as: :check_boxes
       end
-      f.input :locations, as: :check_boxes
     end
     f.actions
   end
