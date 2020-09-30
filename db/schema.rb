@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_022637) do
+ActiveRecord::Schema.define(version: 2020_09_22_202832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_022637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "hidden", default: false
+    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_022637) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
   end
 
   create_table "materials", force: :cascade do |t|
@@ -263,6 +266,11 @@ ActiveRecord::Schema.define(version: 2020_08_06_022637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "material_id", default: 1, null: false
+    t.string "city"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.string "full_name"
     t.index ["material_id"], name: "index_sub_programs_on_material_id"
     t.index ["program_id"], name: "index_sub_programs_on_program_id"
   end
