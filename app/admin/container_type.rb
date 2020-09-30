@@ -5,8 +5,12 @@ ActiveAdmin.register ContainerType do
     selectable_column
     id_column
     column :name
-    column :icon, as: :image
+    column :icon do |l|
+      image_tag url_for(l.icon) if l.icon.attached?
+    end
   end
+
+  filter :name
 
   form do |f|
     f.inputs do

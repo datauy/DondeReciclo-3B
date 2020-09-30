@@ -10,7 +10,6 @@ ActiveAdmin.register Material do
       image_tag url_for(l.icon) if l.icon.attached?
     end
     column :video
-    column :color
     column :predefined_search
   end
 
@@ -20,7 +19,6 @@ ActiveAdmin.register Material do
       f.input :information
       f.input :icon, as: :file
       f.input :video
-      f.input :color
     end
     f.actions
   end
