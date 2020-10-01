@@ -17,6 +17,7 @@ class UserApiController < ApplicationController
     begin
       user = current_resource_owner
       mail_params = {
+        container_url: "#{request.host}/admin/containers/#{params[:id]}/edit",
         name: user.name,
         email: user.email,
         body: params[:comment],

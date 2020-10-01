@@ -7,6 +7,9 @@ class AdminMailer < ApplicationMailer
     @body = params[:body]
     @email  =  params[:email]
     @name  =  params[:name]
+    if (params[:container_url])
+      @container_url  =  params[:container_url]
+    end
     mail(to: 'soporte@data.org.uy', subject: params[:subject], from: params[:email])
   end
   def forgot

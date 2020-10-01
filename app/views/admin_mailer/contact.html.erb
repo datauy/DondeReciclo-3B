@@ -3,6 +3,9 @@
   <%= @name %> ha enviado un mensaje desde la plataforma Donde Reciclo con el siguiente contenido:
 </p>
 <p>"<%= @body %>"</p>
+<% if @container_url.present? %>
+  <p>Puede editar el contenedor referenciado en el siguiente enlace: <%= @container_url %></p>
+<% end %>
 <span>
   Sírvase contestar desde la plataforma para poder realizar el seguimiento. Por cualquier eventualidad le dejamos el correo de contacto: <%= @email %>
 </span>
