@@ -245,7 +245,8 @@ class ApiController < ApplicationController
       class: cont.sub_program.material.name_class,
       photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no,
-      reception_conditions: cont.sub_program.reception_conditions
+      reception_conditions: cont.sub_program.reception_conditions,
+      schedules: weekSummary(cont.schedules)
     }
   end
   def format_search(objs)
@@ -261,5 +262,36 @@ class ApiController < ApplicationController
       res << oa
     end
     return res
+  end
+  #Format container week
+  def weekSummary(scheds)
+    res = {}
+    scheds.each do |sched|
+      if sched.closed
+        res[sched.weekday] = {
+          day: sched.weekday,
+          closed: true
+        }
+      else
+        day = {
+          day: sched.weekday,
+          start: sched.start.strftime('%H:%M'),
+          end: sched.end.strftime('%H:%M'),
+          closed: false
+        }
+        if res[sched.weekday].present? && res[sched.weekday][:closed].blank?
+          if res[sched.weekday][:start] > day[:start]
+            dayAux = res[sched.weekday]
+            res[sched.weekday] = day.dup
+            day = dayAux
+          end
+          res[sched.weekday]['start2'] = day[:start]
+          res[sched.weekday]['end2'] = day[:end]
+        else
+          res[sched.weekday] = day
+        end
+      end
+    end
+    res
   end
 end

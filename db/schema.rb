@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
   create_table "materials_programs", id: false, force: :cascade do |t|
     t.bigint "program_id", null: false
     t.bigint "material_id", null: false
+    t.index ["program_id", "material_id"], name: "index_materials_programs_on_program_id_and_material_id"
   end
 
   create_table "materials_relations", force: :cascade do |t|
@@ -140,14 +141,14 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["material_id"], name: "index_materials_relations_on_materials_id"
-    t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_searches_id"
+    t.index ["material_id"], name: "index_materials_relations_on_material_id"
+    t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_search_id"
   end
 
   create_table "materials_sub_programs", primary_key: ["material_id", "sub_program_id"], force: :cascade do |t|
     t.bigint "sub_program_id", null: false
     t.bigint "material_id", null: false
-    t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
+    t.index ["material_id", "sub_program_id"], name: "index_materials_sub_programs_on_material_id_and_sub_program_id"
   end
 
   create_table "news", force: :cascade do |t|
@@ -164,7 +165,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.bigint "application_id", null: false
     t.string "token", null: false
     t.integer "expires_in", null: false
-    t.text "redirect_uri", null: false
+    t.text "redirect_url"
     t.datetime "created_at", null: false
     t.datetime "revoked_at"
     t.string "scopes", default: "", null: false
@@ -255,6 +256,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.string "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "closed"
   end
 
   create_table "sub_programs", force: :cascade do |t|
@@ -328,9 +330,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "supporter_id"
     t.index ["predefined_search_id"], name: "index_wastes_relations_on_predefined_search_id"
-    t.index ["supporter_id"], name: "index_wastes_relations_on_supporter_id"
     t.index ["waste_id"], name: "index_wastes_relations_on_waste_id"
   end
 
@@ -343,7 +343,9 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
   add_foreign_key "materials_relations", "materials"
   add_foreign_key "materials_relations", "predefined_searches"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
   add_foreign_key "predefined_searches", "countries"
   add_foreign_key "products", "materials"
   add_foreign_key "sub_programs", "materials"
@@ -351,6 +353,5 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
   add_foreign_key "wastes_relations", "predefined_searches"
-  add_foreign_key "wastes_relations", "supporters"
   add_foreign_key "wastes_relations", "wastes"
 end
