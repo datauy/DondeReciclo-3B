@@ -22,6 +22,25 @@ namespace :importer do
       sub_program.save
     end
   end
+  task :countries  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/Uruguay-Colombia.geojson'))
+    f.each do |feature|
+      name = {
+        name: feature.properties["COUNTRY"],
+      }
+      puts feature.properties["COUNTRY"]
+      country = Country.find_or_create_by(name)
+      puts country.inspect
+      country.geometry = feature.geometry
+      country.save
+    end
+  end
+  task :test  => :environment do
+    Country.all.each do |country|
+      puts country.name
+    end
+  end
 end
 namespace :previous_importer do
   subPprogramMatch = {

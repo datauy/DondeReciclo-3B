@@ -15,11 +15,12 @@
       icon: ns.program.icon.attached? ? url_for(ns.program.icon) : nil
     }}
   end
-  #Locations by Point
-  def locations4Point
-    render json: Location.
+  #Country by Point
+  def country4Point
+    render json: Country.
+    where( "ST_contains( countries.geometry, ST_GeomFromText(?) ) = true", params[:wkt] ).
+    pluck(:name)
     #where("ST_Contains(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-75.2879 5.9671)'),4326),4326), ST_Transform(geometry,   4326))")
-    where("ST_contains( geometry, ST_GeomFromText('POINT(-75.2879 5.9671)') ) = true")
   end
   #
   def news
