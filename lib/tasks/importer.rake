@@ -29,9 +29,7 @@ namespace :importer do
       name = {
         name: feature.properties["COUNTRY"],
       }
-      puts feature.properties["COUNTRY"]
       country = Country.find_or_create_by(name)
-      puts country.inspect
       country.geometry = feature.geometry
       country.save
     end
