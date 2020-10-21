@@ -1,6 +1,7 @@
 ActiveAdmin.register SubProgram do
   permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   config.create_another = true
+
   form do |f|
     f.inputs do
       f.input :name
@@ -25,7 +26,7 @@ ActiveAdmin.register SubProgram do
     end
     f.actions
   end
-
+=begin
   controller do
     def scoped_collection
       if current_user.subprogram.nil?
@@ -35,4 +36,5 @@ ActiveAdmin.register SubProgram do
       end
     end
   end
+=end
 end
