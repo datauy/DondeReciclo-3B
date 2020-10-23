@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_202832) do
+ActiveRecord::Schema.define(version: 2020_10_19_144247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.bigint "container_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "hidden", default: false
-    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.boolean "hidden"
+    t.point "latlon"
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_202832) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
   end
 
   create_table "location_relations", force: :cascade do |t|

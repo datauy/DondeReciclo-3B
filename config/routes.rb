@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     registrations: 'registrations',
    }, skip: [:sessions, :password]
 
+  get 'api/location4Polygon'
   get 'api/country4Point'
   get 'api/subprograms4location'
   get 'api/materials'

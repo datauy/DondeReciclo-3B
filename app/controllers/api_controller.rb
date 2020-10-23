@@ -1,4 +1,4 @@
-  class ApiController < ApplicationController
+class ApiController < ApplicationController
   #Location Subprograms
   def subprograms4location
     render json: SubProgram.
@@ -22,11 +22,25 @@
     pluck(:name)
     #where("ST_Contains(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-75.2879 5.9671)'),4326),4326), ST_Transform(geometry,   4326))")
   end
+  #Country by Point
+  def location4Polygon
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    features = []
+    Location.
+    where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
+    each do |loc|
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name })
+    end
+    render json:
+      RGeo::GeoJSON.encode(factory.feature_collection(features))
+  end
   #
   def news
     render json: News.
     with_attached_images.
-    limit(10).map{ |ns| [ns.id, {
+    order(id: :desc).
+    limit(10).
+    map{ |ns| [ns.id, {
       id: ns.id,
       title: ns.title,
       summary: ns.summary,
