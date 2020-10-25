@@ -5,12 +5,28 @@ class AdminMailer < ApplicationMailer
       attachments[name] = File.read(params[:file])
     end
     @body = params[:body]
-    @email  =  params[:email]
-    @name  =  params[:name]
+    @email = params[:email]
+    @name = params[:name]
     if (params[:container_url])
       @container_url  =  params[:container_url]
     end
     mail(to: 'soporte@data.org.uy', subject: params[:subject], from: params[:email])
+  end
+  def collect
+    @email = params[:email]
+    @name = params[:name]
+    @address = params[:address]
+    @body = params[:body]
+    @weight = params[:weight]
+    @latlng = params[:latlng]
+    Rails.logger.info("\nENviando emial\n")
+    mail(
+      to: 'dondereciclo@data.org.uy',
+      subject: params[:subject],
+      from: params[:email],
+    #  username: 'dondereciclo@data.org.uy',
+    #  password: 'Ost3Ras'
+    )
   end
   def forgot
     @name  =  params[:name]

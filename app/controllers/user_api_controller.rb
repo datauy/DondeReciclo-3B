@@ -48,6 +48,34 @@ class UserApiController < ApplicationController
     end
   end
 
+  def collect
+    begin
+      user = current_resource_owner
+      mail_params = {
+        latlng: params[:latlng],
+        name: user.name,
+        email: user.email,
+        body: params[:comment],
+        subject: "DR - Solicitud de retiro: #{params[:subject]}",
+        weight: params[:weight],
+        address: params[:address],
+      }
+      AdminMailer.
+        with( mail_params ).
+        collect.
+        deliver
+      render json: {
+        error:0,
+        message:"delivered sccessfully"
+      }, status: :ok
+    rescue StandardError => e
+      render json: {
+        error: 1,
+        message: e.to_s
+      }, status: 500
+    end
+  end
+
   private
   # Find the user that owns the access token
   def current_resource_owner
