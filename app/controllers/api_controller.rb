@@ -36,10 +36,17 @@ class ApiController < ApplicationController
   end
   #
   def news
+    qtty = 5
+    offsetPage = params[:page].present? ? params[:page].to_i*qtty : 0;
+    country = params[:page].present? ? params[:country] : 1;
+
     render json: News.
+    where( :country_id => country ).
+    or( News.where( :country_id => nil )).
     with_attached_images.
     order(id: :desc).
-    limit(10).
+    offset(offsetPage).
+    limit(qtty).
     map{ |ns| [ns.id, {
       id: ns.id,
       title: ns.title,
