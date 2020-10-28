@@ -10,11 +10,10 @@ class AdminMailer < ApplicationMailer
     if (params[:container_url])
       @container_url  =  params[:container_url]
     end
-    country_id = params[:country] ? params[:country] : 1
+    country_id = params[:country]
     contact = Country.
       find(country_id).
-      pluck('contact')
-    logger.info(country.inspect)
+      contact
     mail(to: contact, subject: params[:subject], from: params[:email])
   end
   def collect
