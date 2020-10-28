@@ -10,7 +10,12 @@ class AdminMailer < ApplicationMailer
     if (params[:container_url])
       @container_url  =  params[:container_url]
     end
-    mail(to: 'soporte@data.org.uy', subject: params[:subject], from: params[:email])
+    country_id = params[:country] ? params[:country] : 1
+    contact = Country.
+      find(country_id).
+      pluck('contact')
+    logger.info(country.inspect)
+    mail(to: contact, subject: params[:subject], from: params[:email])
   end
   def collect
     @email = params[:email]
