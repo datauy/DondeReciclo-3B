@@ -14,4 +14,13 @@ ActiveAdmin.register Location do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :geometry do |geom|
+      geom.present? ? true : false
+    end
+    actions
+  end
 end
