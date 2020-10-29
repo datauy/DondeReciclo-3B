@@ -18,7 +18,9 @@ namespace :importer do
         full_name: feature.properties["OR_"]
       }
       sub_program = SubProgram.find_or_create_by(sub_prog)
-      sub_program.locations = [loc]
+      if !sub_program.location_ids.include?(loc.id)
+        sub_program.locations << loc
+      end
       sub_program.save
     end
   end
