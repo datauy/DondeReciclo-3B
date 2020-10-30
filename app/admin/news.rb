@@ -17,8 +17,8 @@ ActiveAdmin.register News do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :summary
-      f.input :information
+      f.input :summary, as: :ckeditor
+      f.input :information, as: :ckeditor
       f.input :images, as: :file, input_html: { multiple: true }
       f.input :video
     end
