@@ -28,8 +28,9 @@ class ApiController < ApplicationController
     features = []
     Location.
     where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
+    joins(:sub_programs).
     each do |loc|
-      features << factory.feature(loc.geometry, loc.id, { name: loc.name })
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.sub_programs.map { |sp| sp.name} })
     end
     render json:
       RGeo::GeoJSON.encode(factory.feature_collection(features))
@@ -132,15 +133,19 @@ class ApiController < ApplicationController
       .includes( :sub_program )
       .near( [params[:lat], params[:lon]], 300, units: :km )
     if (params[:materials])
+      materials = params[:materials].split(',')
       @cont = cont.
         joins( sub_program: [:materials] ).
-        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') ).
+        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
         limit(50)
+      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
     elsif params[:wastes]
+      wastes = params[:wastes].split(',')
       @cont = cont.
         joins( sub_program: [:wastes] ).
-        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
+        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
         limit(50)
+      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
     else
       return self.containers_nearby
     end
