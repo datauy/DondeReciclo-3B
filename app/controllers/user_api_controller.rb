@@ -47,23 +47,54 @@ class UserApiController < ApplicationController
       }, status: 500
     end
   end
-
+  # Store Collect Report Send collect
   def collect
     begin
       user = current_resource_owner
+      address = "#{params[:address]}, #{params[:address_details]}"
+      wastes_materials = {
+        wastes: [],
+        materials: []
+      }
+      params[:wasteType].each do |waste|
+        waste_arr = waste.split(',')
+        wType = waste_arr[1]
+        wastes_materials[:"#{wType}"] << waste_arr[0].to_i
+        #logger.info { "\n#{wType}\n #{wastes_materials[:"#{wType}"].inspect}\n\n" }
+      end
+      #Create report for stats
+      report_data = {
+        coords: "POINT(#{params[:latlng]})",
+        sub_program_id: params[:id],
+        user_id: user.id,
+        address: address,
+        weight: params[:weight],
+        comment: params[:comment],
+        waste_ids: wastes_materials[:wastes],
+        material_ids: wastes_materials[:materials],
+        donation: params[:donation],
+        country_id: 2
+      }
+      #logger.info report_data.inspect
+      Report.create(report_data)
+      #Send email
       mail_params = {
         latlng: params[:latlng],
-        name: user.name,
-        email: user.email,
-        body: params[:comment],
-        subject: "DR - Solicitud de retiro: #{params[:subject]}",
+        name: params[:name],
+        document: params[:document],
+        email: params[:email],
+        phone: params[:phone],
+        comment: params[:comment],
+        subject: "DR - Solicitud de retiro: ##{params[:subject]}",
         weight: params[:weight],
-        address: params[:address],
+        address: address,
       }
       AdminMailer.
         with( mail_params ).
         collect.
         deliver
+      #
+      #Return result
       render json: {
         error:0,
         message:"delivered sccessfully"
@@ -81,4 +112,5 @@ class UserApiController < ApplicationController
   def current_resource_owner
     User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
   end
+
 end
