@@ -1,5 +1,68 @@
-namespace :importer do
-  task :geojson  => :environment do
+namespace :importer_col do
+  def all_day_sched
+    ids = []
+    for i in 1..7
+      sched = {
+        weekday: i,
+        start: '00:00',
+        end: '23:59'
+      }
+      schedule = Schedule.find_or_create_by(sched)
+      ids << schedule.id
+    end
+    return ids
+  end
+  task :containers  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/contenedores_colombia.geojson'))
+    i = 0
+    allDayIds = all_day_sched();
+    f.each do |feature|
+      i = i + 1
+      if i < 2150
+        next
+      end
+      puts "Contenedor #{i}\n"
+      sub_prog = {
+        program_id: 17,
+        city:  feature.properties["Ciudad"],
+        email: feature.properties["Correo"],
+        name: feature.properties["Responsabl"],
+      }
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      #Los materiales se asocian manualmente a los subprogramas
+      container = {
+        site: feature.properties["Nombre_lug"],
+        latlon: feature.geometry,
+        latitude: feature.geometry.coordinates[1],
+        longitude: feature.geometry.coordinates[0],
+        location:  feature.properties["Ciudad"],
+        address: feature.properties["Dirección"],
+        public_site: 1,
+        external_id: feature.properties["Id"],
+        sub_program_id: sub_program.id,
+        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "Supermercado",
+        container_type_id: 3,
+      }
+      container = Container.find_or_create_by(container)
+      if !container.validate!
+        puts "ERROR: #{container.errors.full_messages}\n exiting..."
+        next
+      end
+      #Get schedules
+      scheds = []
+      if feature.properties["Horario_at"]  == 'Permanente' && feature.properties["Funcionami"] == 'Permanente'
+        scheds = allDayIds
+        puts "Asignado automáticamente el calendario para todos los días\n"
+      else
+        puts "No se puede asignar automáticamente el calendario: #{feature.properties["Id"]}\n"
+      end
+      container.schedule_ids = scheds
+      container.save
+    end
+    puts "\n\nSe importaron #{i} contenedores_colombia\n"
+  end
+  task :zones  => :environment do
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     f = RGeo::GeoJSON.decode(File.read('db/data/cobertura-Colombia-4326.geojson'))
     f.each do |feature|
@@ -42,7 +105,7 @@ namespace :importer do
     end
   end
 end
-namespace :previous_importer do
+namespace :migration do
   subPprogramMatch = {
     '33822' => 1,
     '33821' => 2,
