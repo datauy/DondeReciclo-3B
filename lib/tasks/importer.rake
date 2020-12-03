@@ -1,4 +1,204 @@
-namespace :importer do
+namespace :importer_col do
+  def all_day_sched
+    ids = []
+    for i in 1..7
+      sched = {
+        weekday: i,
+        start: '00:00',
+        end: '23:59'
+      }
+      schedule = Schedule.find_or_create_by(sched)
+      ids << schedule.id
+    end
+    return ids
+  end
+  task :containers  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/contenedores_colombia.geojson'))
+    i = 0
+    allDayIds = all_day_sched();
+    f.each do |feature|
+      i = i + 1
+      #if i < 2150
+      #  next
+      #end
+      puts "Contenedor #{i}\n"
+      sub_prog = {
+        program_id: 1,
+        city:  feature.properties["Ciudad"],
+        email: feature.properties["Correo"],
+        name: feature.properties["Responsabl"],
+      }
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      if !sub_program.validate!
+        puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
+        next
+      end
+      #Los materiales se asocian manualmente a los subprogramas
+      container = {
+        site: feature.properties["Nombre_lug"],
+        latlon: feature.geometry,
+        latitude: feature.geometry.coordinates[1],
+        longitude: feature.geometry.coordinates[0],
+        location:  feature.properties["Ciudad"],
+        address: feature.properties["Dirección"],
+        public_site: 1,
+        external_id: feature.properties["Id"],
+        sub_program_id: sub_program.id,
+        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "Supermercado",
+        container_type_id: 3,
+      }
+      container = Container.find_or_create_by(container)
+      if !container.validate!
+        puts "ERROR: #{container.errors.full_messages}\n exiting..."
+        next
+      end
+      #Get schedules
+      scheds = []
+      if feature.properties["Horario_at"]  == 'Permanente' && feature.properties["Funcionami"] == 'Permanente'
+        scheds = allDayIds
+        puts "Asignado automáticamente el calendario para todos los días\n"
+      else
+        puts "No se puede asignar automáticamente el calendario: #{feature.properties["Id"]}\n"
+      end
+      container.schedule_ids = scheds
+      container.save
+    end
+    puts "\n\nSe importaron #{i} contenedores_colombia\n"
+  end
+  task :zones  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/cobertura-Colombia-4326.geojson'))
+    f.each do |feature|
+      loc = {
+        name: feature.properties["Cobertura"],
+        geometry: feature.geometry
+      }
+      loc = Location.find_or_create_by(loc)
+      sub_prog = {
+        program_id: 17,
+        city:  feature.properties["Ciudad"],
+        address: feature.properties["Dirección"],
+        email: feature.properties["Correo"],
+        phone: feature.properties["Teléfono"],
+        name: feature.properties["Organizaci"],
+        full_name: feature.properties["OR_"]
+      }
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      if !sub_program.location_ids.include?(loc.id)
+        sub_program.locations << loc
+      end
+      sub_program.save
+    end
+  end
+  task :countries  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read('db/data/Uruguay-Colombia.geojson'))
+    f.each do |feature|
+      name = {
+        name: feature.properties["COUNTRY"],
+      }
+      country = Country.find_or_create_by(name)
+      country.geometry = feature.geometry
+      country.save
+    end
+  end
+  task :test  => :environment do
+    Country.all.each do |country|
+      puts country.name
+    end
+  end
+end
+namespace :importer_uy do
+  task :drugstores, [:version] => [:environment] do |_, args|
+    containers = []
+    CSV.foreach('db/data/Farmacias-Veterinarias-PLESEM.csv', headers: true) do |row|
+      containers << {
+        public_site: 1,
+        hidden: 0,
+        state: row[2],
+        site: row[0],
+        address: row[1],
+        location: nil,
+        external_id: nil,
+        sub_program_id: 4,
+        site_type: 'Farmacia',
+        latitude: row[4],
+        longitude: row[5],
+        container_type_id: 11,
+      }
+    end
+    #puts containers.inspect
+    Container.import containers
+  end
+  task :montevideo, [:version] => [:environment] do |_, args|
+    containers = []
+    externals = []
+    external_objs = {}
+    contDR = Container.where({sub_program_id: [13, 14, 10, 12], state: 'Montevideo'})
+    CSV.foreach('db/data/contenedores_reciclables-montevideo.csv', headers: true) do |row|
+      externals << row[0]
+      external_objs[row[0]] = row
+    end
+    i = 0
+    j = 0
+    contDR.each do |cont|
+      if external_objs[cont.external_id].present?
+        if external_objs[cont.external_id][1] != cont.site
+          puts " TIENE EXTERNAL NO COINCIDE NOMBRE: #{cont.inspect}"
+          j = j + 1
+        end
+      else
+        puts " NO TIENE EXTERNAL: #{cont.inspect}"
+        i = i + 1
+      end
+    end
+    puts "No tienen external #{i}, no conicide nombre #{j}"
+
+=begin
+contRemain = Container.where({external_id: externals, state: 'Montevideo'}).pluck(:external_id)
+externals << ''
+externals << nil
+#Change point proj
+#srs_database = RGeo::CoordSys::SRSDatabase::Proj4Data.new('epsg', cache: true)
+#factory_32721 = RGeo::Cartesian.factory(srid: 32721, srs_database: srs_database)
+#factory_4326 = RGeo::Geographic.spherical_factory(srid: 4326, srs_database: srs_database)
+#Get each new record from list
+external_objs.except!(contRemain).each do |row|
+puts row
+#point_32721 = factory_32721.point()
+#point_4326 =  RGeo::Feature.cast(point_32721, factory: factory_4326, project: true)
+#puts point_4326.inspect
+sql = "SELECT ST_AsText(ST_Transform(ST_GeomFromText('POINT(#{row[4]} #{row[5]})',32721),4326)) As wgs_geom";
+lala = ActiveRecord::Base.connection.execute(sql)
+puts lala
+containers << {
+public_site: 1,
+hidden: 0,
+state: 'Montevideo',
+site: row[1],
+address: nil,
+location: nil,
+external_id: row[0],
+sub_program_id: 1,
+site_type: row[3],
+latitude: row[4],
+longitude: row[5],
+container_type_id: 12,
+}
+end
+cont2delete = Container.where.not({external_id: externals}).where({state: 'Montevideo'})
+file2delete = "#{Rails.root}/public/montevideo-delete.csv"
+CSV.open( file2delete, 'w' ) do |writer|
+writer << cont2delete.first.attributes.map { |a,v| a }
+cont2delete.each do |cont|
+writer << cont.attributes.map { |a,v| v }
+end
+end
+=end
+  end
+end
+namespace :migration do
   subPprogramMatch = {
     '33822' => 1,
     '33821' => 2,
