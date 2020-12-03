@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_144247) do
+ActiveRecord::Schema.define(version: 2020_11_09_005534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
+    t.string "contact"
   end
 
   create_table "location_relations", force: :cascade do |t|
@@ -128,13 +129,11 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "predefined_search"
   end
 
   create_table "materials_programs", id: false, force: :cascade do |t|
     t.bigint "program_id", null: false
     t.bigint "material_id", null: false
-    t.index ["program_id", "material_id"], name: "index_materials_programs_on_program_id_and_material_id"
   end
 
   create_table "materials_relations", force: :cascade do |t|
@@ -142,14 +141,18 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["material_id"], name: "index_materials_relations_on_material_id"
-    t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_search_id"
+    t.bigint "report_id"
+    t.bigint "search_id"
+    t.index ["material_id"], name: "index_materials_relations_on_materials_id"
+    t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_searches_id"
+    t.index ["report_id"], name: "index_materials_relations_on_report_id"
+    t.index ["search_id"], name: "index_materials_relations_on_search_id"
   end
 
   create_table "materials_sub_programs", primary_key: ["material_id", "sub_program_id"], force: :cascade do |t|
     t.bigint "sub_program_id", null: false
     t.bigint "material_id", null: false
-    t.index ["material_id", "sub_program_id"], name: "index_materials_sub_programs_on_material_id_and_sub_program_id"
+    t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
   end
 
   create_table "news", force: :cascade do |t|
@@ -159,6 +162,8 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "summary"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_news_on_country_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -166,7 +171,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.bigint "application_id", null: false
     t.string "token", null: false
     t.integer "expires_in", null: false
-    t.text "redirect_url"
+    t.text "redirect_uri", null: false
     t.datetime "created_at", null: false
     t.datetime "revoked_at"
     t.string "scopes", default: "", null: false
@@ -242,12 +247,32 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "shortname"
+    t.bigint "country_id", default: 1, null: false
+    t.index ["country_id"], name: "index_programs_on_country_id"
   end
 
   create_table "programs_wastes", id: false, force: :cascade do |t|
     t.bigint "waste_id", null: false
     t.bigint "program_id", null: false
     t.index ["program_id", "waste_id"], name: "index_programs_wastes_on_program_id_and_waste_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.bigint "sub_program_id"
+    t.string "subject"
+    t.text "comment"
+    t.bigint "country_id", null: false
+    t.string "neighborhood"
+    t.string "address"
+    t.integer "weight"
+    t.boolean "donation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.geometry "coords", limit: {:srid=>0, :type=>"st_point"}
+    t.index ["country_id"], name: "index_reports_on_country_id"
+    t.index ["sub_program_id"], name: "index_reports_on_sub_program_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -258,6 +283,12 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.geometry "coords", limit: {:srid=>0, :type=>"st_point"}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sub_programs", force: :cascade do |t|
@@ -322,7 +353,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.text "deposition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "predefined_search"
     t.index ["material_id"], name: "index_wastes_on_material_id"
   end
 
@@ -331,7 +361,13 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
     t.bigint "predefined_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "supporter_id"
+    t.bigint "report_id"
+    t.bigint "search_id"
     t.index ["predefined_search_id"], name: "index_wastes_relations_on_predefined_search_id"
+    t.index ["report_id"], name: "index_wastes_relations_on_report_id"
+    t.index ["search_id"], name: "index_wastes_relations_on_search_id"
+    t.index ["supporter_id"], name: "index_wastes_relations_on_supporter_id"
     t.index ["waste_id"], name: "index_wastes_relations_on_waste_id"
   end
 
@@ -343,16 +379,24 @@ ActiveRecord::Schema.define(version: 2020_10_19_144247) do
   add_foreign_key "location_relations", "sub_programs"
   add_foreign_key "materials_relations", "materials"
   add_foreign_key "materials_relations", "predefined_searches"
+  add_foreign_key "materials_relations", "reports"
+  add_foreign_key "materials_relations", "searches"
+  add_foreign_key "news", "countries"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
-  add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
-  add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
   add_foreign_key "predefined_searches", "countries"
   add_foreign_key "products", "materials"
+  add_foreign_key "programs", "countries"
+  add_foreign_key "reports", "countries"
+  add_foreign_key "reports", "sub_programs"
+  add_foreign_key "reports", "users"
   add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
   add_foreign_key "wastes", "materials"
   add_foreign_key "wastes_relations", "predefined_searches"
+  add_foreign_key "wastes_relations", "reports"
+  add_foreign_key "wastes_relations", "searches"
+  add_foreign_key "wastes_relations", "supporters"
   add_foreign_key "wastes_relations", "wastes"
 end
