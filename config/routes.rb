@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #default_url_options Rails.application.config.action_mailer.default_url_options
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self) rescue ActiveAdmin::DatabaseHitDuringLoad
-  root to: "static_pages#index"
+  root to: "admin/dashboard#index"
   devise_for :users, controllers: {
     registrations: 'registrations',
    }, skip: [:sessions, :password]
