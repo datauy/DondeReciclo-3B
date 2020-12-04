@@ -52,28 +52,29 @@ class UserApiController < ApplicationController
     begin
       user = current_resource_owner
       address = "#{params[:address]}, #{params[:address_details]}"
-      wastes_materials = {
-        wastes: [],
-        materials: []
-      }
-      params[:wasteType].each do |waste|
-        waste_arr = waste.split(',')
-        wType = waste_arr[1]
-        wastes_materials[:"#{wType}"] << waste_arr[0].to_i
+      suprog = SubProgram.find(params[:id])
+      #wastes_materials = {
+      #  wastes: [],
+      #  materials: []
+      #}
+      #params[:wasteType].each do |waste|
+      #  waste_arr = waste.split(',')
+      #  wType = waste_arr[1]
+      #  wastes_materials[:"#{wType}"] << waste_arr[0].to_i
         #logger.info { "\n#{wType}\n #{wastes_materials[:"#{wType}"].inspect}\n\n" }
-      end
+      #end
       #Create report for stats
       report_data = {
         coords: "POINT(#{params[:latlng]})",
-        sub_program_id: params[:id],
+        sub_program: suprog,
         user_id: user.id,
         address: address,
         weight: params[:weight],
         comment: params[:comment],
-        waste_ids: wastes_materials[:wastes],
-        material_ids: wastes_materials[:materials],
         donation: params[:donation],
-        country_id: 2
+        country_id: 2,
+        #waste_ids: wastes_materials[:wastes],
+        #material_ids: wastes_materials[:materials],
       }
       #logger.info report_data.inspect
       Report.create(report_data)
@@ -85,7 +86,7 @@ class UserApiController < ApplicationController
         email: params[:email],
         phone: params[:phone],
         comment: params[:comment],
-        subject: "DR - Solicitud de retiro: ##{params[:subject]}",
+        subject: "DR - Recolección - #{suprog.name}",
         weight: params[:weight],
         address: address,
       }
