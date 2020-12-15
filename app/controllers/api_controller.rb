@@ -27,8 +27,8 @@ class ApiController < ApplicationController
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
     Location.
+    includes(:sub_programs).
     where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
-    joins(:sub_programs).
     each do |loc|
       features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.sub_programs.map { |sp| sp.name} })
     end

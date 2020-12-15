@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Correo": "recuperadorespuntoverde@gmail.com", "Ciudad": "Dosquebradas", "Dirección": "Av Troncal Occidente, Santa Ana Baja Dosquebradas - Bodega 2", "Días_reco": null, "Horario_de": null, "Funcionami": null, "Tipo_de_ma": null, "Condicione": null, "Responsabl": "Aso Punto Verde", "Nombre_de": null }, "geometry": { "type": "Point", "coordinates": [ -75.68, 4.85, 0.0 ] } },
+{ "type": "Feature", "properties": { "Correo": "info@recipesos.com", "Ciudad": "Pereira", "Dirección": "Vereda Nuevo Sol, Finca El Jordán", "Días_reco": null, "Horario_de": null, "Funcionami": null, "Tipo_de_ma": null, "Condicione": null, "Responsabl": "EMAUS", "Nombre_de": null }, "geometry": { "type": "Point", "coordinates": [ -75.75, 4.79, 0.0 ] } },
+{ "type": "Feature", "properties": { "Correo": "infinitypereira.2018@gmail.com", "Ciudad": "Pereira", "Dirección": "Rocío Bajo - 147 A", "Días_reco": null, "Horario_de": null, "Funcionami": null, "Tipo_de_ma": null, "Condicione": null, "Responsabl": "Infinity Recicle", "Nombre_de": null }, "geometry": { "type": "Point", "coordinates": [ -75.7, 4.8, 0.0 ] } },
+{ "type": "Feature", "properties": { "Correo": "redcicladores@gmail.com", "Ciudad": "Pereira", "Dirección": "Carrera 29 #16 - 44 Barrio central", "Días_reco": null, "Horario_de": null, "Funcionami": null, "Tipo_de_ma": null, "Condicione": null, "Responsabl": "REDCICLADORES", "Nombre_de": null }, "geometry": { "type": "Point", "coordinates": [ -75.69, 4.8, 0.0 ] } }
+]
+}
