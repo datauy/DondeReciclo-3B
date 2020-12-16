@@ -1,14 +1,12 @@
-<h1>Nuevo pedido desde Donde Reciclo</h1>
-<p>
-  <%= @name %> ha enviado un mensaje desde la plataforma Donde Reciclo con el siguiente contenido:
-</p>
-<p>"<%= @body %>"</p>
-<p>Dirección: <%= @address %></p>
-<p>Punto geométrico: <%= @container_url %></p>
-<p>Peso aproximado: <%= @weight %></p>
-<span>
-  Sírvase contestar desde la plataforma para poder realizar el seguimiento. Por cualquier eventualidad le dejamos el correo de contacto: <%= @email %>
-</span>
-<p>
-  Muchas gracias, Equipo de DATA
-</p>
+
+Cordial saludo,
+
+Les informamos que tienen una nueva solicitud de recolección de residuos.
+La persona que realizó la solicitud se llama <%= @name %>, vive en el barrio <%= @neighborhood %> y su dirección es <%= @address %>.
+El usuario ya está informado de los días y horarios de recolección, en caso de cualquier inquietud, lo pueden localizar a este número <%= @phone %> o al correo electrónico <%= @email %>.
+
+Finalmente, le pedimos por favor una vez se efectúe la recolección remitir como respuesta a este correo el día cuando se hizo la recolección y la cantidad de material recolectado.
+Agradecemos de antemano su compromiso y servicio
+
+Saludos,
+Equipo CEMPRE – Colombia

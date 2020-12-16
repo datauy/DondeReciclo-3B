@@ -77,17 +77,18 @@ class UserApiController < ApplicationController
         #material_ids: wastes_materials[:materials],
       }
       #logger.info report_data.inspect
-      Report.create(report_data)
+      rep = Report.create(report_data)
+      rep.save
       #Send email
       mail_params = {
         latlng: params[:latlng],
         name: params[:name],
-        document: params[:document],
         email: params[:email],
         phone: params[:phone],
         comment: params[:comment],
-        subject: "DR - Recolección - #{suprog.name}",
+        subject: "DR - Recolección #{rep.id} - #{suprog.name}",
         weight: params[:weight],
+        neighborhood: params[:neighborhood],
         address: address,
       }
       AdminMailer.

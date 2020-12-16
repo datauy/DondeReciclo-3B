@@ -18,14 +18,15 @@ class AdminMailer < ApplicationMailer
   end
   def collect
     @email = params[:email]
+    @phone = params[:phone]
     @name = params[:name]
+    @neighborhood = params[:neighborhood]
     @address = params[:address]
-    @body = params[:body]
+    @comment = params[:comment]
     @weight = params[:weight]
     @latlng = params[:latlng]
-    Rails.logger.info("\nENviando emial\n")
     mail(
-      to: 'dondereciclo@data.org.uy',
+      to: 'soporte@dondereciclo.co',
       subject: params[:subject],
       from: params[:email],
     #  username: 'dondereciclo@data.org.uy',
