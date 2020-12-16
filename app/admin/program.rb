@@ -1,5 +1,5 @@
 ActiveAdmin.register Program do
-  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, material_ids: [], waste_ids: [], location_ids: []
+  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, material_ids: [], waste_ids: [], location_ids: []
   config.create_another = true
   index do
     selectable_column
@@ -50,6 +50,9 @@ ActiveAdmin.register Program do
       end
       f.inputs "Wastes" do
         f.input :wastes, as: :check_boxes
+      end
+      f.inputs "Country" do
+        f.input :country_id, :as => :select, :collection => Country.all.map{|s| [s.name, s.id]}
       end
     end
     f.actions

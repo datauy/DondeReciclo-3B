@@ -5,7 +5,7 @@ ActiveAdmin.register News do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :information, :video, :summary, images: []
+  permit_params :title, :information, :video, :summary, :country_id, images: []
   #
   # or
   #
@@ -21,6 +21,9 @@ ActiveAdmin.register News do
       f.input :information, as: :ckeditor
       f.input :images, as: :file, input_html: { multiple: true }
       f.input :video
+      f.inputs "Country" do
+        f.input :country_id, :as => :select, :collection => Country.all.map{|s| [s.name, s.id]}
+      end
     end
     f.actions
   end

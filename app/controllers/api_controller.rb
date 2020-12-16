@@ -11,7 +11,7 @@ class ApiController < ApplicationController
       address: ns.address,
       email: ns.email,
       phone: ns.phone,
-      locations: ns.program.locations.map{ |loc| loc.name },
+      locations: ns.locations.map{ |loc| loc.name },
       icon: ns.program.icon.attached? ? url_for(ns.program.icon) : nil
     }}
   end
@@ -39,22 +39,27 @@ class ApiController < ApplicationController
   def news
     qtty = 5
     offsetPage = params[:page].present? ? params[:page].to_i*qtty : 0;
-    country = params[:page].present? ? params[:country] : 1;
 
-    render json: News.
-    where( :country_id => country ).
-    or( News.where( :country_id => nil )).
-    with_attached_images.
-    order(id: :desc).
-    offset(offsetPage).
-    limit(qtty).
-    map{ |ns| [ns.id, {
-      id: ns.id,
-      title: ns.title,
-      summary: ns.summary,
-      created_at: ns.created_at,
-      images: ns.images.attached? ? [ url_for(ns.images.first)] : []
-    }]}.to_h
+    news = News
+    if params[:country].present?
+      news = News.
+      where( :country_id => params[:country] ).
+      or( News.where( :country_id => nil ))
+    else
+      news = News.all
+    end
+    render json: news.
+      with_attached_images.
+      order(id: :desc).
+      offset(offsetPage).
+      limit(qtty).
+      map{ |ns| [ns.id, {
+        id: ns.id,
+        title: ns.title,
+        summary: ns.summary,
+        created_at: ns.created_at,
+        images: ns.images.attached? ? [ url_for(ns.images.first)] : []
+      }]}.to_h
   end
   #
   def new
@@ -219,8 +224,11 @@ class ApiController < ApplicationController
   end
   def programs
     # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
+    country = 1 #load Uruguay/first by default
+    country = params[:country] if params[:country]
     res = []
-    Program.all.
+    Program.
+    where(country_id: country).
       includes(:materials).
       includes(:supporters).
       includes(:wastes).
