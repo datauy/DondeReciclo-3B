@@ -51,7 +51,7 @@ class UserApiController < ApplicationController
   def collect
     begin
       user = current_resource_owner
-      address = "#{params[:address]}, #{params[:address_details]}"
+      address = "#{params[:address]}, #{params[:addressDetail]}"
       suprog = SubProgram.find(params[:id])
       #wastes_materials = {
       #  wastes: [],

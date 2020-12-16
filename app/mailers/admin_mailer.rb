@@ -28,9 +28,8 @@ class AdminMailer < ApplicationMailer
     mail(
       to: 'soporte@dondereciclo.co',
       subject: params[:subject],
-      from: params[:email],
+    #  from: params[:email],
     #  username: 'dondereciclo@data.org.uy',
-    #  password: 'Ost3Ras'
     )
   end
   def forgot
