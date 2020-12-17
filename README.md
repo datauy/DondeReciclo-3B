@@ -1,6 +1,6 @@
 #Donde Reciclo 3.0 Backend 1.0
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 0.4.1
+## Versión 1.0
 La versión incluye la funcionalidad completa para la base de Donde Reciclo 3.5 y su lanzamiento en Colombia
 En esta versión se pasa a una base geográfica postgis mediante las gemas rgeo y acriverecord-postgis-adapter.  
 * Ruby version 2.6.3  
