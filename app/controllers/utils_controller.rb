@@ -8,7 +8,8 @@ class UtilsController < ApplicationController
           name: params[:name],
           email: params[:email],
           body: params[:body],
-          subject: params[:subject]
+          subject: params[:subject],
+          country: params[:country_id] ? params[:country_id] : 1
         ).
         contact.
         deliver

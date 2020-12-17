@@ -58,6 +58,9 @@ GEM
       activesupport (= 6.0.2.2)
     activerecord-import (1.0.4)
       activerecord (>= 3.2)
+    activerecord-postgis-adapter (6.0.1)
+      activerecord (~> 6.0)
+      rgeo-activerecord (~> 6.0)
     activestorage (6.0.2.2)
       actionpack (= 6.0.2.2)
       activejob (= 6.0.2.2)
@@ -88,6 +91,12 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    ckeditor (4.2.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.2.0)
+    cocaine (0.6.0)
+      terrapin (= 0.6.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     devise (4.7.1)
@@ -207,6 +216,12 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rgeo (2.1.1)
+    rgeo-activerecord (6.2.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -234,6 +249,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    terrapin (0.6.0)
+      climate_control (>= 0.0.3, < 1.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -270,9 +287,11 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activerecord-import
+  activerecord-postgis-adapter
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  ckeditor
   devise
   doorkeeper (~> 5.4)
   geocoder
@@ -282,6 +301,9 @@ DEPENDENCIES
   puma (~> 4.3)
   rack-cors
   rails (~> 6.0.2, >= 6.0.2.1)
+  rgeo
+  rgeo-activerecord
+  rgeo-geojson
   sass-rails (>= 6)
   selenium-webdriver
   spring

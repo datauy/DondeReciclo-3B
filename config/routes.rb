@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     registrations: 'registrations',
    }, skip: [:sessions, :password]
 
+  get 'api/location4Polygon'
+  get 'api/country4Point'
+  get 'api/subprograms4location'
   get 'api/materials'
   get 'api/wastes'
   get 'api/container_types'
@@ -30,6 +33,7 @@ Rails.application.routes.draw do
   get 'api/user', to: "user_api#me"
   post 'api/user/update', to: 'user_api#update'
   post 'api/report', to: "user_api#report"
+  post 'api/collect', to: "user_api#collect"
   post 'password/forgot', to: 'utils#forgot'
   post 'password/reset', to: 'utils#reset'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

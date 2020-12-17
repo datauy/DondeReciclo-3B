@@ -34,6 +34,11 @@ gem 'activeadmin'
 gem 'activerecord-import'
 gem 'geocoder'
 gem 'rack-cors'
+gem 'rgeo'
+gem 'rgeo-activerecord'
+gem 'activerecord-postgis-adapter'
+gem 'rgeo-geojson'
+gem 'ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

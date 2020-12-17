@@ -4,7 +4,9 @@ ActiveAdmin.register Container do
   index do
     selectable_column
     id_column
-    column :sub_program_id
+    column :sub_program do |s|
+      s.sub_program.name
+    end
     column :external_id
     column :latitude
     column :longitude
@@ -12,7 +14,9 @@ ActiveAdmin.register Container do
     column :state
     column :public_site
     column :hidden
-    column :container_type_id
+    column :container_type do |c|
+      c.container_type.name
+    end
     column :created_at
     column :photos do |l|
       image_tag url_for(l.photos) if l.photos.attached?

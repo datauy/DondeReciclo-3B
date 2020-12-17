@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.bigint "container_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "hidden", default: false
-    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.boolean "hidden"
+    t.point "latlon"
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"

@@ -1,15 +1,65 @@
 class ApiController < ApplicationController
+  #Location Subprograms
+  def subprograms4location
+    render json: SubProgram.
+    joins(:locations).
+    where( "ST_contains( locations.geometry, ST_GeomFromText(?) ) = true", params[:wkt] )
+    .map{ |ns| {
+      id: ns.id,
+      name: ns.name,
+      city: ns.city,
+      address: ns.address,
+      email: ns.email,
+      phone: ns.phone,
+      locations: ns.locations.map{ |loc| loc.name },
+      icon: ns.program.icon.attached? ? url_for(ns.program.icon) : nil
+    }}
+  end
+  #Country by Point
+  def country4Point
+    render json: Country.
+    where( "ST_contains( countries.geometry, ST_GeomFromText(?) ) = true", params[:wkt] ).
+    pluck(:name)
+    #where("ST_Contains(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-75.2879 5.9671)'),4326),4326), ST_Transform(geometry,   4326))")
+  end
+  #Country by Point
+  def location4Polygon
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    features = []
+    Location.
+    includes(:sub_programs).
+    where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
+    each do |loc|
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.sub_programs.map { |sp| sp.name} })
+    end
+    render json:
+      RGeo::GeoJSON.encode(factory.feature_collection(features))
+  end
   #
   def news
-    render json: News.
-    with_attached_images.
-    limit(10).map{ |ns| [ns.id, {
-      id: ns.id,
-      title: ns.title,
-      summary: ns.summary,
-      created_at: ns.created_at,
-      images: ns.images.attached? ? [ url_for(ns.images.first)] : []
-    }]}.to_h
+    qtty = 5
+    offsetPage = params[:page].present? ? params[:page].to_i*qtty : 0;
+
+    news = News
+    if params[:country].present?
+      news = News.
+      where( :country_id => params[:country] ).
+      or( News.where( :country_id => nil ))
+    else
+      news = News.all
+    end
+    render json: news.
+      with_attached_images.
+      order(id: :desc).
+      offset(offsetPage).
+      limit(qtty).
+      map{ |ns| [ns.id, {
+        id: ns.id,
+        title: ns.title,
+        summary: ns.summary,
+        created_at: ns.created_at,
+        images: ns.images.attached? ? [ url_for(ns.images.first)] : []
+      }]}.to_h
   end
   #
   def new
@@ -88,15 +138,19 @@ class ApiController < ApplicationController
       .includes( :sub_program )
       .near( [params[:lat], params[:lon]], 300, units: :km )
     if (params[:materials])
+      materials = params[:materials].split(',')
       @cont = cont.
         joins( sub_program: [:materials] ).
-        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') ).
+        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
         limit(50)
+      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
     elsif params[:wastes]
+      wastes = params[:wastes].split(',')
       @cont = cont.
         joins( sub_program: [:wastes] ).
-        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') ).
+        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
         limit(50)
+      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
     else
       return self.containers_nearby
     end
@@ -136,7 +190,7 @@ class ApiController < ApplicationController
       .map{|mat| ({
         id: mat.id,
         name: mat.name,
-        class: mat.material.name_class,
+        class: mat.material.present? ? mat.material.name_class : 'default',
       })}
   end
   #
@@ -170,8 +224,11 @@ class ApiController < ApplicationController
   end
   def programs
     # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
+    country = 1 #load Uruguay/first by default
+    country = params[:country] if params[:country]
     res = []
-    Program.all.
+    Program.
+    where(country_id: country).
       includes(:materials).
       includes(:supporters).
       includes(:wastes).

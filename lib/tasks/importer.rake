@@ -12,9 +12,11 @@ namespace :importer_col do
     end
     return ids
   end
-  task :containers  => :environment do
+  task :containers, [:file] => :environment do |_, args|
+    puts "Empieza importación de puntos"
+    file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
-    f = RGeo::GeoJSON.decode(File.read('db/data/contenedores_colombia.geojson'))
+    f = RGeo::GeoJSON.decode(File.read( 'db/data/' + file ))
     i = 0
     allDayIds = all_day_sched();
     f.each do |feature|
@@ -36,18 +38,20 @@ namespace :importer_col do
       end
       #Los materiales se asocian manualmente a los subprogramas
       container = {
-        site: feature.properties["Nombre_lug"],
+        site: feature.properties["Nombre_lug"].present? ? feature.properties["Nombre_lug"] : '',
         latlon: feature.geometry,
         latitude: feature.geometry.coordinates[1],
         longitude: feature.geometry.coordinates[0],
         location:  feature.properties["Ciudad"],
         address: feature.properties["Dirección"],
         public_site: 1,
-        external_id: feature.properties["Id"],
         sub_program_id: sub_program.id,
-        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "Supermercado",
+        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "",
         container_type_id: 3,
       }
+      if feature.properties["Id"].present?
+        container[:external_id] = feature.properties["Id"]
+      end
       container = Container.find_or_create_by(container)
       if !container.validate!
         puts "ERROR: #{container.errors.full_messages}\n exiting..."
@@ -76,19 +80,55 @@ namespace :importer_col do
       }
       loc = Location.find_or_create_by(loc)
       sub_prog = {
-        program_id: 17,
+        program_id: 1,
         city:  feature.properties["Ciudad"],
         address: feature.properties["Dirección"],
         email: feature.properties["Correo"],
         phone: feature.properties["Teléfono"],
         name: feature.properties["Organizaci"],
-        full_name: feature.properties["OR_"]
+        full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"]
       }
       sub_program = SubProgram.find_or_create_by(sub_prog)
       if !sub_program.location_ids.include?(loc.id)
         sub_program.locations << loc
+        sub_program.save
       end
-      sub_program.save
+    end
+  end
+  task :routes  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    #factory = RGeo::Geographic.spherical_factory(:srid => 4326)
+    fid = 1
+    for fid in [1,2,3]
+      f = RGeo::GeoJSON.decode(File.read("db/data/microrutas-pereira#{fid}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
+      f.each do |feature|
+        loc = {
+          name: feature.properties["Cobertura"],
+          geometry: feature.geometry#factory.multi_polygon([feature.geometry])
+        }
+        #materialId materiales reciclables
+        loc = Location.find_or_create_by(loc)
+        sub_prog = {
+          program_id: 19,
+          city:  feature.properties["Ciudad"],
+          address: feature.properties["Dirección"],
+          email: feature.properties["Correo"],
+          phone: feature.properties["Telefono"],
+          name: feature.properties["Organizaci"],
+          full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
+          material_id: 6,
+        }
+        sub_program = SubProgram.find_or_create_by(sub_prog)
+        if !sub_program.location_ids.include?(loc.id)
+          puts "No hay locid\n"
+          sub_program.locations << loc
+        end
+        sub_program.receives = '<p>' + feature.properties["Frecuencia"] + ': ' + feature.properties["Hora_inici"] + ' a ' + feature.properties["Hora_fin"]+'<\p>'
+        #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
+        sub_program.material_ids = [2,3,4]
+        sub_program.waste_ids = 101
+        sub_program.save
+      end
     end
   end
   task :countries  => :environment do
@@ -221,6 +261,21 @@ namespace :migration do
   duplicated = 0
   desc 'Importing everything'
 
+  task :programs, [:year] => [:environment] do |_, args|
+    require 'csv'
+
+    file = "#{Rails.root}/public/data.csv"
+
+
+    CSV.open( file, 'w' ) do |writer|
+      table = User.all; # ";0" stops output.  Change "User" to any model.
+      writer << table.first.attributes.map { |a,v| a }
+      table.each do |s|
+        writer << s.attributes.map { |a,v| v }
+      end
+    end
+
+  end
   task :all, [:year] => [:environment] do |_, args|
     Rake::Task['importer:all'].enhance do
       Rake::Task['importer:waste'].invoke
