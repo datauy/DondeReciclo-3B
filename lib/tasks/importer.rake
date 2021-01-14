@@ -1,4 +1,13 @@
 namespace :importer_col do
+  weekdays = {
+    'lunes': 1,
+    'martes': 2,
+    'miércoles': 3,
+    'jueves': 4,
+    'viernes': 5,
+    'sábado': 6,
+    'domingo': 7
+  }
   def all_day_sched
     ids = []
     for i in 1..7
@@ -95,12 +104,14 @@ namespace :importer_col do
       end
     end
   end
-  task :routes  => :environment do
+  task :routes, [:filename]  => :environment do |_, args|
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     #factory = RGeo::Geographic.spherical_factory(:srid => 4326)
-    fid = 1
-    for fid in [1,2,3]
-      f = RGeo::GeoJSON.decode(File.read("db/data/microrutas-pereira#{fid}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
+    #fid = 1
+    #for fid in [1,2,3]
+    filename = args[:filename].present? ? args[:filename] : 'costa'
+      f = RGeo::GeoJSON.decode(File.read("db/data/microrutas-#{filename}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
+      mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
       f.each do |feature|
         loc = {
           name: feature.properties["Cobertura"],
@@ -116,20 +127,25 @@ namespace :importer_col do
           phone: feature.properties["Telefono"],
           name: feature.properties["Organizaci"],
           full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
-          material_id: 6,
+          material: mainMaterial,
         }
+        puts sub_prog.inspect
         sub_program = SubProgram.find_or_create_by(sub_prog)
+        if !sub_program.validate!
+          puts "ERROR: #{sub_program.errors.full_messages}\n next..."
+          next
+        end
         if !sub_program.location_ids.include?(loc.id)
           puts "No hay locid\n"
           sub_program.locations << loc
         end
-        sub_program.receives = '<p>' + feature.properties["Frecuencia"] + ': ' + feature.properties["Hora_inici"] + ' a ' + feature.properties["Hora_fin"]+'<\p>'
+        sub_program.receives = "#{sub_program.receives or ''} <p> #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}<\p>"
         #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
-        sub_program.material_ids = [2,3,4]
-        sub_program.waste_ids = 101
+        #sub_program.material_ids = [2,3,4]
+        #sub_program.waste_ids = 101
         sub_program.save
       end
-    end
+    #end
   end
   task :countries  => :environment do
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
