@@ -139,7 +139,7 @@ namespace :importer_col do
           puts "No hay locid\n"
           sub_program.locations << loc
         end
-        sub_program.receives = "#{sub_program.receives or ''} <p> #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}<\p>"
+        sub_program.receives = "#{sub_program.receives+' |' or ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
         #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
         #sub_program.material_ids = [2,3,4]
         #sub_program.waste_ids = 101
