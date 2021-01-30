@@ -1,5 +1,5 @@
 ActiveAdmin.register SubProgram do
-  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
+  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   config.create_another = true
 
   form do |f|
@@ -22,6 +22,9 @@ ActiveAdmin.register SubProgram do
       end
       f.inputs "Wastes" do
         f.input :wastes, as: :check_boxes
+      end
+      f.inputs "Locations" do
+        f.input :locations, as: :select, input_html: { multiple: true }
       end
     end
     f.actions
