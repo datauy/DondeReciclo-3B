@@ -11,6 +11,7 @@ class ApiController < ApplicationController
       address: ns.address,
       email: ns.email,
       phone: ns.phone,
+      schedules: ns.receives.split('|'),
       locations: ns.locations.map{ |loc| loc.name },
       icon: ns.program.icon.attached? ? url_for(ns.program.icon) : nil
     }}

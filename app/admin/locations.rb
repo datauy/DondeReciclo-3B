@@ -5,7 +5,7 @@ ActiveAdmin.register Location do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name
+  permit_params :name, :geometry
   #
   # or
   #
@@ -22,5 +22,12 @@ ActiveAdmin.register Location do
       geom.present? ? true : false
     end
     actions
+  end
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :geometry, :as => :text
+    end
+    f.actions
   end
 end
