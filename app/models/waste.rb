@@ -7,7 +7,7 @@ class Waste < ApplicationRecord
   has_many :wastes_relations
   has_many :predefined_searches, through: :wastes_relations
   has_many :reports, through: :wastes_relations
-  has_many :searches, through: :wastes_relations
+  #has_many :searches, through: :wastes_relations
 
   def self.search(str)
     Waste.where("lower(name) like :value or lower(deposition) like :value", value: "%#{str}%")
