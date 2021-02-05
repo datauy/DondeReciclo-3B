@@ -10,7 +10,7 @@ class AdminMailer < ApplicationMailer
     if (params[:container_url])
       @container_url  =  params[:container_url]
     end
-    country_id = params[:country]
+    country_id = params[:country].present? ? params[:country] : 1
     contact = Country.
       find(country_id).
       contact

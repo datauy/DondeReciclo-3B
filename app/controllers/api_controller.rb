@@ -1,6 +1,39 @@
 class ApiController < ApplicationController
+
   #Location Subprograms
   def subprograms4location
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    render json: Zone.
+    joins(:location).
+    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    includes(:sub_program).
+    includes(:schedules).
+    where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), 0.009 )", params[:wkt] ).
+    order("distance asc").
+    map{ |ns| {
+      id: ns.sub_program.id,
+      name: ns.sub_program.name,
+      city: ns.sub_program.city,
+      address: ns.sub_program.address,
+      email: ns.sub_program.email,
+      phone: ns.sub_program.phone,
+      receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+      locations: ns.sub_program.locations.map{ |loc| loc.name },
+      #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+      zone: {
+        name: ns.location.name,
+        is_route: ns.is_route,
+        pick_up_type: ns.pick_up_type,
+        location: RGeo::GeoJSON.encode(
+          factory.feature_collection([factory.feature(ns.geometry, 1)])
+        ),
+        distance: ns.distance,
+        schedules: ns.schedules
+      }
+    }}
+  end
+  #Location Subprograms
+  def subprogramsInArea
     render json: SubProgram.
     joins(:locations).
     where( "ST_contains( locations.geometry, ST_GeomFromText(?) ) = true", params[:wkt] )
@@ -239,7 +272,7 @@ class ApiController < ApplicationController
         prog.logo_url = prog.logo.attached? ? url_for(prog.logo) : ""
         prog.materials_arr = prog.materials.map{ |mat| mat.id }
         prog.wastes_arr = prog.wastes.map{ |mat| mat.id }
-        prog.locations_arr = prog.locations.map{ |loc| loc.name }
+        prog.locations_arr = prog.locations.map{ |loc| loc.name }.uniq
         prog.supporters_arr = prog.supporters.map{ |sup| {
           :name => sup.name,
           :url => sup.url

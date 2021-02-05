@@ -1,5 +1,4 @@
 class SubProgram < ApplicationRecord
-  has_many_attached :zones
   belongs_to :program
   belongs_to :material
   has_many :containers
@@ -12,6 +11,8 @@ class SubProgram < ApplicationRecord
 
   has_many :location_relations
   has_many :locations, through: :location_relations
+
+  has_many :zones
 
   class HABTM_Materials
     self.primary_key = :material_id
