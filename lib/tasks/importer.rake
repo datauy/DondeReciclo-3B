@@ -25,7 +25,7 @@ namespace :importer_col do
     puts "Empieza importación de puntos"
     file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
-    f = RGeo::GeoJSON.decode(File.read( 'db/data/' + file ))
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     i = 0
     allDayIds = all_day_sched();
     f.each do |feature|
@@ -79,9 +79,10 @@ namespace :importer_col do
     end
     puts "\n\nSe importaron #{i} contenedores_colombia\n"
   end
-  task :zones  => :environment do
+  task :zones, [:file, :pick_up_type] => :environment do |_, args|
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
-    f = RGeo::GeoJSON.decode(File.read('db/data/cobertura-Colombia-4326.geojson'))
+    file = args[:file].present? ? args[:file] : 'cobertura-Colombia-4326.geojson'
+    f = RGeo::GeoJSON.decode(File.read("db/data/#{file}"))
     f.each do |feature|
       loc = {
         name: feature.properties["Cobertura"],
@@ -102,9 +103,41 @@ namespace :importer_col do
         sub_program.locations << loc
         sub_program.save
       end
+      zone_data = {
+        location: loc,
+        sub_program: sub_program,
+        is_route: FALSE,
+        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 1
+      }
+      zone = Zone.find_or_create_by(zone_data)
+      if !zone.validate!
+        puts "ERROR: #{zone.errors.full_messages}\n next..."
+        next
+      end
     end
   end
-  task :routes, [:filename]  => :environment do |_, args|
+  task :update_zones  => :environment do
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    SubProgram.
+    joins(:locations).
+    each do |subs|
+      subs.locations.each do |loc|
+        puts "\nZONE:::\n#{loc.inspect}\n"
+        zone_data = {
+          location: loc,
+          sub_program: subs,
+          is_route: FALSE,
+          pick_up_type: 1
+        }
+        zone = Zone.find_or_create_by(zone_data)
+        if !zone.validate!
+          puts "ERROR: #{zone.errors.full_messages}\n next..."
+          next
+        end
+      end
+    end
+  end
+  task :routes, [:filename, :pick_up_type]  => :environment do |_, args|
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     #factory = RGeo::Geographic.spherical_factory(:srid => 4326)
     #fid = 1
@@ -135,15 +168,25 @@ namespace :importer_col do
           puts "ERROR: #{sub_program.errors.full_messages}\n next..."
           next
         end
-        if !sub_program.location_ids.include?(loc.id)
-          puts "No hay locid\n"
-          sub_program.locations << loc
+        zone_data = {
+          location: loc,
+          sub_program: sub_prog,
+          is_route: TRUE,
+          pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 2
+        }
+        zone = Zone.find_or_create_by(zone_data)
+        if !zone.validate!
+          puts "ERROR: #{zone.errors.full_messages}\n next..."
+          next
         end
-        sub_program.receives = "#{sub_program.receives+' |' or ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
-        #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
-        #sub_program.material_ids = [2,3,4]
-        #sub_program.waste_ids = 101
-        sub_program.save
+        # TODO: Agregar calendarios
+        if args[:update].present? && args[:update]
+          sub_program.receives = "#{sub_program.receives+' |' or ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
+          #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
+          #sub_program.material_ids = [2,3,4]
+          #sub_program.waste_ids = 101
+          sub_program.save
+        end
       end
     #end
   end
