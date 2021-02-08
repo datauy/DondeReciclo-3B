@@ -21,11 +21,16 @@ class ApiController < ApplicationController
       locations: ns.sub_program.locations.map{ |loc| loc.name },
       #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
       zone: {
-        name: ns.location.name,
         is_route: ns.is_route,
         pick_up_type: ns.pick_up_type,
         location: RGeo::GeoJSON.encode(
-          factory.feature_collection([factory.feature(ns.geometry, 1)])
+          factory.feature_collection([
+            factory.feature(
+              ns.geometry,
+              "#{ns.sub_program.id} - #{ns.id}",
+              { name: ns.location.name, subprograms: [ns.sub_program.name] }
+            )
+          ])
         ),
         distance: ns.distance,
         schedules: ns.schedules
