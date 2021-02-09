@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Ciudad": "Bogotá", "Dirección": "Cl. 147 #58c-1", "Nombre_lug": "Éxito Colina", "Días_de_r": "Lunes a domingo", "Horario_de": "8:00-21:30", "Funcionami": "Permanente", "Tipo_de_Ma": "Plasticos (PET, tetrapack y flexibles)", "Condicione": "Envases que no contengan producto, que presenten etiqueta y con bajo grado de contaminación por residuos orgánicos", "Responsabl": "Ecobot", "Correo": "ecobot@ag-corporation.com" }, "geometry": { "type": "Point", "coordinates": [ -74.064256, 4.73495 ] } },
+{ "type": "Feature", "properties": { "Ciudad": "Bogotá", "Dirección": "Cl. 134 # 9 - 51", "Nombre_lug": "Éxito Country", "Días_de_r": "Lunes a domingo", "Horario_de": "24h", "Funcionami": "Permanente", "Tipo_de_Ma": "Plasticos (PET, tetrapack y flexibles)", "Condicione": "Envases que no contengan producto, que presenten etiqueta y con bajo grado de contaminación por residuos orgánicos", "Responsabl": "Ecobot", "Correo": "ecobot@ag-corporation.com" }, "geometry": { "type": "Point", "coordinates": [ -74.033246, 4.713069 ] } },
+{ "type": "Feature", "properties": { "Ciudad": "Medellín", "Dirección": "Cra. 48 # 34 sur - 29", "Nombre_lug": "Éxito Envigado", "Días_de_r": "Lunes a domingo", "Horario_de": "8:00-21:00", "Funcionami": "Permanente", "Tipo_de_Ma": "Plasticos (PET, tetrapack y flexibles)", "Condicione": "Envases que no contengan producto, que presenten etiqueta y con bajo grado de contaminación por residuos orgánicos", "Responsabl": "Ecobot", "Correo": "ecobot@ag-corporation.com" }, "geometry": { "type": "Point", "coordinates": [ -75.590711, 6.176422 ] } }
+]
+}

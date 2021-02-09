@@ -23,11 +23,24 @@ ActiveAdmin.register SubProgram do
       f.inputs "Wastes" do
         f.input :wastes, as: :check_boxes
       end
-      f.inputs "Locations" do
-        f.input :locations, as: :select, input_html: { multiple: true }
+      f.inputs "Zones" do
+        f.input :zones, as: :select, :collection => Zone.all.map{|m| [m.location.name, m.id]}, input_html: { multiple: true }
       end
     end
     f.actions
+  end
+
+  index do
+    selectable_column
+    column :name do |subp|
+      link_to subp.name, admin_sub_program_path(subp)
+    end
+    column :program
+    column :city
+    column :material
+    column :receives
+    column :receives_no
+    actions
   end
 =begin
   controller do
