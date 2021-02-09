@@ -10,8 +10,10 @@ class ApiController < ApplicationController
     includes(:schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), 0.009 )", params[:wkt] ).
     order("distance asc").
+    limit(6).
     map{ |ns| {
       id: ns.sub_program.id,
+      program_id: ns.sub_program.program_id,
       name: ns.sub_program.name,
       city: ns.sub_program.city,
       address: ns.sub_program.address,
@@ -66,10 +68,10 @@ class ApiController < ApplicationController
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
     Location.
-    includes(:sub_programs).
+    includes(:zones).
     where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
     each do |loc|
-      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.sub_programs.map { |sp| sp.name} })
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.zones.map { |zone| zone.sub_program.name} })
     end
     render json:
       RGeo::GeoJSON.encode(factory.feature_collection(features))
