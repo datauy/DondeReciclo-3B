@@ -1,13 +1,4 @@
 namespace :importer_col do
-  weekdays = {
-    'lunes': 1,
-    'martes': 2,
-    'miércoles': 3,
-    'jueves': 4,
-    'viernes': 5,
-    'sábado': 6,
-    'domingo': 7
-  }
   def all_day_sched
     ids = []
     for i in 1..7
@@ -60,6 +51,12 @@ namespace :importer_col do
       }
       if feature.properties["Id"].present?
         container[:external_id] = feature.properties["Id"]
+      end
+      if feature.properties["Dias_recol"].present? && feature.properties['Horario_at'].present?
+        container[:receives] = "#{feature.properties['']}: #{feature.properties['Horario_at']}"
+      end
+      if feature.properties['Condicione'].present?
+        container[:reception_conditions] = feature.properties['Condicione']
       end
       container = Container.find_or_create_by(container)
       if !container.validate!
