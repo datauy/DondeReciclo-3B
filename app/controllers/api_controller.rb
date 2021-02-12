@@ -341,7 +341,7 @@ class ApiController < ApplicationController
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
       class: cont.sub_program.material.name_class,
-      photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
+      photos: cont.photos.attached? ? [url_for(cont.photos)] : [],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no,
       reception_conditions: cont.sub_program.reception_conditions,
       schedules: weekSummary(cont.schedules)
