@@ -1,5 +1,5 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :hidden, :container_type_id, :photos, schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :hidden, :container_type_id, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
   config.create_another = true
   index do
     selectable_column
@@ -45,7 +45,13 @@ ActiveAdmin.register Container do
       f.input :public_site
       f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
-      f.input :photos, as: :file #, input_html: { multiple: true }
+      f.input :photos, as: :file, input_html: { multiple: true }
+      if f.object.photos.attached?
+        f.object.photos.each do |image|
+          span image_tag(image)
+          a "Borrar", src: delete_file_admin_container_path(image.id), "data-method": :delete, "data-confirm": "Confirme que desea eliminarla"
+        end
+      end
       f.input :schedules, as: :select, collection: Schedule.all.map{|s| [s.desc, s.id]}
       f.has_many :schedules do |sched|
         sched.inputs
@@ -64,8 +70,22 @@ ActiveAdmin.register Container do
     end
   end
 =end
+  #
+  member_action :delete_file, method: :delete do
+    @pic = ActiveStorage::Attachment.find(params[:id])
+    @pic.purge_later
+    redirect_back(fallback_location: edit_admin_container_path)
+  end
+  #
   batch_action :hide, confirm: "Seguro que querés ocultarlos?" do |ids|
     Container.where(:id => ids).update_all( :hidden => true )
     redirect_to collection_path, alert: "Se ocultaron los contenedores seleccionados"
+  end
+  #
+  batch_action :add_schedule, form: -> {
+    { schedule: Schedule.all.map{|sched| [sched.formated_str, sched.id]} }
+  } do |ids, inputs|
+    # inputs is a hash of all the form fields you requested
+    redirect_to collection_path, notice: [ids, inputs].to_s
   end
 end
