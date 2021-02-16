@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'api/containers4materials'
   get 'api/search'
   get 'api/search_predefined'
+  get 'api/predefined_searches'
   get 'api/programs'
   get 'api/programs_sum'
   get 'api/news'

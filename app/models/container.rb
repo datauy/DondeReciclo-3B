@@ -5,6 +5,6 @@ class Container < ApplicationRecord
   accepts_nested_attributes_for :schedules, :allow_destroy => true
   #has_many :materials, :through => :sub_program
 
-  has_one_attached :photos
+  has_many_attached :photos
   geocoded_by latitude: :lat, longitude: :lon
 end
