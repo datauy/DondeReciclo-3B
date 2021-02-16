@@ -52,11 +52,17 @@ namespace :importer_col do
       if feature.properties["Id"].present?
         container[:external_id] = feature.properties["Id"]
       end
+      update_sub = false
       if feature.properties["Dias_recol"].present? && feature.properties['Horario_at'].present?
-        container[:receives] = "#{feature.properties['']}: #{feature.properties['Horario_at']}"
+        sub_program.receives = "#{feature.properties['Dias_recol']}: #{feature.properties['Horario_at']}"
+        update_sub = true
       end
       if feature.properties['Condicione'].present?
-        container[:reception_conditions] = feature.properties['Condicione']
+        sub_program.reception_conditions = feature.properties['Condicione']
+        update_sub = true
+      end
+      if update_sub
+        sub_program.save
       end
       container = Container.find_or_create_by(container)
       if !container.validate!
@@ -96,10 +102,6 @@ namespace :importer_col do
         full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"]
       }
       sub_program = SubProgram.find_or_create_by(sub_prog)
-      if !sub_program.location_ids.include?(loc.id)
-        sub_program.locations << loc
-        sub_program.save
-      end
       zone_data = {
         location: loc,
         sub_program: sub_program,
@@ -167,7 +169,7 @@ namespace :importer_col do
         end
         zone_data = {
           location: loc,
-          sub_program: sub_prog,
+          sub_program: sub_program,
           is_route: TRUE,
           pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 2
         }
@@ -178,7 +180,7 @@ namespace :importer_col do
         end
         # TODO: Agregar calendarios
         if args[:update].present? && args[:update]
-          sub_program.receives = "#{sub_program.receives+' |' or ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
+          sub_program.receives = "#{sub_program.receives.present? ? sub_program.receives+' |' : ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
           #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
           #sub_program.material_ids = [2,3,4]
           #sub_program.waste_ids = 101
