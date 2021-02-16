@@ -263,6 +263,25 @@ class ApiController < ApplicationController
        .where( :"predefined_searches.id" => psearch.id )
     )
   end
+  #
+  def predefined_searches
+    searches = []
+    PredefinedSearch
+    .includes( :country )
+    .each do |p|
+      searches << { p.country.name => format_search(
+        Material
+         .joins(:predefined_searches)
+         .where( :"predefined_searches.id" => p.id ) +
+        Waste
+         .joins(:predefined_searches)
+         .where( :"predefined_searches.id" => p.id )
+        )
+      }
+    end
+    render json: searches
+  end
+  #
   def programs
     # TODO: Fijarse cómo agregar un campo al objeto sin tener que mapear todo de nuevo :(
     country = 1 #load Uruguay/first by default
@@ -350,12 +369,24 @@ class ApiController < ApplicationController
   def format_search(objs)
     res = []
     objs.each do |mat|
-      oa = { id: mat.id, name: mat.name, deposition: nil, type: mat.class.name.downcase.pluralize, material_id: mat.id }
-      if mat.class.name == 'Waste'
+      oa = {
+        id: mat.id,
+        name: mat.name,
+        deposition: nil,
+        type: mat.class.name.downcase.pluralize,
+        material_id: mat.id,
+        class: nil
+      }
+      if mat.class.name == 'Material'
+        oa[:deposition] = mat.information
+        oa[:class] = mat.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+      elsif mat.class.name == 'Waste'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
         oa[:deposition] = mat.deposition
+        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
       elsif mat.class.name == 'Product'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
+        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
       end
       res << oa
     end

@@ -7,6 +7,9 @@ ActiveAdmin.register Container do
     column :sub_program do |s|
       s.sub_program.name
     end
+    column "Ver contenedor" do |s|
+      link_to "Ir al sitio", "https://dondereciclo.uy/intro/mapa/#{s.id}", target: "_blank"
+    end
     column :external_id
     column :latitude
     column :longitude
