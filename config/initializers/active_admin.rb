@@ -327,4 +327,7 @@ ActiveAdmin.setup do |config|
   # config.order_clause = MyOrderClause
   config.register_javascript  Ckeditor.cdn_url
   config.register_javascript 'ckeditor/config.js'
+  config.before_action do
+    I18n.locale = 'es'
+  end
 end
