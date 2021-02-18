@@ -10,7 +10,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  database: dr3
+  database: dr6
   username: ats
   password: test4321
   host:     <%= ENV['ATUSERVICIO_DB_HOST'] %>
