@@ -1,4 +1,5 @@
 class Program < ApplicationRecord
+  belongs_to :country
   has_one_attached :logo
   has_one_attached :icon
   has_many :supporters

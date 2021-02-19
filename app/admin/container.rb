@@ -29,6 +29,7 @@ ActiveAdmin.register Container do
 
   filter :id
   filter :sub_program_id, as: :select, collection: SubProgram.all.map{|s| [s.name, s.id]}
+  filter :country_id, as: :select, collection: Country.all.map{|s| [s.name, s.id]}
   filter :state
   filter :public_site
   filter :container_type_id, as: :select, collection: ContainerType.all.map{|s| [s.name, s.id]}
