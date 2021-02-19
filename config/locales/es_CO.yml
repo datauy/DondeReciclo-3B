@@ -1,13 +1,1 @@
 es_CO:
-  activerecord:
-    attributes:
-      waste:
-        name:
-          Computadoras: "Computadores"
-          Heladera: "Nevera"
-  controllers:
-    api:
-      waste:
-        name:
-          Computadoras: "Computadores2" 
-          Heladera: "Nevera2"
