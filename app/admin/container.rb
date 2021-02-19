@@ -22,7 +22,9 @@ ActiveAdmin.register Container do
     end
     column :created_at
     column :photos do |l|
-      image_tag url_for(l.photos) if l.photos.attached?
+      if l.photos.attached?
+        l.photos.map{ |photo| image_tag url_for(photo) }
+      end
     end
     actions
   end
