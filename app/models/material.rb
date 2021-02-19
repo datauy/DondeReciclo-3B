@@ -11,6 +11,8 @@ class Material < ApplicationRecord
 
   attr_accessor :name_class
 
+  translates :name, :information
+
   def self.search(str)
     Material.where("lower(name) like :value or lower(information) like :value", value: "%#{str}%")
   end

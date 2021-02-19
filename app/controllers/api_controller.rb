@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-
+  before_action :set_locale
   #Location Subprograms
   def subprograms4location
     factory = RGeo::GeoJSON::EntityFactory.instance
@@ -423,5 +423,12 @@ class ApiController < ApplicationController
       end
     end
     res
+  end
+  def set_locale
+    I18n.locale = extract_locale || I18n.default_locale
+  end
+  def extract_locale
+    parsed_locale = params[:locale]
+    I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 end

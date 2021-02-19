@@ -18,5 +18,11 @@ module DondeRecicloBack
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.i18n.available_locales = [:en, :es, :es_CO]
+    config.i18n.default_locale = :es
+    config.i18n.fallbacks = {
+      en: [:en, :es, :es_CO],
+      es: [:es, :es_CO, :en],
+      es_CO: [:es_CO, :es, :en],
+    }
   end
 end

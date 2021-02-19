@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_005534) do
+ActiveRecord::Schema.define(version: 2021_02_18_214603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.bigint "container_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "hidden"
-    t.point "latlon"
+    t.boolean "hidden", default: false
+    t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.text "information"
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -120,6 +121,17 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
+  end
+
+  create_table "material_translations", force: :cascade do |t|
+    t.bigint "material_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "information"
+    t.index ["locale"], name: "index_material_translations_on_locale"
+    t.index ["material_id"], name: "index_material_translations_on_material_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -283,6 +295,16 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
+    t.bigint "sub_program_id"
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_schedules_on_location_id"
+    t.index ["sub_program_id"], name: "index_schedules_on_sub_program_id"
+  end
+
+  create_table "schedules_zones", id: false, force: :cascade do |t|
+    t.bigint "zone_id", null: false
+    t.bigint "schedule_id", null: false
+    t.index ["zone_id", "schedule_id"], name: "index_schedules_zones_on_zone_id_and_schedule_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -347,6 +369,17 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "waste_translations", force: :cascade do |t|
+    t.bigint "waste_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "deposition"
+    t.index ["locale"], name: "index_waste_translations_on_locale"
+    t.index ["waste_id"], name: "index_waste_translations_on_waste_id"
+  end
+
   create_table "wastes", force: :cascade do |t|
     t.bigint "material_id"
     t.string "name"
@@ -371,6 +404,17 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
     t.index ["waste_id"], name: "index_wastes_relations_on_waste_id"
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.bigint "sub_program_id", null: false
+    t.bigint "location_id", null: false
+    t.boolean "is_route"
+    t.integer "pick_up_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_zones_on_location_id"
+    t.index ["sub_program_id"], name: "index_zones_on_sub_program_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
@@ -390,6 +434,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
   add_foreign_key "reports", "countries"
   add_foreign_key "reports", "sub_programs"
   add_foreign_key "reports", "users"
+  add_foreign_key "schedules", "locations"
+  add_foreign_key "schedules", "sub_programs"
   add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
@@ -399,4 +445,6 @@ ActiveRecord::Schema.define(version: 2020_11_09_005534) do
   add_foreign_key "wastes_relations", "searches"
   add_foreign_key "wastes_relations", "supporters"
   add_foreign_key "wastes_relations", "wastes"
+  add_foreign_key "zones", "locations"
+  add_foreign_key "zones", "sub_programs"
 end
