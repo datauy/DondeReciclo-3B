@@ -380,14 +380,14 @@ class ApiController < ApplicationController
       }
       if mat.class.name == 'Material'
         oa[:deposition] = mat.information
-        oa[:class] = mat.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.name_class
       elsif mat.class.name == 'Waste'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
         oa[:deposition] = mat.deposition
-        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'default'
       elsif mat.class.name == 'Product'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
-        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'default'
       end
       res << oa
     end
