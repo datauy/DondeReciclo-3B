@@ -1,4 +1,5 @@
 namespace :importer_col do
+  I18n.locale = :es_CO
   def all_day_sched
     ids = []
     for i in 1..7
@@ -12,12 +13,30 @@ namespace :importer_col do
     end
     return ids
   end
+  task :eval_materials, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    mats = []
+    f.each do |feature|
+      mats << [feature["Responsabl"], feature["Tipo_de_Ma"]]
+    end
+    puts mats.uniq.inspect
+  end
   task :containers, [:file] => :environment do |_, args|
     puts "Empieza importación de puntos"
     file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     i = 0
+    site_name = 'Nombre_lug'
+    collect = 'Dias_de_re'
+    collect_time = 'Horario_at'
+    if file == 'posconsumo.geojson'
+      site_name = 'Nombre_Pun'
+      collect = 'Dias_recol'
+      collect_time = 'Horario'
+    end
     allDayIds = all_day_sched();
     f.each do |feature|
       i = i + 1
@@ -36,9 +55,13 @@ namespace :importer_col do
         puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
         next
       end
+      if feature.properties['Condicione'].present?
+        sub_program.reception_conditions = feature.properties['Condicione']
+        sub_program.save
+      end
       #Los materiales se asocian manualmente a los subprogramas
       container = {
-        site: feature.properties["Nombre_lug"].present? ? feature.properties["Nombre_lug"] : '',
+        site: feature.properties[site_name].present? ? feature.properties[site_name] : '',
         latlon: feature.geometry,
         latitude: feature.geometry.coordinates[1],
         longitude: feature.geometry.coordinates[0],
@@ -46,36 +69,26 @@ namespace :importer_col do
         address: feature.properties["Dirección"],
         public_site: 1,
         sub_program_id: sub_program.id,
-        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "",
-        container_type_id: 3,
+        site_type: feature.properties[site_name] == "Espacio Público" ? "En vía pública" : "",
+        container_type_id: 2,
       }
-      if feature.properties["Id"].present?
-        container[:external_id] = feature.properties["Id"]
-      end
-      update_sub = false
-      if feature.properties["Dias_recol"].present? && feature.properties['Horario_at'].present?
-        sub_program.receives = "#{feature.properties['Dias_recol']}: #{feature.properties['Horario_at']}"
-        update_sub = true
-      end
-      if feature.properties['Condicione'].present?
-        sub_program.reception_conditions = feature.properties['Condicione']
-        update_sub = true
-      end
-      if update_sub
-        sub_program.save
-      end
       container = Container.find_or_create_by(container)
       if !container.validate!
         puts "ERROR: #{container.errors.full_messages}\n exiting..."
         next
       end
+      if feature.properties["Id"].present?
+        container[:external_id] = feature.properties["Id"]
+      end
+      if (feature.properties[collect].present? && feature.properties[collect_time].present?)
+        container.information = "#{feature.properties[collect]}: #{feature.properties[collect_time]}"
+      end
+      container.save
       #Get schedules
       scheds = []
       if feature.properties["Horario_at"]  == 'Permanente' && feature.properties["Funcionami"] == 'Permanente'
         scheds = allDayIds
         puts "Asignado automáticamente el calendario para todos los días\n"
-      else
-        puts "No se puede asignar automáticamente el calendario: #{feature.properties["Id"]}\n"
       end
       container.schedule_ids = scheds
       container.save

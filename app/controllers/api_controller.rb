@@ -133,7 +133,7 @@ class ApiController < ApplicationController
   def containers
     @cont = Container
     .where( sub_program_id: params[:sub_id] )
-    .includes( sub_program:[:program, :materials, :wastes] )
+    .includes( :sub_program )
     .limit(5)
     #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
@@ -152,11 +152,11 @@ class ApiController < ApplicationController
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
     if (params[:materials])
       @cont = cont.
-        joins( sub_program: [:materials] ).
+        joins( :sub_program).
         where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
     elsif params[:wastes]
       @cont = cont.
-        joins( sub_program: [:wastes] ).
+        joins( :sub_program).
         where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
     else
       return self.containers_bbox
@@ -182,14 +182,14 @@ class ApiController < ApplicationController
     if (params[:materials])
       materials = params[:materials].split(',')
       @cont = cont.
-        joins( sub_program: [:materials] ).
+        joins( :sub_program ).
         where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
         limit(50)
       #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
     elsif params[:wastes]
       wastes = params[:wastes].split(',')
       @cont = cont.
-        joins( sub_program: [:wastes] ).
+        joins( :sub_program ).
         where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
         limit(50)
       #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
@@ -232,7 +232,7 @@ class ApiController < ApplicationController
       .map{|mat| ({
         id: mat.id,
         name: mat.name,
-        class: mat.material.present? ? mat.material.name_class : 'default',
+        class: mat.material.present? ? mat.material.name_class : 'primary',
       })}
   end
   #
@@ -335,8 +335,8 @@ class ApiController < ApplicationController
       #public: cont.public_site,
       #materials: cont.sub_program.materials.ids,
       #wastes: cont.sub_program.wastes.ids,
-      main_material: cont.sub_program.material.id,
-      class: cont.sub_program.material.name_class,
+      main_material: cont.sub_program.material_id,
+      #class: cont.sub_program.material.name_class,
       #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       #receives_no: cont.sub_program.receives_no
     }) }
@@ -384,10 +384,10 @@ class ApiController < ApplicationController
       elsif mat.class.name == 'Waste'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
         oa[:deposition] = mat.deposition
-        oa[:class] = mat.material.present? ? mat.material.name_class : 'default'
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
       elsif mat.class.name == 'Product'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
-        oa[:class] = mat.material.present? ? mat.material.name_class : 'default'
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
       end
       res << oa
     end
