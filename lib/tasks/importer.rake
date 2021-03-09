@@ -21,28 +21,44 @@ namespace :importer_col do
     f.each do |feature|
       mats << [feature["Responsabl"], feature["Tipo_de_Ma"]]
     end
-    puts mats.uniq.inspect
+    mats.uniq.each do |a|
+      mat = Waste.where({name: a[1]}).first
+      if (mat.present?)
+        puts "MATERIAL PRESENT CO: #{mat.name}"
+      end
+      puts "#{a[0]} => #{a[1]}"
+    end
   end
   task :containers, [:file] => :environment do |_, args|
-    puts "Empieza importación de puntos"
     file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    puts "Empieza importación de puntos: #{file}"
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     i = 0
     site_name = 'Nombre_lug'
-    collect = 'Dias_de_re'
+    collect = 'Dias_recol'
     collect_time = 'Horario_at'
-    if file == 'posconsumo.geojson'
+    if file == 'posconsumo.geojson' || file == 'posconsumo-test.geojson'
       site_name = 'Nombre_Pun'
-      collect = 'Dias_recol'
+      collect = 'Dias_de_re'
       collect_time = 'Horario'
     end
     allDayIds = all_day_sched();
+    wastes = {}
     f.each do |feature|
       i = i + 1
-      #if i < 2150
-      #  next
-      #end
+      waste_name = feature["Tipo_de_Ma"]
+      if wastes[waste_name].present?
+        waste = wastes[waste_name]
+      else
+        waste = Waste.where({name: waste_name}).first
+        if !waste.present?
+          puts "RESIDUO NO ENCONTRADO: #{waste_name}\n"
+          next
+        else
+          wastes[waste_name] = waste
+        end
+      end
       puts "Contenedor #{i}\n"
       sub_prog = {
         program_id: 1,
@@ -55,8 +71,20 @@ namespace :importer_col do
         puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
         next
       end
+      sub_update = false
+      if sub_program.material_id == 1
+        sub_program.material_id = waste.material_id
+        sub_update = true;
+      end
       if feature.properties['Condicione'].present?
         sub_program.reception_conditions = feature.properties['Condicione']
+        sub_update = true;
+      end
+      if !sub_program.wastes.include? waste
+        sub_program.wastes << waste
+        sub_update = true
+      end
+      if sub_update
         sub_program.save
       end
       #Los materiales se asocian manualmente a los subprogramas
@@ -81,7 +109,7 @@ namespace :importer_col do
         container[:external_id] = feature.properties["Id"]
       end
       if (feature.properties[collect].present? && feature.properties[collect_time].present?)
-        container.information = "#{feature.properties[collect]}: #{feature.properties[collect_time]}"
+        container.information = "Dias de recolección: #{feature.properties[collect]} \nHorario: #{feature.properties[collect_time]}"
       end
       container.save
       #Get schedules
@@ -95,6 +123,7 @@ namespace :importer_col do
     end
     puts "\n\nSe importaron #{i} contenedores_colombia\n"
   end
+  #
   task :zones, [:file, :pick_up_type] => :environment do |_, args|
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     file = args[:file].present? ? args[:file] : 'cobertura-Colombia-4326.geojson'

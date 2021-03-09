@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'api/container_types'
   get 'api/container/:id', to: 'api#container'
   get 'api/containers'
+  get 'api/subprogram_containers'
   get 'api/containers_bbox'
   get 'api/containers_bbox4materials'
   get 'api/containers_nearby'

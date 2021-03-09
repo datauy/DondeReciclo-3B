@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   before_action :set_locale
+
   #Location Subprograms
   def subprograms4location
     factory = RGeo::GeoJSON::EntityFactory.instance
@@ -122,20 +123,24 @@ class ApiController < ApplicationController
     render json: response
   end
   #
+  def subprogram_containers
+    @cont = Container
+    .where( sub_program_id: params[:sub_ids].split(',') )
+    .includes( :sub_program )
+    render json: format_pins(@cont)
+  end
+  #
   def container
     @cont = Container
     .with_attached_photos
     .find( params[:id] )
-    #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_container(@cont)
   end
   #
   def containers
     @cont = Container
-    .where( sub_program_id: params[:sub_id] )
+    .where( id: params[:container_ids].split(',') )
     .includes( :sub_program )
-    .limit(5)
-    #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
   #
@@ -152,11 +157,11 @@ class ApiController < ApplicationController
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
     if (params[:materials])
       @cont = cont.
-        joins( :sub_program).
+        joins( sub_program: [:materials] ).
         where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
     elsif params[:wastes]
       @cont = cont.
-        joins( :sub_program).
+        joins( sub_program: [:wastes]).
         where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
     else
       return self.containers_bbox
@@ -170,7 +175,6 @@ class ApiController < ApplicationController
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
       .limit(50)
-      #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
   #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
@@ -182,14 +186,14 @@ class ApiController < ApplicationController
     if (params[:materials])
       materials = params[:materials].split(',')
       @cont = cont.
-        joins( :sub_program ).
+        joins( sub_program: [:materials] ).
         where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
         limit(50)
       #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
     elsif params[:wastes]
       wastes = params[:wastes].split(',')
       @cont = cont.
-        joins( :sub_program ).
+        joins( sub_program: [:wastes] ).
         where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
         limit(50)
       #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
@@ -357,6 +361,7 @@ class ApiController < ApplicationController
       location: cont.location,
       state: cont.state,
       public: cont.public_site,
+      information: cont.information,
       materials: cont.sub_program.materials.ids,
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
