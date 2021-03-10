@@ -13,8 +13,34 @@ namespace :importer_col do
     end
     return ids
   end
+  #
+  task :assign_programs, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'posconsumo.geojson'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      sub_prog = {
+        city:  feature.properties["Ciudad"],
+        email: feature.properties["Correo"],
+        name: feature.properties["Responsabl"],
+      }
+      sub_program = SubProgram.find_by(sub_prog)
+      if sub_program.present?
+        program = Program.find_or_create_by( {
+          name: feature.properties["Responsabl"],
+          country_id: 2
+        })
+        sub_program.program = program
+        sub_program.save
+        puts "Subprogram update: #{sub_program.name}, program  #{program.name}"
+      else
+        puts "SUBP NOT FOUND: #{feature.properties["Responsabl"]}"
+      end
+    end
+  end
+  #
   task :eval_materials, [:file] => :environment do |_, args|
-    file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
+    file = args[:file].present? ? args[:file] : 'posconsumo.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     mats = []
@@ -60,8 +86,12 @@ namespace :importer_col do
         end
       end
       puts "Contenedor #{i}\n"
+      program = Program.find_or_create_by( {
+        name: feature.properties["Responsabl"],
+        country_id: 2
+      })
       sub_prog = {
-        program_id: 1,
+        program: program,
         city:  feature.properties["Ciudad"],
         email: feature.properties["Correo"],
         name: feature.properties["Responsabl"],
