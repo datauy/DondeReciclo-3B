@@ -3,42 +3,36 @@ class ApiController < ApplicationController
 
   #Location Subprograms
   def subprograms4location
-    factory = RGeo::GeoJSON::EntityFactory.instance
-    render json: Zone.
+    z = Zone.
     joins(:location).
     select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
-    includes(:sub_program).
-    includes(:schedules).
+    includes(:sub_program, :schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), 0.009 )", params[:wkt] ).
     order("distance asc").
-    limit(6).
-    map{ |ns| {
-      id: ns.sub_program.id,
-      program_id: ns.sub_program.program_id,
-      name: ns.sub_program.name,
-      city: ns.sub_program.city,
-      address: ns.sub_program.address,
-      email: ns.sub_program.email,
-      phone: ns.sub_program.phone,
-      receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
-      locations: ns.sub_program.locations.map{ |loc| loc.name },
-      #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-      zone: {
-        is_route: ns.is_route,
-        pick_up_type: ns.pick_up_type,
-        location: RGeo::GeoJSON.encode(
-          factory.feature_collection([
-            factory.feature(
-              ns.geometry,
-              "#{ns.sub_program.id} - #{ns.id}",
-              { name: ns.location.name, subprograms: [ns.sub_program.name] }
-            )
-          ])
-        ),
-        distance: ns.distance,
-        schedules: ns.schedules
-      }
-    }}
+    limit(6)
+    render json: formatZone(z, true)
+  end
+  #
+  def zone4point
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    features = []
+    Location.
+    includes(:zones).
+    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    order("distance asc").
+    limit(1).
+    each do |loc|
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.zones.map { |zone| zone.sub_program.name} })
+    end
+    render json:
+      RGeo::GeoJSON.encode(factory.feature_collection(features))
+  end
+  #
+  def subprogram4location
+    z = Zone.
+    includes( :schedules, :sub_program ).
+    where(location_id: params[:zone])
+    render json: formatZone(z, false)
   end
   #Location Subprograms
   def subprogramsInArea
@@ -396,6 +390,45 @@ class ApiController < ApplicationController
       end
       res << oa
     end
+    return res
+  end
+  #
+  def formatZone(z, load_geom)
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    res = []
+    z.each_with_index do |ns, i|
+      res.push({
+        id: ns.sub_program.id,
+        program_id: ns.sub_program.program_id,
+        name: ns.sub_program.name,
+        city: ns.sub_program.city,
+        address: ns.sub_program.address,
+        email: ns.sub_program.email,
+        phone: ns.sub_program.phone,
+        receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+        locations: ns.sub_program.locations.map{ |loc| loc.name },
+        #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+        zone: {
+          is_route: ns.is_route,
+          pick_up_type: ns.pick_up_type,
+          schedules: ns.schedules
+        }
+      })
+      if load_geom
+        logger.info("LOAD GEOM: #{i}")
+        res[i][:location] = RGeo::GeoJSON.encode(
+          factory.feature_collection([
+            factory.feature(
+              ns.geometry,
+              "#{ns.sub_program.id} - #{ns.id}",
+              { name: ns.location.name, subprograms: [ns.sub_program.name] }
+            )
+          ])
+        )
+        res[i][:distance] = ns.distance
+      end
+    end
+    logger.info("\n\n#{res.inspect}\n\n")
     return res
   end
   #Format container week

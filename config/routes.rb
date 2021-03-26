@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'api/location4Polygon'
   get 'api/country4Point'
   get 'api/subprograms4location'
+  get 'api/subprogram4location'
+  get 'api/zone4point'
   get 'api/materials'
   get 'api/wastes'
   get 'api/container_types'
