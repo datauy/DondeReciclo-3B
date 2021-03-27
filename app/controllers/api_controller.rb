@@ -416,7 +416,7 @@ class ApiController < ApplicationController
       })
       if load_geom
         logger.info("LOAD GEOM: #{i}")
-        res[i][:location] = RGeo::GeoJSON.encode(
+        res[i][:zone][:location] = RGeo::GeoJSON.encode(
           factory.feature_collection([
             factory.feature(
               ns.geometry,
@@ -425,7 +425,7 @@ class ApiController < ApplicationController
             )
           ])
         )
-        res[i][:distance] = ns.distance
+        res[i][:zone][:distance] = ns.distance
       end
     end
     logger.info("\n\n#{res.inspect}\n\n")
