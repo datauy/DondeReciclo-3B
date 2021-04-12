@@ -394,7 +394,6 @@ class ApiController < ApplicationController
   end
   #
   def formatZone(z, load_geom)
-    factory = RGeo::GeoJSON::EntityFactory.instance
     res = []
     z.each_with_index do |ns, i|
       res.push({
@@ -415,12 +414,12 @@ class ApiController < ApplicationController
         }
       })
       if load_geom
-        logger.info("LOAD GEOM: #{i}")
+        factory = RGeo::GeoJSON::EntityFactory.instance
         res[i][:zone][:location] = RGeo::GeoJSON.encode(
           factory.feature_collection([
             factory.feature(
               ns.geometry,
-              "#{ns.sub_program.id} - #{ns.id}",
+              "#{ns.sub_program.id}-#{ns.id}",
               { name: ns.location.name, subprograms: [ns.sub_program.name] }
             )
           ])

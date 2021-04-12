@@ -14,6 +14,44 @@ namespace :importer_col do
     return ids
   end
   #
+  task :assign_programs_fromCSV, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'PuntosProgramas.csv'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    programs = {}
+    not_found = []
+    CSV.foreach("db/data/#{file}", headers: true) do |feature|
+      sub_prog = {
+        city:  feature["Ciudad"],
+        email: feature["Correo"],
+        name: feature["Responsabl"],
+      }
+      sub_program = SubProgram.find_by(sub_prog)
+      if sub_program.present?
+        prog = feature["PROGRAMA"]
+        program = Program.find_or_create_by( {
+          name: prog,
+          country_id: 2
+        })
+        if programs[prog].present?
+          if !programs[prog].include?(sub_program.id)
+            programs[prog] << sub_program.id
+            sub_program.program = program
+            sub_program.save
+            puts "Subprogram update: #{sub_program.name}, program  #{program.name}, #{feature["Ciudad"]}"
+          end
+        else
+          programs[prog] = [sub_program.id]
+        end
+      else
+        puts "SUBP NOT FOUND: #{feature["Responsabl"]}"
+        if !not_found.include?(feature["Responsabl"])
+          not_found << feature["Responsabl"]
+        end
+      end
+    end
+    puts "\n\nTERMINADO: \n #{programs.inspect}\nNo encontrados\n#{not_found.inspect}\n"
+  end
+  #
   task :assign_programs, [:file] => :environment do |_, args|
     file = args[:file].present? ? args[:file] : 'posconsumo.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
