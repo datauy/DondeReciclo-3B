@@ -52,6 +52,29 @@ ActiveAdmin.register Waste do
     end
     f.actions
   end
+  #
+  csv do
+    column :id
+    I18n.locale = :es_UY
+    column :name
+    column :deposition do |waste|
+      waste.deposition.gsub! '"', "'"
+    end
+    column('Nombre(CO)', humanize_name: false) do |waste|
+      I18n.locale = :es_CO
+      waste.name
+    end
+    column("Deposition(CO)", humanize_name: false) do |waste|
+      waste.deposition.gsub! '"', "'"
+    end
+    column :material do |waste|
+      waste.material.name
+    end
+    column "Prefefined Searches" do |l|
+      l.predefined_searches.all.map { |e| [e.country.name] }.join(', ')
+    end
+  end
+  #
   controller do
     def set_locale
       if session[:current_country].present? && session[:current_country].to_i == 2
