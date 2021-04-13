@@ -50,7 +50,7 @@ ActiveAdmin.register Material do
       mat.name
     end
     column('Información(CO)', humanize_name: false) do |mat|
-      mat.name
+      mat.information
     end
   end
 
