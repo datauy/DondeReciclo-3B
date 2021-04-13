@@ -166,7 +166,7 @@ namespace :importer_col do
         public_site: 1,
         sub_program_id: sub_program.id,
         site_type: feature.properties[site_name] == "Espacio Público" ? "En vía pública" : "",
-        container_type_id: 2,
+        container_type_id: 3,
       }
       container = Container.find_or_create_by(container)
       if !container.validate!

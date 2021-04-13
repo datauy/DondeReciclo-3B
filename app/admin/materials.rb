@@ -40,6 +40,20 @@ ActiveAdmin.register Material do
     f.actions
   end
 
+  csv do
+    I18n.locale = :es_UY
+    column :id
+    column :name
+    column :information
+    column('Nombre(CO)', humanize_name: false) do |mat|
+      I18n.locale = :es_CO
+      mat.name
+    end
+    column('Información(CO)', humanize_name: false) do |mat|
+      mat.name
+    end
+  end
+
   controller do
     def set_locale
       if session[:current_country].present? && session[:current_country].to_i == 2
