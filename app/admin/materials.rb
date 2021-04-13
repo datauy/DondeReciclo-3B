@@ -52,6 +52,9 @@ ActiveAdmin.register Material do
     column('Información(CO)', humanize_name: false) do |mat|
       mat.information
     end
+    column "En búsqueda predefinida" do |l|
+      l.predefined_searches.all.map { |e| [e.country.name] }.join(', ')
+    end
   end
 
   controller do
