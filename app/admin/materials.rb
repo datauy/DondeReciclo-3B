@@ -41,6 +41,7 @@ ActiveAdmin.register Material do
   end
 
   csv do
+    lastLocale = I18n.locale
     I18n.locale = :es_UY
     column :id
     column :name
@@ -53,6 +54,7 @@ ActiveAdmin.register Material do
       mat.information
     end
     column "En búsqueda predefinida" do |l|
+      I18n.locale = lastLocale
       l.predefined_searches.all.map { |e| [e.country.name] }.join(', ')
     end
   end
