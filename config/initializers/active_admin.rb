@@ -215,7 +215,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-
+  config.register_stylesheet 'activeadmin-dr3.css'
   # == CSV options
   #
   # Set the CSV builder separator
@@ -327,4 +327,17 @@ ActiveAdmin.setup do |config|
   # config.order_clause = MyOrderClause
   config.register_javascript  Ckeditor.cdn_url
   config.register_javascript 'ckeditor/config.js'
+=begin  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add :label => 'Custom Menu' do |submenu|
+        submenu.add :label => 'Custom Link', :url => custom_path
+      end
+    end
+=end
+  ActiveAdmin::Views::SiteTitle.class_eval do
+    private
+    def title_text
+        "Dondereciclo 3 Backend #{session[:current_country].present? ? Country.find(session[:current_country]).name : '' }"
+    end
+  end
 end

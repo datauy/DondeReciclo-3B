@@ -1,4 +1,5 @@
 namespace :importer_col do
+  I18n.locale = :es_CO
   def all_day_sched
     ids = []
     for i in 1..7
@@ -12,21 +13,123 @@ namespace :importer_col do
     end
     return ids
   end
-  task :containers, [:file] => :environment do |_, args|
-    puts "Empieza importación de puntos"
-    file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
+  #
+  task :assign_programs_fromCSV, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'PuntosProgramas.csv'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    programs = {}
+    not_found = []
+    CSV.foreach("db/data/#{file}", headers: true) do |feature|
+      sub_prog = {
+        city:  feature["Ciudad"],
+        email: feature["Correo"],
+        name: feature["Responsabl"],
+      }
+      sub_program = SubProgram.find_by(sub_prog)
+      if sub_program.present?
+        prog = feature["PROGRAMA"]
+        program = Program.find_or_create_by( {
+          name: prog,
+          country_id: 2
+        })
+        if programs[prog].present?
+          if !programs[prog].include?(sub_program.id)
+            programs[prog] << sub_program.id
+            sub_program.program = program
+            sub_program.save
+            puts "Subprogram update: #{sub_program.name}, program  #{program.name}, #{feature["Ciudad"]}"
+          end
+        else
+          programs[prog] = [sub_program.id]
+        end
+      else
+        puts "SUBP NOT FOUND: #{feature["Responsabl"]}"
+        if !not_found.include?(feature["Responsabl"])
+          not_found << feature["Responsabl"]
+        end
+      end
+    end
+    puts "\n\nTERMINADO: \n #{programs.inspect}\nNo encontrados\n#{not_found.inspect}\n"
+  end
+  #
+  task :assign_programs, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'posconsumo.geojson'
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      sub_prog = {
+        city:  feature.properties["Ciudad"],
+        email: feature.properties["Correo"],
+        name: feature.properties["Responsabl"],
+      }
+      sub_program = SubProgram.find_by(sub_prog)
+      if sub_program.present?
+        program = Program.find_or_create_by( {
+          name: feature.properties["Responsabl"],
+          country_id: 2
+        })
+        sub_program.program = program
+        sub_program.save
+        puts "Subprogram update: #{sub_program.name}, program  #{program.name}"
+      else
+        puts "SUBP NOT FOUND: #{feature.properties["Responsabl"]}"
+      end
+    end
+  end
+  #
+  task :eval_materials, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'posconsumo.geojson'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    mats = []
+    f.each do |feature|
+      mats << [feature["Responsabl"], feature["Tipo_de_Ma"]]
+    end
+    mats.uniq.each do |a|
+      mat = Waste.where({name: a[1]}).first
+      if (mat.present?)
+        puts "MATERIAL PRESENT CO: #{mat.name}"
+      end
+      puts "#{a[0]} => #{a[1]}"
+    end
+  end
+  task :containers, [:file] => :environment do |_, args|
+    file = args[:file].present? ? args[:file] : 'contenedores_colombia.geojson'
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    puts "Empieza importación de puntos: #{file}"
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     i = 0
+    site_name = 'Nombre_lug'
+    collect = 'Dias_recol'
+    collect_time = 'Horario_at'
+    if file == 'posconsumo.geojson' || file == 'posconsumo-test.geojson'
+      site_name = 'Nombre_Pun'
+      collect = 'Dias_de_re'
+      collect_time = 'Horario'
+    end
     allDayIds = all_day_sched();
+    wastes = {}
     f.each do |feature|
       i = i + 1
-      #if i < 2150
-      #  next
-      #end
+      waste_name = feature["Tipo_de_Ma"]
+      if wastes[waste_name].present?
+        waste = wastes[waste_name]
+      else
+        waste = Waste.where({name: waste_name}).first
+        if !waste.present?
+          puts "RESIDUO NO ENCONTRADO: #{waste_name}\n"
+          next
+        else
+          wastes[waste_name] = waste
+        end
+      end
       puts "Contenedor #{i}\n"
+      program = Program.find_or_create_by( {
+        name: feature.properties["Responsabl"],
+        country_id: 2
+      })
       sub_prog = {
-        program_id: 1,
+        program: program,
         city:  feature.properties["Ciudad"],
         email: feature.properties["Correo"],
         name: feature.properties["Responsabl"],
@@ -36,9 +139,25 @@ namespace :importer_col do
         puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
         next
       end
+      sub_update = false
+      if sub_program.material_id == 1
+        sub_program.material_id = waste.material_id
+        sub_update = true;
+      end
+      if feature.properties['Condicione'].present?
+        sub_program.reception_conditions = feature.properties['Condicione']
+        sub_update = true;
+      end
+      if !sub_program.wastes.include? waste
+        sub_program.wastes << waste
+        sub_update = true
+      end
+      if sub_update
+        sub_program.save
+      end
       #Los materiales se asocian manualmente a los subprogramas
       container = {
-        site: feature.properties["Nombre_lug"].present? ? feature.properties["Nombre_lug"] : '',
+        site: feature.properties[site_name].present? ? feature.properties[site_name] : '',
         latlon: feature.geometry,
         latitude: feature.geometry.coordinates[1],
         longitude: feature.geometry.coordinates[0],
@@ -46,42 +165,33 @@ namespace :importer_col do
         address: feature.properties["Dirección"],
         public_site: 1,
         sub_program_id: sub_program.id,
-        site_type: feature.properties["Nombre_lug"] == "Espacio Público" ? "En vía pública" : "",
+        site_type: feature.properties[site_name] == "Espacio Público" ? "En vía pública" : "",
         container_type_id: 3,
       }
-      if feature.properties["Id"].present?
-        container[:external_id] = feature.properties["Id"]
-      end
-      update_sub = false
-      if feature.properties["Dias_recol"].present? && feature.properties['Horario_at'].present?
-        sub_program.receives = "#{feature.properties['Dias_recol']}: #{feature.properties['Horario_at']}"
-        update_sub = true
-      end
-      if feature.properties['Condicione'].present?
-        sub_program.reception_conditions = feature.properties['Condicione']
-        update_sub = true
-      end
-      if update_sub
-        sub_program.save
-      end
       container = Container.find_or_create_by(container)
       if !container.validate!
         puts "ERROR: #{container.errors.full_messages}\n exiting..."
         next
       end
+      if feature.properties["Id"].present?
+        container[:external_id] = feature.properties["Id"]
+      end
+      if (feature.properties[collect].present? && feature.properties[collect_time].present?)
+        container.information = "Dias de recolección: #{feature.properties[collect]} \nHorario: #{feature.properties[collect_time]}"
+      end
+      container.save
       #Get schedules
       scheds = []
       if feature.properties["Horario_at"]  == 'Permanente' && feature.properties["Funcionami"] == 'Permanente'
         scheds = allDayIds
         puts "Asignado automáticamente el calendario para todos los días\n"
-      else
-        puts "No se puede asignar automáticamente el calendario: #{feature.properties["Id"]}\n"
       end
       container.schedule_ids = scheds
       container.save
     end
     puts "\n\nSe importaron #{i} contenedores_colombia\n"
   end
+  #
   task :zones, [:file, :pick_up_type] => :environment do |_, args|
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     file = args[:file].present? ? args[:file] : 'cobertura-Colombia-4326.geojson'

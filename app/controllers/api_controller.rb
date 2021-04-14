@@ -1,43 +1,38 @@
 class ApiController < ApplicationController
+  before_action :set_locale
 
   #Location Subprograms
   def subprograms4location
-    factory = RGeo::GeoJSON::EntityFactory.instance
-    render json: Zone.
+    z = Zone.
     joins(:location).
     select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
-    includes(:sub_program).
-    includes(:schedules).
+    includes(:sub_program, :schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), 0.009 )", params[:wkt] ).
     order("distance asc").
-    limit(6).
-    map{ |ns| {
-      id: ns.sub_program.id,
-      program_id: ns.sub_program.program_id,
-      name: ns.sub_program.name,
-      city: ns.sub_program.city,
-      address: ns.sub_program.address,
-      email: ns.sub_program.email,
-      phone: ns.sub_program.phone,
-      receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
-      locations: ns.sub_program.locations.map{ |loc| loc.name },
-      #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-      zone: {
-        is_route: ns.is_route,
-        pick_up_type: ns.pick_up_type,
-        location: RGeo::GeoJSON.encode(
-          factory.feature_collection([
-            factory.feature(
-              ns.geometry,
-              "#{ns.sub_program.id} - #{ns.id}",
-              { name: ns.location.name, subprograms: [ns.sub_program.name] }
-            )
-          ])
-        ),
-        distance: ns.distance,
-        schedules: ns.schedules
-      }
-    }}
+    limit(6)
+    render json: formatZone(z, true)
+  end
+  #
+  def zone4point
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    features = []
+    Location.
+    includes(:zones).
+    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    order("distance asc").
+    limit(1).
+    each do |loc|
+      features << factory.feature(loc.geometry, loc.id, { name: loc.name, subprograms: loc.zones.map { |zone| zone.sub_program.name} })
+    end
+    render json:
+      RGeo::GeoJSON.encode(factory.feature_collection(features))
+  end
+  #
+  def subprogram4location
+    z = Zone.
+    includes( :schedules, :sub_program ).
+    where(location_id: params[:zone])
+    render json: formatZone(z, false)
   end
   #Location Subprograms
   def subprogramsInArea
@@ -122,20 +117,24 @@ class ApiController < ApplicationController
     render json: response
   end
   #
+  def subprogram_containers
+    @cont = Container
+    .where( sub_program_id: params[:sub_ids].split(',') )
+    .includes( :sub_program )
+    render json: format_pins(@cont)
+  end
+  #
   def container
     @cont = Container
     .with_attached_photos
     .find( params[:id] )
-    #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_container(@cont)
   end
   #
   def containers
     @cont = Container
-    .where( sub_program_id: params[:sub_id] )
-    .includes( sub_program:[:program, :materials, :wastes] )
-    .limit(5)
-    #.pluck(:'materials.name', :container_types.icon).where()
+    .where( id: params[:container_ids].split(',') )
+    .includes( :sub_program )
     render json: format_pins(@cont)
   end
   #
@@ -156,7 +155,7 @@ class ApiController < ApplicationController
         where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
     elsif params[:wastes]
       @cont = cont.
-        joins( sub_program: [:wastes] ).
+        joins( sub_program: [:wastes]).
         where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
     else
       return self.containers_bbox
@@ -170,7 +169,6 @@ class ApiController < ApplicationController
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
       .limit(50)
-      #.pluck(:'materials.name', :container_types.icon).where()
     render json: format_pins(@cont)
   end
   #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
@@ -232,7 +230,7 @@ class ApiController < ApplicationController
       .map{|mat| ({
         id: mat.id,
         name: mat.name,
-        class: mat.material.present? ? mat.material.name_class : 'default',
+        class: mat.material.present? ? mat.material.name_class : 'primary',
       })}
   end
   #
@@ -335,8 +333,8 @@ class ApiController < ApplicationController
       #public: cont.public_site,
       #materials: cont.sub_program.materials.ids,
       #wastes: cont.sub_program.wastes.ids,
-      main_material: cont.sub_program.material.id,
-      class: cont.sub_program.material.name_class,
+      main_material: cont.sub_program.material_id,
+      #class: cont.sub_program.material.name_class,
       #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
       #receives_no: cont.sub_program.receives_no
     }) }
@@ -357,6 +355,7 @@ class ApiController < ApplicationController
       location: cont.location,
       state: cont.state,
       public: cont.public_site,
+      information: cont.information,
       materials: cont.sub_program.materials.ids,
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
@@ -380,17 +379,55 @@ class ApiController < ApplicationController
       }
       if mat.class.name == 'Material'
         oa[:deposition] = mat.information
-        oa[:class] = mat.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.name_class
       elsif mat.class.name == 'Waste'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
         oa[:deposition] = mat.deposition
-        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
       elsif mat.class.name == 'Product'
         oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
-        oa[:class] = mat.material.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+        oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
       end
       res << oa
     end
+    return res
+  end
+  #
+  def formatZone(z, load_geom)
+    res = []
+    z.each_with_index do |ns, i|
+      res.push({
+        id: ns.sub_program.id,
+        program_id: ns.sub_program.program_id,
+        name: ns.sub_program.name,
+        city: ns.sub_program.city,
+        address: ns.sub_program.address,
+        email: ns.sub_program.email,
+        phone: ns.sub_program.phone,
+        receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+        locations: ns.sub_program.locations.map{ |loc| loc.name },
+        #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+        zone: {
+          is_route: ns.is_route,
+          pick_up_type: ns.pick_up_type,
+          schedules: ns.schedules
+        }
+      })
+      if load_geom
+        factory = RGeo::GeoJSON::EntityFactory.instance
+        res[i][:zone][:location] = RGeo::GeoJSON.encode(
+          factory.feature_collection([
+            factory.feature(
+              ns.geometry,
+              "#{ns.sub_program.id}-#{ns.id}",
+              { name: ns.location.name, subprograms: [ns.sub_program.name] }
+            )
+          ])
+        )
+        res[i][:zone][:distance] = ns.distance
+      end
+    end
+    logger.info("\n\n#{res.inspect}\n\n")
     return res
   end
   #Format container week
@@ -423,5 +460,12 @@ class ApiController < ApplicationController
       end
     end
     res
+  end
+  def set_locale
+    I18n.locale = extract_locale || I18n.default_locale
+  end
+  def extract_locale
+    parsed_locale = params[:locale]
+    I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 end

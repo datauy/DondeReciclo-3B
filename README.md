@@ -1,9 +1,9 @@
-#Donde Reciclo 3 Backend 1.2
+#Donde Reciclo 3 Backend 1.3
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 1.2.1
+## Versión 1.3.0
 La versión incluye la funcionalidad completa para la base de Donde Reciclo 3.5 y su lanzamiento en Colombia
 En esta versión se pasa a una base geográfica postgis mediante las gemas rgeo y acriverecord-postgis-adapter.
-Se terminan funcionalidades para manejo de zonas y subprogramas por proximidad, pendiente el registro de búsquedas.
+Se agregan funcionalidades de traducción por país y se ajustan detalles de interacciones.
 * Ruby version 2.6.3  
 
 * Rails version 6.0.2
@@ -31,6 +31,8 @@ rails s
   get 'api/location4Polygon'
   get 'api/country4Point'
   get 'api/subprograms4location'
+  get 'api/subprogram4location'
+  get 'api/zone4point'
   get 'api/materials'
   get 'api/wastes'
   get 'api/container_types'
@@ -53,3 +55,4 @@ rails s
   post 'api/collect', to: "user_api#collect"
   post 'password/forgot', to: 'utils#forgot'
   post 'password/reset', to: 'utils#reset'
+

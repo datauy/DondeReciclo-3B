@@ -8,13 +8,14 @@ ActiveAdmin.register Container do
       s.sub_program.name
     end
     column "Ver contenedor" do |s|
-      link_to "Ir al sitio", "https://dondereciclo.uy/intro/mapa/#{s.id}", target: "_blank"
+      link_to "Ir al sitio", "https://dondereciclo.uy/intro/container/#{s.id}", target: "_blank"
     end
     column :external_id
     column :latitude
     column :longitude
     column :site
     column :state
+    column :information
     column :public_site
     column :hidden
     column :container_type do |c|
@@ -22,13 +23,45 @@ ActiveAdmin.register Container do
     end
     column :created_at
     column :photos do |l|
-      image_tag url_for(l.photos) if l.photos.attached?
+      if l.photos.attached?
+        l.photos.map{ |photo| image_tag url_for(photo) }
+      end
     end
     actions
   end
 
+  show do
+    attributes_table do
+      row :sub_program do |s|
+        #auto_link(s.sub_program)
+        link_to s.sub_program.name, auto_url_for(s.sub_program), target: "_blank"
+      end
+      row "Ver contenedor" do |s|
+        link_to "Ir al sitio", "https://dondereciclo.uy/intro/container/#{s.id}", target: "_blank"
+      end
+      row :external_id
+      row :latitude
+      row :longitude
+      row :site
+      row :state
+      row :information
+      row :public_site
+      row :hidden
+      row :container_type do |c|
+        c.container_type.name
+      end
+      row :created_at
+      row :photos do |l|
+        if l.photos.attached?
+          l.photos.map{ |photo| image_tag url_for(photo) }
+        end
+      end
+    end
+  end
+
   filter :id
   filter :sub_program_id, as: :select, collection: SubProgram.all.map{|s| [s.name, s.id]}
+  filter :country_id, as: :select, collection: Country.all.map{|s| [s.name, s.id]}
   filter :state
   filter :public_site
   filter :container_type_id, as: :select, collection: ContainerType.all.map{|s| [s.name, s.id]}
@@ -40,12 +73,13 @@ ActiveAdmin.register Container do
       f.input :external_id
       f.input :latitude
       f.input :longitude
-      f.input :site
-      f.input :address
-      f.input :location
       f.input :state
+      f.input :location
+      f.input :address
+      f.input :site
       f.input :site_type
       f.input :public_site
+      f.input :information
       f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
       f.input :photos, as: :file, input_html: { multiple: true }

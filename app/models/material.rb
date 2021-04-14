@@ -11,10 +11,16 @@ class Material < ApplicationRecord
 
   attr_accessor :name_class
 
+  translates :name, :information
+
   def self.search(str)
     Material.where("lower(name) like :value or lower(information) like :value", value: "%#{str}%")
   end
   def name_class
-    self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+    lastLocale = I18n.locale
+    I18n.locale = I18n.default_locale
+    name_class = self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+    I18n.locale = lastLocale
+    return name_class
   end
 end

@@ -39,6 +39,7 @@ gem 'rgeo-activerecord'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo-geojson'
 gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
+gem 'globalize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
