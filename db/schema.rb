@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_01_27_033401) do
-=======
 ActiveRecord::Schema.define(version: 2021_02_18_214603) do
->>>>>>> release/1.3.0
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,10 +85,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "hidden", default: false
     t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
-<<<<<<< HEAD
-=======
     t.text "information"
->>>>>>> release/1.3.0
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -301,16 +294,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "closed"
-    t.bigint "sub_program_id"
-    t.bigint "location_id"
-    t.index ["location_id"], name: "index_schedules_on_location_id"
-    t.index ["sub_program_id"], name: "index_schedules_on_sub_program_id"
-  end
-
-  create_table "schedules_zones", id: false, force: :cascade do |t|
-    t.bigint "zone_id", null: false
-    t.bigint "schedule_id", null: false
-    t.index ["zone_id", "schedule_id"], name: "index_schedules_zones_on_zone_id_and_schedule_id"
   end
 
   create_table "schedules_zones", id: false, force: :cascade do |t|
@@ -437,8 +420,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
   add_foreign_key "reports", "countries"
   add_foreign_key "reports", "sub_programs"
   add_foreign_key "reports", "users"
-  add_foreign_key "schedules", "locations"
-  add_foreign_key "schedules", "sub_programs"
   add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
