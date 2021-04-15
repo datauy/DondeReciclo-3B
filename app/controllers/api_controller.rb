@@ -320,24 +320,33 @@ class ApiController < ApplicationController
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
   def format_pins(objs)
-    return objs.map{|cont| ({
-      id: cont.id,
-      #type_id: cont.container_type_id,
-      #program_id: cont.sub_program.program_id,
-      latitude: cont.latitude,
-      longitude: cont.longitude,
-      #program: cont.sub_program.program.name,
-      #subprogram: cont.sub_program.name,
-      #location: cont.site,
-      #address: cont.address,
-      #public: cont.public_site,
-      #materials: cont.sub_program.materials.ids,
-      #wastes: cont.sub_program.wastes.ids,
-      main_material: cont.sub_program.material_id,
-      #class: cont.sub_program.material.name_class,
-      #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
-      #receives_no: cont.sub_program.receives_no
-    }) }
+    if params[:version] && params[:version].to_d >= 1.3
+      return objs.map{|cont| ({
+        id: cont.id,
+        latitude: cont.latitude,
+        longitude: cont.longitude,
+        main_material: cont.sub_program.material_id,
+      }) }
+    else
+      return objs.map{|cont| ({
+        id: cont.id,
+        #type_id: cont.container_type_id,
+        #program_id: cont.sub_program.program_id,
+        latitude: cont.latitude,
+        longitude: cont.longitude,
+        #program: cont.sub_program.program.name,
+        #subprogram: cont.sub_program.name,
+        #location: cont.site,
+        #address: cont.address,
+        #public: cont.public_site,
+        #materials: cont.sub_program.materials.ids,
+        #wastes: cont.sub_program.wastes.ids,
+        main_material: cont.sub_program.material_id,
+        class: cont.sub_program.material.name_class,
+        #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
+        #receives_no: cont.sub_program.receives_no
+      }) }
+    end
   end
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
