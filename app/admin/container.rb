@@ -96,17 +96,16 @@ ActiveAdmin.register Container do
     end
     f.actions
   end
-=begin
+  #
   controller do
     def scoped_collection
-      if current_user.subprogram.nil?
+      if current_admin_user.is_superadmin?
         resource_class
       else
-        resource_class.where(collage: current_user.school_type)
+        resource_class.includes(sub_program:[:program]).where("programs.country_id": current_admin_user.country_id)
       end
     end
   end
-=end
   #
   member_action :delete_file, method: :delete do
     @pic = ActiveStorage::Attachment.find(params[:id])

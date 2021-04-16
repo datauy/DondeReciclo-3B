@@ -14,6 +14,17 @@ ActiveAdmin.register Location do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  menu if: proc{ current_admin_user.is_admin? }
+  before_action :authenticate
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_admin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+  end
+  #
   index do
     selectable_column
     id_column
@@ -23,6 +34,7 @@ ActiveAdmin.register Location do
     end
     actions
   end
+  #
   form do |f|
     f.inputs do
       f.input :name

@@ -1,7 +1,16 @@
 ActiveAdmin.register Material do
-  before_action :set_locale
+  before_action :authenticate, :set_locale
   permit_params :name, :icon, :information,:icon, :video, :color, predefined_search_ids: []
-
+  menu if: proc{ current_admin_user.is_admin? }
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_admin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+  end
+  #
   show do
     attributes_table do
       row :name
@@ -9,11 +18,11 @@ ActiveAdmin.register Material do
       row :predefined_search_ids
     end
   end
-
+  #
   filter :translations_name_contains, as: :string, label: "Nombre", placeholder: "Contiene"
   filter :translations_information_contains, as: :string, label: "Nombre", placeholder: "Contiene"
   filter :predefined_search_ids
-
+  #
   index do
     selectable_column
     id_column
@@ -28,7 +37,7 @@ ActiveAdmin.register Material do
     end
     actions
   end
-
+  #
   form do |f|
     f.inputs do
       f.input :name
@@ -39,10 +48,10 @@ ActiveAdmin.register Material do
     end
     f.actions
   end
-
+  #
   csv do
     lastLocale = I18n.locale
-    I18n.locale = :es_UY
+    I18n.locale = I18n.default_locale
     column :id
     column :name
     column :information
@@ -60,11 +69,20 @@ ActiveAdmin.register Material do
   end
 
   controller do
+    # TODO: Agregar idioma al país y levantarlo de manera correcta
     def set_locale
-      if session[:current_country].present? && session[:current_country].to_i == 2
-        I18n.locale = :es_CO
+      if current_admin_user.is_superadmin?
+        if session[:current_country].present? && session[:current_country].to_i == 2
+          I18n.locale = :es_CO
+        else
+          I18n.locale = I18n.default_locale
+        end
       else
-        I18n.locale = :es
+        if current_admin_user.country_id == 2
+          I18n.locale = :es_CO
+        else
+          I18n.locale = I18n.default_locale
+        end
       end
     end
   end

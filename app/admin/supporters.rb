@@ -14,5 +14,15 @@ ActiveAdmin.register Supporter do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  before_action :authenticate
+  menu if: proc{ current_admin_user.is_superadmin? }
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_superadmin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+  end
 
 end
