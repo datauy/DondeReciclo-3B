@@ -1,6 +1,23 @@
 ActiveAdmin.register Program do
   permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, material_ids: [], waste_ids: [], location_ids: []
+  before_action :authenticate
+  menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_admin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+    def scoped_collection
+      if current_admin_user.is_superadmin?
+        resource_class
+      else
+        resource_class.where(country: current_admin_user.country_id)
+      end
+    end
+  end
   index do
     selectable_column
     id_column
@@ -57,15 +74,4 @@ ActiveAdmin.register Program do
     end
     f.actions
   end
-=begin
-  controller do
-    def scoped_collection
-      if current_user.subprogram.nil?
-        resource_class
-      else
-        resource_class.where(collage: current_user.school_type)
-      end
-    end
-  end
-=end
 end

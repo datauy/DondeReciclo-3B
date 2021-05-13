@@ -41,6 +41,9 @@ namespace :importer_col do
           end
         else
           programs[prog] = [sub_program.id]
+          sub_program.program = program
+          sub_program.save
+          puts "Subprogram update: #{sub_program.name}, program  #{program.name}, #{feature["Ciudad"]}"
         end
       else
         puts "SUBP NOT FOUND: #{feature["Responsabl"]}"

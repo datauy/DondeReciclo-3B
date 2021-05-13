@@ -90,6 +90,8 @@ class UserApiController < ApplicationController
         weight: params[:weight],
         neighborhood: params[:neighborhood],
         address: address,
+        subprogram: suprog.name,
+        city: suprog.city
       }
       AdminMailer.
         with( mail_params ).

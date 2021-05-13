@@ -7,20 +7,24 @@ ActiveAdmin.register_page "Dashboard" do
         span "Bienvenide #{current_admin_user.email}"
         small "En el panel de administración podrá gestionar la información del país en el que se encuentra. Para seleccionar el país tenga a bien elejirlo de la lista debajo."
       end
-      div class: "country-select" do
-        span "Selecciona un país"
-        div class: "buttons" do
-          if params[:country_id].present?
-            session[:current_country] = params[:country_id]
-          end
-          Country.all.map do |ctry|
-            a "#{ctry.name}",
-              id: "country-#{ctry.id}",
-              class: "button #{session[:current_country].to_i == ctry.id ? 'selected' : ''}",
-              href: admin_dashboard_path({country_id: ctry.id}),
-              as: :button
+      if current_admin_user.is_superadmin?
+        div class: "country-select" do
+          span "Selecciona un país"
+          div class: "buttons" do
+            if params[:country_id].present?
+              session[:current_country] = params[:country_id]
+            end
+            Country.all.map do |ctry|
+              a "#{ctry.name}",
+                id: "country-#{ctry.id}",
+                class: "button #{session[:current_country].to_i == ctry.id ? 'selected' : ''}",
+                href: admin_dashboard_path({country_id: ctry.id}),
+                as: :button
+            end
           end
         end
+      else
+        session[:current_country] = current_admin_user.country_id
       end
     end
 

@@ -1,7 +1,23 @@
 ActiveAdmin.register SubProgram do
   permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
+  before_action :authenticate
+  menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
-
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_admin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+    def scoped_collection
+      if current_admin_user.is_superadmin?
+        resource_class
+      else
+        resource_class.joins(:program).where("programs.country_id": current_admin_user.country_id)
+      end
+    end
+  end
   form do |f|
     f.inputs do
       f.input :name

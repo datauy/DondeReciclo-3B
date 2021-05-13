@@ -1,5 +1,4 @@
 ActiveAdmin.register Waste do
-  before_action :set_locale
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -14,6 +13,16 @@ ActiveAdmin.register Waste do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  before_action :authenticate, :set_locale
+  menu if: proc{ current_admin_user.is_admin? }
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_admin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+  end
   show do
     attributes_table do
       row :name
@@ -79,10 +88,18 @@ ActiveAdmin.register Waste do
   #
   controller do
     def set_locale
-      if session[:current_country].present? && session[:current_country].to_i == 2
-        I18n.locale = :es_CO
+      if current_admin_user.is_superadmin?
+        if session[:current_country].present? && session[:current_country].to_i == 2
+          I18n.locale = :es_CO
+        else
+          I18n.locale = I18n.default_locale
+        end
       else
-        I18n.locale = :es
+        if current_admin_user.country_id == 2
+          I18n.locale = :es_CO
+        else
+          I18n.locale = I18n.default_locale
+        end
       end
     end
   end

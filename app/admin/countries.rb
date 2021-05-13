@@ -14,7 +14,16 @@ ActiveAdmin.register Country do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-
+  menu if: proc{ current_admin_user.is_superadmin? }
+  before_action :authenticate
+  #
+  controller do
+    def authenticate
+      if !current_admin_user.is_superadmin?
+        render :file => "public/401.html", :status => :unauthorized
+      end
+    end
+  end
   index do
     selectable_column
     id_column
