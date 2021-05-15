@@ -105,10 +105,17 @@ namespace :importer_col do
     site_name = 'Nombre_lug'
     collect = 'Dias_recol'
     collect_time = 'Horario_at'
+    default_reciclables = false
+    #update only new subs
+    sub_prog_new = false
     if file == 'posconsumo.geojson' || file == 'posconsumo-test.geojson'
       site_name = 'Nombre_Pun'
       collect = 'Dias_de_re'
       collect_time = 'Horario'
+    end
+    if file == 'faro.geojson'
+      default_reciclables = true
+      sub_prog_new = true
     end
     allDayIds = all_day_sched();
     wastes = {}
@@ -121,7 +128,11 @@ namespace :importer_col do
         waste = Waste.where({name: waste_name}).first
         if !waste.present?
           puts "RESIDUO NO ENCONTRADO: #{waste_name}\n"
-          next
+          if default_reciclables
+            waste = {material_id: 6}
+          else
+            next
+          end
         else
           wastes[waste_name] = waste
         end
@@ -137,23 +148,28 @@ namespace :importer_col do
         email: feature.properties["Correo"],
         name: feature.properties["Responsabl"],
       }
-      sub_program = SubProgram.find_or_create_by(sub_prog)
+      sub_program = SubProgram.find_by(sub_prog)
+      if sub_program.nil?
+        sub_program = SubProgram.create(sub_prog)
+      end
       if !sub_program.validate!
         puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
         next
       end
       sub_update = false
       if sub_program.material_id == 1
-        sub_program.material_id = waste.material_id
+        sub_program.material_id = waste[:material_id]
         sub_update = true;
       end
       if feature.properties['Condicione'].present?
         sub_program.reception_conditions = feature.properties['Condicione']
         sub_update = true;
       end
-      if !sub_program.wastes.include? waste
-        sub_program.wastes << waste
-        sub_update = true
+      if !sub_prog_new
+        if !sub_program.wastes.include? waste
+          sub_program.wastes << waste
+          sub_update = true
+        end
       end
       if sub_update
         sub_program.save
