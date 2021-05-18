@@ -114,8 +114,11 @@ namespace :importer_col do
       collect_time = 'Horario'
     end
     if file == 'faro.geojson'
+      collect = 'Días_de_r'
+      collect_time = 'Horario_de'
       default_reciclables = true
       sub_prog_new = true
+      program_id = 11
     end
     allDayIds = all_day_sched();
     wastes = {}
@@ -138,10 +141,14 @@ namespace :importer_col do
         end
       end
       puts "Contenedor #{i}\n"
-      program = Program.find_or_create_by( {
-        name: feature.properties["Responsabl"],
-        country_id: 2
-      })
+      if program_id.present?
+        program = Program.find(program_id)
+      else
+        program = Program.find_or_create_by( {
+          name: feature.properties["Responsabl"],
+          country_id: 2
+          })
+      end
       sub_prog = {
         program: program,
         city:  feature.properties["Ciudad"],
