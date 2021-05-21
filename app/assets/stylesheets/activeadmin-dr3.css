@@ -1,3 +1,19 @@
 a.button.selected {
   background: #4a4949;
 }
+form .collapsable-section .label {
+    background: #fff;
+    cursor: pointer;
+    font-weight:bold;
+    margin-bottom: 10px;
+    background-color: #6a7176;
+    background-image: linear-gradient(180deg, #6a7176, #4d5256);
+    border-bottom: 1px solid #44484b;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    color: white;
+    padding: 10px 10px;
+}
+
+form .collapsable-section {
+    margin: 15px;
+}
