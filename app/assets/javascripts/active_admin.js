@@ -29,4 +29,7 @@ function parent_selected(item) {
       $(item).find('.primary input').prop("indeterminate", true);
     }
   }
+  else {
+    $(item).find('.primary input').prop("indeterminate", false);
+  }
 }
