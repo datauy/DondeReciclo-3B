@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
         $label.addClass('down');
       }
     });
-    $(this).find('.sub-item input').click(function(e){
+    $(this).find('input').click(function(e){
       parent_selected($collapsables[i]);
     });
     parent_selected($collapsables[i]);

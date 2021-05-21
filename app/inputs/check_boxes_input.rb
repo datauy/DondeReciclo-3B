@@ -34,7 +34,7 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
         template.content_tag(
           :label,
           custom_checkbox(choice) + choice_label(choice),
-          label_html_options.merge(:for => choice_input_dom_id(choice), :class => "primary")
+          label_html_options.merge(:for => parent_id(options[:parent]) + choice_value(choice).to_s, :class => "primary")
         ) << sub_children(menu)
       end
     end
@@ -46,7 +46,7 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
       options[:parent],
       value,
       options[:parent_ids].include?(value),
-      extra_html_options(choice).merge(:id => choice_input_dom_id(choice), :disabled => disabled?(value), :required => false)
+      extra_html_options(choice).merge(:id => parent_id(options[:parent]) + value.to_s, :disabled => disabled?(value), :required => false)
     )
   end
   #
@@ -58,5 +58,9 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
      {:class=>"sub_item-#{menu.id} sub-item"}
     )
   end
-
+  def parent_id(parent)
+    pp = parent.gsub("[","_")
+    pp.gsub!("]","")
+    return pp
+  end
 end
