@@ -1,19 +1,37 @@
 a.button.selected {
   background: #4a4949;
 }
-form .collapsable-section .label {
-    background: #fff;
-    cursor: pointer;
-    font-weight:bold;
-    margin-bottom: 10px;
-    background-color: #6a7176;
-    background-image: linear-gradient(180deg, #6a7176, #4d5256);
-    border-bottom: 1px solid #44484b;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
-    color: white;
-    padding: 10px 10px;
+form .collapsable-section .expand {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 6px;
+  margin-right: 10px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
-
+form .collapsable-section .down .expand {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+form .collapsable-section .expand-area {
+  display: inline-block;
+}
 form .collapsable-section {
     margin: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+form .collapsable-section .sub-item {
+  margin-left: 36px;
+}
+form .collapsable-section label{
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+form .collapsable-section input {
+  margin-right: 6px;
 }

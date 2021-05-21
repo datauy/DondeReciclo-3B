@@ -10,7 +10,6 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
 
   def nested_wrapping(options)
     choices_wrapping do
-      legend_html <<
       hidden_field_for_all <<
       html_template_for_nested_set(options)
     end
@@ -28,10 +27,13 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
       if from_nested
         choice_html(choice)
       else
-        template.content_tag(:div, choice_label(choice), class: "label") +
+        template.content_tag(
+          :span,
+          template.content_tag(:i, "", class: "expand"),
+          class: "expand-area") +
         template.content_tag(
           :label,
-          custom_checkbox(choice) + ' Todos',#choice_label(choice),
+          custom_checkbox(choice) + choice_label(choice),
           label_html_options.merge(:for => choice_input_dom_id(choice), :class => "primary")
         ) << sub_children(menu)
       end
@@ -53,7 +55,7 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
      menu.children.collect do |child|
        html_for_nested(child, true)
      end.join("\n").html_safe,
-     {:style=>"margin-left:20px", :class=>"sub_item-#{menu.id} sub-item"}
+     {:class=>"sub_item-#{menu.id} sub-item"}
     )
   end
 
