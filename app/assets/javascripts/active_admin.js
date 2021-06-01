@@ -36,14 +36,15 @@ function parent_selected(item) {
   if ( $(item).find('.sub-item input:checked').length ) {
     //Alguno no chequeado?
     if ( $(item).find('.sub-item input:not(:checked)').length ) {
-      $(item).find('.primary input').prop("indeterminate", true);
+      expand.prop("indeterminate", true);
     }
     else {
-      $(item).find('.primary input').prop("indeterminate", false);
-      $(item).find('.primary input').prop("checked", true);
+      expand.prop("indeterminate", false);
+      expand.prop("checked", true);
     }
   }
   else {
-    $(item).find('.primary input').prop("checked", false);
+    expand.prop("indeterminate", false);
+    expand.prop("checked", false);
   }
 }
