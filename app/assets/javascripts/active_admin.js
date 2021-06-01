@@ -13,23 +13,37 @@ jQuery(document).ready(function($){
         $label.addClass('down');
       }
     });
-    $(this).find('input').click(function(e){
+    $(this).find('label.select_all').click(function(e){
+      check_all($collapsables[i]);
+    });
+    $(this).find('label').click(function(e){
       parent_selected($collapsables[i]);
     });
     parent_selected($collapsables[i]);
     $fields.slideToggle(200);
-    console.log(i);
   });
 });
+function check_all(item) {
+  console.log(item);
+  let res = $(item).find('.primary input').first().prop('checked');
+  $(item).
+    find('.sub-item input').
+    each(function(i, box) { box.checked = res; });
+}
 function parent_selected(item) {
+  var expand = $(item).find('.primary input');
   //Hijo chequeado
   if ( $(item).find('.sub-item input:checked').length ) {
-    //Padre chequeado?
-    if ( !$(item).find('.primary input:checked').length ) {
+    //Alguno no chequeado?
+    if ( $(item).find('.sub-item input:not(:checked)').length ) {
       $(item).find('.primary input').prop("indeterminate", true);
+    }
+    else {
+      $(item).find('.primary input').prop("indeterminate", false);
+      $(item).find('.primary input').prop("checked", true);
     }
   }
   else {
-    $(item).find('.primary input').prop("indeterminate", false);
+    $(item).find('.primary input').prop("checked", false);
   }
 }

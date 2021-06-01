@@ -21,23 +21,43 @@ class CheckBoxesInput < Formtastic::Inputs::CheckBoxesInput
     }.join("\n").html_safe
   end
 
-  def html_for_nested(menu, from_nested=false)
+  def html_for_nested(menu, from_nested=false, select_all=true, with_parents=false )
     choice = [menu.name , menu.id]
     template.content_tag(:li, class: "choice #{from_nested ? "" : "collapsable-section"}") do
       if from_nested
         choice_html(choice)
       else
+        if with_parents
+          parent_label = template.content_tag(
+            :label,
+            custom_checkbox(choice) + choice_label(choice),
+            label_html_options.merge(:for => parent_id(options[:parent]) + choice_value(choice).to_s, :class => "primary")
+          )
+        elsif select_all
+          parent_label = template.content_tag(
+            :label,
+            all_checkbox(choice) + choice_label(choice),
+            label_html_options.merge(:for => parent_id(options[:parent]) + choice_value(choice).to_s, :class => "select_all primary")
+          )
+        else
+          parent_label = template.content_tag( :label, choice_label(choice), label_html_options )
+        end
         template.content_tag(
           :span,
           template.content_tag(:i, "", class: "expand"),
-          class: "expand-area") +
-        template.content_tag(
-          :label,
-          custom_checkbox(choice) + choice_label(choice),
-          label_html_options.merge(:for => parent_id(options[:parent]) + choice_value(choice).to_s, :class => "primary")
-        ) << sub_children(menu)
+          class: "expand-area") + parent_label  << sub_children(menu)
       end
     end
+  end
+  #
+  def all_checkbox(choice)
+    value = choice_value(choice)
+    template.check_box_tag(
+      parent_id(options[:parent]) + value.to_s,
+      value,
+      false,
+      extra_html_options(choice).merge( :id => parent_id(options[:parent]) + value.to_s, :disabled => disabled?(value) )
+    )
   end
   #
   def custom_checkbox(choice)
