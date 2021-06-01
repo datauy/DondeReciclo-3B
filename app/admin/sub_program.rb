@@ -26,7 +26,8 @@ ActiveAdmin.register SubProgram do
       f.input :receives
       f.input :receives_no
       f.input :material_id, :label => 'Material principal', :as => :select, :collection => Material.all.map{|m| [m.name, m.id]}
-      f.inputs "Materiales" do
+      f.input :materials, as: :check_boxes, collection: Material.all
+      f.inputs "Residuos" do
         #f.div f.input(:materials, as: :check_boxes), class:"lalala"
         f.input :wastes, as: :check_boxes, nested_set: true, parent: "sub_program[material_ids][]", parent_ids: resource.material_ids, collection: Material.all
         #f.object.materials.build
