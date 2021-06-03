@@ -371,6 +371,7 @@ class ApiController < ApplicationController
       class: cont.sub_program.material.name_class,
       photos: cont.photos.attached? ? cont.photos.map{|photo| url_for(photo)} : [],  #.map {|ph| url_for(ph) } : '',
       receives_no: cont.sub_program.receives_no,
+      receives_text: cont.sub_program.receives,
       reception_conditions: cont.sub_program.reception_conditions,
       schedules: weekSummary(cont.schedules)
     }

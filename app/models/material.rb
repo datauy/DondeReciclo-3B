@@ -2,6 +2,7 @@ class Material < ApplicationRecord
   has_and_belongs_to_many :sub_programs#, set_primary_key: [:material_id, :sub_program_id]
   has_one_attached :icon
 
+  has_many :wastes
   has_many :materials_relations
   has_many :predefined_searches, through: :materials_relations
   has_many :reports, through: :materials_relations
@@ -22,5 +23,8 @@ class Material < ApplicationRecord
     name_class = self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
     I18n.locale = lastLocale
     return name_class
+  end
+  def children
+    self.wastes
   end
 end

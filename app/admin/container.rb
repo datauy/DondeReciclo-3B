@@ -1,5 +1,5 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :site_type, :public_site, :hidden, :container_type_id, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :information, :site_type, :public_site, :hidden, :container_type_id, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
   config.create_another = true
   index do
     selectable_column
