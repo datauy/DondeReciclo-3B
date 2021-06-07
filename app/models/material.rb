@@ -15,7 +15,7 @@ class Material < ApplicationRecord
   translates :name, :information
 
   def self.search(str)
-    Material.where("lower(name) like :value or lower(information) like :value", value: "%#{str}%")
+    Material.with_translations.where("lower(material_translations.name) like :value or lower(material_translations.information) like :value", value: "%#{str}%")
   end
   def name_class
     lastLocale = I18n.locale
