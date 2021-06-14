@@ -39,8 +39,21 @@ ActiveAdmin.register Waste do
   index do
     selectable_column
     id_column
-    column :name
-    column :deposition
+    current_loc = I18n.locale
+    I18n.available_locales.each do |loc|
+      if loc != :en
+        I18n.locale = loc
+        column "Nombre #{loc}" do |obj|
+          obj.name
+        end
+        column "Deposición #{loc}" do |obj|
+          obj.deposition.present? ? obj.deposition.html_safe : ''
+        end
+      end
+    end
+    I18n.locale = current_loc
+    #column (:name) { |waste| waste.translations.map{|tr| "#{tr.locale}: #{tr.name}".html_safe} }
+    #column (:deposition) { |waste| waste.deposition.present? ? waste.deposition.html_safe : '' }
     column :image do |l|
       image_tag url_for(l.image) if l.image.attached?
     end
@@ -55,6 +68,15 @@ ActiveAdmin.register Waste do
     f.inputs do
       f.input :name
       f.input :deposition, as: :ckeditor
+      current_loc = I18n.locale
+      I18n.available_locales.each do |loc|
+        if loc != :en && loc != current_loc
+          I18n.locale = loc
+          f.li "<b>Nombre #{loc}:</b> #{resource.name}".html_safe, class: "references"
+          f.li "<b>Deposición #{loc}:</b> #{resource.deposition.present? ? resource.deposition.html_safe : ''}".html_safe, class: "references"
+        end
+      end
+      I18n.locale = current_loc
       f.input :image, as: :file
       f.input :material, as: :select
       f.input :predefined_search_ids, :as => :check_boxes, :collection => PredefinedSearch.all.map{|m| [m.country.name, m.id]}
@@ -93,12 +115,14 @@ ActiveAdmin.register Waste do
           I18n.locale = :es_CO
         else
           I18n.locale = I18n.default_locale
+          session[:current_country] = 1
         end
       else
         if current_admin_user.country_id == 2
           I18n.locale = :es_CO
         else
           I18n.locale = I18n.default_locale
+          session[:current_country] = 1
         end
       end
     end

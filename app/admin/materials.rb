@@ -27,7 +27,7 @@ ActiveAdmin.register Material do
     selectable_column
     id_column
     column :name
-    column :information
+    column (:information) { |mat| mat.information.html_safe }
     column :icon do |l|
       image_tag url_for(l.icon) if l.icon.attached?
     end
