@@ -26,8 +26,21 @@ ActiveAdmin.register Material do
   index do
     selectable_column
     id_column
-    column :name
-    column (:information) { |mat| mat.information.present? ? mat.information.html_safe : '' }
+    current_loc = I18n.locale
+    I18n.available_locales.each do |loc|
+      if loc != :en
+        I18n.locale = loc
+        column "Nombre #{loc}" do |obj|
+          obj.name
+        end
+        column "Inforamción #{loc}" do |obj|
+          obj.information.present? ? obj.information.html_safe : ''
+        end
+      end
+    end
+    I18n.locale = current_loc
+    #column :name
+    #column (:information) { |mat| mat.information.present? ? mat.information.html_safe : '' }
     column :icon do |l|
       image_tag url_for(l.icon) if l.icon.attached?
     end
