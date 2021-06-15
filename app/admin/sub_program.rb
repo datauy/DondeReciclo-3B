@@ -1,5 +1,5 @@
 ActiveAdmin.register SubProgram do
-  permit_params :name, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
+  permit_params :name, :email, :phone, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   before_action :authenticate
   menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
@@ -22,6 +22,8 @@ ActiveAdmin.register SubProgram do
     f.inputs do
       f.input :name
       f.input :program_id, :label => 'Programa', :as => :select, :collection => Program.all.map{|s| [s.name, s.id]}
+      f.input :phone
+      f.input :email
       f.input :reception_conditions
       f.input :receives
       f.input :receives_no
