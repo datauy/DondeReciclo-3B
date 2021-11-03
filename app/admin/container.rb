@@ -69,7 +69,7 @@ ActiveAdmin.register Container do
 
   form :html => { :multipart => true } do |f|
     f.inputs do
-      f.input :sub_program_id, :label => 'Subprograma', :as => :select, :collection => SubProgram.all.map{|s| [s.name, s.id]}
+      f.input :sub_program_id, :label => 'Subprograma', :as => :searchable_select, :collection => SubProgram.all.map{|s| [s.name, s.id]}
       f.input :external_id
       f.input :latitude
       f.input :longitude
