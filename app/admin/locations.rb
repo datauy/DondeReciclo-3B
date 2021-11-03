@@ -29,8 +29,8 @@ ActiveAdmin.register Location do
     selectable_column
     id_column
     column :name
-    column :geometry do |geom|
-      geom.present? ? true : false
+    column :geometry do |l|
+      l.geometry.present? ? true : false
     end
     actions
   end

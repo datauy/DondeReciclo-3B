@@ -344,6 +344,22 @@ namespace :importer_col do
   end
 end
 namespace :importer_uy do
+  task :locations,  [:filename] => [:environment] do |_, args|
+    file = args[:filename].present? ? args[:filename] : 'deptos-UY.geojson'
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      depto = Location.find_by({name: feature.properties['name']})
+      if depto.present?
+        depto.geometry = feature.geometry
+        depto.save
+        if depto.errors
+          puts "ERROR EN #{depto.name}"
+        else
+          puts "DEPTO ACTULIZADO  #{depto.name}"
+        end
+      end
+    end
+  end
   task :drugstores, [:version] => [:environment] do |_, args|
     containers = []
     CSV.foreach('db/data/Farmacias-Veterinarias-PLESEM.csv', headers: true) do |row|
