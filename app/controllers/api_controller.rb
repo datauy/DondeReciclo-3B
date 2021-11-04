@@ -326,6 +326,7 @@ class ApiController < ApplicationController
         latitude: cont.latitude,
         longitude: cont.longitude,
         main_material: cont.sub_program.material_id,
+        custom_icon: cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }) }
     else
       return objs.map{|cont| ({
@@ -345,12 +346,14 @@ class ApiController < ApplicationController
         class: cont.sub_program.material.name_class,
         #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
         #receives_no: cont.sub_program.receives_no
+        custom_icon: cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }) }
     end
   end
   # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
   private
   def format_container(cont)
+    puts "\n\n\n CUSTOM ICOOOOOOOOOOOOOOONNNNNNNNNNNN: #{cont.custom_icon.attached? ? url_for(cont.custom_icon) : ''}\n\n\n"
     return {
       id: cont.id,
       type_id: cont.container_type_id,
@@ -373,7 +376,8 @@ class ApiController < ApplicationController
       receives_no: cont.sub_program.receives_no,
       receives_text: cont.sub_program.receives,
       reception_conditions: cont.sub_program.reception_conditions,
-      schedules: weekSummary(cont.schedules)
+      schedules: weekSummary(cont.schedules),
+      custom_icon: cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
     }
   end
   def format_search(objs)

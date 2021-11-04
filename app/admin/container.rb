@@ -1,5 +1,5 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :information, :site_type, :public_site, :hidden, :container_type_id, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :information, :site_type, :public_site, :hidden, :container_type_id, :custom_icon, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
   config.create_another = true
   index do
     selectable_column
@@ -83,6 +83,11 @@ ActiveAdmin.register Container do
       f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
       f.input :photos, as: :file, input_html: { multiple: true }
+      f.input :custom_icon, as: :file
+      if f.object.custom_icon.attached?
+        span image_tag(f.object.custom_icon)
+          a "Borrar", src: delete_file_admin_container_path(f.object.custom_icon.id), "data-method": :delete, "data-confirm": "Confirme que desea eliminarla"
+      end
       if f.object.photos.attached?
         f.object.photos.each do |image|
           span image_tag(image)
