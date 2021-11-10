@@ -326,6 +326,10 @@ class ApiController < ApplicationController
         latitude: cont.latitude,
         longitude: cont.longitude,
         main_material: cont.sub_program.material_id,
+<<<<<<< Updated upstream
+=======
+        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+>>>>>>> Stashed changes
       }) }
     else
       return objs.map{|cont| ({
@@ -345,6 +349,10 @@ class ApiController < ApplicationController
         class: cont.sub_program.material.name_class,
         #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
         #receives_no: cont.sub_program.receives_no
+<<<<<<< Updated upstream
+=======
+        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+>>>>>>> Stashed changes
       }) }
     end
   end
@@ -373,7 +381,12 @@ class ApiController < ApplicationController
       receives_no: cont.sub_program.receives_no,
       receives_text: cont.sub_program.receives,
       reception_conditions: cont.sub_program.reception_conditions,
+<<<<<<< Updated upstream
       schedules: weekSummary(cont.schedules)
+=======
+      schedules: weekSummary(cont.schedules),
+      custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+>>>>>>> Stashed changes
     }
   end
   def format_search(objs)

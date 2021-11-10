@@ -1,5 +1,5 @@
 ActiveAdmin.register Container do
-  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :information, :site_type, :public_site, :hidden, :container_type_id, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
+  permit_params :sub_program_id, :external_id, :latitude, :longitude, :site, :address, :location, :state, :information, :site_type, :public_site, :hidden, :container_type_id, :custom_icon, :custom_icon_active, photos:[], schedule_ids:[], schedules_attributes:[:id, :weekday, :start, :end, :desc, :closed]
   config.create_another = true
   index do
     selectable_column
@@ -83,10 +83,16 @@ ActiveAdmin.register Container do
       f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
       f.input :photos, as: :file, input_html: { multiple: true }
+      f.input :custom_icon, as: :file
+      if f.object.custom_icon.attached?
+        span image_tag(f.object.custom_icon)
+          a "Borrar", src: delete_image_admin_container_path(image_id: f.object.custom_icon.id), method: :delete, "data-confirm": "Confirme que desea eliminarla"
+      end
+      f.input :custom_icon_active
       if f.object.photos.attached?
         f.object.photos.each do |image|
           span image_tag(image)
-          a "Borrar", src: delete_file_admin_container_path(image.id), "data-method": :delete, "data-confirm": "Confirme que desea eliminarla"
+          a "Borrar", src: delete_image_admin_container_path(image.id), method: :delete, "data-confirm": "Confirme que desea eliminarla"
         end
       end
       f.input :schedules, as: :select, collection: Schedule.all.map{|s| [s.desc, s.id]}
@@ -107,10 +113,11 @@ ActiveAdmin.register Container do
     end
   end
   #
-  member_action :delete_file, method: :delete do
-    @pic = ActiveStorage::Attachment.find(params[:id])
-    @pic.purge_later
-    redirect_back(fallback_location: edit_admin_container_path)
+  member_action :delete_image, method: :delete do
+    #@pic = ActiveStorage::Attachment.find(params[:id])
+    #@pic.purge_later
+    puts "\n\nPASA MEMBER DELETE\n\n"
+    #edirect_to collection_path, notice: "Imagen borrada"
   end
   #
   batch_action :hide, confirm: "Seguro que querés ocultarlos?" do |ids|
