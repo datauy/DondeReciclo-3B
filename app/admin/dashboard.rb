@@ -11,8 +11,12 @@ ActiveAdmin.register_page "Dashboard" do
         div class: "country-select" do
           span "Selecciona un país"
           div class: "buttons" do
-            if params[:country_id].present?
+            if params[:country_id].present? && current_admin_user.is_superadmin?
               session[:current_country] = params[:country_id]
+            elsif current_admin_user.country_id.present?
+              session[:current_country] = current_admin_user.country_id
+            else
+              session[:current_country] = 1
             end
             Country.all.map do |ctry|
               a "#{ctry.name}",
@@ -24,7 +28,11 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       else
-        session[:current_country] = current_admin_user.country_id
+        if current_admin_user.country_id.present?
+          session[:current_country] = current_admin_user.country_id
+        else
+          session[:current_country] = 1
+        end
       end
     end
 
