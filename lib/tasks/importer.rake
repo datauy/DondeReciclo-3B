@@ -278,51 +278,67 @@ namespace :importer_col do
     #fid = 1
     #for fid in [1,2,3]
     filename = args[:filename].present? ? args[:filename] : 'costa'
-      f = RGeo::GeoJSON.decode(File.read("db/data/microrutas-#{filename}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
-      mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
-      f.each do |feature|
-        loc = {
-          name: feature.properties["Cobertura"],
-          geometry: feature.geometry#factory.multi_polygon([feature.geometry])
-        }
-        #materialId materiales reciclables
-        loc = Location.find_or_create_by(loc)
-        sub_prog = {
-          program_id: 19,
-          city:  feature.properties["Ciudad"],
-          address: feature.properties["Dirección"],
-          email: feature.properties["Correo"],
-          phone: feature.properties["Telefono"],
-          name: feature.properties["Organizaci"],
-          full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
-          material: mainMaterial,
-        }
-        puts sub_prog.inspect
-        sub_program = SubProgram.find_or_create_by(sub_prog)
-        if !sub_program.validate!
-          puts "ERROR: #{sub_program.errors.full_messages}\n next..."
-          next
-        end
-        zone_data = {
-          location: loc,
-          sub_program: sub_program,
-          is_route: TRUE,
-          pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 2
-        }
-        zone = Zone.find_or_create_by(zone_data)
-        if !zone.validate!
-          puts "ERROR: #{zone.errors.full_messages}\n next..."
-          next
-        end
-        # TODO: Agregar calendarios
-        if args[:update].present? && args[:update]
-          sub_program.receives = "#{sub_program.receives.present? ? sub_program.receives+' |' : ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
-          #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
-          #sub_program.material_ids = [2,3,4]
-          #sub_program.waste_ids = 101
-          sub_program.save
+    f = RGeo::GeoJSON.decode(File.read("db/data/#{filename}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
+    mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
+    f.each do |feature|
+      loc = {
+        name: feature.properties["Cobertura"],
+        geometry: feature.geometry#factory.multi_polygon([feature.geometry])
+      }
+      #materialId materiales reciclables
+      loc = Location.find_or_create_by(loc)
+      sub_prog = {
+        program_id: 11,
+        city:  feature.properties["Ciudad"],
+        address: feature.properties["Dirección"],
+        email: feature.properties["Correo"],
+        phone: feature.properties["Telefono"],
+        name: feature.properties["Organizaci"],
+        full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
+        material: mainMaterial,
+      }
+      if feature.properties["Condicione"].present?
+        sub_prog['reception_conditions'] = feature.properties["Condicione"]
+      end
+      puts sub_prog.inspect
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      if !sub_program.validate!
+        puts "ERROR: #{sub_program.errors.full_messages}\n next..."
+        next
+      end
+      zone_data = {
+        location: loc,
+        sub_program: sub_program,
+        is_route: true,
+        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 2
+      }
+      zone = Zone.find_or_create_by(zone_data)
+      if !zone.validate!
+        puts "ERROR: #{zone.errors.full_messages}\n next..."
+        next
+      end
+      # TODO: Agregar calendarios
+      if feature.properties["material_r"].present?
+        feature.properties["material_r"].split(',').each do |mat|
+          material = Material.find_by({:name => mat.strip.camelize})
+          if material.present?
+            sub_program.materials << material unless sub_program.materials.include?(material)
+            next
+          end
+          waste = Waste.find_by({:name => mat.strip.camelize})
+          if waste.present?
+            sub_program.wastes << waste unless sub_program.wastes.include?(waste)
+          end
         end
       end
+      if args[:update].present? && args[:update]
+        sub_program.receives = "#{sub_program.receives.present? ? sub_program.receives+' |' : ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
+        #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
+        #sub_program.material_ids = [2,3,4]
+        #sub_program.waste_ids = 101
+        sub_program.save
+      end
+    end
     #end
   end
   task :countries  => :environment do
