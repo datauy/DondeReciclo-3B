@@ -83,12 +83,13 @@ ActiveAdmin.register Container do
       f.input :hidden
       f.input :container_type_id, :label => 'Tipo de contenedor', :as => :select, :collection => ContainerType.all.map{|s| [s.name, s.id]}
       f.input :photos, as: :file, input_html: { multiple: true }
-      f.input :custom_icon, as: :file
+=begin      f.input :custom_icon, as: :file
       if f.object.custom_icon.attached?
         span image_tag(f.object.custom_icon)
           a "Borrar", src: delete_image_admin_container_path(image_id: f.object.custom_icon.id), method: :delete, "data-confirm": "Confirme que desea eliminarla"
       end
       f.input :custom_icon_active
+=end
       if f.object.photos.attached?
         f.object.photos.each do |image|
           span image_tag(image)
