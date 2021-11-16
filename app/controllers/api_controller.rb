@@ -417,6 +417,8 @@ class ApiController < ApplicationController
         address: ns.sub_program.address,
         email: ns.sub_program.email,
         phone: ns.sub_program.phone,
+        action_title: ns.sub_program.action_title,
+        action_link: ns.sub_program.action_link,
         receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
         locations: ns.sub_program.locations.map{ |loc| loc.name },
         #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,

@@ -1,5 +1,5 @@
 ActiveAdmin.register SubProgram do
-  permit_params :name, :full_name, :email, :phone, :reception_conditions, :receives, :receives_no, :program_id, :material_id, material_ids: [], waste_ids: [], zone_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
+  permit_params :name, :full_name, :email, :phone, :reception_conditions, :receives, :receives_no, :program_id, :material_id, :action_link, :action_title, material_ids: [], waste_ids: [], zone_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   before_action :authenticate
   menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
@@ -28,6 +28,8 @@ ActiveAdmin.register SubProgram do
       f.input :reception_conditions
       f.input :receives
       f.input :receives_no
+      f.input :action_title
+      f.input :action_link
       f.input :material_id, :label => 'Material principal', :as => :select, :collection => Material.all.map{|m| [m.name, m.id]}
       f.input :materials, as: :check_boxes, collection: Material.all
       f.inputs "Residuos" do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_214603) do
+ActiveRecord::Schema.define(version: 2021_11_16_034036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_admin_users_on_country_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
@@ -86,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.boolean "hidden", default: false
     t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.text "information"
+    t.boolean "custom_icon_active"
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -316,6 +320,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.string "email"
     t.string "phone"
     t.string "full_name"
+    t.string "action_link"
+    t.string "action_title"
     t.index ["material_id"], name: "index_sub_programs_on_material_id"
     t.index ["program_id"], name: "index_sub_programs_on_program_id"
   end
@@ -354,6 +360,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.string "state"
     t.string "neighborhood"
     t.integer "age"
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -396,11 +404,13 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
     t.integer "pick_up_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "information"
     t.index ["location_id"], name: "index_zones_on_location_id"
     t.index ["sub_program_id"], name: "index_zones_on_sub_program_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "admin_users", "countries"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
   add_foreign_key "location_relations", "locations"
@@ -423,6 +433,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_214603) do
   add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
+  add_foreign_key "users", "countries"
   add_foreign_key "wastes", "materials"
   add_foreign_key "wastes_relations", "predefined_searches"
   add_foreign_key "wastes_relations", "reports"
