@@ -105,9 +105,11 @@ namespace :importer_col do
     site_name = 'Nombre_lug'
     collect = 'Dias_recol'
     collect_time = 'Horario_at'
-    default_reciclables = false
-    #update only new subs
-    sub_prog_new = false
+    ciudad = 'Ciudad'
+    info = nil
+    program_key = 'Responsabl'
+    sub_program_key = 'Responsabl'
+    container_type = 3
     if file == 'posconsumo.geojson' || file == 'posconsumo-test.geojson'
       site_name = 'Nombre_Pun'
       collect = 'Dias_de_re'
@@ -116,83 +118,64 @@ namespace :importer_col do
     if file == 'faro.geojson'
       collect = 'Días_de_r'
       collect_time = 'Horario_de'
-      default_reciclables = true
-      sub_prog_new = true
       program_id = 11
     end
+    if file == 'valorBog.geojson'
+      site_name = 'Identifica'
+      program_id = 11
+      ciudad = 'Departamen'
+      info = 'Horario'
+      program_key = 'Programa__'
+      sub_program_key = 'Sub_progra'
+      container_type = 15
+    end
     allDayIds = all_day_sched();
-    wastes = {}
     f.each do |feature|
       i = i + 1
-      waste_name = feature["Tipo_de_Ma"]
-      if wastes[waste_name].present?
-        waste = wastes[waste_name]
-      else
-        waste = Waste.where({name: waste_name}).first
-        if !waste.present?
-          puts "RESIDUO NO ENCONTRADO: #{waste_name}\n"
-          if default_reciclables
-            waste = {material_id: 6}
-          else
-            next
-          end
-        else
-          wastes[waste_name] = waste
-        end
-      end
       puts "Contenedor #{i}\n"
       if program_id.present?
         program = Program.find(program_id)
       else
         program = Program.find_or_create_by( {
-          name: feature.properties["Responsabl"],
+          name: feature.properties[program_key],
           country_id: 2
           })
       end
       sub_prog = {
         program: program,
-        city:  feature.properties["Ciudad"],
+        city:  feature.properties[ciudad],
         email: feature.properties["Correo"],
-        name: feature.properties["Responsabl"],
+        name: feature.properties[sub_program_key],
       }
       sub_program = SubProgram.find_by(sub_prog)
       if sub_program.nil?
+        ## TODO: Agregar material principal en importación
+        sub_prog[:material_id] = 6
         sub_program = SubProgram.create(sub_prog)
-      end
-      if !sub_program.validate!
-        puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
-        next
-      end
-      sub_update = false
-      if sub_program.material_id == 1
-        sub_program.material_id = waste[:material_id]
-        sub_update = true;
-      end
-      if feature.properties['Condicione'].present?
-        sub_program.reception_conditions = feature.properties['Condicione']
-        sub_update = true;
-      end
-      if !sub_prog_new
-        if !sub_program.wastes.include? waste
-          sub_program.wastes << waste
-          sub_update = true
+        if !sub_program.validate!
+          puts "ERROR Subprogram: #{sub_program.errors.full_messages}\n exiting..."
+          next
         end
       end
-      if sub_update
-        sub_program.save
+      waste_names = feature["Tipo_de_Ma"]
+      sub_errors = sub_program.add_wastes_or_materials(waste_names.split(','), false)
+      puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
+      if feature.properties['Condicione'].present?
+        sub_program.reception_conditions = feature.properties['Condicione']
       end
+      sub_program.save
       #Los materiales se asocian manualmente a los subprogramas
       container = {
         site: feature.properties[site_name].present? ? feature.properties[site_name] : '',
         latlon: feature.geometry,
         latitude: feature.geometry.coordinates[1],
         longitude: feature.geometry.coordinates[0],
-        location:  feature.properties["Ciudad"],
+        location:  feature.properties[ciudad],
         address: feature.properties["Dirección"],
         public_site: 1,
         sub_program_id: sub_program.id,
         site_type: feature.properties[site_name] == "Espacio Público" ? "En vía pública" : "",
-        container_type_id: 3,
+        container_type_id: container_type,
       }
       container = Container.find_or_create_by(container)
       if !container.validate!
@@ -202,7 +185,9 @@ namespace :importer_col do
       if feature.properties["Id"].present?
         container[:external_id] = feature.properties["Id"]
       end
-      if (feature.properties[collect].present? && feature.properties[collect_time].present?)
+      if info.present?
+        container.information = feature.properties[info]
+      elsif (feature.properties[collect].present? && feature.properties[collect_time].present?)
         container.information = "Dias de recolección: #{feature.properties[collect]} \nHorario: #{feature.properties[collect_time]}"
       end
       container.save
@@ -292,7 +277,7 @@ namespace :importer_col do
         city:  feature.properties["Ciudad"],
         address: feature.properties["Dirección"],
         email: feature.properties["Correo"],
-        phone: feature.properties["Telefono"],
+        phone: feature.properties["Teléfono"],
         name: feature.properties["Organizaci"],
         full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
         material: mainMaterial,
@@ -319,17 +304,8 @@ namespace :importer_col do
       end
       # TODO: Agregar calendarios
       if feature.properties["material_r"].present?
-        feature.properties["material_r"].split(',').each do |mat|
-          material = Material.find_by({:name => mat.strip.camelize})
-          if material.present?
-            sub_program.materials << material unless sub_program.materials.include?(material)
-            next
-          end
-          waste = Waste.find_by({:name => mat.strip.camelize})
-          if waste.present?
-            sub_program.wastes << waste unless sub_program.wastes.include?(waste)
-          end
-        end
+        sub_errors = sub_program.add_wastes_or_materials(feature.properties["material_r"].split(','), true)
+        puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
       end
       if args[:update].present? && args[:update]
         sub_program.receives = "#{sub_program.receives.present? ? sub_program.receives+' |' : ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"

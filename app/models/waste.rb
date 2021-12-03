@@ -12,6 +12,9 @@ class Waste < ApplicationRecord
   translates :name, :deposition
 
   def self.search(str)
-    Waste.with_translations.where("lower(waste_translations.name) like :value or lower(waste_translations.deposition) like :value", value: "%#{str}%")
+    Waste.with_translations.where("lower(waste_translations.name) like :value or lower(waste_translations.deposition) like :value", value: "%#{str.strip.downcase}%")
+  end
+  def self.search_name(str)
+    Waste.with_translations.where("lower(waste_translations.name) = :value", value: "%#{str.strip.downcase}%")
   end
 end
