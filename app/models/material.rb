@@ -18,12 +18,15 @@ class Material < ApplicationRecord
     Material.with_translations.where("lower(material_translations.name) like :value or lower(material_translations.information) like :value", value: "%#{str.strip.downcase}%")
   end
   def self.search_name(str)
-    Material.with_translations.where("lower(material_translations.name) = :value", value: "%#{str.strip.downcase}%")
+    Material.with_translations.where("lower(material_translations.name) = :value", value: "#{str.strip.downcase}")
   end
   def name_class
+    name_class = 'falta-traducir'
     lastLocale = I18n.locale
     I18n.locale = I18n.default_locale
-    name_class = self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+    if self.name.present?
+      name_class = self.name.downcase.unicode_normalize(:nfkd).gsub(/[^\x00-\x7F]/n,'').gsub(/\s/,'-')
+    end
     I18n.locale = lastLocale
     return name_class
   end

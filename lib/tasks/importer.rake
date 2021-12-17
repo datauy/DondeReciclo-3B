@@ -157,7 +157,7 @@ namespace :importer_col do
           next
         end
       end
-      waste_names = feature["Tipo_de_Ma"]
+      waste_names = feature["Residuos"]
       sub_errors = sub_program.add_wastes_or_materials(waste_names.split(','), false)
       puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
       if feature.properties['Condicione'].present?
@@ -303,8 +303,8 @@ namespace :importer_col do
         next
       end
       # TODO: Agregar calendarios
-      if feature.properties["material_r"].present?
-        sub_errors = sub_program.add_wastes_or_materials(feature.properties["material_r"].split(','), true)
+      if feature.properties["Residuos"].present?
+        sub_errors = sub_program.add_wastes_or_materials(feature.properties["Residuos"].split(','), true)
         puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
       end
       if args[:update].present? && args[:update]
