@@ -3,11 +3,15 @@ class ApiController < ApplicationController
 
   #Location Subprograms
   def subprograms4location
+    distance = 0.009
+    if params[:distance].present?
+      distance = params[:distance]
+    end
     z = Zone.
     joins(:location).
     select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
     includes(:sub_program, :schedules).
-    where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), 0.009 )", params[:wkt] ).
+    where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
     order("distance asc").
     limit(6)
     render json: formatZone(z, true)
@@ -30,6 +34,7 @@ class ApiController < ApplicationController
   #
   def subprogram4location
     z = Zone.
+    select("*, 0 as distance").
     includes( :schedules, :sub_program ).
     where(location_id: params[:zone])
     render json: formatZone(z, false)
@@ -236,7 +241,7 @@ class ApiController < ApplicationController
   #
   def search
     if ( params[:q].length > 2 )
-      @str = params[:q].downcase
+      @str = params[:q]
       render json: format_search(
         Material.search(@str)+
         Waste.search(@str)+
@@ -407,6 +412,9 @@ class ApiController < ApplicationController
   end
   #
   def formatZone(z, load_geom)
+    if params[:version] && params[:version].to_d >= 1.4
+      return formatSubprogramZone(z, load_geom)
+    end
     res = []
     z.each_with_index do |ns, i|
       res.push({
@@ -443,6 +451,51 @@ class ApiController < ApplicationController
       end
     end
     logger.info("\n\n#{res.inspect}\n\n")
+    return res
+  end
+  #
+  def formatSubprogramZone(z, load_geom)
+    res = {subprograms: [], locations: {}}
+    locations = {}
+    factory = RGeo::GeoJSON::EntityFactory.instance
+    z.each_with_index do |ns, i|
+      res[:subprograms].push({
+        id: ns.sub_program.id,
+        program_id: ns.sub_program.program_id,
+        name: ns.sub_program.name,
+        city: ns.sub_program.city,
+        address: ns.sub_program.address,
+        email: ns.sub_program.email,
+        phone: ns.sub_program.phone,
+        receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+        locations: ns.sub_program.locations.map{ |loc| loc.name },
+        #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+        zone: {
+          location_id: ns.location_id,
+          is_route: ns.is_route,
+          pick_up_type: ns.pick_up_type,
+          schedules: ns.schedules,
+          distance: ns.distance,
+          name: ns.location.name
+        }
+      })
+      if load_geom
+        if ( locations.key? ns.location_id )
+          locations[ns.location_id].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
+        else
+          locations[ns.location_id] = factory.feature(
+            ns.geometry,
+            "#{ns.location_id}",
+            { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
+          )
+          #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{locations[ns.location_id].properties.inspect}\n\n" }
+          #res[i][:zone][:distance] = ns.distance
+        end
+      end
+    end
+    res[:locations] = RGeo::GeoJSON.encode(
+      factory.feature_collection(locations.values)
+    )
     return res
   end
   #Format container week
