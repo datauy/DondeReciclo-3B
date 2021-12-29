@@ -8,7 +8,7 @@ class UserApiController < ApplicationController
 
   def update
     user = current_resource_owner
-    new_data = params[:user_api].permit(:name, :email, :sex, :state, :neighborhood, :age)
+    new_data = params[:user_api].permit(:name, :email, :sex, :state, :neighborhood, :age, :country_id)
     user.update!(new_data)
     render json: user
   end

@@ -433,7 +433,7 @@ class ApiController < ApplicationController
         zone: {
           is_route: ns.is_route,
           pick_up_type: ns.pick_up_type,
-          schedules: ns.schedules
+          schedules: ns.schedules,
         }
       })
       if load_geom
@@ -468,6 +468,7 @@ class ApiController < ApplicationController
         email: ns.sub_program.email,
         phone: ns.sub_program.phone,
         receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+        materials: ns.sub_program.materials.ids,
         locations: ns.sub_program.locations.map{ |loc| loc.name },
         #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
         zone: {
@@ -476,7 +477,8 @@ class ApiController < ApplicationController
           pick_up_type: ns.pick_up_type,
           schedules: ns.schedules,
           distance: ns.distance,
-          name: ns.location.name
+          name: ns.location.name,
+          information: ns.information,
         }
       })
       if load_geom
