@@ -157,7 +157,7 @@ namespace :importer_col do
           next
         end
       end
-      waste_names = feature["Tipo_de_Ma"]
+      waste_names = feature["Residuos"]
       sub_errors = sub_program.add_wastes_or_materials(waste_names.split(','), false)
       puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
       if feature.properties['Condicione'].present?
@@ -257,17 +257,30 @@ namespace :importer_col do
       end
     end
   end
-  task :routes, [:filename, :pick_up_type]  => :environment do |_, args|
-    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
-    #factory = RGeo::Geographic.spherical_factory(:srid => 4326)
-    #fid = 1
-    #for fid in [1,2,3]
+  task :routes, [:filename, :pick_up_type, :file_type]  => :environment do |_, args|
+    puts "\n\nARGS: #{args[:filename]} - #{args[:pick_up_type]} - #{args[:file_type]}\n\n"
+    address = "Dirección"
+    email = "Correo"
+    materials = "Materiales"
+    location = "Cobertura"
+    org = "Organizaci"
+    conditions = "Condiciones"
+    zone_info = ''
+    if args[:file_type].present? && args[:file_type] == "2"
+      puts "\n\nENTRA A TYPE2\n\n"
+      address = "Direcci_Or"
+      email = "Correo_ele"
+      materials = "TipoMateri"
+      location = "Barrio_Zon"
+      org = "Asociació"
+      conditions = 'Condicione'
+    end
     filename = args[:filename].present? ? args[:filename] : 'costa'
     f = RGeo::GeoJSON.decode(File.read("db/data/#{filename}.geojson"))#, json_parser: :json, geo_factory: RGeo::Geographic.simple_mercator_factory)
     mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
     f.each do |feature|
       loc = {
-        name: feature.properties["Cobertura"],
+        name: feature.properties[location],
         geometry: feature.geometry#factory.multi_polygon([feature.geometry])
       }
       #materialId materiales reciclables
@@ -275,15 +288,15 @@ namespace :importer_col do
       sub_prog = {
         program_id: 11,
         city:  feature.properties["Ciudad"],
-        address: feature.properties["Dirección"],
-        email: feature.properties["Correo"],
+        address: feature.properties[address],
+        email: feature.properties[email],
         phone: feature.properties["Teléfono"],
-        name: feature.properties["Organizaci"],
-        full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"],
+        name: feature.properties[org],
+        full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties[org],
         material: mainMaterial,
       }
-      if feature.properties["Condicione"].present?
-        sub_prog['reception_conditions'] = feature.properties["Condicione"]
+      if feature.properties[conditions].present?
+        sub_prog['reception_conditions'] = feature.properties[conditions]
       end
       puts sub_prog.inspect
       sub_program = SubProgram.find_or_create_by(sub_prog)
@@ -291,11 +304,15 @@ namespace :importer_col do
         puts "ERROR: #{sub_program.errors.full_messages}\n next..."
         next
       end
+      if args[:file_type].present? && args[:file_type] == "2"
+        zone_info = "#{feature.properties[location]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_Inici"]} a #{feature.properties["Hora_Fin"]}"
+      end
       zone_data = {
         location: loc,
         sub_program: sub_program,
         is_route: true,
-        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 2
+        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type].to_i : 2,
+        information: zone_info
       }
       zone = Zone.find_or_create_by(zone_data)
       if !zone.validate!
@@ -303,20 +320,14 @@ namespace :importer_col do
         next
       end
       # TODO: Agregar calendarios
-      if feature.properties["material_r"].present?
-        sub_errors = sub_program.add_wastes_or_materials(feature.properties["material_r"].split(','), true)
+      if feature.properties[materials].present?
+        sub_errors = sub_program.add_wastes_or_materials(feature.properties[materials].split(','), true)
         puts "\nError en materiales/residuos #{sub_errors.inspect}\n"
-      end
-      if args[:update].present? && args[:update]
-        sub_program.receives = "#{sub_program.receives.present? ? sub_program.receives+' |' : ''} #{feature.properties["Cobertura"]}: #{feature.properties["Frecuencia"]} - #{feature.properties["Hora_inici"]} a #{feature.properties["Hora_fin"]}"
-        #Materiales: Papel y cartón, vidrio y plástico... residuos lata de aluminio
-        #sub_program.material_ids = [2,3,4]
-        #sub_program.waste_ids = 101
-        sub_program.save
       end
     end
     #end
   end
+  #
   task :countries  => :environment do
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     f = RGeo::GeoJSON.decode(File.read('db/data/Uruguay-Colombia.geojson'))
@@ -336,6 +347,22 @@ namespace :importer_col do
   end
 end
 namespace :importer_uy do
+  task :locations,  [:filename] => [:environment] do |_, args|
+    file = args[:filename].present? ? args[:filename] : 'deptos-UY.geojson'
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      depto = Location.find_by({name: feature.properties['name']})
+      if depto.present?
+        depto.geometry = feature.geometry
+        depto.save
+        if depto.errors
+          puts "ERROR EN #{depto.name}"
+        else
+          puts "DEPTO ACTULIZADO  #{depto.name}"
+        end
+      end
+    end
+  end
   task :drugstores, [:version] => [:environment] do |_, args|
     containers = []
     CSV.foreach('db/data/Farmacias-Veterinarias-PLESEM.csv', headers: true) do |row|
