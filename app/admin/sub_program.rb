@@ -1,5 +1,5 @@
 ActiveAdmin.register SubProgram do
-  permit_params :name, :full_name, :email, :phone, :reception_conditions, :receives, :receives_no, :program_id, :material_id, :action_link, :action_title, material_ids: [], waste_ids: [], zone_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
+  permit_params :name, :full_name, :email, :city, :address, :phone, :reception_conditions, :receives, :receives_no, :program_id, :material_id, :action_link, :action_title, material_ids: [], waste_ids: [], zone_ids: [], location_ids: [], materials_attributes: [:id, :name, :information, :video, :color], reject_if: :all_blank
   before_action :authenticate
   menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
@@ -23,6 +23,8 @@ ActiveAdmin.register SubProgram do
       f.input :name
       f.input :full_name
       f.input :program_id, :label => 'Programa', :as => :select, :collection => Program.all.map{|s| [s.name, s.id]}
+      f.input :city
+      f.input :address
       f.input :phone
       f.input :email
       f.input :reception_conditions
