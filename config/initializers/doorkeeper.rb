@@ -439,6 +439,9 @@ Doorkeeper.configure do
   skip_authorization do
     true
   end
+  skip_client_authentication_for_password_grant do
+    true
+  end
   # Configure custom constraints for the Token Introspection request.
   # By default this configuration option allows to introspect a token by another
   # token of the same application, OR to introspect the token that belongs to

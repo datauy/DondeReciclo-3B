@@ -10,7 +10,9 @@ class SubProgram < ApplicationRecord
   accepts_nested_attributes_for :wastes, :allow_destroy => false
 
   has_many :zones
-  has_many :locations, through: :zones
+
+  has_many :location_relations
+  has_many :locations, through: :location_relations
 
   class HABTM_Materials
     self.primary_key = :material_id

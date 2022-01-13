@@ -26,8 +26,21 @@ ActiveAdmin.register Material do
   index do
     selectable_column
     id_column
-    column :name
-    column :information
+    current_loc = I18n.locale
+    I18n.available_locales.each do |loc|
+      if loc != :en
+        I18n.locale = loc
+        column "Nombre #{loc}" do |obj|
+          obj.name
+        end
+        column "Inforamción #{loc}" do |obj|
+          obj.information.present? ? obj.information.html_safe : ''
+        end
+      end
+    end
+    I18n.locale = current_loc
+    #column :name
+    #column (:information) { |mat| mat.information.present? ? mat.information.html_safe : '' }
     column :icon do |l|
       image_tag url_for(l.icon) if l.icon.attached?
     end
@@ -42,6 +55,15 @@ ActiveAdmin.register Material do
     f.inputs do
       f.input :name
       f.input :information, as: :ckeditor
+      current_loc = I18n.locale
+      I18n.available_locales.each do |loc|
+        if loc != :en && loc != current_loc
+          I18n.locale = loc
+          f.li "<b>Nombre #{loc}:</b> #{resource.name}".html_safe, class: "references"
+          f.li "<b>Información #{loc}:</b> #{resource.information.present? ? resource.information.html_safe : ''}".html_safe, class: "references"
+        end
+      end
+      I18n.locale = current_loc
       f.input :icon, as: :file
       f.input :video
       f.input :predefined_search_ids, :as => :check_boxes, :collection => PredefinedSearch.all.map{|m| [m.country.name, m.id]}

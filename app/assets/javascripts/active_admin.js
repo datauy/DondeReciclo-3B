@@ -1,4 +1,5 @@
 //= require active_admin/base
+//= require active_admin/searchable_select
 jQuery(document).ready(function($){
   var $collapsables = $('.collapsable-section');
   $collapsables.each(function(i){
