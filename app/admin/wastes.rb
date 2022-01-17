@@ -4,7 +4,7 @@ ActiveAdmin.register Waste do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :material_id, :name, :deposition, predefined_search_ids: []
+  permit_params :material_id, :name, :deposition, :icon, predefined_search_ids: []
   #
   # or
   #
@@ -34,7 +34,7 @@ ActiveAdmin.register Waste do
   filter :translations_name_contains, as: :string, label: "Nombre", placeholder: "Contiene"
   filter :translations_deposition_contains, as: :string, label: "Deposición", placeholder: "Contiene"
   filter :material
-  filter :image
+  filter :icon
 
   index do
     selectable_column
@@ -54,8 +54,8 @@ ActiveAdmin.register Waste do
     I18n.locale = current_loc
     #column (:name) { |waste| waste.translations.map{|tr| "#{tr.locale}: #{tr.name}".html_safe} }
     #column (:deposition) { |waste| waste.deposition.present? ? waste.deposition.html_safe : '' }
-    column :image do |l|
-      image_tag url_for(l.image) if l.image.attached?
+    column :icon do |l|
+      icon_tag url_for(l.icon) if l.icon.attached?
     end
     column :material
     column "Prefefined Searches" do |l|
@@ -77,7 +77,7 @@ ActiveAdmin.register Waste do
         end
       end
       I18n.locale = current_loc
-      f.input :image, as: :file
+      f.input :icon, as: :file
       f.input :material, as: :select
       f.input :predefined_search_ids, :as => :check_boxes, :collection => PredefinedSearch.all.map{|m| [m.country.name, m.id]}
     end
