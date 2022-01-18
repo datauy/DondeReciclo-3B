@@ -393,7 +393,8 @@ class ApiController < ApplicationController
         deposition: nil,
         type: mat.class.name.downcase.pluralize,
         material_id: mat.id,
-        class: nil
+        class: nil,
+        icon: mat.icon.attached? ? url_for(mat.icon) : '',
       }
       if mat.class.name == 'Material'
         oa[:deposition] = mat.information
