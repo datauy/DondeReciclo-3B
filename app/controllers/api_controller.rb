@@ -236,6 +236,7 @@ class ApiController < ApplicationController
         id: mat.id,
         name: mat.name,
         class: mat.material.present? ? mat.material.name_class : 'primary',
+        icon: mat.icon.attached? ? url_for(mat.icon) : ''
       })}
   end
   #

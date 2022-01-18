@@ -55,7 +55,7 @@ ActiveAdmin.register Waste do
     #column (:name) { |waste| waste.translations.map{|tr| "#{tr.locale}: #{tr.name}".html_safe} }
     #column (:deposition) { |waste| waste.deposition.present? ? waste.deposition.html_safe : '' }
     column :icon do |l|
-      icon_tag url_for(l.icon) if l.icon.attached?
+      image_tag url_for(l.icon) if l.icon.attached?
     end
     column :material
     column "Prefefined Searches" do |l|
