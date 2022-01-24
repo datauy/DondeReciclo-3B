@@ -1,18 +1,31 @@
-namespace :importer_col do
-  I18n.locale = :es_CO
-  def all_day_sched
-    ids = []
-    for i in 1..7
+def all_day_sched
+  ids = []
+  for i in 1..7
       sched = {
         weekday: i,
         start: '00:00',
-        end: '23:59'
-      }
-      schedule = Schedule.find_or_create_by(sched)
-      ids << schedule.id
-    end
-    return ids
+      end: '23:59'
+    }
+    schedule = Schedule.find_or_create_by(sched)
+    ids << schedule.id
   end
+  return ids
+end
+def working_days_sched
+  ids = []
+  for i in 1..7
+    sched = {
+      weekday: i,
+      start: '09:00',
+      end: '21:00'
+    }
+    schedule = Schedule.find_or_create_by(sched)
+    ids << schedule.id
+  end
+  return ids
+end
+namespace :importer_col do
+  I18n.locale = :es_CO
   #
   task :assign_programs_fromCSV, [:file] => :environment do |_, args|
     file = args[:file].present? ? args[:file] : 'PuntosProgramas.csv'
@@ -449,6 +462,40 @@ writer << cont.attributes.map { |a,v| v }
 end
 end
 =end
+  end
+  #
+  task :custom_containers, [:year] => [:environment] do |_, args|
+    created = 0
+    fails = 0
+    processed = 0
+    CSV.foreach('db/data/envases_corona.csv', headers: true) do |row|
+      processed += 1
+      next if processed == 1
+      #puts row
+      container = Container.find_or_create_by({
+        sub_program_id: 963,
+        latitude: row[1],
+        longitude: row[2],
+        container_type_id: 18,
+        public_site: 1,
+        information: row[0],
+        state: row[3],
+        location: row[4],
+        address: row[5],
+        site_type: row[6],
+        site: row[7],
+      })
+      if ( !container.validate! )
+        fails += 1
+      else
+        container.schedule_ids = working_days_sched()
+        container.custom_icon.attach({io: File.open('app/assets/images/pin_corona.svg'), filename: 'pin_corona'})
+        container.custom_icon_active = true
+        container.save
+        created += 1
+      end
+    end
+    puts "Se procesaron #{(processed - 1)}, se crearon #{created}, fallaron #{fails}"
   end
 end
 namespace :migration do
