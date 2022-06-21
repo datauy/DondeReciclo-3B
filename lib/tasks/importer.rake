@@ -464,19 +464,24 @@ end
 =end
   end
   #
-  task :custom_containers, [:year] => [:environment] do |_, args|
+  task :custom_containers, [:sub_program_id, :filename, :logo] => [:environment] do |_, args|
     created = 0
     fails = 0
     processed = 0
-    CSV.foreach('db/data/envases_corona.csv', headers: true) do |row|
+    file = args[:filename].present? ? args[:filename] : 'tapitas-oportunidades'
+    logo = args[:logo].present? ? args[:logo] : false
+    sub_program_id = args[:sub_program_id].present? ? args[:sub_program_id] : 982
+    ctypes = {}
+    ContainerType.all.each {|ct| ctypes[ct.name] = ct.id}
+    CSV.foreach("db/data/#{file}.csv", headers: true) do |row|
       processed += 1
-      next if processed == 1
+      #next if processed == 1
       #puts row
       container = Container.find_or_create_by({
-        sub_program_id: 963,
+        sub_program_id: sub_program_id,
         latitude: row[1],
         longitude: row[2],
-        container_type_id: 18,
+        container_type_id: ctypes[row[8]],
         public_site: 1,
         information: row[0],
         state: row[3],
@@ -488,14 +493,16 @@ end
       if ( !container.validate! )
         fails += 1
       else
-        container.schedule_ids = working_days_sched()
-        container.custom_icon.attach({io: File.open('app/assets/images/pin_corona.svg'), filename: 'pin_corona'})
-        container.custom_icon_active = true
+        if logo
+          container.schedule_ids = working_days_sched()
+          container.custom_icon.attach({io: File.open('app/assets/images/pin_corona.svg'), filename: 'pin_corona'})
+          container.custom_icon_active = true
+        end
         container.save
         created += 1
       end
     end
-    puts "Se procesaron #{(processed - 1)}, se crearon #{created}, fallaron #{fails}"
+    puts "Se procesaron #{(processed)}, se crearon #{created}, fallaron #{fails}"
   end
 end
 namespace :migration do
