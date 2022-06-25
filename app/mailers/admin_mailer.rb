@@ -14,7 +14,7 @@ class AdminMailer < ApplicationMailer
     contact = Country.
       find(country_id).
       contact
-    mail(to: contact, subject: params[:subject], from: params[:email])
+    mail(to: contact, subject: params[:subject])
   end
   def collect
     @email = params[:email]
