@@ -114,8 +114,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings
   config.action_mailer.smtp_settings = {
-    :address              => "freyja.datauy.org",
+    :address              => "mail.data.org.uy",
+    :port                 =>  587,
     :user_name            => "contacto@dondereciclo.uy",
-    :password             => Rails.application.credentials.dig(:production, :mail_password)
+    :password             => Rails.application.credentials.dig(:production, :mail_password),
+    :authentication       => "plain",
+    :enable_starttls_auto => true
   }
 end
