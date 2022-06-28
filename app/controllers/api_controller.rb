@@ -12,8 +12,7 @@ class ApiController < ApplicationController
     select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
     includes(:sub_program, :schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
-    order("distance asc").
-    limit(6)
+    order("distance asc")
     render json: formatZone(z, true)
   end
   #
@@ -486,6 +485,7 @@ class ApiController < ApplicationController
         }
       })
       if load_geom
+        #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{ns.geometry.inspect}\n\n" }
         if ( locations.key? ns.location_id )
           locations[ns.location_id].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
         else
@@ -494,7 +494,6 @@ class ApiController < ApplicationController
             "#{ns.location_id}",
             { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
           )
-          #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{locations[ns.location_id].properties.inspect}\n\n" }
           #res[i][:zone][:distance] = ns.distance
         end
       end

@@ -360,6 +360,29 @@ namespace :importer_col do
   end
 end
 namespace :importer_uy do
+  task :conciliate_locations,  [:filename] => [:environment] do |_, args|
+    p "Starting IMPORT"
+    file = args[:filename].present? ? args[:filename] : 'deptos-UY-2022.geojson'
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      del = true
+      p "\n #{feature.properties['name']}"
+      #Get depto
+      old_ids = Location.select(:id).where(name: feature.properties['name']).ids
+      if feature.properties['name'] == "Montevideo"
+        del = false
+        old_ids.push(355)
+      end
+      p old_ids.inspect
+      new_loc = Location.create(name: feature.properties['name'], geometry: feature.geometry)
+      p "Nuevo ID #{new_loc.id}"
+      old_ids.each do |oid|
+        LocationRelation.where(location_id: oid).update(location_id: new_loc.id)
+        Zone.where(location_id: oid).update(location_id: new_loc.id)
+        Location.delete(oid) if del
+      end
+    end
+  end
   task :locations,  [:filename] => [:environment] do |_, args|
     file = args[:filename].present? ? args[:filename] : 'deptos-UY.geojson'
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
