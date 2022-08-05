@@ -383,11 +383,18 @@ namespace :importer_uy do
       end
     end
   end
-  task :locations,  [:filename] => [:environment] do |_, args|
+  task :locations,  [:filename, :loc_type] => [:environment] do |_, args|
     file = args[:filename].present? ? args[:filename] : 'deptos-UY.geojson'
+    loc_type = args[:loc_type].present? ? args[:loc_type] : 3
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     f.each do |feature|
-      depto = Location.find_by({name: feature.properties['name']})
+      if feature.properties['code'].present?
+        code = feature.properties['code']
+        depto = Location.find_by({name: feature.properties['name'], code: code})
+      else
+        depto = Location.find_by({name: feature.properties['name']})
+        code = ''
+      end
       if depto.present?
         depto.geometry = feature.geometry
         depto.save
@@ -396,6 +403,15 @@ namespace :importer_uy do
         else
           puts "DEPTO ACTULIZADO  #{depto.name}"
         end
+      else
+        loc = {
+          name: feature.properties["name"],
+          geometry: feature.geometry,
+          code: code,
+          loc_type: loc_type
+        }
+        puts "LOCATION CREATE #{feature.properties["name"]}"
+        Location.create(loc)
       end
     end
   end
