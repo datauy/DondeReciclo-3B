@@ -5,4 +5,11 @@ class Location < ApplicationRecord
   has_many :sub_programs, through: :location_relations
 
   has_many :zones
+
+  enum type: [
+    'country',
+    'state',
+    'city',
+    'municipality'
+  ]
 end
