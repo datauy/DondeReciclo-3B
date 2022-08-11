@@ -1,6 +1,7 @@
 class Material < ApplicationRecord
   has_and_belongs_to_many :sub_programs#, set_primary_key: [:material_id, :sub_program_id]
   has_one_attached :icon
+  belongs_to :dimension
 
   has_many :wastes
   has_many :materials_relations
