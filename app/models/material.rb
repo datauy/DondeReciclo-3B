@@ -15,8 +15,13 @@ class Material < ApplicationRecord
 
   translates :name, :information
 
-  def self.search(str)
-    Material.with_translations.where("lower(material_translations.name) like :value or lower(material_translations.information) like :value", value: "%#{str.strip.downcase}%")
+  def self.search(str, dimension = nil)
+    Material.
+    with_translations.
+    where(
+      "( lower(material_translations.name) like :value or lower(material_translations.information) like :value )
+      #{ dimension.nil? ? '' : ' and dimension_id = :dimension'}",
+      { value: "%#{str.strip.downcase}%", dimension: dimension } )
   end
   def self.search_name(str)
     Material.with_translations.where("lower(material_translations.name) = :value", value: "#{str.strip.downcase}")
