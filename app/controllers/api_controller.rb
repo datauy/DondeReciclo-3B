@@ -1,6 +1,10 @@
 class ApiController < ApplicationController
   before_action :set_locale
 
+  def not_implemented
+    render json: {error: "This function is not available for queried API version"}
+  end
+
   #Location Subprograms
   def subprograms4location
     distance = 0.009
@@ -175,31 +179,6 @@ class ApiController < ApplicationController
       .limit(50)
     render json: format_pins(@cont)
   end
-  #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
-  #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
-  def containers4materials
-    cont = Container
-      .includes( :sub_program )
-      .near( [params[:lat], params[:lon]], 300, units: :km )
-    if (params[:materials])
-      materials = params[:materials].split(',')
-      @cont = cont.
-        joins( sub_program: [:materials] ).
-        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
-        limit(50)
-      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
-    elsif params[:wastes]
-      wastes = params[:wastes].split(',')
-      @cont = cont.
-        joins( sub_program: [:wastes] ).
-        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
-        limit(50)
-      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
-    else
-      return self.containers_nearby
-    end
-    render json: format_pins(@cont)
-  end
   #
   def container_types
     render json: ContainerType
@@ -229,14 +208,18 @@ class ApiController < ApplicationController
   end
   #
   def wastes
-    render json: Waste
-      .find(params[:ids].split(','))
-      .map{|mat| ({
-        id: mat.id,
-        name: mat.name,
-        class: mat.material.present? ? mat.material.name_class : 'primary',
-        icon: mat.icon.attached? ? url_for(mat.icon) : ''
-      })}
+    if ( params[:ids] )
+      render json: Waste
+        .find(params[:ids].split(','))
+        .map{|mat| ({
+          id: mat.id,
+          name: mat.name,
+          class: mat.material.present? ? mat.material.name_class : 'primary',
+          icon: mat.icon.attached? ? url_for(mat.icon) : ''
+        })}
+    else
+      render json: {error: "Missing parameter :ids"}
+    end
   end
   #
   def search
