@@ -5,7 +5,7 @@ ActiveAdmin.register Dimension do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :information, :color, country_ids: []
+  permit_params :name, :information, :color, country_ids: [], material_ids: []
   #
   # or
   #
@@ -20,6 +20,7 @@ ActiveAdmin.register Dimension do
       f.input :information
       f.input :color, input_html: { class: 'colorpicker' }
       f.input :countries, as: :check_boxes
+      f.input :materials, as: :check_boxes
     end
     f.actions
   end

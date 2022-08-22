@@ -9,15 +9,23 @@ class Waste < ApplicationRecord
   has_many :reports, through: :wastes_relations
   #has_many :searches, through: :wastes_relations
 
+  has_many :material_relations, through: :material
+  has_many :dimensions, through: :material_relations
+
+
   translates :name, :deposition
 
-  def self.search(str, dimension = nil)
-    if dimension.nil?
-      Waste.with_translations.where("lower(waste_translations.name) like :value or lower(waste_translations.deposition) like :value", value: "%#{str.strip.downcase}%")
+  scope :search_translations, ->(str) { where("lower(waste_translations.name) like :value or lower(waste_translations.deposition) like :value", value: "%#{str.strip.downcase}%") }
+
+  def self.search(str, dimensions = nil)
+    if dimensions.nil?
+      Waste.with_translations.search_translations(str)
     else
-      Waste.joins(:material).with_translations.where("( lower(waste_translations.name) like :value or lower(waste_translations.deposition) like :value )
-      #{ dimension.nil? ? '' : ' and materials.dimension_id = :dimension'}",
-      { value: "%#{str.strip.downcase}%", dimension: dimension } )
+      Waste.
+      joins(material: :materials_relations).
+      with_translations.
+      search_translations(str).
+      where("materials_relations.dimension_id": dimensions)
     end
   end
   def self.search_name(str)

@@ -1,10 +1,10 @@
 class Material < ApplicationRecord
   has_and_belongs_to_many :sub_programs#, set_primary_key: [:material_id, :sub_program_id]
   has_one_attached :icon
-  belongs_to :dimension
-
   has_many :wastes
+
   has_many :materials_relations
+  has_many :dimensions, through: :materials_relations
   has_many :predefined_searches, through: :materials_relations
   has_many :reports, through: :materials_relations
   #has_many :searches, through: :materials_relations
@@ -15,13 +15,18 @@ class Material < ApplicationRecord
 
   translates :name, :information
 
-  def self.search(str, dimension = nil)
-    Material.
-    with_translations.
-    where(
-      "( lower(material_translations.name) like :value or lower(material_translations.information) like :value )
-      #{ dimension.nil? ? '' : ' and dimension_id = :dimension'}",
-      { value: "%#{str.strip.downcase}%", dimension: dimension } )
+  scope :search_translations, ->(str) { where("lower(material_translations.name) like :value or lower(material_translations.information) like :value", value: "%#{str.strip.downcase}%") }
+
+  def self.search(str, dimensions = nil)
+    if dimensions.nil?
+      Material.with_translations.search_translations(str)
+    else
+      Material.
+      joins(:materials_relations).
+      with_translations.
+      search_translations(str).
+      where("materials_relations.dimension_id": dimensions)
+    end
   end
   def self.search_name(str)
     Material.with_translations.where("lower(material_translations.name) = :value", value: "#{str.strip.downcase}")

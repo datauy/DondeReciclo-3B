@@ -17,6 +17,9 @@ class SubProgram < ApplicationRecord
   class HABTM_Materials
     self.primary_key = :material_id
   end
+  class HABTM_Wastes
+    self.primary_key = :waste_id
+  end
   #
   def add_wastes_or_materials(wastes_names, update)
     errors = self.add_wastes(wastes_names, update)
