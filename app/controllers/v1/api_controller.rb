@@ -64,6 +64,9 @@ module V1
         render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
       end
     end
+    def not_implemented
+      render json: {error: "This function is not available for queried API version"}
+    end
     private
     def format_pins(objs)
       if params[:version] && params[:version].to_d >= 1.3
@@ -72,7 +75,7 @@ module V1
           latitude: cont.latitude,
           longitude: cont.longitude,
           main_material: cont.sub_program.material_id,
-          custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+          custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
         }) }
       else
         return objs.map{|cont| ({
@@ -92,7 +95,7 @@ module V1
           class: cont.sub_program.material.name_class,
           #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
           #receives_no: cont.sub_program.receives_no
-          custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+          custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
         }) }
       end
     end
@@ -120,7 +123,7 @@ module V1
         receives_text: cont.sub_program.receives,
         reception_conditions: cont.sub_program.reception_conditions,
         schedules: weekSummary(cont.schedules),
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }
     end
     def format_search(objs)
@@ -279,9 +282,6 @@ module V1
     def extract_locale
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
-    end
-    def not_implemented
-      render json: {error: "This function is not available for queried API version"}
     end
   end
 end

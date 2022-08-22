@@ -70,8 +70,7 @@ module V2
         limit(50)
       else
         cont = Container
-        .with_attached_custom_icon
-        .includes( :sub_program )
+        .includes( :custom_icon_attachment, :sub_program )
         .near( [params[:lat], params[:lon]], 300, units: :km )
         #Get dimension materials
         if ( params[:materials] )
@@ -160,6 +159,9 @@ module V2
         render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
       end
     end
+    def not_implemented
+      render json: {error: "This function is not available for queried API version"}
+    end
     # TODO: Pasar los subprogramas en la carga inicial ya que se repiten muchos datos, acá pasar sólo el subId
     private
     def format_pins(objs)
@@ -168,7 +170,7 @@ module V2
         latitude: cont.latitude,
         longitude: cont.longitude,
         main_material: cont.sub_program.material_id,
-        custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }) }
     end
     def format_container(cont)
@@ -195,7 +197,7 @@ module V2
         receives_text: cont.sub_program.receives,
         reception_conditions: cont.sub_program.reception_conditions,
         schedules: weekSummary(cont.schedules),
-        custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }
     end
     def format_search(objs)
@@ -354,9 +356,6 @@ module V2
     def extract_locale
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
-    end
-    def not_implemented
-      render json: {error: "This function is not available for queried API version"}
     end
   end
 end
