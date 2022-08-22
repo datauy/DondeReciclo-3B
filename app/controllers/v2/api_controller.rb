@@ -1,41 +1,148 @@
 module V2
   class ApiController < ApplicationController
     before_action :set_locale
+    #
+    def containers_bbox
+      @cont = Container
+        .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+        .includes( :sub_program, :custom_icon_attachment )
+        .where(:hidden => false, :public_site => true)
+      render json: format_pins(@cont)
+    end
+    #
+    def containers_bbox4materials
+      if ( params[:dimensions] )
+        mids = params[:dimensions].split(',')
+        #materials = Dimension.where( id: params[:dimensions].split(',') ).map {|dim| dim.materials.ids}.flatten
+        #materials = Dimension.joins(:materials).select(:"materials.id").where( id: params[:dimensions].split(',') ).flat_map(&:id)
+        wastes = Waste.includes(:material).where("materials.id": mids).pluck(:id)
+        @cont = Container.distinct.
+        within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ]).
+        includes(:sub_program, :custom_icon_attachment).
+        joins(sub_program: [:materials, :wastes]).
+        where( :hidden => false, :public_site => true, "materials_sub_programs.material_id": mids ).
+        or(
+          Container.distinct.
+          within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ]).
+          includes(:sub_program, :custom_icon_attachment).
+          joins(sub_program: [:materials, :wastes]).
+          where( :hidden => false, :public_site => true, "sub_programs_wastes.waste_id": wastes )
+        ).
+        limit(50)
+      else
+        cont = Container.
+          includes(:sub_program, :custom_icon_attachment).
+          within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+        if (params[:materials])
+          @cont = cont.
+            joins( sub_program: [:materials] ).
+            where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
+        elsif params[:wastes]
+          @cont = cont.
+            joins( sub_program: [:wastes]).
+            where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
+        else
+          return self.containers_bbox
+        end
+      end
+      render json: format_pins(@cont)
+    end
     #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
     #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
     def containers4materials
-      cont = Container
+      if ( params[:dimensions] )
+        mids = params[:dimensions].split(',')
+        #materials = Dimension.where( id: params[:dimensions].split(',') ).map {|dim| dim.materials.ids}.flatten
+        #materials = Dimension.joins(:materials).select(:"materials.id").where( id: params[:dimensions].split(',') ).flat_map(&:id)
+        wastes = Waste.includes(:material).where("materials.id": mids).pluck(:id)
+        @cont = Container.distinct.
+        includes(:custom_icon_attachment).
+        close_to( params[:lat], params[:lon] ).
+        joins( sub_program: [:materials, :wastes] ).
+        where( :hidden => false, :public_site => true, "materials_sub_programs.material_id": mids ).
+        or(
+          Container.distinct.
+          includes(:custom_icon_attachment).
+          close_to( params[:lat], params[:lon] ).
+          joins( sub_program: [:materials, :wastes]).
+          where( :hidden => false, :public_site => true, "sub_programs_wastes.waste_id": wastes )
+        ).
+        limit(50)
+      else
+        cont = Container
+        .with_attached_custom_icon
         .includes( :sub_program )
         .near( [params[:lat], params[:lon]], 300, units: :km )
         #Get dimension materials
-      if ( params[:dimensions] )
-        #materials = Dimension.where( id: params[:dimensions].split(',') ).map {|dim| dim.materials.ids}.flatten
-        materials = Dimension.joins(:materials).select(:"materials.id").where( id: params[:dimensions].split(',') ).flat_map(&:id)
-      end
-      if ( params[:materials] || materials )
-        if params[:materials]
+        if ( params[:materials] )
           materials = params[:materials].split(',')
-        end
-        @cont = cont.
+          @cont = cont.
           joins( sub_program: [:materials] ).
           where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
           limit(50)
-        #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
-      elsif params[:wastes]
-        wastes = params[:wastes].split(',')
-        @cont = cont.
+          #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
+        elsif params[:wastes]
+          wastes = params[:wastes].split(',')
+          @cont = cont.
           joins( sub_program: [:wastes] ).
           where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
           limit(50)
-        #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
-      else
-        return self.containers_nearby
+          #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
+        else
+          return self.containers_nearby
+        end
       end
       render json: format_pins(@cont)
     end
     #
+    def search
+      if ( params[:q].length > 2 )
+        @str = params[:q]
+        render json: format_search(
+          Material.search(@str)+
+          Waste.search(@str)+
+          Product.search(@str)
+        )
+      else
+        render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
+      end
+    end
+    #
     def countries
-      render json: Country.all
+      res = {}
+      Country.includes(dimensions: :materials).each do |c|
+        psearch = {}
+        c.predefined_searches.each do |p|
+          psearch[p.dimension_id] = format_search(
+            Material
+            .joins(:predefined_searches)
+            .where( :"predefined_searches.id" => p.id ) +
+            Waste
+            .joins(:predefined_searches)
+            .where( :"predefined_searches.id" => p.id )
+          )
+        end
+        dimensions = []
+        c.dimensions.each do |d|
+          dimensions.push({
+            id: d.id,
+            name: d.name,
+            color: d.color,
+            information: d.information,
+            materials: d.materials.pluck(:id)
+          })
+        end
+        res[c.name] = {
+          id: c.id,
+          name: c.name,
+          center:{lat: c.lat, lon: c.lon},
+          code: c.code,
+          locale: c.locale,
+          dimensions: dimensions,
+          predefinedSearch: psearch
+        }
+      end
+      render json: res.values
     end
     #
     def dimensions
@@ -46,10 +153,9 @@ module V2
       if ( params[:q].length > 2 )
         @str = params[:q]
         render json: format_search(
-          Material.search(@str)+
-          Waste.search(@str)+
-          Product.search(@str)
-        ).sort_by! {|r| r[:name]}
+          Material.search( @str, params[:dimensions] ? params[:dimensions].split(',') : nil )+
+          Waste.search(@str, params[:dimensions] ? params[:dimensions].split(',') : nil )
+        )
       else
         render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
       end
@@ -62,7 +168,7 @@ module V2
         latitude: cont.latitude,
         longitude: cont.longitude,
         main_material: cont.sub_program.material_id,
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
       }) }
     end
     def format_container(cont)
@@ -89,7 +195,7 @@ module V2
         receives_text: cont.sub_program.receives,
         reception_conditions: cont.sub_program.reception_conditions,
         schedules: weekSummary(cont.schedules),
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
       }
     end
     def format_search(objs)
@@ -117,7 +223,7 @@ module V2
         end
         res << oa
       end
-      return res
+      return res.sort_by! {|r| r[:name]}
     end
     #
     def formatZone(z, load_geom)
@@ -248,6 +354,9 @@ module V2
     def extract_locale
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+    end
+    def not_implemented
+      render json: {error: "This function is not available for queried API version"}
     end
   end
 end

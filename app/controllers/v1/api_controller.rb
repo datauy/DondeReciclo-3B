@@ -1,9 +1,30 @@
 module V1
   class ApiController < ApplicationController
     before_action :set_locale
-
-    def not_implemented
-      render json: {error: "This function is not available for queried API version"}
+    #
+    def containers_bbox
+      @cont = Container
+        .where(:hidden => false, :public_site => true)
+        .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+        .includes( :sub_program )
+      render json: format_pins(@cont)
+    end
+    #
+    def containers_bbox4materials
+      cont = Container
+        .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+      if (params[:materials])
+        @cont = cont.
+          joins( sub_program: [:materials] ).
+          where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
+      elsif params[:wastes]
+        @cont = cont.
+          joins( sub_program: [:wastes]).
+          where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
+      else
+        return self.containers_bbox
+      end
+      render json: format_pins(@cont)
     end
     #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
     #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
@@ -11,10 +32,8 @@ module V1
       cont = Container
         .includes( :sub_program )
         .near( [params[:lat], params[:lon]], 300, units: :km )
-      if ( params[:materials] || materials )
-        if params[:materials]
-          materials = params[:materials].split(',')
-        end
+      if ( params[:materials] )
+        materials = params[:materials].split(',')
         @cont = cont.
           joins( sub_program: [:materials] ).
           where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
@@ -31,6 +50,19 @@ module V1
         return self.containers_nearby
       end
       render json: format_pins(@cont)
+    end
+    #
+    def search
+      if ( params[:q].length > 2 )
+        @str = params[:q]
+        render json: format_search(
+          Material.search(@str)+
+          Waste.search(@str)+
+          Product.search(@str)
+        ).sort_by! {|r| r[:name]}
+      else
+        render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
+      end
     end
     private
     def format_pins(objs)
@@ -247,6 +279,9 @@ module V1
     def extract_locale
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+    end
+    def not_implemented
+      render json: {error: "This function is not available for queried API version"}
     end
   end
 end

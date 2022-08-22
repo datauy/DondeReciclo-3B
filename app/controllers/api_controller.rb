@@ -11,9 +11,10 @@ class ApiController < ApplicationController
     if params[:distance].present?
       distance = params[:distance]
     end
+    query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
     z = Zone.
     joins(:location).
-    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
     includes(:sub_program, :schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
     order("distance asc")
@@ -23,9 +24,10 @@ class ApiController < ApplicationController
   def zone4point
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
+    query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
     Location.
     includes(:zones).
-    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
     order("distance asc").
     limit(1).
     each do |loc|
@@ -127,6 +129,7 @@ class ApiController < ApplicationController
   #
   def subprogram_containers
     @cont = Container
+    .joins(:custom_icon_attachment)
     .where( sub_program_id: params[:sub_ids].split(',') )
     .includes( :sub_program )
     render json: format_pins(@cont)
@@ -141,6 +144,7 @@ class ApiController < ApplicationController
   #
   def containers
     @cont = Container
+    .with_attached_custom_icon
     .where( id: params[:container_ids].split(',') )
     .includes( :sub_program )
     render json: format_pins(@cont)
@@ -148,6 +152,7 @@ class ApiController < ApplicationController
   #
   def containers_bbox
     @cont = Container
+      .with_attached_custom_icon
       .where(:hidden => false, :public_site => true)
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
       .includes( :sub_program )
@@ -156,6 +161,7 @@ class ApiController < ApplicationController
   #
   def containers_bbox4materials
     cont = Container
+      .with_attached_custom_icon
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
     if (params[:materials])
       @cont = cont.
@@ -173,6 +179,7 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
+      .with_attached_custom_icon
       .where(:hidden => false, :public_site => true)
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
@@ -195,7 +202,7 @@ class ApiController < ApplicationController
   #
   def materials
     render json: Material
-      .with_attached_icon
+      .includes(:icon_attachment)
       .all
       .map{|mat| [mat.id, {
       id: mat.id,
@@ -210,6 +217,7 @@ class ApiController < ApplicationController
   def wastes
     if ( params[:ids] )
       render json: Waste
+        .includes(:icon_attachment)
         .find(params[:ids].split(','))
         .map{|mat| ({
           id: mat.id,
@@ -219,19 +227,6 @@ class ApiController < ApplicationController
         })}
     else
       render json: {error: "Missing parameter :ids"}
-    end
-  end
-  #
-  def search
-    if ( params[:q].length > 2 )
-      @str = params[:q]
-      render json: format_search(
-        Material.search(@str)+
-        Waste.search(@str)+
-        Product.search(@str)
-      ).sort_by! {|r| r[:name]}
-    else
-      render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
     end
   end
   #
@@ -334,7 +329,7 @@ class ApiController < ApplicationController
         class: cont.sub_program.material.name_class,
         #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
         #receives_no: cont.sub_program.receives_no
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
       }) }
     end
   end
@@ -355,7 +350,7 @@ class ApiController < ApplicationController
       state: cont.state,
       public: cont.public_site,
       information: cont.information,
-      materials: cont.sub_program.materials.ids,
+      materials: cont.sub_program.materials.pluck(:id),
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
       class: cont.sub_program.material.name_class,
@@ -364,7 +359,7 @@ class ApiController < ApplicationController
       receives_text: cont.sub_program.receives,
       reception_conditions: cont.sub_program.reception_conditions,
       schedules: weekSummary(cont.schedules),
-      custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+      custom_icon: cont.custom_icon_active? ? url_for(cont.custom_icon) : '',
     }
   end
   def format_search(objs)
