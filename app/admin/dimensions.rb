@@ -14,6 +14,21 @@ ActiveAdmin.register Dimension do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  action_item :destroy, confirm: "Quieres eliminar la dimensión? Se desasociarán los materiales y busquedas predefinidas que pudieran haber..." do
+  end
+
+  controller do
+    def destroy
+      del_dim = Dimension.find(params[:id])
+      del_dim.predefined_searches.update(wastes: [], materials:[])
+      del_dim.predefined_searches.destroy_all
+      del_dim.update(materials:[], countries:[])
+      del_dim.save
+      super
+    end
+  end
+
   form :html => { :multipart => true } do |f|
     inputs do
       f.input :name

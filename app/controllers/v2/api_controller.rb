@@ -55,15 +55,17 @@ module V2
         #materials = Dimension.where( id: params[:dimensions].split(',') ).map {|dim| dim.materials.ids}.flatten
         #materials = Dimension.joins(:materials).select(:"materials.id").where( id: params[:dimensions].split(',') ).flat_map(&:id)
         wastes = Waste.includes(:material).where("materials.id": mids).pluck(:id)
+        #close_to( params[:lat], params[:lon] ).
         @cont = Container.distinct.
-        includes(:custom_icon_attachment).
-        close_to( params[:lat], params[:lon] ).
+        includes(:custom_icon_attachment, :sub_program ).
+        near([params[:lat], params[:lon]], 300, units: :km).
         joins( sub_program: [:materials, :wastes] ).
         where( :hidden => false, :public_site => true, "materials_sub_programs.material_id": mids ).
         or(
+          #close_to( params[:lat], params[:lon] ).
           Container.distinct.
-          includes(:custom_icon_attachment).
-          close_to( params[:lat], params[:lon] ).
+          includes(:custom_icon_attachment, :sub_program ).
+          near([params[:lat], params[:lon]], 300, units: :km).
           joins( sub_program: [:materials, :wastes]).
           where( :hidden => false, :public_site => true, "sub_programs_wastes.waste_id": wastes )
         ).
