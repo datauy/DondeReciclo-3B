@@ -2,6 +2,26 @@ module V2
   class ApiController < ApplicationController
     before_action :set_locale
     #
+    def tags_programs
+      country = 1 #load Uruguay/first by default
+      country = params[:country] if params[:country]
+      ptags = []
+      Tag.where(section: 'programas').each do |tag|
+        programs = []
+        tag.programs.each do |p|
+          if ( p.country_id == country )
+            programs << {
+              id: p.id,
+              name: p.name,
+              icon_url: p.icon.attached? ? url_for(p.icon) : ""
+            }
+          end
+        end
+        ptags << {name: tag.name, programs: programs} 
+      end
+      render json: ptags
+    end
+    #
     def containers_bbox
       @cont = Container
         .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
@@ -269,7 +289,6 @@ module V2
           res[i][:zone][:distance] = ns.distance
         end
       end
-      logger.info("\n\n#{res.inspect}\n\n")
       return res
     end
     #

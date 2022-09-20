@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_034036) do
+ActiveRecord::Schema.define(version: 2022_09_17_154557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,28 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.datetime "updated_at", precision: 6, null: false
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
     t.string "contact"
+    t.geometry "center", limit: {:srid=>0, :type=>"st_point"}
+    t.string "code"
+    t.string "locale"
+    t.decimal "lat"
+    t.decimal "lon"
+  end
+
+  create_table "dimension_relations", force: :cascade do |t|
+    t.bigint "dimension_id", null: false
+    t.bigint "country_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_dimension_relations_on_country_id"
+    t.index ["dimension_id"], name: "index_dimension_relations_on_dimension_id"
+  end
+
+  create_table "dimensions", force: :cascade do |t|
+    t.string "name"
+    t.text "information"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "location_relations", force: :cascade do |t|
@@ -125,6 +147,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
+    t.integer "loc_type"
+    t.string "code"
   end
 
   create_table "material_translations", force: :cascade do |t|
@@ -145,6 +169,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dimension_id", default: 1, null: false
+    t.index ["dimension_id"], name: "index_materials_on_dimension_id"
   end
 
   create_table "materials_programs", id: false, force: :cascade do |t|
@@ -159,6 +185,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "report_id"
+    t.bigint "dimension_id"
+    t.index ["dimension_id"], name: "index_materials_relations_on_dimension_id"
     t.index ["material_id"], name: "index_materials_relations_on_material_id"
     t.index ["predefined_search_id"], name: "index_materials_relations_on_predefined_search_id"
     t.index ["report_id"], name: "index_materials_relations_on_report_id"
@@ -227,7 +255,9 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dimension_id", default: 1, null: false
     t.index ["country_id"], name: "index_predefined_searches_on_country_id"
+    t.index ["dimension_id"], name: "index_predefined_searches_on_dimension_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -263,7 +293,9 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "shortname"
     t.bigint "country_id", default: 1, null: false
+    t.bigint "tag_id"
     t.index ["country_id"], name: "index_programs_on_country_id"
+    t.index ["tag_id"], name: "index_programs_on_tag_id"
   end
 
   create_table "programs_wastes", id: false, force: :cascade do |t|
@@ -347,6 +379,22 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.index ["program_id"], name: "index_supporters_on_program_id"
   end
 
+  create_table "tag_relations", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "program_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_tag_relations_on_program_id"
+    t.index ["tag_id"], name: "index_tag_relations_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "section"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -360,7 +408,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
     t.string "state"
     t.string "neighborhood"
     t.integer "age"
-    t.bigint "country_id", null: false
+    t.bigint "country_id", default: 1, null: false
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -413,9 +461,13 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
   add_foreign_key "admin_users", "countries"
   add_foreign_key "containers", "container_types"
   add_foreign_key "containers", "sub_programs"
+  add_foreign_key "dimension_relations", "countries"
+  add_foreign_key "dimension_relations", "dimensions"
   add_foreign_key "location_relations", "locations"
   add_foreign_key "location_relations", "programs"
   add_foreign_key "location_relations", "sub_programs"
+  add_foreign_key "materials", "dimensions"
+  add_foreign_key "materials_relations", "dimensions"
   add_foreign_key "materials_relations", "materials"
   add_foreign_key "materials_relations", "predefined_searches"
   add_foreign_key "materials_relations", "reports"
@@ -425,14 +477,18 @@ ActiveRecord::Schema.define(version: 2021_11_16_034036) do
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
   add_foreign_key "predefined_searches", "countries"
+  add_foreign_key "predefined_searches", "dimensions"
   add_foreign_key "products", "materials"
   add_foreign_key "programs", "countries"
+  add_foreign_key "programs", "tags"
   add_foreign_key "reports", "countries"
   add_foreign_key "reports", "sub_programs"
   add_foreign_key "reports", "users"
   add_foreign_key "sub_programs", "materials"
   add_foreign_key "sub_programs", "programs"
   add_foreign_key "supporters", "programs"
+  add_foreign_key "tag_relations", "programs"
+  add_foreign_key "tag_relations", "tags"
   add_foreign_key "users", "countries"
   add_foreign_key "wastes", "materials"
   add_foreign_key "wastes_relations", "predefined_searches"

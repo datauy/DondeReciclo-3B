@@ -45,6 +45,10 @@ ActiveAdmin.register Program do
       f.input :shortname
       f.input :logo, as: :file
       f.input :icon, as: :file
+      f.input :tag_id, :label => 'Categoría principal', as: :select, collection: Tag.where(section: 0).map{|s| [s.name, s.id]}
+      f.inputs "Categorías adicionales" do
+        f.input :tags, as: :check_boxes, collection: Tag.where(section: 0).map{|s| [s.name, s.id]}
+      end
       f.input :responsable
       f.input :responsable_url
       f.input :more_info

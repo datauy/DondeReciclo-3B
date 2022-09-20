@@ -4,6 +4,8 @@ class Program < ApplicationRecord
   has_one_attached :icon
   has_many :supporters
   has_many :sub_programs
+  has_many :tag_relations
+  has_many :tags, through: :tag_relations
 
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :wastes
