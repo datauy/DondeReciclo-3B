@@ -129,7 +129,6 @@ class ApiController < ApplicationController
   #
   def subprogram_containers
     @cont = Container
-    .joins(:custom_icon_attachment)
     .where( sub_program_id: params[:sub_ids].split(',') )
     .includes( :sub_program )
     render json: format_pins(@cont)
@@ -286,6 +285,7 @@ class ApiController < ApplicationController
           :url => sup.url
           }
         }
+        prog.sub_programs_arr = prog.sub_programs.map{ |sp| sp.id }
         res << prog
       end
     render json: res

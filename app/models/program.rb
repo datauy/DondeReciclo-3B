@@ -14,7 +14,7 @@ class Program < ApplicationRecord
 
   accepts_nested_attributes_for :supporters, :allow_destroy => false
 
-  attr_accessor :logo_url, :materials_arr, :wastes_arr, :supporters_arr, :locations_arr
+  attr_accessor :logo_url, :materials_arr, :wastes_arr, :supporters_arr, :locations_arr, :sub_programs_arr
   #To avoid n+1 query we don't load logos here
   def attributes
     super.merge({
@@ -22,7 +22,8 @@ class Program < ApplicationRecord
       :materials_arr => [],
       :wastes_arr => [],
       :supporters_arr => [],
-      :locations_arr => []
+      :locations_arr => [],
+      :sub_programs_arr => []
     })
   end
 
