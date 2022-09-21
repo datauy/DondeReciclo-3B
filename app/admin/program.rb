@@ -1,5 +1,5 @@
 ActiveAdmin.register Program do
-  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, material_ids: [], waste_ids: [], location_ids: []
+  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, :tag_id, material_ids: [], waste_ids: [], location_ids: []
   before_action :authenticate
   menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
