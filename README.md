@@ -1,8 +1,7 @@
-#Donde Reciclo 3 Backend 1.4
+#Donde Reciclo 3 Backend 2.0
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 1.4.0
-Esta nueva versión incorpora funcionalidad para la administración de la plataforma de varias personas en varios paises, con roles y permisos específicos.
-La versión incluye la funcionalidad completa para la base de Donde Reciclo 3.5 y su lanzamiento en Colombia
+## Versión 2.0
+Esta versión agrega funcionalidades de dimensiones de economía circular y versionador para la API 
 * Ruby version 2.6.3  
 
 * Rails version 6.0.2
