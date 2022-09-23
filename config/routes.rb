@@ -22,11 +22,7 @@ Rails.application.routes.draw do
   get 'api/container/:id', to: 'api#container'
   get 'api/containers'
   get 'api/subprogram_containers'
-  get 'api/containers_bbox'
-  get 'api/containers_bbox4materials'
   get 'api/containers_nearby'
-  get 'api/containers4materials'
-  get 'api/search'
   get 'api/search_predefined'
   get 'api/predefined_searches'
   get 'api/programs'
@@ -41,4 +37,22 @@ Rails.application.routes.draw do
   post 'password/forgot', to: 'utils#forgot'
   post 'password/reset', to: 'utils#reset'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  scope module: :v2, constraints: ApiConstraint.new(version: 2) do
+    get 'api/tags_programs'
+    get 'api/countries'
+    get 'api/dimensions'
+    get 'api/search'
+    get 'api/containers4materials'
+    get 'api/containers_bbox'
+    get 'api/containers_bbox4materials'
+  end
+  scope module: :v1, constraints: ApiConstraint.new(version: 1) do
+    get 'api/tags_programs', to: 'api#not_implemented'
+    get 'api/countries', to: 'api#not_implemented'
+    get 'api/dimensions', to: 'api#not_implemented'
+    get 'api/search'
+    get 'api/containers4materials'
+    get 'api/containers_bbox'
+    get 'api/containers_bbox4materials'
+  end
 end

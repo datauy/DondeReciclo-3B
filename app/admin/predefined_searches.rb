@@ -14,7 +14,7 @@ ActiveAdmin.register PredefinedSearch do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :country_id, waste_ids: [], material_ids: []
+  permit_params :country_id, :dimension_id, waste_ids: [], material_ids: []
   #
   # or
   #
@@ -44,6 +44,7 @@ ActiveAdmin.register PredefinedSearch do
   form do |f|
     f.inputs do
       f.input :country
+      f.input :dimension
       f.input :materials, as: :check_boxes
       f.inputs "Residuos" do
         f.input :wastes, as: :check_boxes

@@ -5,7 +5,7 @@ ActiveAdmin.register Country do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :contact
+  permit_params :name, :contact, :code, :locale, :lat, :lon
   #
   # or
   #
@@ -35,7 +35,11 @@ ActiveAdmin.register Country do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :code
+      f.input :locale
       f.input :contact
+      f.input :lat
+      f.input :lon
     end
     f.actions
   end

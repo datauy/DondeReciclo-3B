@@ -1,5 +1,5 @@
 ActiveAdmin.register Program do
-  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, material_ids: [], waste_ids: [], location_ids: []
+  permit_params :name, :shortname, :responsable, :responsable_url, :more_info, :reception_conditions, :contact, :information, :benefits, :lifecycle, :receives, :receives_no, :logo, :icon, :country_id, :tag_id, tag_ids: [], material_ids: [], waste_ids: [], location_ids: []
   before_action :authenticate
   menu if: proc{ current_admin_user.is_admin? }
   config.create_another = true
@@ -45,6 +45,10 @@ ActiveAdmin.register Program do
       f.input :shortname
       f.input :logo, as: :file
       f.input :icon, as: :file
+      f.input :tag_id, :label => 'Categoría principal', as: :select, collection: Tag.where(section: 0).map{|s| [s.name, s.id]}
+      f.inputs "Categorías adicionales" do
+        f.input :tags, as: :check_boxes, collection: Tag.where(section: 0).map{|s| [s.name, s.id]}
+      end
       f.input :responsable
       f.input :responsable_url
       f.input :more_info

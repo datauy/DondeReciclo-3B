@@ -1,15 +1,20 @@
 class ApiController < ApplicationController
   before_action :set_locale
 
+  def not_implemented
+    render json: {error: "This function is not available for queried API version"}
+  end
+
   #Location Subprograms
   def subprograms4location
     distance = 0.009
     if params[:distance].present?
       distance = params[:distance]
     end
+    query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
     z = Zone.
     joins(:location).
-    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
     includes(:sub_program, :schedules).
     where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
     order("distance asc")
@@ -19,9 +24,10 @@ class ApiController < ApplicationController
   def zone4point
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
+    query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
     Location.
     includes(:zones).
-    select("*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText('#{params[:wkt]}') ) * 111000) as distance").
+    select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
     order("distance asc").
     limit(1).
     each do |loc|
@@ -137,6 +143,7 @@ class ApiController < ApplicationController
   #
   def containers
     @cont = Container
+    .with_attached_custom_icon
     .where( id: params[:container_ids].split(',') )
     .includes( :sub_program )
     render json: format_pins(@cont)
@@ -144,6 +151,7 @@ class ApiController < ApplicationController
   #
   def containers_bbox
     @cont = Container
+      .with_attached_custom_icon
       .where(:hidden => false, :public_site => true)
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
       .includes( :sub_program )
@@ -152,6 +160,7 @@ class ApiController < ApplicationController
   #
   def containers_bbox4materials
     cont = Container
+      .with_attached_custom_icon
       .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
     if (params[:materials])
       @cont = cont.
@@ -169,35 +178,11 @@ class ApiController < ApplicationController
   #
   def containers_nearby
     @cont = Container
+      .with_attached_custom_icon
       .where(:hidden => false, :public_site => true)
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
       .limit(50)
-    render json: format_pins(@cont)
-  end
-  #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
-  #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
-  def containers4materials
-    cont = Container
-      .includes( :sub_program )
-      .near( [params[:lat], params[:lon]], 300, units: :km )
-    if (params[:materials])
-      materials = params[:materials].split(',')
-      @cont = cont.
-        joins( sub_program: [:materials] ).
-        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => materials ).
-        limit(50)
-      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", material_ids: materials)
-    elsif params[:wastes]
-      wastes = params[:wastes].split(',')
-      @cont = cont.
-        joins( sub_program: [:wastes] ).
-        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => wastes ).
-        limit(50)
-      #Search.create(coords: "POINT(#{params[:lat]} #{params[:lon]})", waste_ids: wastes)
-    else
-      return self.containers_nearby
-    end
     render json: format_pins(@cont)
   end
   #
@@ -216,7 +201,7 @@ class ApiController < ApplicationController
   #
   def materials
     render json: Material
-      .with_attached_icon
+      .includes(:icon_attachment)
       .all
       .map{|mat| [mat.id, {
       id: mat.id,
@@ -229,26 +214,18 @@ class ApiController < ApplicationController
   end
   #
   def wastes
-    render json: Waste
-      .find(params[:ids].split(','))
-      .map{|mat| ({
-        id: mat.id,
-        name: mat.name,
-        class: mat.material.present? ? mat.material.name_class : 'primary',
-        icon: mat.icon.attached? ? url_for(mat.icon) : ''
-      })}
-  end
-  #
-  def search
-    if ( params[:q].length > 2 )
-      @str = params[:q]
-      render json: format_search(
-        Material.search(@str)+
-        Waste.search(@str)+
-        Product.search(@str)
-      ).sort_by! {|r| r[:name]}
+    if ( params[:ids] )
+      render json: Waste
+        .includes(:icon_attachment)
+        .find(params[:ids].split(','))
+        .map{|mat| ({
+          id: mat.id,
+          name: mat.name,
+          class: mat.material.present? ? mat.material.name_class : 'primary',
+          icon: mat.icon.attached? ? url_for(mat.icon) : ''
+        })}
     else
-      render json: {error: 'Insuficient parameter length, at least 3 charachters are required'}
+      render json: {error: "Missing parameter :ids"}
     end
   end
   #
@@ -308,6 +285,7 @@ class ApiController < ApplicationController
           :url => sup.url
           }
         }
+        prog.sub_programs_arr = prog.sub_programs.map{ |sp| sp.id }
         res << prog
       end
     render json: res
@@ -331,7 +309,7 @@ class ApiController < ApplicationController
         latitude: cont.latitude,
         longitude: cont.longitude,
         main_material: cont.sub_program.material_id,
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }) }
     else
       return objs.map{|cont| ({
@@ -351,7 +329,7 @@ class ApiController < ApplicationController
         class: cont.sub_program.material.name_class,
         #photos: [cont.photos.attached? ? url_for(cont.photos) : ''],  #.map {|ph| url_for(ph) } : '',
         #receives_no: cont.sub_program.receives_no
-        custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+        custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
       }) }
     end
   end
@@ -372,7 +350,7 @@ class ApiController < ApplicationController
       state: cont.state,
       public: cont.public_site,
       information: cont.information,
-      materials: cont.sub_program.materials.ids,
+      materials: cont.sub_program.materials.pluck(:id),
       wastes: cont.sub_program.wastes.ids,
       main_material: cont.sub_program.material.id,
       class: cont.sub_program.material.name_class,
@@ -381,7 +359,7 @@ class ApiController < ApplicationController
       receives_text: cont.sub_program.receives,
       reception_conditions: cont.sub_program.reception_conditions,
       schedules: weekSummary(cont.schedules),
-      custom_icon: cont.custom_icon.attached? && cont.custom_icon_active ? url_for(cont.custom_icon) : '',
+      custom_icon: cont.custom_icon_active? && cont.custom_icon.attached? ? url_for(cont.custom_icon) : '',
     }
   end
   def format_search(objs)
@@ -540,5 +518,8 @@ class ApiController < ApplicationController
   def extract_locale
     parsed_locale = params[:locale]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+  end
+  def not_implemented
+    render json: {error: "This function is not available for queried API version"}
   end
 end

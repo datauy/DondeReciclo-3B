@@ -53,6 +53,7 @@ ActiveAdmin.register Material do
   #
   form do |f|
     f.inputs do
+      f.input :dimension
       f.input :name
       f.input :information, as: :ckeditor
       current_loc = I18n.locale
