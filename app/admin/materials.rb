@@ -1,6 +1,6 @@
 ActiveAdmin.register Material do
   before_action :authenticate, :set_locale
-  permit_params :name, :icon, :information,:icon, :video, :color, predefined_search_ids: []
+  permit_params :name, :icon, :information,:icon, :video, :color, :contrast_color, predefined_search_ids: [], dimension_ids: []
   menu if: proc{ current_admin_user.is_admin? }
   #
   controller do
@@ -53,7 +53,7 @@ ActiveAdmin.register Material do
   #
   form do |f|
     f.inputs do
-      f.input :dimension
+      f.input :dimensions, as: :check_boxes
       f.input :name
       f.input :information, as: :ckeditor
       current_loc = I18n.locale
@@ -65,7 +65,12 @@ ActiveAdmin.register Material do
         end
       end
       I18n.locale = current_loc
-      f.input :icon, as: :file
+      f.inputs "Ícono" do
+        span image_tag(url_for(f.object.icon)) if f.object.icon.attached?
+        f.input :icon, as: :file
+      end
+      f.input :color
+      f.input :contrast_color
       f.input :video
       f.input :predefined_search_ids, :as => :check_boxes, :collection => PredefinedSearch.all.map{|m| [m.country.name, m.id]}
     end
