@@ -16,13 +16,13 @@ class UserApiController < ApplicationController
   def report
     begin
       user = current_resource_owner
-      req_params = {
-        name: user.name,
-        from: user.email,
-        message: "#{params[:comment]}<br><br>-----------------<br>Admin:#{request.host}/admin/containers/#{params[:id]}/edit",
-        subject: "DR: Reportan #{params[:subject]}",
-        actAsType: "customer"
-      }
+      req_params = [
+        ['name', user.name],
+        ['from', user.email],
+        ['message', "#{params[:comment]}<br><br>-----------------<br>Admin:#{request.host}/admin/containers/#{params[:id]}/edit"],
+        ['subject', "DR: Reportan #{params[:subject]}"],
+        ['actAsType', "customer"]
+      ]
       if params[:photo].present? || params[:subject] == 'foto'
         #attachments['file-name.jpg'] = File.read('file-name.jpg').
         name = params[:ClientFilename]#.split('\\').last
@@ -30,7 +30,7 @@ class UserApiController < ApplicationController
         File.open(tmp_file, 'wb') do |f|
           f.write  request.body.read
         end
-        mail_params[:attachments] = tmp_file
+        req_params.push(['attachments', File.open(tmp_file)])
       end
       # Create Ticket
       uri = URI('https://soporte.data.org.uy/api/v1/ticket')
@@ -41,7 +41,7 @@ class UserApiController < ApplicationController
 
       res = Net::HTTP::Post.new(uri.path)
       res['Authorization'] = "Basic #{Rails.application.credentials.dig(:"#{Rails.env}", :uv_token)}"
-      res.set_form_data(req_params)
+      res.set_form(req_params, 'multipart/form-data')
       response = req.request(res)
       if response.kind_of? Net::HTTPSuccess
         render json: {
