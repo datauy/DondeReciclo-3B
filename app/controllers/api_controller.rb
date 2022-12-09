@@ -450,6 +450,7 @@ class ApiController < ApplicationController
         action_link: ns.sub_program.action_link,
         receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
         materials: ns.sub_program.materials.ids,
+        wastes: ns.sub_program.wastes.ids,
         locations: ns.sub_program.locations.map{ |loc| loc.name },
         #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
         zone: {
