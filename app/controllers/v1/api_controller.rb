@@ -1,6 +1,21 @@
 module V1
   class ApiController < ApplicationController
     before_action :set_locale
+    #Location Subprograms
+    def subprograms4location
+      distance = 0.009
+      if params[:distance].present?
+        distance = params[:distance]
+      end
+      query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
+      z = Zone.
+      joins(:location).
+      select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
+      includes(:sub_program, :schedules).
+      where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
+      order("distance asc")
+      render json: formatZone(z, true)
+    end
     #
     def containers_bbox
       @cont = Container
