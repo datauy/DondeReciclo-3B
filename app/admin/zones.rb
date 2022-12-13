@@ -14,10 +14,16 @@ ActiveAdmin.register Zone do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  filter :id
+  filter :sub_program_id, :label => 'Subprograma', :as => :searchable_select, :collection => SubProgram.all.map{|s| [s.name, s.id]}
+  filter :location_id, :label => 'Location', :as => :searchable_select, :collection => Location.all.map{|s| [s.name, s.id]}
+  filter :is_route
+
+  
   form :html => { :multipart => true } do |f|
     f.inputs do
       f.input :sub_program_id, :label => 'Subprograma', :as => :searchable_select, :collection => SubProgram.all.map{|s| [s.name, s.id]}
-      f.input :location_id, :label => 'Locaion', :as => :searchable_select, :collection => Location.all.map{|s| [s.name, s.id]}
+      f.input :location_id, :label => 'Location', :as => :searchable_select, :collection => Location.all.map{|s| [s.name, s.id]}
       f.input :is_route
       f.input :pick_up_type
     end
