@@ -255,34 +255,36 @@ module V2
     def format_search(objs)
       res = []
       objs.each do |mat|
-        oa = {
-          id: mat.id,
-          name: mat.name,
-          deposition: nil,
-          type: mat.class.name.downcase.pluralize,
-          material_id: mat.id,
-          class: nil,
-          color: nil,
-          contrast_color: nil,
-          icon: mat.icon.attached? ? url_for(mat.icon) : '',
-        }
-        if mat.class.name == 'Material'
-          oa[:deposition] = mat.information
-          oa[:class] = mat.name_class
-          oa[:color] = mat.color
-          oa[:contrast_color] = mat.contrast_color
-        elsif mat.class.name == 'Waste'
-          oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
-          oa[:deposition] = mat.deposition
-          oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
-          oa[:color] = mat.material.present? ? mat.material.color : nil
-          oa[:contrast_color] = mat.material.present? ? mat.material.color : nil
-        elsif mat.class.name == 'Product'
-          oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
-          oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
-          oa[:color] = mat.material.present? ? mat.material.color : nil
+        if mat.name.present?
+          oa = {
+            id: mat.id,
+            name: mat.name,
+            deposition: nil,
+            type: mat.class.name.downcase.pluralize,
+            material_id: mat.id,
+            class: nil,
+            color: nil,
+            contrast_color: nil,
+            icon: mat.icon.attached? ? url_for(mat.icon) : '',
+          }
+          if mat.class.name == 'Material'
+            oa[:deposition] = mat.information
+            oa[:class] = mat.name_class
+            oa[:color] = mat.color
+            oa[:contrast_color] = mat.contrast_color
+          elsif mat.class.name == 'Waste'
+            oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
+            oa[:deposition] = mat.deposition
+            oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
+            oa[:color] = mat.material.present? ? mat.material.color : nil
+            oa[:contrast_color] = mat.material.present? ? mat.material.color : nil
+          elsif mat.class.name == 'Product'
+            oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
+            oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
+            oa[:color] = mat.material.present? ? mat.material.color : nil
+          end
+          res << oa
         end
-        res << oa
       end
       return res.sort_by! {|r| r[:name]}
     end
