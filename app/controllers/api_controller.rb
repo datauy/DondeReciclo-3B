@@ -5,21 +5,6 @@ class ApiController < ApplicationController
     render json: {error: "This function is not available for queried API version"}
   end
 
-  #Location Subprograms
-  def subprograms4location
-    distance = 0.009
-    if params[:distance].present?
-      distance = params[:distance]
-    end
-    query_string = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
-    z = Zone.
-    joins(:location).
-    select( ActiveRecord::Base::sanitize_sql_array([ query_string, wkt: params[:wkt] ]) ).
-    includes(:sub_program, :schedules).
-    where( "ST_DWithin( locations.geometry, ST_GeomFromText(?), ? )", params[:wkt], distance ).
-    order("distance asc")
-    render json: formatZone(z, true)
-  end
   #
   def zone4point
     factory = RGeo::GeoJSON::EntityFactory.instance
@@ -73,6 +58,7 @@ class ApiController < ApplicationController
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
     Location.
+    distinct.
     includes(:zones).
     where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
     each do |loc|

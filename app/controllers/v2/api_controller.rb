@@ -1,6 +1,36 @@
 module V2
   class ApiController < ApplicationController
     before_action :set_locale
+
+    #Location Subprograms
+    def subprograms4location
+      distance = 0.009
+      distinct = false
+      if params[:distance].present?
+        distance = params[:distance]
+      end
+      select_query =  "zones.*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
+      if params[:dimensions].present?
+        where_query = 'materials.id in (:mids) and ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance )'
+        mids = params[:dimensions].split(',')
+        distinct = true
+        z = Zone.
+        joins(:location, sub_program: :materials).
+        select( ActiveRecord::Base::sanitize_sql_array([ select_query, wkt: params[:wkt] ]) ).
+        includes(:sub_program, :schedules).
+        where( where_query, mids: mids, wkt: params[:wkt], distance: distance ).
+        order("distance asc")
+      else
+        where_query = "ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance )"
+        z = Zone.
+        joins(:location).
+        select( ActiveRecord::Base::sanitize_sql_array([ select_query, wkt: params[:wkt] ]) ).
+        includes(:sub_program, :schedules).
+        where( where_query, wkt: params[:wkt], distance: distance ).
+        order("distance asc")
+      end
+      render json: formatSubprogramZone(z, true, distinct)
+    end
     #
     def tags_programs
       country = 1 #load Uruguay/first by default
@@ -257,88 +287,53 @@ module V2
       return res.sort_by! {|r| r[:name]}
     end
     #
-    def formatZone(z, load_geom)
-      if params[:version] && params[:version].to_d >= 1.4
-        return formatSubprogramZone(z, load_geom)
-      end
-      res = []
-      z.each_with_index do |ns, i|
-        res.push({
-          id: ns.sub_program.id,
-          program_id: ns.sub_program.program_id,
-          name: ns.sub_program.name,
-          city: ns.sub_program.city,
-          address: ns.sub_program.address,
-          email: ns.sub_program.email,
-          phone: ns.sub_program.phone,
-          action_title: ns.sub_program.action_title,
-          action_link: ns.sub_program.action_link,
-          receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
-          locations: ns.sub_program.locations.map{ |loc| loc.name },
-          #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-          zone: {
-            is_route: ns.is_route,
-            pick_up_type: ns.pick_up_type,
-            schedules: ns.schedules,
-          }
-        })
-        if load_geom
-          factory = RGeo::GeoJSON::EntityFactory.instance
-          res[i][:zone][:location] = RGeo::GeoJSON.encode(
-            factory.feature_collection([
-              factory.feature(
-                ns.geometry,
-                "#{ns.sub_program.id}-#{ns.id}",
-                { name: ns.location.name, subprograms: [ns.sub_program.name] }
-              )
-            ])
-          )
-          res[i][:zone][:distance] = ns.distance
-        end
-      end
-      return res
-    end
-    #
-    def formatSubprogramZone(z, load_geom)
+    def formatSubprogramZone(z, load_geom, norepeat)
       res = {subprograms: [], locations: {}}
       locations = {}
+      zone_ids = []
       factory = RGeo::GeoJSON::EntityFactory.instance
       z.each_with_index do |ns, i|
-        res[:subprograms].push({
-          id: ns.sub_program.id,
-          program_id: ns.sub_program.program_id,
-          name: ns.sub_program.name,
-          city: ns.sub_program.city,
-          address: ns.sub_program.address,
-          email: ns.sub_program.email,
-          phone: ns.sub_program.phone,
-          action_title: ns.sub_program.action_title,
-          action_link: ns.sub_program.action_link,
-          receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
-          materials: ns.sub_program.materials.ids,
-          locations: ns.sub_program.locations.map{ |loc| loc.name },
-          #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-          zone: {
-            location_id: ns.location_id,
-            is_route: ns.is_route,
-            pick_up_type: ns.pick_up_type,
-            schedules: ns.schedules,
-            distance: ns.distance,
-            name: ns.location.name,
-            information: ns.information,
-          }
-        })
-        if load_geom
-          #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{ns.geometry.inspect}\n\n" }
-          if ( locations.key? ns.location_id )
-            locations[ns.location_id].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
-          else
-            locations[ns.location_id] = factory.feature(
-              ns.geometry,
-              "#{ns.location_id}",
-              { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
-            )
-            #res[i][:zone][:distance] = ns.distance
+        if zone_ids.include?(ns.id) && norepeat
+          next
+        else
+          res[:subprograms].push({
+            id: ns.sub_program.id,
+            program_id: ns.sub_program.program_id,
+            name: ns.sub_program.name,
+            city: ns.sub_program.city,
+            address: ns.sub_program.address,
+            email: ns.sub_program.email,
+            phone: ns.sub_program.phone,
+            action_title: ns.sub_program.action_title,
+            action_link: ns.sub_program.action_link,
+            receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
+            materials: ns.sub_program.materials.ids,
+            locations: ns.sub_program.locations.map{ |loc| loc.name },
+            wastes: ns.sub_program.materials.ids.length == 0 ? ns.sub_program.wastes.ids : [],
+            #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+            zone: {
+              location_id: ns.location_id,
+              is_route: ns.is_route,
+              pick_up_type: ns.pick_up_type,
+              schedules: ns.schedules,
+              distance: ns.distance,
+              name: ns.location.name,
+              information: ns.information,
+            }
+          })
+          zone_ids.push(ns.id);
+          if load_geom
+            #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{ns.geometry.inspect}\n\n" }
+            if ( locations.key? ns.location_id )
+              locations[ns.location_id].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
+            else
+              locations[ns.location_id] = factory.feature(
+                ns.geometry,
+                "#{ns.location_id}",
+                { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
+              )
+              #res[i][:zone][:distance] = ns.distance
+            end
           end
         end
       end
