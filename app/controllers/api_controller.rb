@@ -58,6 +58,7 @@ class ApiController < ApplicationController
     factory = RGeo::GeoJSON::EntityFactory.instance
     features = []
     Location.
+    distinct.
     includes(:zones).
     where( "ST_Intersects( locations.geometry, ST_PolygonFromText(?) ) = true", params[:wkt] ).
     each do |loc|
