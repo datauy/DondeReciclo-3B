@@ -9,7 +9,7 @@ module V2
       if params[:distance].present?
         distance = params[:distance]
       end
-      select_query = "*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
+      select_query =  "zones.*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
       if params[:dimensions].present?
         where_query = 'materials.id in (:mids) and ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance )'
         mids = params[:dimensions].split(',')
@@ -308,8 +308,8 @@ module V2
             action_link: ns.sub_program.action_link,
             receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
             materials: ns.sub_program.materials.ids,
-            wastes: ns.sub_program.wastes.ids,
             locations: ns.sub_program.locations.map{ |loc| loc.name },
+            wastes: ns.sub_program.materials.ids.length == 0 ? ns.sub_program.wastes.ids : [],
             #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
             zone: {
               location_id: ns.location_id,
