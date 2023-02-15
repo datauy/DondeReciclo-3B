@@ -6,6 +6,18 @@ class UserApiController < ApplicationController
     render json: current_resource_owner
   end
 
+  def delete
+    user = current_resource_owner
+    anonUser = User.find_by({email: "devops@data.org.uy"})
+    user.reports.update_all({user_id: anonUser.id})
+    ActiveRecord::Base.connection.execute("delete from oauth_access_tokens where resource_owner_id = #{doorkeeper_token.resource_owner_id}")
+    user.delete()
+    render json: {
+      error:0,
+      message:"User deleted"
+    }, status: :ok
+  end
+
   def update
     user = current_resource_owner
     new_data = params[:user_api].permit(:name, :email, :sex, :state, :neighborhood, :age, :country_id)
