@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :country
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 	has_many :access_grants,
@@ -14,6 +14,8 @@ class User < ApplicationRecord
            class_name: 'Doorkeeper::AccessToken',
            foreign_key: :resource_owner_id,
            dependent: :delete_all # or :destroy if you need callbacks
+
+  has_many :reports, dependent: :delete_all
 
   def generate_password_token!
    self.reset_password_token = generate_token
