@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     get 'api/containers4materials'
     get 'api/containers_bbox'
     get 'api/containers_bbox4materials'
+    get 'api/stats/totals', to: "api_stats#totals"
+    get 'api/stats/programs', to: "api_stats#programs"
   end
   scope module: :v1, constraints: ApiConstraint.new(version: 1) do
     get 'api/subprograms4location'
