@@ -3,7 +3,7 @@ class CreateRoutes < ActiveRecord::Migration[6.0]
     create_table :routes do |t|
       t.string :name
       t.string :code
-      t.multi_line_string :route, srid: 4326, null: false,
+      t.multi_line_string :route, null: false,
       t.timestamps
     end
   end
