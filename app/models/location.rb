@@ -6,10 +6,12 @@ class Location < ApplicationRecord
 
   has_many :zones
 
-  enum type: [
+  enum loc_type: [
     'country',
     'state',
     'city',
-    'municipality'
+    'municipality',
+    'neighborhood',
+    'area'
   ]
 end
