@@ -120,13 +120,6 @@ class ApiController < ApplicationController
     render json: format_pins(@cont)
   end
   #
-  def container
-    @cont = Container
-    .with_attached_photos
-    .find( params[:id] )
-    render json: format_container(@cont)
-  end
-  #
   def containers
     @cont = Container
     .with_attached_custom_icon

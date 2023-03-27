@@ -1,7 +1,13 @@
 module V2
   class ApiController < ApplicationController
     before_action :set_locale
-
+    #
+    def container
+      @cont = Container
+      .with_attached_photos
+      .find( params[:id] )
+      render json: format_container(@cont)
+    end
     #Location Subprograms
     def subprograms4location
       distance = 0.009
@@ -384,19 +390,19 @@ module V2
             closed: false
           }
           if res[sched.weekday].present? && res[sched.weekday][:closed].blank?
-            if res[sched.weekday][:start] > day[:start]
+            if res[sched.weekday][:start] > day[:end]
               dayAux = res[sched.weekday]
               res[sched.weekday] = day.dup
               day = dayAux
+              res[sched.weekday]['start2'] = day[:start]
+              res[sched.weekday]['end2'] = day[:end]
             end
-            res[sched.weekday]['start2'] = day[:start]
-            res[sched.weekday]['end2'] = day[:end]
           else
             res[sched.weekday] = day
           end
         end
       end
-      res
+      res.values
     end
     def set_locale
       I18n.locale = extract_locale || I18n.default_locale

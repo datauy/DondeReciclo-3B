@@ -1,6 +1,13 @@
 module V1
   class ApiController < ApplicationController
     before_action :set_locale
+    #
+    def container
+      @cont = Container
+      .with_attached_photos
+      .find( params[:id] )
+      render json: format_container(@cont)
+    end
     #Location Subprograms
     def subprograms4location
       distance = 0.009
@@ -265,28 +272,29 @@ module V1
     def weekSummary(scheds)
       res = {}
       scheds.each do |sched|
+        weekday = Schedule.weekdays[sched.weekday]
         if sched.closed
-          res[sched.weekday] = {
-            day: sched.weekday,
+          res[weekday] = {
+            day: weekday,
             closed: true
           }
         else
           day = {
-            day: sched.weekday,
+            day: weekday,
             start: sched.start.strftime('%H:%M'),
             end: sched.end.strftime('%H:%M'),
             closed: false
           }
-          if res[sched.weekday].present? && res[sched.weekday][:closed].blank?
-            if res[sched.weekday][:start] > day[:start]
-              dayAux = res[sched.weekday]
-              res[sched.weekday] = day.dup
+          if res[weekday].present? && res[weekday][:closed].blank?
+            if res[weekday][:start] > day[:start]
+              dayAux = res[weekday]
+              res[weekday] = day.dup
               day = dayAux
             end
-            res[sched.weekday]['start2'] = day[:start]
-            res[sched.weekday]['end2'] = day[:end]
+            res[weekday]['start2'] = day[:start]
+            res[weekday]['end2'] = day[:end]
           else
-            res[sched.weekday] = day
+            res[weekday] = day
           end
         end
       end
