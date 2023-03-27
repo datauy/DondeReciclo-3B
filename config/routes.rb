@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'api/materials'
   get 'api/wastes'
   get 'api/container_types'
-  get 'api/container/:id', to: 'api#container'
   get 'api/containers'
   get 'api/subprogram_containers'
   get 'api/containers_nearby'
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'utils#reset'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   scope module: :v2, constraints: ApiConstraint.new(version: 2) do
+    get 'api/container/:id', to: 'api#container'
     get 'api/subprograms4location'
     get 'api/tags_programs'
     get 'api/countries'
@@ -46,8 +46,11 @@ Rails.application.routes.draw do
     get 'api/containers4materials'
     get 'api/containers_bbox'
     get 'api/containers_bbox4materials'
+    get 'api/stats/totals', to: "api_stats#totals"
+    get 'api/stats/programs', to: "api_stats#programs"
   end
   scope module: :v1, constraints: ApiConstraint.new(version: 1) do
+    get 'api/container/:id', to: 'api#container'
     get 'api/subprograms4location'
     get 'api/tags_programs', to: 'api#not_implemented'
     get 'api/countries', to: 'api#not_implemented'

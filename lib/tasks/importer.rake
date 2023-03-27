@@ -1,23 +1,39 @@
 def all_day_sched
-  ids = []
-  for i in 1..7
+  #ids = []
+  #for i in 1..7
       sched = {
-        weekday: i,
+        weekday: 0,
         start: '00:00',
-      end: '23:59'
+        end: '23:59',
+        desc: "24 horas"
     }
     schedule = Schedule.find_or_create_by(sched)
-    ids << schedule.id
-  end
-  return ids
+    #ids << schedule.id
+  #end
+  return [schedule.id]
 end
 def working_days_sched
+  sched = {
+    weekday: 8,
+    start: '09:00',
+    end: '21:00',
+    desc: "Todos los días de 9 a 21"
+  }
+  schedule = Schedule.find_or_create_by(sched)
+  return [schedule.id]
+end
+
+def days_time(rdays, rtime)
   ids = []
-  for i in 1..7
+  wdays = ['Todos', 'L', 'M', 'Mi', 'J', 'V', 'S', 'D' ]
+  rdays_indexes = rdays.split(',').map{|d| wdays.find_index(d) }
+  rtime_arr = rtime.split(" a ")
+  for i in rdays_indexes
     sched = {
-      weekday: i,
-      start: '09:00',
-      end: '21:00'
+    weekday: i,
+    start: rtime_arr[0],
+    end: rtime_arr[1].present? ? rtime_arr[1] : rtime_arr[0],
+    desc: "#{rdays} - #{rtime}"
     }
     schedule = Schedule.find_or_create_by(sched)
     ids << schedule.id
@@ -359,6 +375,7 @@ namespace :importer_col do
     end
   end
 end
+
 namespace :importer_uy do
   task :conciliate_locations,  [:filename] => [:environment] do |_, args|
     p "Starting IMPORT"
@@ -399,7 +416,7 @@ namespace :importer_uy do
         depto.geometry = feature.geometry
         depto.save
         if depto.errors
-          puts "ERROR EN #{depto.name}"
+          puts "ERROR EN #{depto.name}: \n #{depto.errors.inspect}"
         else
           puts "DEPTO ACTULIZADO  #{depto.name}"
         end

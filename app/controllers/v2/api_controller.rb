@@ -1,7 +1,13 @@
 module V2
   class ApiController < ApplicationController
     before_action :set_locale
-
+    #
+    def container
+      @cont = Container
+      .with_attached_photos
+      .find( params[:id] )
+      render json: format_container(@cont)
+    end
     #Location Subprograms
     def subprograms4location
       distance = 0.009
@@ -9,21 +15,24 @@ module V2
       if params[:distance].present?
         distance = params[:distance]
       end
-      select_query =  "zones.*, locations.geometry as geometry, ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000) as distance"
+      select_query =  "zones.*, locations.geometry as geometry, (
+        cast(coalesce(nullif( ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000),NULL),'0') as float) +
+        cast(coalesce(nullif( ROUND(ST_Distance( routes.route, ST_GeomFromText(:wkt) ) * 111000),NULL),'0') as float)
+      ) as distance"
       if params[:dimensions].present?
-        where_query = 'materials.id in (:mids) and ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance )'
+        where_query = 'materials.id in (:mids) and ( ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance ) OR ST_DWithin( routes.route, ST_GeomFromText(:wkt), :distance ) )'
         mids = params[:dimensions].split(',')
         distinct = true
         z = Zone.
-        joins(:location, sub_program: :materials).
+        left_joins(:location, :route, sub_program: :materials).
         select( ActiveRecord::Base::sanitize_sql_array([ select_query, wkt: params[:wkt] ]) ).
         includes(:sub_program, :schedules).
         where( where_query, mids: mids, wkt: params[:wkt], distance: distance ).
         order("distance asc")
       else
-        where_query = "ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance )"
+        where_query = "ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance ) OR ST_DWithin( routes.route, ST_GeomFromText(:wkt), :distance )"
         z = Zone.
-        joins(:location).
+        left_joins(:location, :route).
         select( ActiveRecord::Base::sanitize_sql_array([ select_query, wkt: params[:wkt] ]) ).
         includes(:sub_program, :schedules).
         where( where_query, wkt: params[:wkt], distance: distance ).
@@ -311,30 +320,50 @@ module V2
             receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
             materials: ns.sub_program.materials.ids,
             locations: ns.sub_program.locations.map{ |loc| loc.name },
-            wastes: ns.sub_program.materials.ids.length == 0 ? ns.sub_program.wastes.ids : [],
+            wastes: ns.sub_program.wastes.ids.length == 0 ? ns.sub_program.wastes.ids : [],
             #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
             zone: {
-              location_id: ns.location_id,
+              location_id: ns.location_id.present? ? "P-#{ns.location_id}" : "R-#{ns.route_id}",
               is_route: ns.is_route,
               pick_up_type: ns.pick_up_type,
               schedules: ns.schedules,
               distance: ns.distance,
-              name: ns.location.name,
+              name: ns.location.present? ? ns.location.name : ns.route.name,
               information: ns.information,
             }
           })
           zone_ids.push(ns.id);
           if load_geom
             #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{ns.geometry.inspect}\n\n" }
-            if ( locations.key? ns.location_id )
-              locations[ns.location_id].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
-            else
-              locations[ns.location_id] = factory.feature(
-                ns.geometry,
-                "#{ns.location_id}",
-                { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
-              )
-              #res[i][:zone][:distance] = ns.distance
+            if ns.location_id.present?
+              if ( locations.key? "P-#{ns.location_id}" )
+                locations["P-#{ns.location_id}"].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
+              else
+                locations["P-#{ns.location_id}"] = factory.feature(
+                  ns.geometry,
+                  "P-#{ns.location_id}",
+                  { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
+                )
+                #res[i][:zone][:distance] = ns.distance
+              end
+            elsif ns.route_id.present?
+              if ( locations.key? "R-#{ns.route_id}" )
+                locations["R-#{ns.route_id}"].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
+              else
+                locations["R-#{ns.route_id}"] = factory.feature(
+                  ns.route.route,
+                  "R-#{ns.route_id}",
+                  {
+                    name: ns.route.name,
+                    subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"],
+                    custom_active: ns.custom_active,
+                    color: ns.color,
+                    icon_start: ns.icon_start.attached? ? url_for(ns.icon_start) : nil,
+                    icon_end: ns.icon_end.attached? ? url_for(ns.icon_end) : nil,
+                  }
+                )
+                #res[i][:zone][:distance] = ns.distance
+              end
             end
           end
         end
@@ -361,19 +390,19 @@ module V2
             closed: false
           }
           if res[sched.weekday].present? && res[sched.weekday][:closed].blank?
-            if res[sched.weekday][:start] > day[:start]
+            if res[sched.weekday][:start] > day[:end]
               dayAux = res[sched.weekday]
               res[sched.weekday] = day.dup
               day = dayAux
+              res[sched.weekday]['start2'] = day[:start]
+              res[sched.weekday]['end2'] = day[:end]
             end
-            res[sched.weekday]['start2'] = day[:start]
-            res[sched.weekday]['end2'] = day[:end]
           else
             res[sched.weekday] = day
           end
         end
       end
-      res
+      res.values
     end
     def set_locale
       I18n.locale = extract_locale || I18n.default_locale
