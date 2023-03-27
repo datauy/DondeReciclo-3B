@@ -13,7 +13,8 @@ class Zone < ApplicationRecord
     'take_out',
     'deposit'
   ]
-  class HABTM_Schedules
-    self.primary_key = :id
-  end
+  # TODO: CORREGIR
+  #class HABTM_Schedules
+  #  self.primary_key = :id
+  #end
 end
