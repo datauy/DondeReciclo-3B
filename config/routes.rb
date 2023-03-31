@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   scope module: :v2, constraints: ApiConstraint.new(version: 2) do
     get 'api/container/:id', to: 'api#container'
+    get 'api/subprogram/:id', to: 'api#subprogram'
     get 'api/subprograms4location'
     get 'api/tags_programs'
     get 'api/countries'
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
     get 'api/stats/programs', to: "api_stats#programs"
   end
   scope module: :v1, constraints: ApiConstraint.new(version: 1) do
+    get 'api/subprogram/:id', to: 'api#not_implemented'
     get 'api/container/:id', to: 'api#container'
     get 'api/subprograms4location'
     get 'api/tags_programs', to: 'api#not_implemented'
