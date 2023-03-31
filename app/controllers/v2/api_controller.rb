@@ -2,6 +2,64 @@ module V2
   class ApiController < ApplicationController
     before_action :set_locale
     #
+    def subprogram
+      sub_program = SubProgram.
+      find( params[:id] )
+      res = {
+        subprogram: {
+          id: sub_program.id,
+          program_id: sub_program.program_id,
+          name: sub_program.name,
+          city: sub_program.city,
+          address: sub_program.address,
+          email: sub_program.email,
+          phone: sub_program.phone,
+          action_title: sub_program.action_title,
+          action_link: sub_program.action_link,
+          receives: sub_program.receives.present? ? sub_program.receives.split('|') : [],
+          materials: sub_program.materials.ids,
+          locations: sub_program.locations.map{ |loc| loc.name },
+          wastes: sub_program.wastes.ids.length == 0 ? sub_program.wastes.ids : [],
+          #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
+          zone: {}
+        },
+        locations: {}
+      }
+      factory = RGeo::GeoJSON::EntityFactory.instance
+      locations = {}
+      sub_program.zones.each do |ns|
+        if ns.location_id.present?
+          locations["P-#{ns.location_id}"] = factory.feature(
+            ns.geometry,
+            "P-#{ns.location_id}",
+            {
+              name: ns.location.name,
+              subprograms: ["#{ns.sub_program.name}"] ,
+              custom_active: ns.custom_active,
+              color: ns.color,
+            }
+          )
+        elsif ns.route_id.present?
+          locations["R-#{ns.route_id}"] = factory.feature(
+            ns.route.route,
+            "R-#{ns.route_id}",
+            {
+              name: ns.route.name,
+              subprograms: ["#{ns.sub_program.name}"],
+              custom_active: ns.custom_active,
+              color: ns.color,
+              icon_start: ns.icon_start.attached? ? url_for(ns.icon_start) : nil,
+              icon_end: ns.icon_end.attached? ? url_for(ns.icon_end) : nil,
+            }
+          )
+        end
+      end
+      res[:locations] = RGeo::GeoJSON.encode(
+        factory.feature_collection(locations.values)
+      )
+      render json: res
+    end
+    #
     def container
       @cont = Container
       .with_attached_photos
