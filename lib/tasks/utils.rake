@@ -18,16 +18,17 @@ namespace :utils do
   end
   #
   task :assign_country, [:filename] => [:environment] do |_, args|
-    Country.all.each do |country|
-      country_loc = Location.where(name: country.name).first
-      Location.where.not(geometry: nil).each do |loc|
-        puts "processing location #{loc.name}\n"
-        if loc.geometry.intersects?(country_loc.geometry)
-          puts "Está en #{country.name} -> #{loc.name}"
-          loc.update(country_id: country.id)
-        else
-          puts "No está en #{country.name} -> #{loc.name}"
-        end
+    Location.where.not(geometry: nil).each do |loc|
+      puts "processing location #{loc.name}\n"
+      country_id = Location.
+      where( loc_type: 'country' ).
+      where( "ST_Intersects( geometry, (select geometry from locations where id = :loc) )", loc: loc.id).
+      pluck(:country_id).first
+      if country_id.present?
+        puts "Está en #{country_id} -> #{loc.name}"
+        loc.update(country_id: country_id)
+      else
+        puts "No está en #{country_id} -> #{loc.name}"
       end
     end
   end
