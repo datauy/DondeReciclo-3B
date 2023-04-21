@@ -129,4 +129,40 @@ namespace :importer do
       end
     end
   end
+  #
+  task :add_locations,  [:filename, :loc_type, :country, :parent_id] => [:environment] do |_, args|
+    p "Starting IMPORT"
+    file = args[:filename].present? ? args[:filename] : 'deptos_col.geojson'
+    loc_type = args[:loc_type].present? ? args[:loc_type] : 'state'
+    country = args[:country].present? ? args[:country] : 2
+    if args[:parent_id].present?
+      parent_id = args[:parent_id]
+    else
+      parent_id = Location.where(loc_type: "country", country_id: country).first.id
+    end
+    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+    f.each do |feature|
+      loc = Location.find_by(name: feature.properties['name'])
+      if loc.present?
+        p "LOCATION FOUND: #{loc.id}"
+      else
+        Location.create({
+          name: feature.properties['name'],
+          geometry: feature.geometry,
+          loc_type: loc_type,
+          country_id: country,
+          parent_location_id: parent_id
+        })
+        p "\n LOCATION CREATED: #{feature.properties['name']}"
+      end
+    end
+  end
+  #
+  task :routes,  [:country_id, :filename] => [:environment] do |_, args|
+    #Params
+    file = args[:filename].present? ? args[:filename] : 'deptos-CO.geojson'
+    #Set default to COL
+    country = args[:country_id].present? ? args[:country_id] : 2
+
+  end
 end

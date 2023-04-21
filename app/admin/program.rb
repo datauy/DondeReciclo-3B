@@ -37,6 +37,7 @@ ActiveAdmin.register Program do
   filter :name
   filter :responsable
   filter :contact
+  filter :country_id
   filter :created_at
 
   form do |f|
