@@ -5,6 +5,7 @@ namespace :utils do
     #change locations
     #assign_country
     #Update users
+    Location.where(name: 'Uruguay').first.update(loc_type: 'country', country_id: 1)
     User.where(country_id: 1, state: ['Valle del Cauca', 'Bolívar', 'Atlántico', 'Cundinamarca', 'Meta', 'Antioquia', 'Boyacá', 'Córdoba', 'Bogotá', 'Magdalena', 'La Guajira']).
       update(country_id: 2)
     User.where(country_id: 1, state: '').
@@ -12,13 +13,13 @@ namespace :utils do
     update(country_id: 2)
     col = Country.find(2)
   	Location.find_or_create_by({name: 'Colombia', loc_type: "country", geometry: col.geometry, country_id: 2})
-  	Location.where(name: 'Uruguay').first.update(loc_type: 'country')
+    assign_country()
     puts "updating loc_type for UY states"
-  	Location.where(country_id: 1).where(loc_type: nil).update(loc_type: 'state')
+    Location.where(country_id: 1).where(loc_type: nil).update(loc_type: 'state')
   end
   #
-  task :assign_country, [:filename] => [:environment] do |_, args|
-    Location.where.not(geometry: nil).each do |loc|
+  def assign_country
+    Location.where.not(geometry: nil, loc_type: 'country').each do |loc|
       puts "processing location #{loc.name}\n"
       country_id = Location.
       where( loc_type: 'country' ).
