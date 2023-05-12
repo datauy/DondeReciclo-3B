@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Ruta 7 Recuperadora del Valle",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4686" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Línea 2", "descriptio": "ID: 1<br>NOMBRE : Dreicy Montenegro<br>TELEFONO: 3133926974<br>CORREO: montenegrodreisi68@gmail.com<br>CIUDAD: Cali<br>LOCALIDAD: Comuna 3<br>BARRIO: Alameda<br>DIAS DE RECOLECCION: Miercoles<br>HORARIO: 7:00 a 17:00<br>TIPO DE MATERIAL: Plastico, Carton", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null, "ID": "1", "NOMBRE_": "Dreicy Montenegro", "TELEFONO": "3133926974", "CORREO": "montenegrodreisi68@gmail.com", "CIUDAD": "Cali", "LOCALIDAD": "Comuna 3", "BARRIO": "Alameda", "DIAS_DE_RE": "Miercoles", "HORARIO": "7:00 a 17:00", "TIPO_DE_MA": "Plastico, Carton, Archivo, Pet ", "CONDICIONE": "Limpio y seco ", "NUMERO_DE_": "2", "Tipo_de_ve": "Motocarro " }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -76.548448, 3.426023, 0.0 ], [ -76.548345, 3.426514, 0.0 ], [ -76.546183, 3.426394, 0.0 ], [ -76.5448633, 3.4289823, 0.0 ], [ -76.54126, 3.434384, 0.0 ], [ -76.539392, 3.436749, 0.0 ], [ -76.53659, 3.440067, 0.0 ], [ -76.536409, 3.4410841, 0.0 ], [ -76.536321, 3.441882, 0.0 ], [ -76.535882, 3.442774, 0.0 ], [ -76.535761, 3.443387, 0.0 ], [ -76.535793, 3.44444, 0.0 ], [ -76.5300138, 3.4444311, 0.0 ], [ -76.529967, 3.444066, 0.0 ] ] ] } }
+]
+}

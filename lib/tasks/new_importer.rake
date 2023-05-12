@@ -40,7 +40,86 @@ def days_time(rdays, rtime)
   end
   return ids
 end
+def update_subprogram_locations()
+  #Subprogram Locations
+  subLocations = subprogram.locations.ids
+  # TODO: ACOMODAR LOCALIDADES
+  if feature.properties['CIUDAD'].present?
+    city = Location.find_or_create_by({
+      name: feature.properties['CIUDAD'].strip,
+      loc_type: 'city',
+      country_id: country
+    })
+    if !( city.id.in? subLocations)
+      subprogram.locations.push(city)
+    end
+  end
+  if feature.properties['LOCALIDAD'].present?
+    mun = Location.find_or_create_by({
+      name: feature.properties['LOCALIDAD'].strip,
+      loc_type: 'municipality',
+      parent_location_id: city.present? ? city.id : nil,
+      country_id: country
+    })
+    if !( mun.id.in? subLocations)
+      subprogram.locations.push(mun)
+    end
+  end
+  if feature.properties['BARRIO'].present?
+    nei = Location.find_or_create_by({
+      name: feature.properties['BARRIO'].strip,
+      loc_type: 'neighborhood',
+      parent_location_id: mun.present? ? mun.id : nil,
+      country_id: country
+    })
+    if !( nei.id.in? subLocations)
+      subprogram.locations.push(nei)
+    end
+  end
+  # TODO: Agregar materiales a subprograma
+  if feature.properties['TIPO_DE_MA'].present?
+    subprogram.add_wastes_or_materials(feature.properties['TIPO_DE_MA'].split(','), false)
+  end
+  subprogram.save();
+end
 
+def add_route(name, feature, sub_id, pick_up_type = 2)
+  if feature.geometry.geometry_type.to_s == 'LineString'
+    geo_factory = RGeo::Cartesian.factory()
+    geom = geo_factory.multi_line_string([feature.geometry])
+    puts "IMPORT LINE, FGT: #{geom.geometry_type}"
+  else
+    puts "NO IMPORT LINE, FGT: #{feature.geometry.geometry_type}"
+    geom = feature.geometry
+  end
+  route_data = {
+    name: name,
+    route: geom
+  }
+  #materialId materiales reciclables
+  route = Route.find_or_create_by(route_data)
+  zone_data = {
+    route: route,
+    sub_program_id: sub_id,
+    is_route: true,
+    pick_up_type: pick_up_type,
+    #information: zone_info
+  }
+  zone = Zone.find_or_create_by(zone_data)
+  if !zone.validate!
+    puts "ERROR: #{zone.errors.full_messages}\n next..."
+    return
+  else
+    #Agregar schedules
+    if (feature.properties['DIAS_DE_RE'].present? && feature.properties['HORARIO_DE'].present?)
+      zone.schedule_ids = days_time(feature.properties['DIAS_DE_RE'], feature.properties['HORARIO_DE'])
+      zone.save()
+    end
+  end
+end
+
+###### IMPORTER ###########3
+#
 namespace :importer do
   task :routes,  [:country_id, :filename] => [:environment] do |_, args|
     #Params
@@ -50,82 +129,12 @@ namespace :importer do
     #Load file
     f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
     #mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
-    subprogram = SubProgram.find(982)
+    subprogram = SubProgram.find(1009)
     f.each do |feature|
       if true #feature.properties['SUBPROGRAM'].present?
         #subprogram = SubProgram.find(feature.properties['SUBPROGRAM'])
-        if feature.geometry.geometry_type.to_s == 'LineString'
-          geo_factory = RGeo::Cartesian.factory()
-          geom = geo_factory.multi_line_string([feature.geometry])
-          puts "IMPORT LINE, FGT: #{geom.geometry_type}"
-        else
-          puts "NO IMPORT LINE, FGT: #{feature.geometry.geometry_type}"
-          geom = feature.geometry
-        end
-        route_data = {
-          name: feature.properties['Name'].present? ? "Motocargueros #{feature.properties['Name']}" : "Motocargueros #{feature.properties['BARRIO']}",
-          route: geom
-        }
-        #materialId materiales reciclables
-        route = Route.find_or_create_by(route_data)
-        #Subprogram Locations
-        subLocations = subprogram.locations.ids
-        # TODO: ACOMODAR LOCALIDADES
-        if feature.properties['CIUDAD'].present?
-          city = Location.find_or_create_by({
-            name: feature.properties['CIUDAD'].strip,
-            loc_type: 'city',
-            country_id: country
-          })
-          if !( city.id.in? subLocations)
-            subprogram.locations.push(city)
-          end
-        end
-        if feature.properties['LOCALIDAD'].present?
-          mun = Location.find_or_create_by({
-            name: feature.properties['LOCALIDAD'].strip,
-            loc_type: 'municipality',
-            parent_location_id: city.present? ? city.id : nil,
-            country_id: country
-          })
-          if !( mun.id.in? subLocations)
-            subprogram.locations.push(mun)
-          end
-        end
-        if feature.properties['BARRIO'].present?
-          nei = Location.find_or_create_by({
-            name: feature.properties['BARRIO'].strip,
-            loc_type: 'neighborhood',
-            parent_location_id: mun.present? ? mun.id : nil,
-            country_id: country
-          })
-          if !( nei.id.in? subLocations)
-            subprogram.locations.push(nei)
-          end
-        end
-        # TODO: Agregar materiales a subprograma
-        if feature.properties['TIPO_DE_MA'].present?
-          subprogram.add_wastes_or_materials(feature.properties['TIPO_DE_MA'].split(','), false)
-        end
-        subprogram.save();
-        zone_data = {
-          route: route,
-          sub_program: subprogram,
-          is_route: true,
-          pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type].to_i : 2,
-          #information: zone_info
-        }
-        zone = Zone.find_or_create_by(zone_data)
-        if !zone.validate!
-          puts "ERROR: #{zone.errors.full_messages}\n next..."
-          next
-        else
-          #Agregar schedules
-          if (feature.properties['DIAS_DE_RE'].present? && feature.properties['HORARIO_DE'].present?)
-            zone.schedule_ids = days_time(feature.properties['DIAS_DE_RE'], feature.properties['HORARIO_DE'])
-            zone.save()
-          end
-        end
+        name = feature.properties['Name'].present? ? "Motocargueros #{feature.properties['Name']}" : "Motocargueros #{feature.properties['BARRIO']}"
+        add_route(name, feature, subprogram.id)
       end
     end
   end
@@ -146,7 +155,7 @@ namespace :importer do
       if loc.present?
         p "LOCATION FOUND: #{loc.id}"
       else
-        Location.create({
+        Location.find_or_create_by({
           name: feature.properties['name'],
           geometry: feature.geometry,
           loc_type: loc_type,
@@ -158,11 +167,21 @@ namespace :importer do
     end
   end
   #
-  task :routes,  [:country_id, :filename] => [:environment] do |_, args|
-    #Params
+  task :import_routes,  [:country_id, :filename] => [:environment] do |_, args|
     file = args[:filename].present? ? args[:filename] : 'deptos-CO.geojson'
     #Set default to COL
     country = args[:country_id].present? ? args[:country_id] : 2
-
+    #load dir
+    Dir.glob("#{Rails.root}/db/data/import_files/*") do |file|
+      p "Getting File: #{file}"
+      file_name = file.split('/')[-1]
+      f = RGeo::GeoJSON.decode(File.read( "db/data/import_files/#{file_name}" ))
+      a = JSON.parse(File.read( "db/data/import_files/#{file_name}" ))
+      name = a["name"]
+      sub_id = 1009
+      f.each do |feature|
+        add_route(name, feature, sub_id)
+      end
+    end
   end
 end
