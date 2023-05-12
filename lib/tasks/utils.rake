@@ -19,7 +19,7 @@ namespace :utils do
   end
   #
   def assign_country
-    Location.where.not(geometry: nil, loc_type: 'country').each do |loc|
+    Location.where.not(geometry: nil, loc_type: 'country').or( Location.where.not(geometry: nil).where(loc_type: nil) ).each do |loc|
       puts "processing location #{loc.name}\n"
       country_id = Location.
       where( loc_type: 'country' ).
