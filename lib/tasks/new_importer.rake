@@ -138,8 +138,6 @@ namespace :importer do
       end
     end
   end
-<<<<<<< Updated upstream
-=======
   #
   task :add_locations,  [:filename, :loc_type, :country, :parent_id] => [:environment] do |_, args|
     p "Starting IMPORT"
@@ -186,5 +184,4 @@ namespace :importer do
       end
     end
   end
->>>>>>> Stashed changes
 end
