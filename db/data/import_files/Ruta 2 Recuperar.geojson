@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Ruta 2 Recuperar",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4686" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Ruta 2 Recuperar SAS", "descriptio": "ID: 1<br>NOMBRE DE LA ORGANIZACION: RECUPERAR SAS<br>TELEFONO: 3148220586<br>CIUDAD: Itagúi<br>LOCALIDAD: Comuna 11<br>BARRIO: Los naranjos<br>DIAS DE RECOLECCION: Lunes <br>HORARIO : <br>TIPO DE MATERIAL: Chatarra, cartón, pet, archivo <br>CONDICONE", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null, "ID": "1", "NOMBRE_DE_": "RECUPERAR SAS", "TELEFONO": "3148220586", "CIUDAD": "Itagúi", "LOCALIDAD": "Comuna 11", "BARRIO": "Los naranjos", "DIAS_DE_RE": "Lunes ", "HORARIO_": null, "TIPO_DE_MA": "Chatarra, cartón, pet, archivo ", "CONDICONES": "Limpio y seco", "NUMERO_DE_": "3", "TIPO_DE_VE": "Motocarro " }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -75.607523, 6.171235, 0.0 ], [ -75.6074116, 6.170976, 0.0 ], [ -75.6070521, 6.170248, 0.0 ], [ -75.6067946, 6.169664, 0.0 ], [ -75.6075725, 6.1693573, 0.0 ], [ -75.6078434, 6.169936, 0.0 ], [ -75.6081921, 6.1707893, 0.0 ], [ -75.6085381, 6.171424, 0.0 ], [ -75.6078166, 6.171792, 0.0 ], [ -75.607863, 6.171997, 0.0 ], [ -75.608133, 6.17254, 0.0 ], [ -75.6086132, 6.1723227, 0.0 ], [ -75.608133, 6.17254, 0.0 ], [ -75.6077683, 6.1716987, 0.0 ], [ -75.6075725, 6.1713227, 0.0 ] ] ] } }
+]
+}

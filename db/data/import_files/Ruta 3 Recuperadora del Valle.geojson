@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Ruta 3 Recuperadora del Valle",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4686" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "RUTA 6", "descriptio": "ID: 1<br>NOMBRE: RECUPERADORA DYM<br>TELEFONO: 3133926974<br>CORREO: montenegrodreisi68@gmail.com<br>CIUDAD: Cali<br>LOCALIDAD: 19<br>BARRIO: LA NAVE<br>DIAS DE RECOLECCION: MARTES<br>TIPO DE MATERIAL: Plastico, carton, archivo, plegadiza, pet<br>HORARIO", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null, "ID": "1", "NOMBRE": "RECUPERADORA DYM", "TELEFONO": "3133926974", "CORREO": "montenegrodreisi68@gmail.com", "CIUDAD": "Cali", "LOCALIDAD": "19", "BARRIO": "LA NAVE", "DIAS_DE_RE": "MARTES", "TIPO_DE_MA": "Plastico, carton, archivo, plegadiza, pet", "HORARIO": "7:00 a 16:00", "CONDICIONE": "Limpio Seco ", "NUMERO_DE_": "2", "TIPO_DE_VE": "Motocarro " }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -76.546575, 3.42505, 0.0 ], [ -76.5462779, 3.4256654, 0.0 ], [ -76.546986, 3.4258421, 0.0 ], [ -76.547111, 3.425908, 0.0 ], [ -76.5480535, 3.4259438, 0.0 ], [ -76.548448, 3.426023, 0.0 ], [ -76.5487187, 3.4247925, 0.0 ], [ -76.547678, 3.4245891, 0.0 ], [ -76.5470719, 3.4244713, 0.0 ], [ -76.5467983, 3.4244177, 0.0 ], [ -76.5464442, 3.4251834, 0.0 ], [ -76.5463584, 3.4254994, 0.0 ] ] ] } }
+]
+}
