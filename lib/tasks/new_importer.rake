@@ -83,7 +83,7 @@ def update_subprogram_locations()
   subprogram.save();
 end
 
-def add_route(name, feature, sub_id, pick_up_type = 2)
+def add_route(name, feature, sub_id, pick_up_type = 2, color: nil, custom_active = false)
   if feature.geometry.geometry_type.to_s == 'LineString'
     geo_factory = RGeo::Cartesian.factory()
     geom = geo_factory.multi_line_string([feature.geometry])
@@ -103,8 +103,9 @@ def add_route(name, feature, sub_id, pick_up_type = 2)
     sub_program_id: sub_id,
     is_route: true,
     pick_up_type: pick_up_type,
-    #information: zone_info
+    #information: zone_info,
   }
+  
   zone = Zone.find_or_create_by(zone_data)
   if !zone.validate!
     puts "ERROR: #{zone.errors.full_messages}\n next..."
@@ -113,8 +114,12 @@ def add_route(name, feature, sub_id, pick_up_type = 2)
     #Agregar schedules
     if (feature.properties['DIAS_DE_RE'].present? && feature.properties['HORARIO_DE'].present?)
       zone.schedule_ids = days_time(feature.properties['DIAS_DE_RE'], feature.properties['HORARIO_DE'])
-      zone.save()
     end
+    zone.color = color if color.present?
+    zone.custom_active = custom_active
+    zone.icon_start.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
+    zone.icon_end.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
+    zone.save()
   end
 end
 
@@ -180,7 +185,7 @@ namespace :importer do
       name = a["name"]
       sub_id = 1009
       f.each do |feature|
-        add_route(name, feature, sub_id)
+        add_route(name, feature, sub_id, 2, '#f40009', true)
       end
     end
   end
