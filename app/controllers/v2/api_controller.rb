@@ -332,19 +332,27 @@ module V2
             class: nil,
             color: nil,
             contrast_color: nil,
-            icon: mat.icon.attached? ? url_for(mat.icon) : '',
+            icon: nil,
           }
           if mat.class.name == 'Material'
             oa[:deposition] = mat.information
             oa[:class] = mat.name_class
             oa[:color] = mat.color
             oa[:contrast_color] = mat.contrast_color
+            oa[:icon] = mat.icon.attached? ? url_for(mat.icon) : ''
           elsif mat.class.name == 'Waste'
             oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
             oa[:deposition] = mat.deposition
             oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'
             oa[:color] = mat.material.present? ? mat.material.color : nil
             oa[:contrast_color] = mat.material.present? ? mat.material.color : nil
+            wicon = ''
+            if mat.icon.attached?
+              wicon = url_for(mat.icon)
+            elsif mat.material.icon.attached?
+              wicon = url_for(mat.material.icon)
+            end
+            oa[:icon] = wicon
           elsif mat.class.name == 'Product'
             oa[:material_id] = mat.material.nil? ? 0 : mat.material.id
             oa[:class] = mat.material.present? ? mat.material.name_class : 'primary'

@@ -187,6 +187,7 @@ class ApiController < ApplicationController
       name: mat.name,
       class: mat.name_class,
       color: mat.color,
+      contrast_color: mat.contrast_color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
     }]}
     .to_h
