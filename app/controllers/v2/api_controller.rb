@@ -77,15 +77,24 @@ module V2
         cast(coalesce(nullif( ROUND(ST_Distance( locations.geometry, ST_GeomFromText(:wkt) ) * 111000),NULL),'0') as float) +
         cast(coalesce(nullif( ROUND(ST_Distance( routes.route, ST_GeomFromText(:wkt) ) * 111000),NULL),'0') as float)
       ) as distance"
-      if params[:dimensions].present?
-        where_query = 'materials.id in (:mids) and ( ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance ) OR ST_DWithin( routes.route, ST_GeomFromText(:wkt), :distance ) )'
-        mids = params[:dimensions].split(',')
+      if params[:dimensions].present? || params[:materials].present? || params[:wastes].present?
+        if params[:dimensions].present?
+          obtype = 'materials'
+          objs = params[:dimensions].split(',')
+        elsif params[:materials].present?
+          obtype = 'materials'
+          objs = params[:materials].split(',')
+        else
+          obtype = 'wastes'
+          objs = params[:wastes].split(',')
+        end
+        where_query = "#{obtype}.id in (:obids) and ( ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance ) OR ST_DWithin( routes.route, ST_GeomFromText(:wkt), :distance ) )"
         distinct = true
         z = Zone.
-        left_joins(:location, :route, sub_program: :materials).
+        left_joins(:location, :route, sub_program: :"#{obtype}").
         select( ActiveRecord::Base::sanitize_sql_array([ select_query, wkt: params[:wkt] ]) ).
         includes(:sub_program, :schedules).
-        where( where_query, mids: mids, wkt: params[:wkt], distance: distance ).
+        where( where_query, obids: objs, wkt: params[:wkt], distance: distance ).
         order("distance asc")
       else
         where_query = "ST_DWithin( locations.geometry, ST_GeomFromText(:wkt), :distance ) OR ST_DWithin( routes.route, ST_GeomFromText(:wkt), :distance )"
