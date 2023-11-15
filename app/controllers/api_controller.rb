@@ -187,6 +187,7 @@ class ApiController < ApplicationController
       name: mat.name,
       class: mat.name_class,
       color: mat.color,
+      type: 'materials',
       contrast_color: mat.contrast_color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
     }]}
@@ -201,6 +202,7 @@ class ApiController < ApplicationController
         .map{|mat| ({
           id: mat.id,
           name: mat.name,
+          type: 'wastes',
           class: mat.material.present? ? mat.material.name_class : 'primary',
           icon: mat.icon.attached? ? url_for(mat.icon) : ''
         })}
