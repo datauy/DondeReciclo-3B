@@ -2,60 +2,41 @@ module V2
   class ApiController < ApplicationController
     before_action :set_locale
     #
+    def subprograms
+      res = {
+        subprograms: [],
+        locations: {}
+      }
+      factory = RGeo::GeoJSON::EntityFactory.instance
+      @locations = {}
+      SubProgram.
+      where(id: params[:ids].split(',') ).
+      each do |subp|
+        res[:subprograms].push( formatSubprogram(subp) )
+        subp.zones.each do |ns|
+          formatZone(ns)
+        end
+      end
+      res[:locations] = RGeo::GeoJSON.encode(
+        factory.feature_collection(@locations.values)
+      )
+      render json: res
+    end
+    #
     def subprogram
       sub_program = SubProgram.
       find( params[:id] )
       res = {
-        subprogram: {
-          id: sub_program.id,
-          program_id: sub_program.program_id,
-          name: sub_program.name,
-          city: sub_program.city,
-          address: sub_program.address,
-          email: sub_program.email,
-          phone: sub_program.phone,
-          action_title: sub_program.action_title,
-          action_link: sub_program.action_link,
-          receives: sub_program.receives.present? ? sub_program.receives.split('|') : [],
-          materials: sub_program.materials.ids,
-          locations: sub_program.locations.map{ |loc| loc.name },
-          wastes: sub_program.wastes.ids.length == 0 ? sub_program.wastes.ids : [],
-          #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-          zone: {}
-        },
+        subprogram: formatSubprogram(sub_program),
         locations: {}
       }
       factory = RGeo::GeoJSON::EntityFactory.instance
-      locations = {}
+      @locations = {}
       sub_program.zones.each do |ns|
-        if ns.location_id.present?
-          locations["P-#{ns.location_id}"] = factory.feature(
-            ns.geometry,
-            "P-#{ns.location_id}",
-            {
-              name: ns.location.name,
-              subprograms: ["#{ns.sub_program.name}"] ,
-              custom_active: ns.custom_active,
-              color: ns.color,
-            }
-          )
-        elsif ns.route_id.present?
-          locations["R-#{ns.route_id}"] = factory.feature(
-            ns.route.route,
-            "R-#{ns.route_id}",
-            {
-              name: ns.route.name,
-              subprograms: ["#{ns.sub_program.name}"],
-              custom_active: ns.custom_active,
-              color: ns.color,
-              icon_start: ns.icon_start.attached? ? url_for(ns.icon_start) : nil,
-              icon_end: ns.icon_end.attached? ? url_for(ns.icon_end) : nil,
-            }
-          )
-        end
+        formatZone(ns)
       end
       res[:locations] = RGeo::GeoJSON.encode(
-        factory.feature_collection(locations.values)
+        factory.feature_collection(@locations.values)
       )
       render json: res
     end
@@ -375,78 +356,87 @@ module V2
     #
     def formatSubprogramZone(z, load_geom, norepeat)
       res = {subprograms: [], locations: {}}
-      locations = {}
+      @locations = {}
       zone_ids = []
       factory = RGeo::GeoJSON::EntityFactory.instance
       z.each_with_index do |ns, i|
         if zone_ids.include?(ns.id) && norepeat
           next
         else
-          res[:subprograms].push({
-            id: ns.sub_program.id,
-            program_id: ns.sub_program.program_id,
-            name: ns.sub_program.name,
-            city: ns.sub_program.city,
-            address: ns.sub_program.address,
-            email: ns.sub_program.email,
-            phone: ns.sub_program.phone,
-            action_title: ns.sub_program.action_title,
-            action_link: ns.sub_program.action_link,
-            receives: ns.sub_program.receives.present? ? ns.sub_program.receives.split('|') : [],
-            materials: ns.sub_program.materials.ids,
-            locations: ns.sub_program.locations.map{ |loc| loc.name },
-            wastes: ns.sub_program.wastes.ids.length == 0 ? ns.sub_program.wastes.ids : [],
-            #icon: ns.sub_program.program.icon.attached? ? url_for(ns.program.icon) : nil,
-            zone: {
-              location_id: ns.location_id.present? ? "P-#{ns.location_id}" : "R-#{ns.route_id}",
-              is_route: ns.is_route,
-              pick_up_type: ns.pick_up_type,
-              schedules: ns.schedules,
-              distance: ns.distance,
-              name: ns.location.present? ? ns.location.name : ns.route.name,
-              information: ns.information,
-            }
-          })
+          subp = formatSubprogram(ns.sub_program)
+          subp[:zone] = {
+            location_id: ns.location_id.present? ? "P-#{ns.location_id}" : "R-#{ns.route_id}",
+            is_route: ns.is_route,
+            pick_up_type: ns.pick_up_type,
+            schedules: ns.schedules,
+            distance: ns.distance,
+            name: ns.location.present? ? ns.location.name : ns.route.name,
+            information: ns.information,
+          }
+          res[:subprograms].push( subp )
           zone_ids.push(ns.id);
           if load_geom
-            #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{ns.geometry.inspect}\n\n" }
-            if ns.location_id.present?
-              if ( locations.key? "P-#{ns.location_id}" )
-                locations["P-#{ns.location_id}"].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
-              else
-                locations["P-#{ns.location_id}"] = factory.feature(
-                  ns.geometry,
-                  "P-#{ns.location_id}",
-                  { name: ns.location.name, subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"] }
-                )
-                #res[i][:zone][:distance] = ns.distance
-              end
-            elsif ns.route_id.present?
-              if ( locations.key? "R-#{ns.route_id}" )
-                locations["R-#{ns.route_id}"].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
-              else
-                locations["R-#{ns.route_id}"] = factory.feature(
-                  ns.route.route,
-                  "R-#{ns.route_id}",
-                  {
-                    name: ns.route.name,
-                    subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"],
-                    custom_active: ns.custom_active,
-                    color: ns.color,
-                    icon_start: ns.icon_start.attached? ? url_for(ns.icon_start) : nil,
-                    icon_end: ns.icon_end.attached? ? url_for(ns.icon_end) : nil,
-                  }
-                )
-                #res[i][:zone][:distance] = ns.distance
-              end
-            end
+            formatZone(ns)
           end
         end
       end
       res[:locations] = RGeo::GeoJSON.encode(
-        factory.feature_collection(locations.values)
+        factory.feature_collection(@locations.values)
       )
       return res
+    end
+    #Format subprogram
+    def formatSubprogram(sub_program)
+      {
+        id: sub_program.id,
+        program_id: sub_program.program_id,
+        name: sub_program.name,
+        city: sub_program.city,
+        address: sub_program.address,
+        email: sub_program.email,
+        phone: sub_program.phone,
+        action_title: sub_program.action_title,
+        action_link: sub_program.action_link,
+        receives: sub_program.receives.present? ? sub_program.receives.split('|') : [],
+        materials: sub_program.materials.ids,
+        locations: sub_program.locations.map{ |loc| loc.name },
+        wastes: sub_program.wastes.ids.length == 0 ? sub_program.wastes.ids : [],
+        zone: {}
+      }
+    end
+    #Format Zone
+    def formatZone(ns)
+      factory = RGeo::GeoJSON::EntityFactory.instance
+      if ns.location_id.present?
+        if ( @locations.key? "P-#{ns.location_id}" )
+          @locations["P-#{ns.location_id}"].properties['subprograms'].push("#{ns.sub_program.name}#{ns[:distance].nil? ? '' : ', ' + ns.distance.to_s + 'metros'}")
+        else
+          @locations["P-#{ns.location_id}"] = factory.feature(
+            ns.location.geometry,
+            "P-#{ns.location_id}",
+            { name: ns.location.name, subprograms: ["#{ns.sub_program.name}#{ns[:distance].nil? ? '' : ', ' + ns.distance.to_s + 'metros'}"] }
+          )
+          #res[i][:zone][:distance] = ns.distance
+        end
+      elsif ns.route_id.present?
+        if ( @locations.key? "R-#{ns.route_id}" )
+          @locations["R-#{ns.route_id}"].properties['subprograms'].push("#{ns.sub_program.name}, #{ns.distance} metros")
+        else
+          @locations["R-#{ns.route_id}"] = factory.feature(
+            ns.route.route,
+            "R-#{ns.route_id}",
+            {
+              name: ns.route.name,
+              subprograms: ["#{ns.sub_program.name}, #{ns.distance} metros"],
+              custom_active: ns.custom_active,
+              color: ns.color,
+              icon_start: ns.icon_start.attached? ? url_for(ns.icon_start) : nil,
+              icon_end: ns.icon_end.attached? ? url_for(ns.icon_end) : nil,
+            }
+          )
+          #res[i][:zone][:distance] = ns.distance
+        end
+      end
     end
     #Format container week
     def weekSummary(scheds)
