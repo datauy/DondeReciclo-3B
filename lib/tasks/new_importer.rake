@@ -83,7 +83,7 @@ def update_subprogram_locations()
   subprogram.save();
 end
 
-def add_route(name, feature, sub_id, pick_up_type = 2, color: nil, custom_active = false)
+def add_route(name, feature, sub_id, pick_up_type = 2, color = nil, custom_active = false)
   if feature.geometry.geometry_type.to_s == 'LineString'
     geo_factory = RGeo::Cartesian.factory()
     geom = geo_factory.multi_line_string([feature.geometry])
@@ -187,6 +187,117 @@ namespace :importer do
       f.each do |feature|
         add_route(name, feature, sub_id, 2, '#f40009', true)
       end
+    end
+  end
+  #
+  task :import_kmls, [:dir, :program_id] => [:environment] do |_, args|
+    dir = args[:dir].present? ? args[:dir] : 'canelones_uy'
+    program_id = args[:program_id].present? ? args[:program_id] : 65
+    geo_factory = RGeo::Cartesian.factory()
+    #Dir.glob("#{Rails.root}/db/data/import_files/kmls/#{dir}/*") do |file|
+    #  puts File.read( file ) ).inspect
+    #end
+    kml = Nokogiri::XML(File.open("/home/fernando/PROJECTS/DATA/DondeReciclo-3B/db/data/import_files/kmls/canelones_uy/MUNICIPIO DE CIUDAD DE LA COSTA.kml"))
+    #puts kml.inspect
+    name = kml.css("Document name").first.text
+    i = 0
+    kml.css("Placemark").each do |pm|
+      i += 1
+      geo_name = pm.css("name").first.text
+      sub_prog = {
+        program_id: program_id,
+        name: name,
+        full_name: name
+      }
+      sub_program = SubProgram.find_or_create_by(sub_prog)
+      if !sub_program.validate!
+        puts "ERROR: #{sub_program.errors.full_messages}\n next..."
+        next
+      end
+      zone_data = {
+        location: nil,
+        route: nil,
+        sub_program: sub_program,
+        is_route: false,
+        pick_up_type: 1
+      }
+      polygon = pm.css("Polygon")
+      if polygon.present?
+        ring = []
+        coords = polygon.css("coordinates").first
+        if coords.present?
+          coords.
+          text.split("\n").
+          map {|l| l.strip.split(',')}.
+          reject! { |c| c.empty? }.each do |coord|
+            ring << geo_factory.point(coord[1], coord[0]) 
+          end
+          outerring = geo_factory.linear_ring(ring)
+          poly = geo_factory.polygon(outerring)
+          geometry = geo_factory.multi_polygon([poly])
+          loc = {
+            name: geo_name,
+            geometry: geometry
+          }
+          loc = Location.find_or_create_by(loc)
+          zone_data[:location] = loc
+          zone = Zone.find_or_create_by(zone_data)
+          if !zone.validate!
+            puts "ERROR: #{zone.errors.full_messages}\n next..."
+            next
+          end
+        end
+      else
+        linestr = pm.css("LineString")
+        if linestr.present?
+          puts "LINE STRING"
+          line_points = []
+          coords = linestr.css("coordinates").first
+          if coords.present?
+            coords.
+            text.split("\n").
+            map {|l| l.strip.split(',')}.
+            reject! { |c| c.empty? }.each do |coord|
+              line_points << geo_factory.point(coord[1], coord[0])
+            end
+            line_string = geo_factory.line_string(line_points)
+            geometry = geo_factory.multi_line_string([line_string])
+          end
+          route_data = {
+            name: geo_name,
+            route: geometry
+          }
+          #materialId materiales reciclables
+          route = Route.find_or_create_by(route_data)
+          zone_data[:route] = route
+          zone_data[:is_route] = true
+          zone = Zone.find_or_create_by(zone_data)
+          if !zone.validate!
+            puts "ERROR: #{zone.errors.full_messages}\n next..."
+            next
+          end
+        else
+          point_data = pm.css("Point coordinates").first
+          if point_data.present?
+            coord = point_data.text.strip.split(',')
+            point = geo_factory.point(coord[1], coord[0])
+          end
+          container = Container.find_or_create_by({
+            sub_program_id: sub_program.id,
+            latitude: coord[1],
+            longitude: coord[0],
+            container_type_id: 1,#ctypes[row[8]],
+            public_site: 1,
+            #site_type: row[6],
+            site: geo_name,
+          })
+          if !container.validate!
+            puts "ERROR: #{zone.errors.full_messages}\n next..."
+            next
+          end
+        end
+      end
+      #puts poly.inspect
     end
   end
 end

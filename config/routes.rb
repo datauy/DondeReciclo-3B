@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   scope module: :v2, constraints: ApiConstraint.new(version: 2) do
     get 'api/container/:id', to: 'api#container'
     get 'api/subprogram/:id', to: 'api#subprogram'
+    get 'api/subprograms/:ids', to: 'api#subprograms'
     get 'api/subprograms4location'
     get 'api/tags_programs'
     get 'api/countries'
@@ -49,8 +50,12 @@ Rails.application.routes.draw do
     get 'api/containers_bbox4materials'
     get 'api/stats/totals', to: "api_stats#totals"
     get 'api/stats/programs', to: "api_stats#programs"
+    get 'api/stats/containers', to: "api_stats#containers"
+    get 'api/stats/services', to: "api_stats#services"
+    get 'api/stats/users', to: "api_stats#users"
   end
   scope module: :v1, constraints: ApiConstraint.new(version: 1) do
+    get 'api/subprograms/:ids', to: 'api#not_implemented'
     get 'api/subprogram/:id', to: 'api#not_implemented'
     get 'api/container/:id', to: 'api#container'
     get 'api/subprograms4location'

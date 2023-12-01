@@ -44,7 +44,12 @@ ActiveAdmin.register Material do
     column :icon do |l|
       image_tag url_for(l.icon) if l.icon.attached?
     end
-    column :video
+    column :color do |m|
+      div class: "color-container", style: "background: #{m.color};"
+    end
+    column :contrast_color do |m|
+      div class: "color-container", style: "background: #{m.contrast_color};"
+    end
     column "Prefefined Searches" do |l|
       l.predefined_searches.all.map { |e| [e.country.name] }.join(', ')
     end

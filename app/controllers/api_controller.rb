@@ -156,12 +156,24 @@ class ApiController < ApplicationController
   end
   #
   def containers_nearby
-    @cont = Container
+    cont = Container
       .with_attached_custom_icon
       .where(:hidden => false, :public_site => true)
       .near([params[:lat], params[:lon]], params[:radius], units: :km)
       .includes( :sub_program )
       .limit(50)
+    if (params[:materials])
+      @cont = cont.
+        joins( sub_program: [:materials] ).
+        where( :hidden => false, :public_site => true, :"materials_sub_programs.material_id" => params[:materials].split(',') )
+    elsif params[:wastes]
+      @cont = cont.
+        joins( sub_program: [:wastes]).
+        where( :hidden => false, :public_site => true, :"sub_programs_wastes.waste_id" => params[:wastes].split(',') )
+    else
+      @cont = cont
+    end
+
     render json: format_pins(@cont)
   end
   #
@@ -187,6 +199,8 @@ class ApiController < ApplicationController
       name: mat.name,
       class: mat.name_class,
       color: mat.color,
+      type: 'materials',
+      contrast_color: mat.contrast_color,
       icon: mat.icon.attached? ? url_for(mat.icon) : ''
     }]}
     .to_h
@@ -200,6 +214,7 @@ class ApiController < ApplicationController
         .map{|mat| ({
           id: mat.id,
           name: mat.name,
+          type: 'wastes',
           class: mat.material.present? ? mat.material.name_class : 'primary',
           icon: mat.icon.attached? ? url_for(mat.icon) : ''
         })}
