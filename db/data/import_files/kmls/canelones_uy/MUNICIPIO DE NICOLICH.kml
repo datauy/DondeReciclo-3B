@@ -1,0 +1,3117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>MUNICIPIO DE NICOLICH</name>
+    <description/>
+    <Style id="icon-1499-817717-normal">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1499-817717-highlight">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1499-817717">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1499-817717-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1499-817717-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1499-817717-nodesc-normal">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1499-817717-nodesc-highlight">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1499-817717-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1499-817717-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1499-817717-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-000000-normal">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-000000-highlight">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-000000">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-000000-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-000000-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-0097A7-normal">
+      <IconStyle>
+        <color>ffa79700</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-0097A7-highlight">
+      <IconStyle>
+        <color>ffa79700</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-0097A7">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-0097A7-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-0097A7-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-01579B-normal">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-01579B-highlight">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-01579B">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-01579B-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-01579B-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1500-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1500-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-673AB7-normal">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-673AB7-highlight">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-673AB7">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-673AB7-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-673AB7-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-757575-normal">
+      <IconStyle>
+        <color>ff757575</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-757575-highlight">
+      <IconStyle>
+        <color>ff757575</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-757575">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-757575-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-757575-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-795548-normal">
+      <IconStyle>
+        <color>ff485579</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-795548-highlight">
+      <IconStyle>
+        <color>ff485579</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-795548">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-795548-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-795548-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-A52714-normal">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-A52714-highlight">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-A52714">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-A52714-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-A52714-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-FFD600-normal">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-FFD600-highlight">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-FFD600">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-FFD600-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-FFD600-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1501-A52714-normal">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1501-A52714-highlight">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1501-A52714">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1501-A52714-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1501-A52714-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1682-006064-nodesc-normal">
+      <IconStyle>
+        <color>ff646000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1682-006064-nodesc-highlight">
+      <IconStyle>
+        <color>ff646000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1682-006064-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1682-006064-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1682-006064-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1722-1A237E-normal">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1722-1A237E-highlight">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1722-1A237E">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1722-1A237E-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1722-1A237E-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1850-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1850-FFD600-normal">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-FFD600-highlight">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-FFD600">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-FFD600-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-FFD600-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF5252-4681-nodesc-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>4.681</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF5252-4681-nodesc-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>7.0215</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-FF5252-4681-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF5252-4681-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF5252-4681-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF5252-5263-nodesc-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>5.263</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF5252-5263-nodesc-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>7.8945</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-FF5252-5263-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF5252-5263-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF5252-5263-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-01579B-1401-79-normal">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>1.401</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4f9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-01579B-1401-79-highlight">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>2.1015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4f9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-01579B-1401-79">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-01579B-1401-79-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-01579B-1401-79-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0288D1-1200-89-nodesc-normal">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>59d18802</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-0288D1-1200-89-nodesc-highlight">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>59d18802</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-0288D1-1200-89-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0288D1-1200-89-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0288D1-1200-89-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0F9D58-1301-61-nodesc-normal">
+      <LineStyle>
+        <color>ff589d0f</color>
+        <width>1.301</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3d589d0f</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-0F9D58-1301-61-nodesc-highlight">
+      <LineStyle>
+        <color>ff589d0f</color>
+        <width>1.9515</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3d589d0f</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-0F9D58-1301-61-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0F9D58-1301-61-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0F9D58-1301-61-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-673AB7-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4db73a67</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-673AB7-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4db73a67</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-673AB7-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-673AB7-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-673AB7-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-7CB342-2000-115-normal">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7342b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-7CB342-2000-115-highlight">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>3</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7342b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-7CB342-2000-115">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-7CB342-2000-115-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-7CB342-2000-115-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-9C27B0-1000-64-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>40b0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-9C27B0-1000-64-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>40b0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-9C27B0-1000-64">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-9C27B0-1000-64-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-9C27B0-1000-64-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-F9A825-1200-76-normal">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-F9A825-1200-76-highlight">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-F9A825-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-F9A825-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-F9A825-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFD600-1000-66-normal">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4200d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFD600-1000-66-highlight">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4200d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFD600-1000-66">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFD600-1000-66-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFD600-1000-66-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFD600-1501-54-normal">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.501</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3600d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFD600-1501-54-highlight">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>2.2515</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3600d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFD600-1501-54">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFD600-1501-54-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFD600-1501-54-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>RECOLECCIÓN DE RESIDUOS</name>
+      <Placemark>
+        <name>VESPERTINO: MEZCLADOS (MARTES - JUEVES - SÁBADOS)</name>
+        <description><![CDATA[descripción: VESPERTINO: 14:00 A 20:50 HS.<br>Radio: SC 8: CANTIDAD DE VIVIENDAS: 165<br>POBLACIÓN TOTAL: 343<br>Días: <br>PO - LIC: ]]></description>
+        <styleUrl>#poly-7CB342-2000-115</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>VESPERTINO: 14:00 A 20:50 HS.</value>
+          </Data>
+          <Data name="Radio">
+            <value>SC 8: CANTIDAD DE VIVIENDAS: 165
+POBLACIÓN TOTAL: 343</value>
+          </Data>
+          <Data name="Días">
+            <value/>
+          </Data>
+          <Data name="PO - LIC">
+            <value/>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -55.981033,-34.811323,0
+                -55.990539,-34.810565,0
+                -55.993919,-34.810275,0
+                -55.996258,-34.810055,0
+                -55.989767,-34.821347,0
+                -55.982943,-34.818916,0
+                -55.981033,-34.811323,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>VESPERTINO: MEZCLADOS (LUNES - JUEVES - SÁBADOS)
+</name>
+        <description><![CDATA[descripción: VESPERTINO: 14:00 A 20:50 HS<br>Radio: SN1: CANTIDAD DE VIVIENDAS: 1986<br>POBLACIÓN TOTAL: 5834<br>Días: VES: LU-JU-SA<br>PO - LIC: SN1 / SN3-B: VES: MEZCLADOS (LU - JU - SA)]]></description>
+        <styleUrl>#poly-FFD600-1000-66</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>VESPERTINO: 14:00 A 20:50 HS</value>
+          </Data>
+          <Data name="Radio">
+            <value>SN1: CANTIDAD DE VIVIENDAS: 1986
+POBLACIÓN TOTAL: 5834</value>
+          </Data>
+          <Data name="Días">
+            <value>VES: LU-JU-SA</value>
+          </Data>
+          <Data name="PO - LIC">
+            <value>SN1 / SN3-B: VES: MEZCLADOS (LU - JU - SA)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.045384,-34.807684,0
+                -56.047894,-34.812375,0
+                -56.048938,-34.819004,0
+                -56.048243,-34.821897,0
+                -56.044123,-34.822732,0
+                -56.04276,-34.818661,0
+                -56.03393,-34.820446,0
+                -56.033718,-34.820225,0
+                -56.031438,-34.816563,0
+                -56.027508,-34.819315,0
+                -56.019958,-34.823045,0
+                -56.009624,-34.824793,0
+                -56.008322,-34.819564,0
+                -56.005368,-34.805315,0
+                -56.033242,-34.800815,0
+                -56.045384,-34.807684,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>VESPERTINO: MEZCLADOS (LUNES - JUEVES - SÁBADOS)</name>
+        <description><![CDATA[descripción: VESPERTINO: 14:00 A 20:50 HS.<br>Radio: SN3 - B: CANTIDAD DE VIVIENDAS: 153<br>POBLACIÓN TOTAL: 436<br>Días: VES: LU-JU-SA<br>PO - LIC: SN1 / SN3-B: VES: MEZCLADOS (LU - JU - SA)]]></description>
+        <styleUrl>#poly-FFD600-1501-54</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>VESPERTINO: 14:00 A 20:50 HS.</value>
+          </Data>
+          <Data name="Radio">
+            <value>SN3 - B: CANTIDAD DE VIVIENDAS: 153
+POBLACIÓN TOTAL: 436</value>
+          </Data>
+          <Data name="Días">
+            <value>VES: LU-JU-SA</value>
+          </Data>
+          <Data name="PO - LIC">
+            <value>SN1 / SN3-B: VES: MEZCLADOS (LU - JU - SA)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.019857,-34.782831,0
+                -56.028517,-34.781516,0
+                -56.035964,-34.786825,0
+                -56.038207,-34.789002,0
+                -56.030321,-34.791914,0
+                -56.033242,-34.800815,0
+                -56.00206,-34.805817,0
+                -55.992116,-34.805471,0
+                -55.990638,-34.802604,0
+                -55.989853,-34.799643,0
+                -55.989501,-34.798675,0
+                -56.014744,-34.79421,0
+                -56.015493,-34.791388,0
+                -56.015615,-34.789743,0
+                -56.015337,-34.787335,0
+                -56.013844,-34.783862,0
+                -56.019857,-34.782831,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>VESPERTINO: MEZCLADOS (LUNES - JUEVES) - RECICLABLES (MIÉRCOLES)</name>
+        <description><![CDATA[descripción: VESPERTINO: 14:00 A 20:50 HS<br>Radio: SN4<br>Días: VES: LU-MI-JU<br>PO - LIC: SN4: VES: MEZCLADOS (LU - JU) - RECICLABLES (MI)]]></description>
+        <styleUrl>#poly-01579B-1401-79</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>VESPERTINO: 14:00 A 20:50 HS</value>
+          </Data>
+          <Data name="Radio">
+            <value>SN4</value>
+          </Data>
+          <Data name="Días">
+            <value>VES: LU-MI-JU</value>
+          </Data>
+          <Data name="PO - LIC">
+            <value>SN4: VES: MEZCLADOS (LU - JU) - RECICLABLES (MI)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.005368,-34.805315,0
+                -56.011326,-34.831181,0
+                -56.003131,-34.827959,0
+                -55.99648,-34.824545,0
+                -55.99154,-34.822316,0
+                -55.997311,-34.811686,0
+                -55.998178,-34.808794,0
+                -55.992577,-34.808628,0
+                -55.992116,-34.805471,0
+                -56.00206,-34.805817,0
+                -56.005368,-34.805315,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>VESPERTINO: MEZCLADOS (LUNES - JUEVES) - RECICLABLES (SÁBADOS)</name>
+        <description><![CDATA[descripción: VESPERTINO: 14:00 A 20:50 HS<br>Radio: SN3 - A<br>Días: VES: LU-JU-SA<br>PO - LIC: SN3-A: VES: MEZCLADOS (LU - JU) - RECICLABLES (SA)]]></description>
+        <styleUrl>#poly-9C27B0-1000-64</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>VESPERTINO: 14:00 A 20:50 HS</value>
+          </Data>
+          <Data name="Radio">
+            <value>SN3 - A</value>
+          </Data>
+          <Data name="Días">
+            <value>VES: LU-JU-SA</value>
+          </Data>
+          <Data name="PO - LIC">
+            <value>SN3-A: VES: MEZCLADOS (LU - JU) - RECICLABLES (SA)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -55.989501,-34.798675,0
+                -55.986863,-34.78863,0
+                -55.996035,-34.786713,0
+                -55.995088,-34.784334,0
+                -55.999553,-34.78334,0
+                -56.001192,-34.786065,0
+                -56.013844,-34.783862,0
+                -56.015337,-34.787335,0
+                -56.015615,-34.789743,0
+                -56.015493,-34.791388,0
+                -56.014744,-34.79421,0
+                -55.989501,-34.798675,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECOLECCIÓN DE RESTOS VEGETALES</name>
+      <Placemark>
+        <name>4° SEMANA (SÁBADO Y DOMINGO)  DE CADA MES</name>
+        <styleUrl>#poly-0F9D58-1301-61-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.009872,-34.830401,0
+                -55.982837,-34.818941,0
+                -55.9786291,-34.8020652,0
+                -56.039959,-34.790536,0
+                -56.040361,-34.79101,0
+                -56.041341,-34.790951,0
+                -56.042561,-34.791229,0
+                -56.042715,-34.792038,0
+                -56.042545,-34.792642,0
+                -56.041802,-34.793377,0
+                -56.041219,-34.794449,0
+                -56.040966,-34.795187,0
+                -56.040878,-34.795725,0
+                -56.039326,-34.795914,0
+                -56.038502,-34.796581,0
+                -56.038413,-34.797253,0
+                -56.039469,-34.797598,0
+                -56.04004,-34.797602,0
+                -56.040366,-34.797605,0
+                -56.041257,-34.798218,0
+                -56.041575,-34.798893,0
+                -56.041645,-34.799903,0
+                -56.041148,-34.800572,0
+                -56.040733,-34.801174,0
+                -56.040239,-34.801574,0
+                -56.040478,-34.802047,0
+                -56.040802,-34.802252,0
+                -56.041528,-34.802998,0
+                -56.041356,-34.803736,0
+                -56.040863,-34.804002,0
+                -56.040205,-34.804468,0
+                -56.040201,-34.804871,0
+                -56.041172,-34.805552,0
+                -56.041904,-34.80576,0
+                -56.042963,-34.805835,0
+                -56.044269,-34.805845,0
+                -56.044757,-34.805984,0
+                -56.04654,-34.807007,0
+                -56.047346,-34.807821,0
+                -56.049202,-34.809585,0
+                -56.049682,-34.810464,0
+                -56.049917,-34.81134,0
+                -56.050315,-34.812151,0
+                -56.050795,-34.812962,0
+                -56.051363,-34.813236,0
+                -56.053804,-34.813861,0
+                -56.049924,-34.824866,0
+                -56.046016,-34.824163,0
+                -56.04207,-34.826622,0
+                -56.037137,-34.822747,0
+                -56.035338,-34.823137,0
+                -56.032843,-34.820156,0
+                -56.031989,-34.816381,0
+                -56.009872,-34.830401,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>4° SEMANA MARTES Y MIÉRCOLES DE CADA MES (SEMANA COMPLETA)</name>
+        <styleUrl>#poly-0288D1-1200-89-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -55.9705025,-34.7713305,0
+                -55.9861367,-34.7735147,0
+                -55.9996872,-34.7850851,0
+                -56.000449,-34.7866448,0
+                -56.003133,-34.7961766,0
+                -55.9920876,-34.7981853,0
+                -55.9919643,-34.7972867,0
+                -55.9919106,-34.7966347,0
+                -55.9919173,-34.7962323,0
+                -55.991975,-34.7959299,0
+                -55.9913528,-34.7957581,0
+                -55.9907734,-34.7954806,0
+                -55.9902048,-34.7949299,0
+                -55.9898185,-34.7940797,0
+                -55.9898507,-34.7933572,0
+                -55.9902369,-34.7926171,0
+                -55.990548,-34.7923351,0
+                -55.9911811,-34.7919827,0
+                -55.9917926,-34.7917977,0
+                -55.9909665,-34.7886874,0
+                -55.9968831,-34.7874718,0
+                -55.995817,-34.7839669,0
+                -55.9848385,-34.7785938,0
+                -55.9834195,-34.7740926,0
+                -55.9795972,-34.7749848,0
+                -55.9769934,-34.7765192,0
+                -55.9735887,-34.7774009,0
+                -55.97253,-34.7776568,0
+                -55.9723082,-34.7770842,0
+                -55.9705025,-34.7713305,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECICLAJE - ECOPUNTOS </name>
+      <Placemark>
+        <name>KIOSCO LOLI</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:180 - FEBRERO:125 - MARZO:60 - ABRIL:25 - MAYO PARCIAL: 75 - TOTAL EN KG. 465. <br>Lugar: KIOSCO LOLI<br>Tipo: MODULO NUEVO 2017<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:180 - FEBRERO:125 - MARZO:60 - ABRIL:25 - MAYO PARCIAL: 75 - TOTAL EN KG. 465. </value>
+          </Data>
+          <Data name="Lugar">
+            <value>KIOSCO LOLI</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2017</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0070378,-34.8206349,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESPACIO PÙBLICO</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0. <br>Lugar: ESPACIO PÙBLICO<br>Tipo: MODULO NUEVO 2017<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0. </value>
+          </Data>
+          <Data name="Lugar">
+            <value>ESPACIO PÙBLICO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2017</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0036084,-34.8220345,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VIÑEDOS DE LA TAHONA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:450 - FEBRERO:470 - MARZO:455 - ABRIL:320 - MAYO PARCIAL: 310 - TOTAL EN KG. 2005. <br>Lugar: VIÑEDOS DE LA TAHONA<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:450 - FEBRERO:470 - MARZO:455 - ABRIL:320 - MAYO PARCIAL: 310 - TOTAL EN KG. 2005. </value>
+          </Data>
+          <Data name="Lugar">
+            <value>VIÑEDOS DE LA TAHONA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9787061,-34.8004788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO LA ASUNCION</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:485 - FEBRERO:495 - MARZO:420 - ABRIL:270 - MAYO PARCIAL: 335 - TOTAL EN KG. 2005. <br>Lugar: BARRIO LA SUNCION<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:485 - FEBRERO:495 - MARZO:420 - ABRIL:270 - MAYO PARCIAL: 335 - TOTAL EN KG. 2005. </value>
+          </Data>
+          <Data name="Lugar">
+            <value>BARRIO LA SUNCION</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9855088,-34.8195846,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO LA ASUNCION</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:440 - FEBRERO:405 - MARZO:420 - ABRIL:285 - MAYO PARCIAL: 300 - TOTAL EN KG. 1850. <br>Lugar: BARRIO LA ASUNCION<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:440 - FEBRERO:405 - MARZO:420 - ABRIL:285 - MAYO PARCIAL: 300 - TOTAL EN KG. 1850. </value>
+          </Data>
+          <Data name="Lugar">
+            <value>BARRIO LA ASUNCION</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9859969,-34.8196859,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>COMPLEJO ARRAYANES
+</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.9768555,-34.7955185,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PEVS</name>
+        <description><![CDATA[descripción: <br>Lugar: JOACAMAR<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>JOACAMAR</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.00513,-34.8086609,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RECICLAJE: SÁBADO VESPERTINO 
+CANTIDAD DE VIVIENDAS: 1294
+POBLACIÓN TOTAL: 4272</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: <br>Estado: <br>Concepto: RECICLAJE]]></description>
+        <styleUrl>#poly-F9A825-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>RECICLAJE</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0005378,-34.7867225,0
+                -56.0030043,-34.7961766,0
+                -55.9920876,-34.7981853,0
+                -55.9918887,-34.7976096,0
+                -55.9919106,-34.7966347,0
+                -55.991975,-34.7959299,0
+                -55.9913528,-34.7957581,0
+                -55.9907734,-34.7954806,0
+                -55.9902048,-34.7949299,0
+                -55.9899095,-34.7943226,0
+                -55.9897859,-34.7936625,0
+                -55.9899792,-34.7930605,0
+                -55.9902369,-34.7926171,0
+                -55.9906442,-34.7921823,0
+                -55.9912184,-34.7919019,0
+                -55.9917819,-34.791736,0
+                -55.9909665,-34.7886874,0
+                -55.996781,-34.787487,0
+                -55.995844,-34.78434,0
+                -55.9985961,-34.7838036,0
+                -55.99955,-34.7846403,0
+                -56.0002531,-34.7856682,0
+                -56.0005378,-34.7867225,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO</name>
+        <description><![CDATA[<img src="https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/jpll909ooiregsfom30dg1psuk/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGo6iXg5aCFTUJSlJJLRhLOrVVFa_tB_nzCFh0UA21ZB6yXuxB25oGw8LsP18C779kAiiBLATiJTvq0oBzNi2y1HGlVRUwcsSqUMtv1G70hSzI8i020Igsa5brABY0u8UR7ojKzzzmModuYRMR81aCoTsR1WLPhAKbLycg5MVQI7N-m9S3BwMtydbRjFhU9EvsLmO7q020fX7UVDd_DcjiUDgBKV4Yj3orcEScwxvlTT-ztwnQ?session=0&fife" height="200" width="auto" /><br><br>descripción: <br>Lugar: AUXILIAR RUTA 102 Y LOS PARAISOS<br>Tipo: ECOPUNTO MEDIANO<br>Uso: <br>Estado: <br>Concepto: ECOPUNTO<br><br><img src="https://doc-0s-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/3ea04ffm3rgp79u8dglr20dkrg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrLls1B8chkx0N43xK_no55UhjINuIAHQXMOMAuX9zkL1X8NO6k569Y0kzWFGto4la3p1XtJKn_WcYEsqdeXjOhxBEOcWLf5p0aTkIerDl3jkKp5G16k_GfMPJSw0v-rKMo8JgXeHGgDTjCOklhvdgd67mthtQ0TryJ3f63M77x7e3uQMRNpFClr0QqS4VfXQeApVKBDrkPV03L_zBh9zpXqBbcJOUHnS6BNy18FevXonayww?session=0&fife" height="200" width="auto" /><br><br><img src="https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/rgmbt6c24ifd4pl4qamkbs2lg4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGq8I9cHptKBaKvTs_asFTIGQ6KkG1PfTQG67SurJp43nVNy4HJhuNxwN2Vy9-7vD8j3pQgaIaUfOcHb3bCnB4Bhaaxx9vB3XaeVi8F287NCpsCvVcm0CvM1d4Vypb1tS2cEJndGTLa3ofz7TIxPawaEYc-JXVd69pdhA7iQ0aSAmX_q1nRlMrtNhgBndrGx-zLUNIVGPUxgnh3NF7_W9TNYoJyqj2puIc-VBAP_OYn0obxAaA?session=0&fife" height="200" width="auto" /><br><br><img src="https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/lkr40oe179hsaonlu8sf366s50/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpB8PfNG-mLd0hH6J4XeJciTN8xgs6sMWEpx4sicr4t8Jr6gE3Y5dsC_8ibsNcc7J0EsYXzM4karYlRpaqowA1u9ebc_l3OBCtu9Cqfb-6Eyl8qUS4oG0M6B6zMpyOfHvsClqUmWZzGD4sqGg_TD2E_qmSgc5X8p4V-NK1PerE8XxmrLUZ8SFygxefi031nj6azL4fvsuPdiFhpfkHU9mVO7Vuq2IDlCJ1lhxVaMlfhlwQVag?session=0&fife" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1850-097138</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>AUXILIAR RUTA 102 Y LOS PARAISOS</value>
+          </Data>
+          <Data name="Tipo">
+            <value>ECOPUNTO MEDIANO</value>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/jpll909ooiregsfom30dg1psuk/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGo6iXg5aCFTUJSlJJLRhLOrVVFa_tB_nzCFh0UA21ZB6yXuxB25oGw8LsP18C779kAiiBLATiJTvq0oBzNi2y1HGlVRUwcsSqUMtv1G70hSzI8i020Igsa5brABY0u8UR7ojKzzzmModuYRMR81aCoTsR1WLPhAKbLycg5MVQI7N-m9S3BwMtydbRjFhU9EvsLmO7q020fX7UVDd_DcjiUDgBKV4Yj3orcEScwxvlTT-ztwnQ?session=0&fife https://doc-0s-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/3ea04ffm3rgp79u8dglr20dkrg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrLls1B8chkx0N43xK_no55UhjINuIAHQXMOMAuX9zkL1X8NO6k569Y0kzWFGto4la3p1XtJKn_WcYEsqdeXjOhxBEOcWLf5p0aTkIerDl3jkKp5G16k_GfMPJSw0v-rKMo8JgXeHGgDTjCOklhvdgd67mthtQ0TryJ3f63M77x7e3uQMRNpFClr0QqS4VfXQeApVKBDrkPV03L_zBh9zpXqBbcJOUHnS6BNy18FevXonayww?session=0&fife https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/rgmbt6c24ifd4pl4qamkbs2lg4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGq8I9cHptKBaKvTs_asFTIGQ6KkG1PfTQG67SurJp43nVNy4HJhuNxwN2Vy9-7vD8j3pQgaIaUfOcHb3bCnB4Bhaaxx9vB3XaeVi8F287NCpsCvVcm0CvM1d4Vypb1tS2cEJndGTLa3ofz7TIxPawaEYc-JXVd69pdhA7iQ0aSAmX_q1nRlMrtNhgBndrGx-zLUNIVGPUxgnh3NF7_W9TNYoJyqj2puIc-VBAP_OYn0obxAaA?session=0&fife https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/lkr40oe179hsaonlu8sf366s50/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpB8PfNG-mLd0hH6J4XeJciTN8xgs6sMWEpx4sicr4t8Jr6gE3Y5dsC_8ibsNcc7J0EsYXzM4karYlRpaqowA1u9ebc_l3OBCtu9Cqfb-6Eyl8qUS4oG0M6B6zMpyOfHvsClqUmWZzGD4sqGg_TD2E_qmSgc5X8p4V-NK1PerE8XxmrLUZ8SFygxefi031nj6azL4fvsuPdiFhpfkHU9mVO7Vuq2IDlCJ1lhxVaMlfhlwQVag?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0370076,-34.812836,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RECICLAJE: SÁBADO VESPERTINO</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: <br>Estado: <br>Concepto: RECICLAJE]]></description>
+        <styleUrl>#poly-F9A825-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>RECICLAJE</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0140032,-34.7840472,0
+                -56.0142177,-34.7847345,0
+                -56.0161918,-34.7894926,0
+                -56.014604,-34.7932989,0
+                -56.0120291,-34.7939686,0
+                -56.0087675,-34.7849812,0
+                -56.0140032,-34.7840472,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>RECICLAJE: MIÉRCOLES VESPERTINO
+CANTIDAD DE VIVIENDAS: 1400
+POBLACIÓN TOTAL: 4125</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: <br>Estado: <br>Concepto: RECICLAJE]]></description>
+        <styleUrl>#poly-F9A825-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>RECICLAJE</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0068806,-34.8142045,0
+                -56.0107701,-34.8310775,0
+                -55.9926179,-34.822777,0
+                -56.0009915,-34.8119495,0
+                -56.0068806,-34.8142045,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO MUNICIPIO C. NICOLICH
+</name>
+        <description><![CDATA[<img src="https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/f12il6r2itucknfel1vp1emfn0/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGqt0byThWcCe_NkOsmOGSYu2zad0cO6_jwvqMNBenq4ymNu2fSgPpV56rtr7qzZwrPcyFO-AbpNXS9NEC5hvn8nwJK_KfvCu0UjhzaJCDrwX21tCYrhf0MGhPcfISKKnW6hmfGo5ACE3J3RD-adO2vIYWxYtaBuJEhOkia5aGho1wm4RVcgw5EaNehKeoAEEUT_JcHrICqYO7CZmeNK_SfT3KUk69N2oeD7bGyo1PRM5xQ9Lg?session=0&fife" height="200" width="auto" /><br><br>descripción: <br>Lugar: FRENTE A MUNICIPIO – RUTA 101 Y 102<br><br>Tipo: ECOPUNTO MEDIANO<br>Uso: <br>Estado: <br>Concepto: ECOPUNTO<br><br><img src="https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/dugo6dlspdi8kmi9dcfrk5hrjg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGp49ctpKCkiu_bzFO0_wWSM5w4rKdH0l6jgRoMwu9xZnIkeNdE-9cot18NRBHYoJSQCcin7lzaw6MZFDZp6q58hP-N8vd84Duria9ftvd4Fq0cYqtmTqHwD_3161yokvI5tkAPkPuZAc17QFC-9FKa__ohOEXDSEc1tZoO_SJUhH5PadywaFjWw-A8SBzeRRwKkAmkkZKhtGaFhTTEsrDCOcCTLn4vrEaoliVs2x6BJrK9kTA?session=0&fife" height="200" width="auto" /><br><br><img src="https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/aa0mc8dk17e940f3sab8h190d8/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrFPxUsShi8ylot36GPlTph0EHgRGoGkwMKRv_uzRlxaGcfqpH5c1argHvQHdZn9wIGv98blWJJ9QGdCSnNwC4hVK8LR1d9jFjfiFH8xOIMJPfkFool4-aw9Y9l9eWD4WS1njF_sq-KhWrLM4wmCTWTLSl0GHeIvKfhDguCYM4DkvVdvr_C8qqth1CAwZQgEbngAg3LAD5bh-LjKR_Nz1eN2vFGFz6imCgn7q11wtu8rKRm6g?session=0&fife" height="200" width="auto" /><br><br><img src="https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/h4s8msvkjve9ui7dug0d7v7sv4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrLguh3fWK8E1MZUwC5l3fLIQbUWae5Xqpk3sPsVWmEd61DdrXhSB2UpunghyBUqneBC9RRxvWlbDWAorbYa52VrEc4ipAcugRcDv9GEtM7AiwH4nauJzCARp1p6PvK4vpnT63xiDxqoz2CVfNhMUsMt3hB4kCJL8Imb7gTLPDDzgIKFLDm8oetv43Cl6Qq2cftm1_RpaGBRFP456q54tatpiZ8MxavJJbVxzuG3-RSoknppQ?session=0&fife" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1850-097138</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>FRENTE A MUNICIPIO – RUTA 101 Y 102
+</value>
+          </Data>
+          <Data name="Tipo">
+            <value>ECOPUNTO MEDIANO</value>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/f12il6r2itucknfel1vp1emfn0/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGqt0byThWcCe_NkOsmOGSYu2zad0cO6_jwvqMNBenq4ymNu2fSgPpV56rtr7qzZwrPcyFO-AbpNXS9NEC5hvn8nwJK_KfvCu0UjhzaJCDrwX21tCYrhf0MGhPcfISKKnW6hmfGo5ACE3J3RD-adO2vIYWxYtaBuJEhOkia5aGho1wm4RVcgw5EaNehKeoAEEUT_JcHrICqYO7CZmeNK_SfT3KUk69N2oeD7bGyo1PRM5xQ9Lg?session=0&fife https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/dugo6dlspdi8kmi9dcfrk5hrjg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGp49ctpKCkiu_bzFO0_wWSM5w4rKdH0l6jgRoMwu9xZnIkeNdE-9cot18NRBHYoJSQCcin7lzaw6MZFDZp6q58hP-N8vd84Duria9ftvd4Fq0cYqtmTqHwD_3161yokvI5tkAPkPuZAc17QFC-9FKa__ohOEXDSEc1tZoO_SJUhH5PadywaFjWw-A8SBzeRRwKkAmkkZKhtGaFhTTEsrDCOcCTLn4vrEaoliVs2x6BJrK9kTA?session=0&fife https://doc-08-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/aa0mc8dk17e940f3sab8h190d8/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrFPxUsShi8ylot36GPlTph0EHgRGoGkwMKRv_uzRlxaGcfqpH5c1argHvQHdZn9wIGv98blWJJ9QGdCSnNwC4hVK8LR1d9jFjfiFH8xOIMJPfkFool4-aw9Y9l9eWD4WS1njF_sq-KhWrLM4wmCTWTLSl0GHeIvKfhDguCYM4DkvVdvr_C8qqth1CAwZQgEbngAg3LAD5bh-LjKR_Nz1eN2vFGFz6imCgn7q11wtu8rKRm6g?session=0&fife https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/h4s8msvkjve9ui7dug0d7v7sv4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrLguh3fWK8E1MZUwC5l3fLIQbUWae5Xqpk3sPsVWmEd61DdrXhSB2UpunghyBUqneBC9RRxvWlbDWAorbYa52VrEc4ipAcugRcDv9GEtM7AiwH4nauJzCARp1p6PvK4vpnT63xiDxqoz2CVfNhMUsMt3hB4kCJL8Imb7gTLPDDzgIKFLDm8oetv43Cl6Qq2cftm1_RpaGBRFP456q54tatpiZ8MxavJJbVxzuG3-RSoknppQ?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0083444,-34.8210202,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>CONTENEDORES PÚBLICOS</name>
+      <Placemark>
+        <name>BENAVIDEZ Y FELIPE DÍAZ OCAMPO</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0301089,-34.8108939,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>AEROPUERTO Y LOS  PALMARES </name>
+        <description>COMPLEJO DEPORTIVO.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.035946,-34.8145921,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAPITÁN JUAN ANTONIO ARTIGAS Y RUTA 101</name>
+        <description>ESCUELA PÚBLICA.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0090514,-34.8153456,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CALLE MARTÍN CÉSPEDES</name>
+        <description>VIVIENDAS.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0170401,-34.819665,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CALLE LAS TORCASITAS Y LOS PINOS
+</name>
+        <description>VIVIENDAS.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0336903,-34.8186973,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CERRITO Y MARTIN CÉSPEDES</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.017455,-34.8206477,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DEL ANCLA Y RUTA 101.</name>
+        <description>WOLSEN S.A</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0097167,-34.8231209,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PIERBUSSETI E IBERIA</name>
+        <description>ESCUELA.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9933968,-34.7947303,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PANAM PRÓXIMO A PLAZA AEROPARQUE.</name>
+        <description>CAIF.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9929584,-34.7936556,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LATA Y CRUZEIRO DO SUL</name>
+        <description>CAIF.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9975402,-34.7913578,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 101 Y PONC ED ELEON</name>
+        <description>INUR S.A.</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0039147,-34.8026021,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CALLE 6 ENTRE CALLE 8 Y CALLE 10</name>
+        <description>--</description>
+        <styleUrl>#icon-1500-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -56.015927,-34.7898064,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LAN CHILE</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9948134,-34.7911799,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ROTONDA ENTRE IBERIA Y PANAM</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9927007,-34.7939039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SIMÓN BOLIVAR ENTRE J. SANTAMARIA Y M. BARREIRO</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0069207,-34.8236404,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>J. P. VARELA ENTRE M, BARREIRO Y  MORQUIO</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.007248,-34.8209608,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GONZALO RODRIGUEZ ENTRE LA PARAGUAYA Y EL ATARDECER</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9924662,-34.8162807,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GONZALO RODRIGUEZ</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9900977,-34.8204068,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO DE LOS HORNEROS</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9822828,-34.8164596,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 102 FRENTE A ESCUELA TEC. AERONÁUTICA
+</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0444365,-34.8080447,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CALLE LAS TORCASITAS Y LOS PINOS
+</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0338621,-34.8195651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>J. G. ARTIGAS Y D. ROOSSEVELT
+</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0065937,-34.8255837,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>J. G. ARTIGAS Y GRAL. F. RIVERA
+</name>
+        <styleUrl>#icon-1500-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0060251,-34.8245709,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>CAJAS</name>
+      <Placemark>
+        <name>TOMÁS BERRETA Y OMBÚ</name>
+        <description>1° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            -56.046313,-34.818472,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA RITA Y LOS PARAISOS</name>
+        <description>1° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            -56.036029,-34.811167,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>TOMÁS BERRETA Y PONCHITESTA</name>
+        <description>1° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            -56.045346,-34.815297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DR. LUIS MORQUIO Y SANDINO</name>
+        <description>2° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-097138</styleUrl>
+        <Point>
+          <coordinates>
+            -56.002622,-34.818577,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GRAL. FRUCTUOSO RIVERA Y GRAL. J. G. ARTIGAS</name>
+        <description>2° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-097138</styleUrl>
+        <Point>
+          <coordinates>
+            -56.005983,-34.82459,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>G. WASHINGTON Y LINCOLN</name>
+        <description>2° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-097138</styleUrl>
+        <Point>
+          <coordinates>
+            -56.009499,-34.829068,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PARANÁ GUAZÚ Y J. A. ARTIGAS</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            -56.012428,-34.814771,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CERRITO Y M. CESPEDES</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            -56.017404,-34.820588,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DEL ANCLA Y C. 2</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            -56.013368,-34.822653,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>TOMÁS BERRETA Y AEROPUERTO</name>
+        <description>1° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-757575</styleUrl>
+        <Point>
+          <coordinates>
+            -56.044616,-34.812748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA RITA Y LOS PARAISOS</name>
+        <description>1° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-757575</styleUrl>
+        <Point>
+          <coordinates>
+            -56.03593,-34.811509,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>AEROPUERTO Y LOS PALMARES</name>
+        <description>1° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-757575</styleUrl>
+        <Point>
+          <coordinates>
+            -56.036233,-34.814512,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LINCOLN Y F. ROOSEVELT</name>
+        <description>2° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            -56.005466,-34.827313,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>M. HIDALGO Y MURRILLO</name>
+        <description>2° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            -56.004642,-34.81761,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANDRESITO Y BARÓN DE RIO BRANCO</name>
+        <description>2° DOMINGO (FEBRERO - MAYO - AGOSTO - NOVIEMBRE)</description>
+        <styleUrl>#icon-1500-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            -55.998782,-34.818926,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CERRITO Y SANTA CLARA</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-795548</styleUrl>
+        <Point>
+          <coordinates>
+            -56.022912,-34.818458,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GARCÍA LAGOS Y F. DIAZ OCAMPO</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-795548</styleUrl>
+        <Point>
+          <coordinates>
+            -56.022703,-34.812776,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANCON Y CAMBAY</name>
+        <description>3° DOMINGO (ENERO - ABRIL - JULIO - OCTUBRE)</description>
+        <styleUrl>#icon-1500-795548</styleUrl>
+        <Point>
+          <coordinates>
+            -56.010217,-34.817986,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LOS AROMOS Y G. NICOLICH</name>
+        <description>1° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-01579B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.041359,-34.812039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BENAVIDEZ Y F. DÍAZ OCAMPO</name>
+        <description>1° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-01579B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.030194,-34.811312,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PITANGA Y LOS TILOS</name>
+        <description>1° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-01579B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.038674,-34.817214,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 101 Y D. ANTONIO LARRAÑAGA</name>
+        <description>2° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-0097A7</styleUrl>
+        <Point>
+          <coordinates>
+            -56.009336,-34.825003,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DR. LUIS MORQUIO Y JOSÉ M. MORELLI</name>
+        <description>2° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-0097A7</styleUrl>
+        <Point>
+          <coordinates>
+            -56.005237,-34.819661,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GRAL. FRUCTUOSO RIVERA  Y SANDINO</name>
+        <description>2° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-0097A7</styleUrl>
+        <Point>
+          <coordinates>
+            -55.999885,-34.821687,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAN PEDRO Y SAN FELIPE</name>
+        <description>3° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -56.020264,-34.819351,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LOS PINOS Y V. DE CARRASCO</name>
+        <description>3° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -56.017171,-34.815862,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PARANÁ GUAZÚ Y W. MARROCHE</name>
+        <description>3° DOMINGO (MARZO - JUNIO - SETIEMBRE - DICIEMBRE)</description>
+        <styleUrl>#icon-1500-000000</styleUrl>
+        <Point>
+          <coordinates>
+            -56.014076,-34.820722,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CONSTELACIÓN ENTRE AIR FRANCE Y ALITALIA</name>
+        <description>1° SEMANA MIÉRCOLES</description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0025858,-34.7948226,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CNO. AL PASO ESCOBAR Y C.6</name>
+        <description>1° SEMANA MIÉRCOLES </description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9765094,-34.775009,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>IBERIA Y VARIG</name>
+        <description>1° SEMANA MIÉRCOLES </description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9915729,-34.7906215,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CONSTELACIÓN ENTRE RAMBLA COSTANERA Y VARIG</name>
+        <description>1° SEMANA MIÉRCOLES </description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0007796,-34.788135,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SWISSAIR ENTRE VARIG Y RAMBLA COSTANERA</name>
+        <description>1° SEMANA MIÉRCOLES</description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9935015,-34.7893554,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CRUZEIRO DO SUL Y ALITALIA</name>
+        <description>1° SEMANA MIÉRCOLES</description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9986384,-34.7965168,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BRANIFF Y LATA</name>
+        <description>1° SEMANA MIÉRCOLES</description>
+        <styleUrl>#icon-1500-A52714</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9982387,-34.7912162,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>BARRIDO</name>
+      <Placemark>
+        <name>RUTA 101 - LUNES Y SÁBADOS.</name>
+        <styleUrl>#line-FF5252-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0111778,-34.8313945,0
+            -56.0053199,-34.8061333,0
+            -56.000685,-34.78668,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUIS MORQUIO -JUEVES  FRECUENCIA 1.</name>
+        <styleUrl>#line-FF5252-4681-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0101254,-34.8281184,0
+            -56.0081298,-34.8196281,0
+            -56.0057266,-34.819998,0
+            -55.9984524,-34.8165453,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>PAPELEO FRECUENCIA 1 SEMANAL</name>
+        <styleUrl>#poly-673AB7-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0046014,-34.8176102,0
+                -56.0075411,-34.8171345,0
+                -56.0105881,-34.8310855,0
+                -55.993143,-34.8230358,0
+                -55.9983358,-34.8164299,0
+                -56.0044297,-34.8192485,0
+                -56.0047516,-34.8187024,0
+                -56.0046014,-34.8176102,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>3° MIERCOLES DE CADA MES. POR ACCESOS PRINCIPALES.</name>
+        <description><![CDATA[<img src="https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/lvib3cceq8jn7abp60i7bkdpt8/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrhvR3lGcLXHV7-Sekr5ekGwJRq9fhLf9bseTqj7BZryG5Y8VJTxPlvLszi4lbfqFQJw4iWUTtwv67hBZZQp_poGRIM8GpK-zM2V3qV7oNVj7vumKbYy96PYC3qOr7zrSl8BEtoO8BdIXotLGHwWF0oTdbH1GrneZIPrhbQMxf7fJLho_O93rEIa_Xv_8ljmLg?session=0&fife" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1722-1A237E</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/lvib3cceq8jn7abp60i7bkdpt8/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrhvR3lGcLXHV7-Sekr5ekGwJRq9fhLf9bseTqj7BZryG5Y8VJTxPlvLszi4lbfqFQJw4iWUTtwv67hBZZQp_poGRIM8GpK-zM2V3qV7oNVj7vumKbYy96PYC3qOr7zrSl8BEtoO8BdIXotLGHwWF0oTdbH1GrneZIPrhbQMxf7fJLho_O93rEIa_Xv_8ljmLg?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0116596,-34.818238,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>GENERADORES</name>
+      <Placemark>
+        <name>FERRETERÍA “LA FE”</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0.<br>Lugar: FERRETERÍA “LA FE”<br>Tipo: MODULO NUEVO 2017<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>FERRETERÍA “LA FE”</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2017</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.005015,-34.819791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>D4</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:650 - FEBRERO:0 - MARZO:600 - ABRIL:0 - MAYO PARCIAL:  - TOTAL EN KG. 1250.<br>Lugar: D4<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:650 - FEBRERO:0 - MARZO:600 - ABRIL:0 - MAYO PARCIAL:  - TOTAL EN KG. 1250.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>D4</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.006796,-34.810411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>FARMARED PLATERAN</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0.<br>Lugar: FARMARED PLATERAN<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:0 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 0.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>FARMARED PLATERAN</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.004136,-34.785816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LOREAL</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:1900 - FEBRERO:3000 - MARZO:2950 - ABRIL:2200 - MAYO PARCIAL: 3550 - TOTAL EN KG. 13600.<br>Lugar: LOREAL<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:1900 - FEBRERO:3000 - MARZO:2950 - ABRIL:2200 - MAYO PARCIAL: 3550 - TOTAL EN KG. 13600.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>LOREAL</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.00204,-34.799657,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>AXION LOG</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:1400 - FEBRERO:1850 - MARZO:1900 - ABRIL:1750 - MAYO PARCIAL: 2200 - TOTAL EN KG. 9100.<br>Lugar: AXION LOG<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:1400 - FEBRERO:1850 - MARZO:1900 - ABRIL:1750 - MAYO PARCIAL: 2200 - TOTAL EN KG. 9100.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>AXION LOG</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.00146,-34.801441,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ABASTO VARELA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:700 - FEBRERO:350 - MARZO:250 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 1300.<br>Lugar: ABASTO VARELA<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:700 - FEBRERO:350 - MARZO:250 - ABRIL:0 - MAYO PARCIAL: 0 - TOTAL EN KG. 1300.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ABASTO VARELA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.00779,-34.815097,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>NESTLÉ</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:900 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 500 - TOTAL EN KG. 1400.<br>Lugar: NESTLÉ<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:900 - MARZO:0 - ABRIL:0 - MAYO PARCIAL: 500 - TOTAL EN KG. 1400.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>NESTLÉ</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.999318,-34.800165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>WILLIAMS Y CO.</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:0 - MARZO:750 - ABRIL:0 - MAYO PARCIAL: 200 - TOTAL EN KG. 950 <br>Lugar: WILLIAMS Y CO.<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:0 - MARZO:750 - ABRIL:0 - MAYO PARCIAL: 200 - TOTAL EN KG. 950 </value>
+          </Data>
+          <Data name="Lugar">
+            <value>WILLIAMS Y CO.</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.001998,-34.802192,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BIMBO </name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:3400 - FEBRERO:4050 - MARZO:5200 - ABRIL:4600 - MAYO PARCIAL: 4450 - TOTAL EN KG. 21700.<br>Lugar: BIMBO<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:3400 - FEBRERO:4050 - MARZO:5200 - ABRIL:4600 - MAYO PARCIAL: 4450 - TOTAL EN KG. 21700.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>BIMBO</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.981503,-34.759767,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALTAMA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:100 - FEBRERO:350 - MARZO:200 - ABRIL:150 - MAYO PARCIAL: 200 - TOTAL EN KG. 1000.<br>Lugar: ALTAMA<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:100 - FEBRERO:350 - MARZO:200 - ABRIL:150 - MAYO PARCIAL: 200 - TOTAL EN KG. 1000.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ALTAMA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.99462,-34.799825,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>INUR</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:1050 - FEBRERO:900 - MARZO:300 - ABRIL:300 - MAYO PARCIAL: 400 - TOTAL EN KG. 2950.<br>Lugar: INUR<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:1050 - FEBRERO:900 - MARZO:300 - ABRIL:300 - MAYO PARCIAL: 400 - TOTAL EN KG. 2950.</value>
+          </Data>
+          <Data name="Lugar">
+            <value>INUR</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.004198,-34.802658,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PEVS</name>
+        <description><![CDATA[descripción: <br>Lugar: OPRUMIN S.A<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>OPRUMIN S.A</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.004313,-34.808119,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PEVS</name>
+        <description><![CDATA[descripción: <br>Lugar: DRIVA S.A<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>DRIVA S.A</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.003624,-34.804088,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>INSTITUCIONES SUSTENTABLES</name>
+      <Placemark>
+        <name>ESCUELA N° 155</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0383809,-34.8162388,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 300</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0173648,-34.8200948,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 171</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0074636,-34.8206466,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 58</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9930516,-34.7938658,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 264</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9978967,-34.7909978,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>JARDIN N° 293</name>
+        <styleUrl>#icon-1682-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0082953,-34.8206315,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>BASURALES ERRADICADOS</name>
+      <Placemark>
+        <name>Iberia y Varig</name>
+        <description><![CDATA[<img src="https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/86hl0sj943d38ma4b5b9n67avg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGr-bXEf1hXzPSrE9PjGctSkbY8h0h6Dv8rD4se-SKqm_cGuR8leT2C0splha7ZqzGkoH4t5_yefC3YCx2jhnJBXtwzjraOmU7V-o22Iwm4Hxl5orz2_-hugrUgnazLPUKQUXYwynoAQ9VvUGWK7FXRwhFCgTRnPlT7RNXHE-choQ7-M_MgRWF0yZMlCDZsDVUYa?session=0&fife" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/86hl0sj943d38ma4b5b9n67avg/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGr-bXEf1hXzPSrE9PjGctSkbY8h0h6Dv8rD4se-SKqm_cGuR8leT2C0splha7ZqzGkoH4t5_yefC3YCx2jhnJBXtwzjraOmU7V-o22Iwm4Hxl5orz2_-hugrUgnazLPUKQUXYwynoAQ9VvUGWK7FXRwhFCgTRnPlT7RNXHE-choQ7-M_MgRWF0yZMlCDZsDVUYa?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.991474,-34.790675,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Air France y Aerolineas Argentinas</name>
+        <description><![CDATA[<img src="https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/s6j768abpc04m77alpfaau27g4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrw8pA1XIzUb2dEx0o2l_VuVeVJT-4QsdBCChMlvMRz99mE82BF1WwvK-7csm6gVES0lQoz0R6zvbZIosDDjdeDZGAz3wKw3mXiWQhQJsXHhXjUIcv0fkhmi88KJUQ0cDsFw1O9j85ASf_zXgdmd0MY1nzRKJvtLqBTg1xo4RljgXxOJy762oANT2c0_dVfChwR?session=0&fife" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0o-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/s6j768abpc04m77alpfaau27g4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrw8pA1XIzUb2dEx0o2l_VuVeVJT-4QsdBCChMlvMRz99mE82BF1WwvK-7csm6gVES0lQoz0R6zvbZIosDDjdeDZGAz3wKw3mXiWQhQJsXHhXjUIcv0fkhmi88KJUQ0cDsFw1O9j85ASf_zXgdmd0MY1nzRKJvtLqBTg1xo4RljgXxOJy762oANT2c0_dVfChwR?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.999784,-34.794267,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lan Chile y Panam</name>
+        <description><![CDATA[<img src="https://doc-0s-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/ulq271jskfjk73ccot01c10uug/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGoWuqM3ifb5Mk6H0cLzhAXpsjZIZPQEJaMbT5ogMIUoVjVPrwoJ8xB3ZSedwB_7IaRlPumhmAdZk0FbO8q5JALSMn23sEU544oXbXm4_DCZHocFxAFEHXtSLQN1Qh1KWSNnhSBXLv9tB6B2uFp6n3IlHiKwhO0_K_rk7ovfBP30pXjbD4zOIuHWwfgWxZZ3jNI?session=0&fife" height="200" width="auto" /><br><br>Podas y basura.<br><br><img src="https://doc-10-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/dvik4eiad78tnh9n65h4oiu40s/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpLUocXWXsnDJvyybJWFj00kk3f7iwXxyrAF3vfVqAmi-cAfrV1ixYVGNVBrMAehaLELxXX49VQgvQIzvS8YUACxQswg6CW1MhCR1uIso4tCht_CzIFfjpYk-eBEe-dncsfiBfOAuQ4qx5HHWyTt3kFdZSt_-hxzEfx28Q6GXNXZ8BbA7XjHr7sfYC1b1UZvBPl?session=0&fife" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0s-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/ulq271jskfjk73ccot01c10uug/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGoWuqM3ifb5Mk6H0cLzhAXpsjZIZPQEJaMbT5ogMIUoVjVPrwoJ8xB3ZSedwB_7IaRlPumhmAdZk0FbO8q5JALSMn23sEU544oXbXm4_DCZHocFxAFEHXtSLQN1Qh1KWSNnhSBXLv9tB6B2uFp6n3IlHiKwhO0_K_rk7ovfBP30pXjbD4zOIuHWwfgWxZZ3jNI?session=0&fife https://doc-10-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/dvik4eiad78tnh9n65h4oiu40s/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpLUocXWXsnDJvyybJWFj00kk3f7iwXxyrAF3vfVqAmi-cAfrV1ixYVGNVBrMAehaLELxXX49VQgvQIzvS8YUACxQswg6CW1MhCR1uIso4tCht_CzIFfjpYk-eBEe-dncsfiBfOAuQ4qx5HHWyTt3kFdZSt_-hxzEfx28Q6GXNXZ8BbA7XjHr7sfYC1b1UZvBPl?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.995703,-34.793211,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Varig y British United</name>
+        <description><![CDATA[<img src="https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/7epi4gisrncc54ai5vvar7lr8g/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGolQy_irwAc9oFStpMOhg_YTS9OmaXoqfVpor66Bp-6uvFi74bUCxSgIQ4o0qlls1XbA07HXsjK0WSNEq1HWMYhDkfm44-B4w4A2ONsBPSL86_ZOOw7D4GT7OQIdJ3jpuoul9ddY6rXzAjrTJCX221M4_U-tTD8PYBSOPwrYMR-KTZrcDMUGR6OUHsZxNFRYBZC?session=0&fife" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-04-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/7epi4gisrncc54ai5vvar7lr8g/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGolQy_irwAc9oFStpMOhg_YTS9OmaXoqfVpor66Bp-6uvFi74bUCxSgIQ4o0qlls1XbA07HXsjK0WSNEq1HWMYhDkfm44-B4w4A2ONsBPSL86_ZOOw7D4GT7OQIdJ3jpuoul9ddY6rXzAjrTJCX221M4_U-tTD8PYBSOPwrYMR-KTZrcDMUGR6OUHsZxNFRYBZC?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.995963,-34.790489,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Alitalia y Cruzeiro do Sul</name>
+        <description><![CDATA[<img src="https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/pu0pnm8cs5nkmtk7lb2ud13vc4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGoAA1yra8tomhSZqOdNszliaJ3hr7ECTQ7HR31ntsHQFGE5olYAbJ2KmLihx354PmBN4y-AnoXrsVUPr7-_L1aeClQgGbgjokMEnTh4MfSR35XfU13K5N9h0EqLiEPpHeJ5x311zq4sXJZbNM0nLkwDVVay8Nt3UGuknHW1EMGDGLA6AvVQA8J77D8y00-D4ykN?session=0&fife" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/pu0pnm8cs5nkmtk7lb2ud13vc4/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGoAA1yra8tomhSZqOdNszliaJ3hr7ECTQ7HR31ntsHQFGE5olYAbJ2KmLihx354PmBN4y-AnoXrsVUPr7-_L1aeClQgGbgjokMEnTh4MfSR35XfU13K5N9h0EqLiEPpHeJ5x311zq4sXJZbNM0nLkwDVVay8Nt3UGuknHW1EMGDGLA6AvVQA8J77D8y00-D4ykN?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.998651,-34.796535,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Rambla Costanera y Cruzeiro de Brasil</name>
+        <styleUrl>#icon-1499-817717-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9962191,-34.7877091,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Aerolíneas Argentinas y Sas</name>
+        <description><![CDATA[<img src="https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/cjolqh07b0t051e7vsud12tf8c/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGp5UN0hS0Y5SrpAdNHqJVoKmvHAnbYm3O_XoRdsPkX56k-iDApwStTKOyH97MqYhgTjPpOdLnCwscG-Z-4PlJdixK2Le6nXtNLu4Tryk1zzGznGfDiW4bl7K6IJZjzhVPMuUsCzc_Gtmg0wvO9GIQgbOmaAdGhdnK98RevlXRWZlA4ayf8kdH7J1Loo_6Ettqw?session=0&fife" height="200" width="auto" /><br><br>Aerolíneas Argentinas y Sas, Colonia Nicolich. Podas y Basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/cjolqh07b0t051e7vsud12tf8c/1696594396250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGp5UN0hS0Y5SrpAdNHqJVoKmvHAnbYm3O_XoRdsPkX56k-iDApwStTKOyH97MqYhgTjPpOdLnCwscG-Z-4PlJdixK2Le6nXtNLu4Tryk1zzGznGfDiW4bl7K6IJZjzhVPMuUsCzc_Gtmg0wvO9GIQgbOmaAdGhdnK98RevlXRWZlA4ayf8kdH7J1Loo_6Ettqw?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -55.99999,-34.793297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Avda. Rambla Costanera y Swissalir</name>
+        <styleUrl>#icon-1499-817717-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -55.9933041,-34.7884047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ponchitesta entre Tomás Berreta y Los Aromos</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uGJMu8dJN2LpLqC6dqMH3qM_xzU4SBWZMolXMH9fB90OSuVGQqN3YSYelpyxbM6iYw5fqjU2qiPSpeQKVTGbITaXfVypRkP3rtZM5zYGNE3Zz98ubZr0UpZ_JXIr-KlhFuJFo3hydqeqvmkTFZcxCwjJmWb8lSaHm52N-nVcSodBmBpIfipXUiv5jvkPhf9lhRWtKo_i_NyrXh5pzIR9rhT_mBcgyAWwbTUgiR5jAsexllXNj_q5m3h8MbHktXLNBJsxd56bqji7MQJNDWxIBaQJlQYdN1SUpQ06wAEkqlPjEAG0jvi9TSyAb2-HfcKxKCuCfyF2LPVelCa7d9ewPPMezRVvCKWs8pYXAL7BuLaQIbdKbbCMIRzQK8-FASnuVZvZ17enTRDCHMav5fLxjlQYi_zcy1UhOiybvQ_mIN_opstV2j6OxP0fsQS450PFNyDpyleViwo_9KtSbd9uJekfuQrWURpd4wWO6hVsskXWeDvrYI-uLOvwHIeofjmjN0vDVg1IOmvW0uVi8AwVZPKBM1b5gBHhu4O8Z4pGu8VRfrK23tlvd3Qxgwzd2S5R_rdNjj06JTVXeekBnaYWXbKOAvnVC0NHg9MuuozwW-bfCuMLrsTdhvtVLuWpFhyZK6mbBJRixtYzAsB7qNlssoiNGat-kd6X3jM90ELzBDLFYNZknyPIx9FWtHSDrnBK0mtDdQA1q7QUObXve9AKXBKRUoeJLDojTNV1jK6KcpAsjToNFAQE47yVU4HH8jx2DJAr3MwnbT-vJQuzU5FWg7pBYAjv1eOsBNeEJCVVwINr0QgUDLuFskHi68hWq0VBCHVTtnecY4tsS__dagxRubVPFMvte_ZgM75dg5153-9qJviCZXM0mtswwBp7sItghgGYA" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uGJMu8dJN2LpLqC6dqMH3qM_xzU4SBWZMolXMH9fB90OSuVGQqN3YSYelpyxbM6iYw5fqjU2qiPSpeQKVTGbITaXfVypRkP3rtZM5zYGNE3Zz98ubZr0UpZ_JXIr-KlhFuJFo3hydqeqvmkTFZcxCwjJmWb8lSaHm52N-nVcSodBmBpIfipXUiv5jvkPhf9lhRWtKo_i_NyrXh5pzIR9rhT_mBcgyAWwbTUgiR5jAsexllXNj_q5m3h8MbHktXLNBJsxd56bqji7MQJNDWxIBaQJlQYdN1SUpQ06wAEkqlPjEAG0jvi9TSyAb2-HfcKxKCuCfyF2LPVelCa7d9ewPPMezRVvCKWs8pYXAL7BuLaQIbdKbbCMIRzQK8-FASnuVZvZ17enTRDCHMav5fLxjlQYi_zcy1UhOiybvQ_mIN_opstV2j6OxP0fsQS450PFNyDpyleViwo_9KtSbd9uJekfuQrWURpd4wWO6hVsskXWeDvrYI-uLOvwHIeofjmjN0vDVg1IOmvW0uVi8AwVZPKBM1b5gBHhu4O8Z4pGu8VRfrK23tlvd3Qxgwzd2S5R_rdNjj06JTVXeekBnaYWXbKOAvnVC0NHg9MuuozwW-bfCuMLrsTdhvtVLuWpFhyZK6mbBJRixtYzAsB7qNlssoiNGat-kd6X3jM90ELzBDLFYNZknyPIx9FWtHSDrnBK0mtDdQA1q7QUObXve9AKXBKRUoeJLDojTNV1jK6KcpAsjToNFAQE47yVU4HH8jx2DJAr3MwnbT-vJQuzU5FWg7pBYAjv1eOsBNeEJCVVwINr0QgUDLuFskHi68hWq0VBCHVTtnecY4tsS__dagxRubVPFMvte_ZgM75dg5153-9qJviCZXM0mtswwBp7sItghgGYA</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.04325,-34.81575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ponchitesta</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uEEokZgziYW6afZjMhAga2Cs03ed3KafK2fasqfYWU44C-dd5i17S6hwnAYwL6G58nke58x3hJ5dLSONmYUcnpFqqyOw8IFlRujArCBLWJ-aWUSHfcxXMqpBgXPu9xrXN8CZlDdgtHTCQ2z3GFgZTWfd7UQuOUgtD-iGsL3PYXng3B_UGrCvwB4ov-4UAbwfL7jqU0vsbbbo5sdNmjoPG04vFMRS3mFVooPDSKY08L_rZTe4uLGOWJRonra71rGEl85UEec-sfSmZDEMtIaic5_nGkqbgX10WI2bP6dpRNcQzpeLjW3FJnSKdbXzABP4nQn8EX3sZrJ1n2h8T-r0xyaKr-MR0F90HiZxuzXxekslGZGlyx3FClInpM8cKBkt9OmZg4Ss0P_ZxKJL4usBrpE2xhlQatwekb56jqvSILEba-jGcA6SpSBG9qCdC9sew2Lbavkv5ueD85urxVnIzOXtNsUlnlGGg9SgiDBj_k0joOWVKK1P0gpQI_yO16pm15IonNVZEzeFZmRnUdiU4zhc7Ki-cHnO0-hinX5w6L1JM4ZGhLW7iPUHPgJkGTEG0wmswQfcxSSX-j38umnRXcak5EhcssB6APR9BUzAsXGtMcqa9byQrq60mcOJOrnu-MU0CdrYdFJ8v2v3zqb760lrrM5uruEUkTJi6dESGpw6d7mt1g-dia_b3iaIp4CyAuMa61Jgg9UWrmYbjuMacgR6FZgc4l9dxcXal1D00T7MlCqFvZ1KjJWiX87C4Au5UZnSZ3R3tpAJKRcffNsRxVKzUKKAdgJ60x4-TEI4akmSUCPzKpRgWPU0zcOlDgclAS5SpiiRoBHVN8mImRHAhFGPAcQhxjZTnff5DldMV5vHxAB9XnAcW7f4jjwIo9rYTzcmg" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uEEokZgziYW6afZjMhAga2Cs03ed3KafK2fasqfYWU44C-dd5i17S6hwnAYwL6G58nke58x3hJ5dLSONmYUcnpFqqyOw8IFlRujArCBLWJ-aWUSHfcxXMqpBgXPu9xrXN8CZlDdgtHTCQ2z3GFgZTWfd7UQuOUgtD-iGsL3PYXng3B_UGrCvwB4ov-4UAbwfL7jqU0vsbbbo5sdNmjoPG04vFMRS3mFVooPDSKY08L_rZTe4uLGOWJRonra71rGEl85UEec-sfSmZDEMtIaic5_nGkqbgX10WI2bP6dpRNcQzpeLjW3FJnSKdbXzABP4nQn8EX3sZrJ1n2h8T-r0xyaKr-MR0F90HiZxuzXxekslGZGlyx3FClInpM8cKBkt9OmZg4Ss0P_ZxKJL4usBrpE2xhlQatwekb56jqvSILEba-jGcA6SpSBG9qCdC9sew2Lbavkv5ueD85urxVnIzOXtNsUlnlGGg9SgiDBj_k0joOWVKK1P0gpQI_yO16pm15IonNVZEzeFZmRnUdiU4zhc7Ki-cHnO0-hinX5w6L1JM4ZGhLW7iPUHPgJkGTEG0wmswQfcxSSX-j38umnRXcak5EhcssB6APR9BUzAsXGtMcqa9byQrq60mcOJOrnu-MU0CdrYdFJ8v2v3zqb760lrrM5uruEUkTJi6dESGpw6d7mt1g-dia_b3iaIp4CyAuMa61Jgg9UWrmYbjuMacgR6FZgc4l9dxcXal1D00T7MlCqFvZ1KjJWiX87C4Au5UZnSZ3R3tpAJKRcffNsRxVKzUKKAdgJ60x4-TEI4akmSUCPzKpRgWPU0zcOlDgclAS5SpiiRoBHVN8mImRHAhFGPAcQhxjZTnff5DldMV5vHxAB9XnAcW7f4jjwIo9rYTzcmg</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.040764,-34.816278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gustavo Nicolich y Los Aromos</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uFwbCbwVVg6ajiEhD8I3P2YWeCEhQOBix4P1vLBwfQ1Ezzm9WIkgQfAenHQHW-neKZZWiQ5lAFpkdl5-ouJZkP1fMfPAavyq3cdapacidCvGZCQnErY803Et1tAr0gO5HFoXaphMOzXpun4AgbDEiargKbGU77duNN6AZLWF-gt0emp2RWhpmcPW7OCnSi4dpYMgHOu6wX1it5i1uMsSNiLgTibIWqu7XuVbEMsPIm_jeQjqZ2tjmDX5vlpW9ssxwPtIshejx6hkdAUXDOjqFdEu1ZKbExEh-3ZC8T3DezoKnU2MBx5vUJAC1BfCEOmA7cnF8Zkp1iXasaNXW7TeY6EsGwrTBJBTX0AZKp4NJnBXAlPurmQ313x20ri5Jl8vZo4J-Q55DPN6HBaZJUVtqI4FDn8e_OcqFH4lt6vgS50zIYQZZWBASR-8juXVM31b8hlgh75q5DtTDEcZXDyECrST5t4Yan2w1Qi8s1ybV8HiEND7JZMt_ZRS0eoGjNBP1YSlWcObo925hvjtxj0fiDBxftLHFnLf9uTNhHIyBzAG6NrbZrQsfF76fwG5_LTG5IA_tcNNF0U3jp5dwTxdl-IxTIrBsqn5VC69j9VGUYf8K1Ph-BLPyOd7jHZx4t_BQyIwURRQXHIjAa9MOXKP7NAMskiswBbfOAw0202039xGQu_JPN9GxApVkUWuZv9lfwXp0c-QgUGq0Efsgw-tKiDJMXfE9Ue2eEePM3MK91nUFVgTh2g-T0YIhv5euPXRIvw51pxxtmSiCP0S-mgC4Bdvt6QPp8ORQocqASOB0SgrOz_SKN8eV854VVjclRH_7ZOVyaOo71C0570KKkrjujjgJ0wq1TsKHxAWfDjrGNhPMdELUsReP6uINCDDBlBihEv6A" height="200" width="auto" /><br><br>Gustavo Nicolich y Los Aromos, Colonia Nicolich. Podas y Basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uFwbCbwVVg6ajiEhD8I3P2YWeCEhQOBix4P1vLBwfQ1Ezzm9WIkgQfAenHQHW-neKZZWiQ5lAFpkdl5-ouJZkP1fMfPAavyq3cdapacidCvGZCQnErY803Et1tAr0gO5HFoXaphMOzXpun4AgbDEiargKbGU77duNN6AZLWF-gt0emp2RWhpmcPW7OCnSi4dpYMgHOu6wX1it5i1uMsSNiLgTibIWqu7XuVbEMsPIm_jeQjqZ2tjmDX5vlpW9ssxwPtIshejx6hkdAUXDOjqFdEu1ZKbExEh-3ZC8T3DezoKnU2MBx5vUJAC1BfCEOmA7cnF8Zkp1iXasaNXW7TeY6EsGwrTBJBTX0AZKp4NJnBXAlPurmQ313x20ri5Jl8vZo4J-Q55DPN6HBaZJUVtqI4FDn8e_OcqFH4lt6vgS50zIYQZZWBASR-8juXVM31b8hlgh75q5DtTDEcZXDyECrST5t4Yan2w1Qi8s1ybV8HiEND7JZMt_ZRS0eoGjNBP1YSlWcObo925hvjtxj0fiDBxftLHFnLf9uTNhHIyBzAG6NrbZrQsfF76fwG5_LTG5IA_tcNNF0U3jp5dwTxdl-IxTIrBsqn5VC69j9VGUYf8K1Ph-BLPyOd7jHZx4t_BQyIwURRQXHIjAa9MOXKP7NAMskiswBbfOAw0202039xGQu_JPN9GxApVkUWuZv9lfwXp0c-QgUGq0Efsgw-tKiDJMXfE9Ue2eEePM3MK91nUFVgTh2g-T0YIhv5euPXRIvw51pxxtmSiCP0S-mgC4Bdvt6QPp8ORQocqASOB0SgrOz_SKN8eV854VVjclRH_7ZOVyaOo71C0570KKkrjujjgJ0wq1TsKHxAWfDjrGNhPMdELUsReP6uINCDDBlBihEv6A</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.041341,-34.812086,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Las Torcasitas</name>
+        <styleUrl>#icon-1499-817717-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.032793,-34.815807,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Pedro</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uHYKl49MLPvi1Lu2Ozj_nRHKydzyQ8t_AwNpZTl7hB0XtT-YTVtvFWl3U7aZ1o5E6GUYRrl43sVTJ8cqkeqJGWkHUWrrBMQ1E3GflIV9mwxPxS1GcqquONkOXtGIhUis5s-lO2BLZawjesIVCnIPjyBU9FduyrAp8JMtHoTY2wusgIf3juuAM_BzcBik-sTMb878zSBEB6_GyOR-ax2zjfph31ZSXSJghIZBWRpKOom8aSMOqifq8nJxfQjgWx9DHG5EqgrCa_T_u7N0hky_6zkbzlV-cCCe1SOmxdkkzFGdKmxpsL_mECU2fquAKBC6ltrLlHgIRCbAit9pvan4Dba0SzNf0p9MrO1m7R1pZ_4k08Cy8loSz2KwhXK9wzNOOsncuJc9RG5xeR4Eri3iyi0fndkSfAATV9hFZYJmQaCZT1KhClQs-90pY2d2I5aaUXHrGVe8AO2DwxWS6hThOxmiJ6cIIhmDvKNN7kIMvTSvfTK2vHnMHRaPmI9lTj8vrmmun-zg9ed1Fao6oFnL_nlPGSwLmA268Y_ko89i2kqQntdRKbUaA6F5Pf2T-mbpgH1w62S_4xMyVrdRDe6bwpFiS8tJeKTYvUnmxEprTLqH_mhTxvs7EkO_8JS0nzKNGGqAMOQykAn1CsaZ6ibAFgjky4-pLBUHWwujAWtwswOh_s8jw6qQuQs6eycM3ns0dGxxd7UovIBNQ5grmHTfQ9pp12nmsJpv7sX37oS4T3qjMLkLQHkO3zDaOECkLOxGMvlegcstm7Z31ykqYQ2TyXO28cQwUASEG8kfSavIilv9hLkC6ARlUGqAowHjzJ_OwybxEPjUW2vzuZrfbOWKUWwc5UeeIZiAdA_qMFeT1pajckyxNEd7pK57YQp21FN0vsR" height="200" width="auto" /><br><br>Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uHYKl49MLPvi1Lu2Ozj_nRHKydzyQ8t_AwNpZTl7hB0XtT-YTVtvFWl3U7aZ1o5E6GUYRrl43sVTJ8cqkeqJGWkHUWrrBMQ1E3GflIV9mwxPxS1GcqquONkOXtGIhUis5s-lO2BLZawjesIVCnIPjyBU9FduyrAp8JMtHoTY2wusgIf3juuAM_BzcBik-sTMb878zSBEB6_GyOR-ax2zjfph31ZSXSJghIZBWRpKOom8aSMOqifq8nJxfQjgWx9DHG5EqgrCa_T_u7N0hky_6zkbzlV-cCCe1SOmxdkkzFGdKmxpsL_mECU2fquAKBC6ltrLlHgIRCbAit9pvan4Dba0SzNf0p9MrO1m7R1pZ_4k08Cy8loSz2KwhXK9wzNOOsncuJc9RG5xeR4Eri3iyi0fndkSfAATV9hFZYJmQaCZT1KhClQs-90pY2d2I5aaUXHrGVe8AO2DwxWS6hThOxmiJ6cIIhmDvKNN7kIMvTSvfTK2vHnMHRaPmI9lTj8vrmmun-zg9ed1Fao6oFnL_nlPGSwLmA268Y_ko89i2kqQntdRKbUaA6F5Pf2T-mbpgH1w62S_4xMyVrdRDe6bwpFiS8tJeKTYvUnmxEprTLqH_mhTxvs7EkO_8JS0nzKNGGqAMOQykAn1CsaZ6ibAFgjky4-pLBUHWwujAWtwswOh_s8jw6qQuQs6eycM3ns0dGxxd7UovIBNQ5grmHTfQ9pp12nmsJpv7sX37oS4T3qjMLkLQHkO3zDaOECkLOxGMvlegcstm7Z31ykqYQ2TyXO28cQwUASEG8kfSavIilv9hLkC6ARlUGqAowHjzJ_OwybxEPjUW2vzuZrfbOWKUWwc5UeeIZiAdA_qMFeT1pajckyxNEd7pK57YQp21FN0vsR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.019384,-34.819627,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Felipe y San Pedro al final de la calle</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uHiHJsizUoorjCiKTYbQtvEoKXPmjZcwq0yr2gQNwwQacl6SQZ9JKtO9MZfg16m8E1GCZ8sv30Hy-6Q1MjYXV6Jm1JiT7vjK3E-O8vf-RzA1ojKA7P8UBoLQcp7GtaVsswtohh_Ot4AZjFsnJC7LAswGeKj0ozksrfqUTwHh6RjlV0j2uqMQr6dcGHOyOtSqmXO1hOjOqjnD0y_NhgPyhJRrr6dHBTLwNj6fKK0rJ4uZ5-iOwOgWvLZcMfR5Mw6oCs6i1EL09givgloQ8IJZLstHyOZ6wWKCh9Wh99Oq1sYG6tygHQqLtvleVhK_-C-NytuIVTHYPWl0voRKlSdyXAvn12nrtyMp5TRNSGqAmbc1X_ZpXlvjlwqfKvISQ1_-0yhqaXO6Lwvc9zDtK-XxI7MXIQXT99bzI0cdQ6G_VginJczU3wgmE-oMrTk09CiV2gIJSiDd_yXJhRhJrYdghv-BMoX3r93RXVr5a0m0m2T_C1Sgn1NrKt62XKuZvk6dDkbyEvtWm65V0b2KVR0aaga3xmr8Zsguo0ccbhuqy0_U0TfNmv7i61XEqmC8DMOY-ZRvAb5SP9SuQQ_IizcUS-kxWN0HbddRZ8MxxgXnNPTxdeXz7o0lQCI0SatHiN_UhbWeKGMAcKK1iVf-Dc78qXTpZisMlOeO1wLWvMv9rRuMEczQF5t128Ga810xKfbDXZ4xFs2JePKQcPuo_4E7CZq2sTcUCtSi89hSSMsFy9UOeppFX_mK3zLpPRStWcLS3jEjCV7f2mapiiNVvoPYfh8ZBdMIZbW_rk_b1QelxrXoYjpHlyL63WFbrIaM91sNSRLt62_3Cfeb9evSMAZOyIIF8Y0-KhgaNkQ6Dz0BYEywORKtnj4hmkn1Y5ZeADQlfLTyUXd" height="200" width="auto" /><br><br>San Felipe y San Pedro al final de la calle, Colonia Nicolich. Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uHiHJsizUoorjCiKTYbQtvEoKXPmjZcwq0yr2gQNwwQacl6SQZ9JKtO9MZfg16m8E1GCZ8sv30Hy-6Q1MjYXV6Jm1JiT7vjK3E-O8vf-RzA1ojKA7P8UBoLQcp7GtaVsswtohh_Ot4AZjFsnJC7LAswGeKj0ozksrfqUTwHh6RjlV0j2uqMQr6dcGHOyOtSqmXO1hOjOqjnD0y_NhgPyhJRrr6dHBTLwNj6fKK0rJ4uZ5-iOwOgWvLZcMfR5Mw6oCs6i1EL09givgloQ8IJZLstHyOZ6wWKCh9Wh99Oq1sYG6tygHQqLtvleVhK_-C-NytuIVTHYPWl0voRKlSdyXAvn12nrtyMp5TRNSGqAmbc1X_ZpXlvjlwqfKvISQ1_-0yhqaXO6Lwvc9zDtK-XxI7MXIQXT99bzI0cdQ6G_VginJczU3wgmE-oMrTk09CiV2gIJSiDd_yXJhRhJrYdghv-BMoX3r93RXVr5a0m0m2T_C1Sgn1NrKt62XKuZvk6dDkbyEvtWm65V0b2KVR0aaga3xmr8Zsguo0ccbhuqy0_U0TfNmv7i61XEqmC8DMOY-ZRvAb5SP9SuQQ_IizcUS-kxWN0HbddRZ8MxxgXnNPTxdeXz7o0lQCI0SatHiN_UhbWeKGMAcKK1iVf-Dc78qXTpZisMlOeO1wLWvMv9rRuMEczQF5t128Ga810xKfbDXZ4xFs2JePKQcPuo_4E7CZq2sTcUCtSi89hSSMsFy9UOeppFX_mK3zLpPRStWcLS3jEjCV7f2mapiiNVvoPYfh8ZBdMIZbW_rk_b1QelxrXoYjpHlyL63WFbrIaM91sNSRLt62_3Cfeb9evSMAZOyIIF8Y0-KhgaNkQ6Dz0BYEywORKtnj4hmkn1Y5ZeADQlfLTyUXd</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.020746,-34.821509,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Independencia y Cerrito</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uEkuWWT9BwiQ2elCa6UGX0kEf43AMcit97-wdGIM5IYd_Rx7UKaRrNvg4sJz9gyL_vbGotj7sovT5OkXVw3mEu1wmZVYS8PI53zTGyLZPpuDkPMWh0L_YsGfWNOwE86kWaDPBgghexz7nx6E_ozNJUFCaXPd6Q__yOl3ZgpcFppCdfD66N84dgMBX4RZsAWr5FbBCCClNhD-AOOrPmF22-9hCQ_fdhq-7hdrxPVklH9-CErEfFJy1hjEwXwr-dbG1iQrBSZKgOBSYyEQ0HDZHXuvfcsFPTDhFBAgvpqgY0KmU8GMlW6H2Z3ReRN5Siaq8tezti9qbn-TyuOJNycqvVDtPjWSzWoDfehuHQ0bcRBmU2KCqRNd97S_Jl_AtQ0BLNe82s3hnLR0q_ZsJBtspGjsWH3pf2UmoNZGbi78G0U0XtkgbnbfGfnGK7sRpvfUFJKHusup2xFGPGKAOnWmiixnlI3TjxfHLx5d5HqBde1xxDAopc9biauG14rIC6Sp5qNuO6xzpdWvBDRnINlYoZDrq6EuuaFwrfo4qXxjvvR6Dnbhny4LSeMz2a80VCliB1n5dyERUJKB0eKSq4g9gRpBW5l4z6dce2B1S-2aaRTHHAvkDjYw_dXEHDIj4IsDdToyQM06Z5TU3kcn8fUtisSrcn85w-AfqxLgqpLuSmwgYHiDz5cvsELpn570vloRPpxw709yQGqfkNjlj_dmK3E23EDtzzFOb8ukBj4DF5JQDSKBORMs_gu0UCYMgzOMiXU-N3jFUuJrXk3V9NHJs00T00Tz1FZbuJnHp1Zf4ZD_ww0e6Dsr_NHatmyKfQ9muNzzr-gV1Gw3GTvenG0ZHHevNDtI75i0tIsxsn9KqAYlnMm99xKUcm3dm8YwAzqlvSMW4g" height="200" width="auto" /><br><br>Independencia y Cerrito, Colonia Nicolich. Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uEkuWWT9BwiQ2elCa6UGX0kEf43AMcit97-wdGIM5IYd_Rx7UKaRrNvg4sJz9gyL_vbGotj7sovT5OkXVw3mEu1wmZVYS8PI53zTGyLZPpuDkPMWh0L_YsGfWNOwE86kWaDPBgghexz7nx6E_ozNJUFCaXPd6Q__yOl3ZgpcFppCdfD66N84dgMBX4RZsAWr5FbBCCClNhD-AOOrPmF22-9hCQ_fdhq-7hdrxPVklH9-CErEfFJy1hjEwXwr-dbG1iQrBSZKgOBSYyEQ0HDZHXuvfcsFPTDhFBAgvpqgY0KmU8GMlW6H2Z3ReRN5Siaq8tezti9qbn-TyuOJNycqvVDtPjWSzWoDfehuHQ0bcRBmU2KCqRNd97S_Jl_AtQ0BLNe82s3hnLR0q_ZsJBtspGjsWH3pf2UmoNZGbi78G0U0XtkgbnbfGfnGK7sRpvfUFJKHusup2xFGPGKAOnWmiixnlI3TjxfHLx5d5HqBde1xxDAopc9biauG14rIC6Sp5qNuO6xzpdWvBDRnINlYoZDrq6EuuaFwrfo4qXxjvvR6Dnbhny4LSeMz2a80VCliB1n5dyERUJKB0eKSq4g9gRpBW5l4z6dce2B1S-2aaRTHHAvkDjYw_dXEHDIj4IsDdToyQM06Z5TU3kcn8fUtisSrcn85w-AfqxLgqpLuSmwgYHiDz5cvsELpn570vloRPpxw709yQGqfkNjlj_dmK3E23EDtzzFOb8ukBj4DF5JQDSKBORMs_gu0UCYMgzOMiXU-N3jFUuJrXk3V9NHJs00T00Tz1FZbuJnHp1Zf4ZD_ww0e6Dsr_NHatmyKfQ9muNzzr-gV1Gw3GTvenG0ZHHevNDtI75i0tIsxsn9KqAYlnMm99xKUcm3dm8YwAzqlvSMW4g</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.021377,-34.818651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Paraná Guazu a 100 mts de Ruta 102</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uGc6tXJlXBrisBc0xNNT8Q85d1gT3qnrm2c2unld8vOa_LtAw1YyR8WDOxrE-qekQPwI_Hk_o3SuZCUb0cioPDfRJujflmMytIoKW2fkFML6KctlE0BfRdVLwaVYCLN--czIbLMwbBi_aYaqlcbzCGciEofxZdqU9PIM10-g5pefvae2l_up1nmzTcAk5yG4h1oq9rXJPKc0EqKnod2fe5zwfZVAyqdXQjQR8lsJH0HQFFwMv_TGmNaaF7l9wbgUsV7BxGQ72ZZjjx4Lcdsu6Bmd2JteP7Y32PyPU-_MjKkfYD0Xe3qxKeFlPBxMmi6wzRn_MbEVhpgx8ViaQgk81Ig5Am4IBDDNSm8JcEY8n6l26Xw2EqqgzyqKgWFEYP-so0g_CNIyz83r573z_H_fu0LbEVGRhOvnn0MmVAcgyJ-gGYez635koovQHYy9-I2gvMHUMaTZO76-yKc1Kgn-GMh3d3GF2G_PwjcRyQSvxiobh6-uEMiJR4xMshD0q7FJwosgW-E58OJZpME4iXgp7LqAzHH2KxXU-J-OxgtwlGkKPQbbB_DqSFA1Te_M8qD9ty28QtsNI1JT2IU_NHALd49SvbgvgXBDtG1H6EVOYBZfA7KPZauaw7Z9xAELD6ypcsxzbr9VTZRFngxThgnjZJUdB2QSwPtywt4XsadG5UeIPCEq3KXb-zUHHrNiQMlH92wOIvufXydsQy2PcZUOP-el330uRU9_dgaXi32jXiFb0BMJDG0SlIhq_kJOZcy3HizXwH0cO1CHIJEtiY7RECCX5jFISK-8oMkbt_aXSJ1OnZKl-7UL03e2Rdw-gBVoelwvkIhRyWKqAzlwCfl9q0zW3FPyY0yZiorqJfw54PQPwdW1tqm0badLN4ZjvOTTXclzA" height="200" width="auto" /><br><br>Paraná Guazu a 100 mts de Ruta 102, Colonia Nicolich. Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uGc6tXJlXBrisBc0xNNT8Q85d1gT3qnrm2c2unld8vOa_LtAw1YyR8WDOxrE-qekQPwI_Hk_o3SuZCUb0cioPDfRJujflmMytIoKW2fkFML6KctlE0BfRdVLwaVYCLN--czIbLMwbBi_aYaqlcbzCGciEofxZdqU9PIM10-g5pefvae2l_up1nmzTcAk5yG4h1oq9rXJPKc0EqKnod2fe5zwfZVAyqdXQjQR8lsJH0HQFFwMv_TGmNaaF7l9wbgUsV7BxGQ72ZZjjx4Lcdsu6Bmd2JteP7Y32PyPU-_MjKkfYD0Xe3qxKeFlPBxMmi6wzRn_MbEVhpgx8ViaQgk81Ig5Am4IBDDNSm8JcEY8n6l26Xw2EqqgzyqKgWFEYP-so0g_CNIyz83r573z_H_fu0LbEVGRhOvnn0MmVAcgyJ-gGYez635koovQHYy9-I2gvMHUMaTZO76-yKc1Kgn-GMh3d3GF2G_PwjcRyQSvxiobh6-uEMiJR4xMshD0q7FJwosgW-E58OJZpME4iXgp7LqAzHH2KxXU-J-OxgtwlGkKPQbbB_DqSFA1Te_M8qD9ty28QtsNI1JT2IU_NHALd49SvbgvgXBDtG1H6EVOYBZfA7KPZauaw7Z9xAELD6ypcsxzbr9VTZRFngxThgnjZJUdB2QSwPtywt4XsadG5UeIPCEq3KXb-zUHHrNiQMlH92wOIvufXydsQy2PcZUOP-el330uRU9_dgaXi32jXiFb0BMJDG0SlIhq_kJOZcy3HizXwH0cO1CHIJEtiY7RECCX5jFISK-8oMkbt_aXSJ1OnZKl-7UL03e2Rdw-gBVoelwvkIhRyWKqAzlwCfl9q0zW3FPyY0yZiorqJfw54PQPwdW1tqm0badLN4ZjvOTTXclzA</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.013007,-34.81694,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Los Pinos y Los Aromos</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AK-S7uHep-4xwnFoi36taLlJOSKnPO42UobFyz70gAsQH8dCPiNWRcjmZh7U3IiNENr3crITwr3q56axKp5HObYnBsxUTsxrTzjcdLkOiUrcRuYLTH6ujKdUaCRs_Mfkx1IP1BIZrG5go1gNOX5SjMaH56IitqtpWggNPAVsQNFS7ql0utbBtqcfbSN-PDhIahoM33Lh_jXcuZy_3YJg-iay9x2HFhANgE5eD_0NqYEtLHNReYqiMW_M62RZFXPg-Ndae7J_jjOfQayd4vuozA54cRtUxEMeBvWgOkVWQTuldjKNv_aknTsJirbbsrIJIA6RbSIn0t1k2vHr_lDRxsmzEGKK--nOOPRkK8WAzxJaz8iAwypir3OtwchvZxuHKZLQx4Fr9gmT7m4sQ8OyraCfnoyoAGUxk0QKpGjB3EOS8OjQ6cT7I6MIz6SqYiR8mOqXgNxfgd_VCG28aWHfO-o_fmqV7C4SrqGHnYgWgiiMpXaHLPW3-mwjP2pgaYsZSFzl6y5iEzjCye0-mmam02eNFP0Nh_qhsmC6kRUAHvmx_lxlflAnWA6yc3_UxzFPJivRMwp3ZAqC1LMQHJrHff2luOJ5yrwHp9UFiWhQpiBkrVGLlwZq32RiHtTm1EZytvW3F0vgmj9R7DIB_ho4JYPMWSkWnfO-3og7UVZsBF2TNFdp5Ia8Gt2vKc7J74h9AvZfvaTcKxoQQyM3MPxqiH2m-C1gz6PhBfvxCAf3uIwEBAtuwtNs81rbiTRE1to8AMJvhnCT84yyiSJ69VoN7_pcXpAG9bMRQvM15BMbW69VWzH4-NbpnOflelNSO9k9k8fuUh27lBw_gmRuS2NX2vaTgiFM9cmbvv_ZFkyQWOLz596AHxnxL5LdVlNl4D1j0ipSqF-QLA" height="200" width="auto" /><br><br>Los Pinos y Los Aromos, Colonia Nicolich. Podas y basura.]]></description>
+        <styleUrl>#icon-1499-817717</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AK-S7uHep-4xwnFoi36taLlJOSKnPO42UobFyz70gAsQH8dCPiNWRcjmZh7U3IiNENr3crITwr3q56axKp5HObYnBsxUTsxrTzjcdLkOiUrcRuYLTH6ujKdUaCRs_Mfkx1IP1BIZrG5go1gNOX5SjMaH56IitqtpWggNPAVsQNFS7ql0utbBtqcfbSN-PDhIahoM33Lh_jXcuZy_3YJg-iay9x2HFhANgE5eD_0NqYEtLHNReYqiMW_M62RZFXPg-Ndae7J_jjOfQayd4vuozA54cRtUxEMeBvWgOkVWQTuldjKNv_aknTsJirbbsrIJIA6RbSIn0t1k2vHr_lDRxsmzEGKK--nOOPRkK8WAzxJaz8iAwypir3OtwchvZxuHKZLQx4Fr9gmT7m4sQ8OyraCfnoyoAGUxk0QKpGjB3EOS8OjQ6cT7I6MIz6SqYiR8mOqXgNxfgd_VCG28aWHfO-o_fmqV7C4SrqGHnYgWgiiMpXaHLPW3-mwjP2pgaYsZSFzl6y5iEzjCye0-mmam02eNFP0Nh_qhsmC6kRUAHvmx_lxlflAnWA6yc3_UxzFPJivRMwp3ZAqC1LMQHJrHff2luOJ5yrwHp9UFiWhQpiBkrVGLlwZq32RiHtTm1EZytvW3F0vgmj9R7DIB_ho4JYPMWSkWnfO-3og7UVZsBF2TNFdp5Ia8Gt2vKc7J74h9AvZfvaTcKxoQQyM3MPxqiH2m-C1gz6PhBfvxCAf3uIwEBAtuwtNs81rbiTRE1to8AMJvhnCT84yyiSJ69VoN7_pcXpAG9bMRQvM15BMbW69VWzH4-NbpnOflelNSO9k9k8fuUh27lBw_gmRuS2NX2vaTgiFM9cmbvv_ZFkyQWOLz596AHxnxL5LdVlNl4D1j0ipSqF-QLA</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.043194,-34.818323,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

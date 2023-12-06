@@ -1,0 +1,3808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>MUNICIPIO DE CERRILLOS</name>
+    <description/>
+    <Style id="icon-1500-817717-normal">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-817717-highlight">
+      <IconStyle>
+        <color>ff177781</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-817717">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-817717-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-817717-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-9C27B0-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-9C27B0-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-9C27B0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-9C27B0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-9C27B0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-C2185B-normal">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-C2185B-highlight">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-C2185B">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-C2185B-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-C2185B-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1501-1A237E-labelson">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1501-A52714-labelson">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-1850-0F9D58-normal">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-0F9D58-highlight">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-0F9D58">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-0F9D58-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-0F9D58-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1850-FFD600-normal">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-FFD600-highlight">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-FFD600">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-FFD600-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-FFD600-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-0288D1-5650-nodesc-normal">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>5.65</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-0288D1-5650-nodesc-highlight">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>8.475</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-0288D1-5650-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-0288D1-5650-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-0288D1-5650-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF5252-5069-nodesc-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>5.069</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF5252-5069-nodesc-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>7.6035</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-FF5252-5069-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF5252-5069-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF5252-5069-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FFD600-4100-normal">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>4.1</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-FFD600-4100-highlight">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>6.15</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-FFD600-4100">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FFD600-4100-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FFD600-4100-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0097A7-1200-76-normal">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-0097A7-1200-76-highlight">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-0097A7-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0097A7-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0097A7-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-01579B-801-76-normal">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>0.801</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-01579B-801-76-highlight">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>1.2015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-01579B-801-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-01579B-801-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-01579B-801-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-1A237E-1200-76-normal">
+      <LineStyle>
+        <color>ff7e231a</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c7e231a</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-1A237E-1200-76-highlight">
+      <LineStyle>
+        <color>ff7e231a</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c7e231a</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-1A237E-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-1A237E-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-1A237E-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-795548-1200-130-normal">
+      <LineStyle>
+        <color>ff485579</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>82485579</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-795548-1200-130-highlight">
+      <LineStyle>
+        <color>ff485579</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>82485579</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-795548-1200-130">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-795548-1200-130-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-795548-1200-130-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-7CB342-1200-76-normal">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c42b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-7CB342-1200-76-highlight">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c42b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-7CB342-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-7CB342-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-7CB342-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-817717-1200-76-normal">
+      <LineStyle>
+        <color>ff177781</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c177781</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-817717-1200-76-highlight">
+      <LineStyle>
+        <color>ff177781</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c177781</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-817717-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-817717-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-817717-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-A52714-1-76-normal">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>0.001</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c1427a5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-A52714-1-76-highlight">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>0.0015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c1427a5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-A52714-1-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-A52714-1-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-A52714-1-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-AFB42B-1000-43-nodesc-normal">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>2b2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-AFB42B-1000-43-nodesc-highlight">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>2b2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-AFB42B-1000-43-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-B2EBF2-1200-79-normal">
+      <LineStyle>
+        <color>fff2ebb2</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ff2ebb2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-B2EBF2-1200-79-highlight">
+      <LineStyle>
+        <color>fff2ebb2</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ff2ebb2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-B2EBF2-1200-79">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-B2EBF2-1200-79-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-B2EBF2-1200-79-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-C2185B-1200-76-normal">
+      <LineStyle>
+        <color>ff5b18c2</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c5b18c2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-C2185B-1200-76-highlight">
+      <LineStyle>
+        <color>ff5b18c2</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c5b18c2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-C2185B-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-C2185B-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-C2185B-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-CE93D8-1200-92-normal">
+      <LineStyle>
+        <color>ffd893ce</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>5cd893ce</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-CE93D8-1200-92-highlight">
+      <LineStyle>
+        <color>ffd893ce</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>5cd893ce</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-CE93D8-1200-92">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-CE93D8-1200-92-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-CE93D8-1200-92-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-F57C00-1000-56-normal">
+      <LineStyle>
+        <color>ff007cf5</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>38007cf5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-F57C00-1000-56-highlight">
+      <LineStyle>
+        <color>ff007cf5</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>38007cf5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-F57C00-1000-56">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-F57C00-1000-56-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-F57C00-1000-56-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-F9A825-1200-76-normal">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-F9A825-1200-76-highlight">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-F9A825-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-F9A825-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-F9A825-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FBC02D-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-FBC02D-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-FBC02D-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FF5252-1200-76-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c5252ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FF5252-1200-76-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c5252ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FF5252-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FF5252-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FF5252-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFD600-1301-71-normal">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.301</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4700d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFD600-1301-71-highlight">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.9515</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4700d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFD600-1301-71">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFD600-1301-71-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFD600-1301-71-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>RECOLECCIÓN DE RESIDUOS</name>
+      <Placemark>
+        <name>DOMICILIARIOS: MIÉRCOLES Y SÁBADOS</name>
+        <description><![CDATA[991 VIVIENDAS. SE VA A REALIZAR EN ESTE RADIO COMO UNA CENTRALIDAD LA RUTA 36 DESDE CERRILLOS A LA RUTA 48.<br><br>RADIO: LOS CERRILLOS<br>FRECUENCIA: 3ER SEMANA ( MIERCOLES Y JUEVES)]]></description>
+        <styleUrl>#poly-FFD600-1301-71</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value>LOS CERRILLOS</value>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value>3ER SEMANA ( MIERCOLES Y JUEVES)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.367354,-34.603505,0
+                -56.368218,-34.606443,0
+                -56.371128,-34.605788,0
+                -56.371446,-34.606836,0
+                -56.370151,-34.607229,0
+                -56.370423,-34.608221,0
+                -56.36956,-34.608389,0
+                -56.369673,-34.60895,0
+                -56.367695,-34.609399,0
+                -56.368196,-34.610728,0
+                -56.366104,-34.61142,0
+                -56.36665,-34.613684,0
+                -56.364149,-34.614545,0
+                -56.363717,-34.613553,0
+                -56.355806,-34.614208,0
+                -56.354783,-34.610934,0
+                -56.351759,-34.611345,0
+                -56.351827,-34.609923,0
+                -56.349622,-34.610148,0
+                -56.349804,-34.605882,0
+                -56.358352,-34.604478,0
+                -56.358124,-34.602626,0
+                -56.363058,-34.601578,0
+                -56.367354,-34.603505,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y VIERNES - MATUTINO</name>
+        <description><![CDATA[LAS BRUJAS ZONA POBLADA.<br><br>RADIO: <br>FRECUENCIA: ]]></description>
+        <styleUrl>#poly-CE93D8-1200-92</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value/>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value/>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.407433,-34.6840493,0
+                -56.4090209,-34.6862548,0
+                -56.4046972,-34.6880722,0
+                -56.4013283,-34.6909128,0
+                -56.4035385,-34.6936474,0
+                -56.4013927,-34.6948471,0
+                -56.3934963,-34.6944943,0
+                -56.3917368,-34.6950941,0
+                -56.3899343,-34.6937886,0
+                -56.3922303,-34.6915832,0
+                -56.3857179,-34.6869164,0
+                -56.3767428,-34.6802668,0
+                -56.3704102,-34.6829764,0
+                -56.3695707,-34.6816804,0
+                -56.3750962,-34.6792673,0
+                -56.3681547,-34.6673982,0
+                -56.3700538,-34.6667174,0
+                -56.3716092,-34.6696871,0
+                -56.3733794,-34.6728332,0
+                -56.3771775,-34.6789841,0
+                -56.3839159,-34.6841316,0
+                -56.3852135,-34.683629,0
+                -56.4021867,-34.6764439,0
+                -56.4045684,-34.676347,0
+                -56.388722,-34.6832111,0
+                -56.3921445,-34.6855315,0
+                -56.3968222,-34.6891748,0
+                -56.3987508,-34.6891374,0
+                -56.4028787,-34.6861358,0
+                -56.407433,-34.6840493,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y VIERNES - MATUTINO</name>
+        <description><![CDATA[150 VIVIENDAS.<br><br>RADIO: <br>FRECUENCIA: ]]></description>
+        <styleUrl>#poly-B2EBF2-1200-79</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value/>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value/>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3883124,-34.5791689,0
+                -56.3884841,-34.5767485,0
+                -56.3931189,-34.573798,0
+                -56.401187,-34.5682853,0
+                -56.4055858,-34.5722255,0
+                -56.3982258,-34.5763068,0
+                -56.4013372,-34.5801229,0
+                -56.3956509,-34.5822606,0
+                -56.3883124,-34.5791689,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 36 - DOMICILIARIOS: MIÉRCOLES Y SÁBADOS</name>
+        <description><![CDATA[<br><br>RADIO: <br>FRECUENCIA: ]]></description>
+        <styleUrl>#line-FFD600-4100</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value/>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value/>
+          </Data>
+        </ExtendedData>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3032425,-34.6813882,0
+            -56.3059398,-34.6727578,0
+            -56.3054122,-34.6688087,0
+            -56.3052262,-34.6672004,0
+            -56.3053942,-34.6664833,0
+            -56.307179,-34.6614667,0
+            -56.3093283,-34.6564236,0
+            -56.3171633,-34.6442808,0
+            -56.3321507,-34.632097,0
+            -56.3326277,-34.6317571,0
+            -56.3332602,-34.6314703,0
+            -56.3353813,-34.6304595,0
+            -56.3371591,-34.629431,0
+            -56.3545575,-34.6171322,0
+            -56.3653546,-34.6060813,0
+            -56.3667077,-34.6047942,0
+            -56.3690908,-34.6026947,0
+            -56.3784678,-34.5957709,0
+            -56.3847332,-34.5900781,0
+            -56.385312,-34.588978,0
+            -56.390645,-34.5801063,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.432584,-34.596645,0
+            -56.41909,-34.595469,0
+            -56.418495,-34.600135,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.385312,-34.588978,0
+            -56.3784,-34.57692,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.364972,-34.577403,0
+            -56.361445,-34.604088,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3150007,-34.5404404,0
+            -56.3148471,-34.5404302,0
+            -56.3160295,-34.5601923,0
+            -56.3130905,-34.5629673,0
+            -56.3146465,-34.5673583,0
+            -56.3134105,-34.5681033,0
+            -56.3125605,-34.5688033,0
+            -56.3130745,-34.5705183,0
+            -56.3145335,-34.5739123,0
+            -56.3148905,-34.5744923,0
+            -56.3153865,-34.5750023,0
+            -56.3164265,-34.5759553,0
+            -56.3186245,-34.5779883,0
+            -56.3192345,-34.5786063,0
+            -56.3206815,-34.5805403,0
+            -56.3224305,-34.5815783,0
+            -56.3237825,-34.5821743,0
+            -56.3251095,-34.5827543,0
+            -56.3257465,-34.5829963,0
+            -56.3264585,-34.5831183,0
+            -56.3285735,-34.5834653,0
+            -56.3312205,-34.5834973,0
+            -56.3309725,-34.5871873,0
+            -56.3307915,-34.5889493,0
+            -56.3307655,-34.5898743,0
+            -56.3310615,-34.5907813,0
+            -56.3317845,-34.5916143,0
+            -56.3334735,-34.5926063,0
+            -56.3404525,-34.5967273,0
+            -56.3473025,-34.6008653,0
+            -56.3486985,-34.6025233,0
+            -56.3495365,-34.6038803,0
+            -56.3507805,-34.6050173,0
+            -56.3524635,-34.6063123,0
+            -56.3517145,-34.6069723,0
+            -56.3502085,-34.6073843,0
+            -56.3373185,-34.6093723,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.331561,-34.57832,0
+            -56.331226,-34.583595,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.320697,-34.580598,0
+            -56.317865,-34.585876,0
+            -56.317303,-34.586189,0
+            -56.316215,-34.586601,0
+            -56.315428,-34.587014,0
+            -56.314675,-34.587626,0
+            -56.313676,-34.588609,0
+            -56.312993,-34.589323,0
+            -56.312171,-34.59039,0
+            -56.311543,-34.590987,0
+            -56.310905,-34.591522,0
+            -56.309418,-34.592574,0
+            -56.312517,-34.605703,0
+            -56.316483,-34.62067,0
+            -56.318386,-34.62818,0
+            -56.319333,-34.631895,0
+            -56.320462,-34.635672,0
+            -56.321932,-34.636819,0
+            -56.323386,-34.63902,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.298404,-34.598552,0
+            -56.306082,-34.630556,0
+            -56.311752,-34.629446,0
+            -56.312092,-34.630441,0
+            -56.312225,-34.630864,0
+            -56.312329,-34.631106,0
+            -56.312465,-34.631296,0
+            -56.31442,-34.631,0
+            -56.318842,-34.630158,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.330954,-34.590441,0
+            -56.330585,-34.590794,0
+            -56.330368,-34.590847,0
+            -56.330017,-34.590856,0
+            -56.329546,-34.590854,0
+            -56.329032,-34.590839,0
+            -56.328346,-34.593179,0
+            -56.3279,-34.600911,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.357725,-34.61371,0
+            -56.351899,-34.614291,0
+            -56.351685,-34.613328,0
+            -56.339281,-34.615086,0
+            -56.339027,-34.617677,0
+            -56.34039,-34.621317,0
+            -56.34243,-34.625539,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.339027,-34.617677,0
+            -56.330717,-34.618884,0
+            -56.33035,-34.616411,0
+            -56.328934,-34.616602,0
+            -56.327047,-34.616582,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3449255,-34.5995437,0
+            -56.3323084,-34.600886,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.309418,-34.592574,0
+            -56.3074396,-34.5947653,0
+            -56.3049545,-34.59638,0
+            -56.3022897,-34.5965317,0
+            -56.3003835,-34.596749,0
+            -56.298404,-34.598552,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3155935,-34.6179369,0
+            -56.3094137,-34.6193496,0
+            -56.3088987,-34.6180075,0
+            -56.3034914,-34.6188551,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3785711,-34.569984,0
+            -56.3780414,-34.5748851,0
+            -56.3779086,-34.5768357,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.435919,-34.602006,0
+            -56.4316529,-34.5945273,0
+            -56.425285,-34.579229,0
+            -56.3777477,-34.5768534,0
+            -56.331561,-34.57832,0
+            -56.332719,-34.556819,0
+            -56.335291,-34.549092,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.448244,-34.603238,0
+            -56.4116796,-34.5997297,0
+            -56.390741,-34.597739,0
+            -56.385312,-34.588978,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.392502,-34.5776685,0
+            -56.392612,-34.576863,0
+            -56.3988756,-34.5724282,0
+            -56.4131449,-34.560236,0
+            -56.4184664,-34.5554294,0
+            -56.436659,-34.543203,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>JUEVES MATUTINO: RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-FF5252-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3860851,-34.5902224,0
+            -56.3853287,-34.5905581,0
+            -56.3856667,-34.5911896,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.43464,-34.601974,0
+            -56.416318,-34.626313,0
+            -56.404686,-34.617461,0
+            -56.404335,-34.617594,0
+            -56.402728,-34.619352,0
+            -56.390125,-34.612698,0
+            -56.388204,-34.611965,0
+            -56.384416,-34.611267,0
+            -56.379996,-34.610472,0
+            -56.370006,-34.608581,0
+            -56.370312,-34.609963,0
+            -56.372658,-34.614902,0
+            -56.373603,-34.616852,0
+            -56.375063,-34.61898,0
+            -56.377199,-34.623553,0
+            -56.378245,-34.625919,0
+            -56.378833,-34.627023,0
+            -56.379528,-34.628038,0
+            -56.380431,-34.627805,0
+            -56.391118,-34.623775,0
+            -56.402728,-34.619352,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.416436,-34.626366,0
+            -56.417627,-34.627155,0
+            -56.421037,-34.630404,0
+            -56.423004,-34.633426,0
+            -56.424008,-34.634058,0
+            -56.426085,-34.63506,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.379464,-34.628047,0
+            -56.371748,-34.631092,0
+            -56.356457,-34.63689,0
+            -56.356077,-34.63676,0
+            -56.355676,-34.636462,0
+            -56.353118,-34.6345,0
+            -56.351603,-34.633361,0
+            -56.350517,-34.632565,0
+            -56.349248,-34.631571,0
+            -56.348172,-34.630516,0
+            -56.346992,-34.628739,0
+            -56.34664,-34.628585,0
+            -56.345729,-34.62853,0
+            -56.345022,-34.628378,0
+            -56.34364,-34.626958,0
+            -56.342462,-34.625689,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.329423,-34.634384,0
+            -56.330858,-34.638749,0
+            -56.329767,-34.640509,0
+            -56.332938,-34.641776,0
+            -56.32245,-34.659925,0
+            -56.310567,-34.654652,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.308428,-34.65864,0
+            -56.32274,-34.665126,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.323752,-34.671359,0
+            -56.322316,-34.671499,0
+            -56.316557,-34.668417,0
+            -56.306722,-34.662829,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.303377,-34.68146,0
+            -56.31073,-34.682808,0
+            -56.317524,-34.681455,0
+            -56.320103,-34.678609,0
+            -56.326058,-34.683706,0
+            -56.33441,-34.689726,0
+            -56.35767,-34.705462,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.345054,-34.666117,0
+            -56.326071,-34.683463,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.302879,-34.682795,0
+            -56.311285,-34.684399,0
+            -56.310692,-34.686185,0
+            -56.31985,-34.691079,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3326157,-34.6884314,0
+            -56.350183,-34.672526,0
+            -56.359362,-34.669708,0
+            -56.360489,-34.670102,0
+            -56.36931,-34.666669,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.356079,-34.6947207,0
+            -56.3395404,-34.6822555,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.343128,-34.678966,0
+            -56.348584,-34.683086,0
+            -56.350728,-34.681164,0
+            -56.353221,-34.681701,0
+            -56.352645,-34.683482,0
+            -56.351041,-34.684911,0
+            -56.354054,-34.687236,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.351044,-34.684955,0
+            -56.348584,-34.683086,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.382306,-34.627097,0
+            -56.385471,-34.632519,0
+            -56.375261,-34.636497,0
+            -56.362218,-34.641586,0
+            -56.364524,-34.644885,0
+            -56.366604,-34.647768,0
+            -56.366918,-34.64822,0
+            -56.368391,-34.65049,0
+            -56.368999,-34.652361,0
+            -56.369479,-34.654197,0
+            -56.368786,-34.657868,0
+            -56.368459,-34.658892,0
+            -56.36826,-34.660304,0
+            -56.368013,-34.66334,0
+            -56.369342,-34.66681,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.371609,-34.638013,0
+            -56.372303,-34.638914,0
+            -56.37927,-34.647992,0
+            -56.382589,-34.646716,0
+            -56.3856,-34.65075,0
+            -56.387202,-34.653036,0
+            -56.389383,-34.656698,0
+            -56.394286,-34.664745,0
+            -56.384465,-34.669076,0
+            -56.382501,-34.665857,0
+            -56.3719427,-34.6697747,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.391978,-34.623522,0
+            -56.405028,-34.643157,0
+            -56.39754,-34.646631,0
+            -56.398692,-34.64855,0
+            -56.39175,-34.65195,0
+            -56.392572,-34.653395,0
+            -56.389635,-34.654773,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.36211,-34.641542,0
+            -56.358398,-34.636123,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.390521,-34.597991,0
+            -56.397348,-34.609855,0
+            -56.402728,-34.619352,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.356333,-34.615421,0
+            -56.355422,-34.620798,0
+            -56.354235,-34.623084,0
+            -56.353299,-34.624281,0
+            -56.351933,-34.624947,0
+            -56.350702,-34.626422,0
+            -56.347105,-34.627776,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.390741,-34.597739,0
+            -56.386608,-34.601813,0
+            -56.380607,-34.604465,0
+            -56.3713865,-34.6065487,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.370006,-34.608581,0
+            -56.3696941,-34.6070455,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.3646228,-34.6685027,0
+            -56.3652075,-34.6695086,0
+            -56.365127,-34.669813,0
+            -56.3655079,-34.6705057,0
+            -56.3658405,-34.6706204,0
+            -56.3659424,-34.6703645,0
+            -56.3654918,-34.6696674,0
+            -56.3652075,-34.6695483,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.356079,-34.6947207,0
+            -56.3503357,-34.7005036,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>LUNES MATUTINO : RECOLECCIÓN RUTAS Y CAMINOS RURALES</name>
+        <styleUrl>#line-0288D1-5650-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.345022,-34.628378,0
+            -56.3397575,-34.630099,0
+            -56.3357127,-34.6303109,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECOLECCIÓN DE RESTOS VEGETALES</name>
+      <Placemark>
+        <name>3° SEMANA (LUNES A  JUEVES)</name>
+        <description><![CDATA[<br><br>RADIO: LOS CERRILLOS<br>FRECUENCIA: 3ER SEMANA ( MIERCOLES Y JUEVES)]]></description>
+        <styleUrl>#poly-F57C00-1000-56</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value>LOS CERRILLOS</value>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value>3ER SEMANA ( MIERCOLES Y JUEVES)</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.367354,-34.603505,0
+                -56.368218,-34.606443,0
+                -56.371128,-34.605788,0
+                -56.371446,-34.606836,0
+                -56.370151,-34.607229,0
+                -56.370423,-34.608221,0
+                -56.36956,-34.608389,0
+                -56.369673,-34.60895,0
+                -56.367695,-34.609399,0
+                -56.368196,-34.610728,0
+                -56.366104,-34.61142,0
+                -56.36665,-34.613684,0
+                -56.364149,-34.614545,0
+                -56.363717,-34.613553,0
+                -56.355806,-34.614208,0
+                -56.354783,-34.610934,0
+                -56.351759,-34.611345,0
+                -56.351827,-34.609923,0
+                -56.349622,-34.610148,0
+                -56.349804,-34.605882,0
+                -56.358352,-34.604478,0
+                -56.358124,-34.602626,0
+                -56.363058,-34.601578,0
+                -56.367354,-34.603505,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECICLAJE - ECOPUNTOS</name>
+      <Placemark>
+        <name>VIVIENDAS DE JUBILADOS</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:135 - FEBRERO:85 - MARZO:135 - ABRIL:175 - MAYO PARCIAL: 150. - TOTAL EN KG. 680<br>Lugar: VIVIENDAS DE JUBILADOS<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:135 - FEBRERO:85 - MARZO:135 - ABRIL:175 - MAYO PARCIAL: 150. - TOTAL EN KG. 680</value>
+          </Data>
+          <Data name="Lugar">
+            <value>VIVIENDAS DE JUBILADOS</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.35405,-34.60822,72.22
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MUNICIPIO</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:120 - FEBRERO:175 - MARZO:210 - ABRIL:175 - MAYO PARCIAL: 135. - TOTAL EN KG. 815<br>Lugar: MUNICIPIO<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:120 - FEBRERO:175 - MARZO:210 - ABRIL:175 - MAYO PARCIAL: 135. - TOTAL EN KG. 815</value>
+          </Data>
+          <Data name="Lugar">
+            <value>MUNICIPIO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3587105,-34.609778,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANCAP R. 46</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:160 - FEBRERO:200 - MARZO:260 - ABRIL:200 - MAYO PARCIAL: 175. - TOTAL EN KG. 995<br>Lugar: ANCAP R. 46<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:160 - FEBRERO:200 - MARZO:260 - ABRIL:200 - MAYO PARCIAL: 175. - TOTAL EN KG. 995</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ANCAP R. 46</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3571369,-34.607488,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>COMPLEJO HABITACIONAL “B”</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:160 - FEBRERO:135 - MARZO:145 - ABRIL:125 - MAYO PARCIAL: 160. - TOTAL EN KG. 725<br>Lugar: COMPLEJO HABITACIONAL “B”<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:160 - FEBRERO:135 - MARZO:145 - ABRIL:125 - MAYO PARCIAL: 160. - TOTAL EN KG. 725</value>
+          </Data>
+          <Data name="Lugar">
+            <value>COMPLEJO HABITACIONAL “B”</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.366538,-34.603706,35.21
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ALMACEN / CRIOLLA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:160 - FEBRERO:200 - MARZO:225 - ABRIL:200 - MAYO PARCIAL: 200. - TOTAL EN KG. 985<br>Lugar: ALMACEN / CRIOLLA<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:160 - FEBRERO:200 - MARZO:225 - ABRIL:200 - MAYO PARCIAL: 200. - TOTAL EN KG. 985</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ALMACEN / CRIOLLA</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.362844,-34.604617,46.75
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LICEO</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:325 - FEBRERO:375 - MARZO:400 - ABRIL:285 - MAYO PARCIAL: 325. - TOTAL EN KG. 1710<br>Lugar: LICEO<br>Tipo: MODULO NUEVO 2018<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:325 - FEBRERO:375 - MARZO:400 - ABRIL:285 - MAYO PARCIAL: 325. - TOTAL EN KG. 1710</value>
+          </Data>
+          <Data name="Lugar">
+            <value>LICEO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3555073,-34.6056926,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO</name>
+        <description><![CDATA[<img src="https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/ck5v1fp0qtm3nrtc1l43vf9lqk/3rpr65u674q764ug3ehgdcvnk8/1693344640000/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5ACnmet7O25kK_DOhPFwQ3q86xR-fEMSg6IEGn6Z4ldw0YQaUuBhzglY5XdJ5vjEUq2mlSGlkTQo0SiVAG12Ojh0u_hcIPX8GaU9pvR187_6_nCDAOhH6T71PBhnUSGu3WYmPi0hwTPWF1X-fbDOvgDdLCjnBWUNwSFT0Hiw_xS_OQn95uf0toY0Kg_sXc9PNcPj_0ok?session=0&fife" height="200" width="auto" /><br><br>descripción: CAPTADO POR MES EN KG: <br>ENERO:650 - FEBRERO:900 - MARZO:750 - ABRIL:250 - MAYO PARCIAL: 950. - TOTAL EN KG. 3500<br>Lugar: ECOPUNTO<br>Tipo: <br>Uso: ECOPUNTO]]></description>
+        <styleUrl>#icon-1850-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:650 - FEBRERO:900 - MARZO:750 - ABRIL:250 - MAYO PARCIAL: 950. - TOTAL EN KG. 3500</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0c-88-mymaps.googleusercontent.com/untrusted/hostedimage/ck5v1fp0qtm3nrtc1l43vf9lqk/3rpr65u674q764ug3ehgdcvnk8/1693344640000/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5ACnmet7O25kK_DOhPFwQ3q86xR-fEMSg6IEGn6Z4ldw0YQaUuBhzglY5XdJ5vjEUq2mlSGlkTQo0SiVAG12Ojh0u_hcIPX8GaU9pvR187_6_nCDAOhH6T71PBhnUSGu3WYmPi0hwTPWF1X-fbDOvgDdLCjnBWUNwSFT0Hiw_xS_OQn95uf0toY0Kg_sXc9PNcPj_0ok?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3620688,-34.6093549,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RECICLAJE - MIÉRCOLES - MATUTINO.</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: RECICLAJE]]></description>
+        <styleUrl>#poly-F9A825-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>RECICLAJE</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3539912,-34.6077754,0
+                -56.3548442,-34.6078241,0
+                -56.3549246,-34.6081861,0
+                -56.3572286,-34.6084885,0
+                -56.3573131,-34.6095206,0
+                -56.3573225,-34.6098903,0
+                -56.3573439,-34.6108572,0
+                -56.3567404,-34.6109014,0
+                -56.3564709,-34.61027,0
+                -56.3548978,-34.6103274,0
+                -56.3546993,-34.6098683,0
+                -56.3531167,-34.6102656,0
+                -56.3533314,-34.6109986,0
+                -56.3520224,-34.6112149,0
+                -56.3520975,-34.6097976,0
+                -56.3512178,-34.609908,0
+                -56.3511212,-34.6093032,0
+                -56.3498016,-34.6094709,0
+                -56.3495763,-34.6086056,0
+                -56.3525804,-34.6081419,0
+                -56.3527842,-34.6088881,0
+                -56.3542567,-34.6086011,0
+                -56.3539912,-34.6077754,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>RECICLAJE - MIÉRCOLES - MATUTINO.</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: RECICLAJE]]></description>
+        <styleUrl>#poly-F9A825-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>RECICLAJE</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3613019,-34.6093608,0
+                -56.3614092,-34.6094623,0
+                -56.3613931,-34.6096522,0
+                -56.3598106,-34.6113167,0
+                -56.3596819,-34.6112813,0
+                -56.3592098,-34.6111798,0
+                -56.3591508,-34.6108112,0
+                -56.3591266,-34.6097471,0
+                -56.3598857,-34.6096875,0
+                -56.3613019,-34.6093608,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO</name>
+        <description><![CDATA[descripción: ECOPUNTO<br>Lugar: <br>Tipo: <br>Uso: ECOPUNTO]]></description>
+        <styleUrl>#icon-1850-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>ECOPUNTO</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3323757,-34.6884024,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RINCÓN DEL COLORADO</name>
+        <description><![CDATA[descripción: <br>Lugar: RINCÓN DEL COLORADO<br>Tipo: VECINOS<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>RINCÓN DEL COLORADO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3325361,-34.6884145,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PLAZOLETA CAMPO MILITAR. COMISIÓN FAUSTO AGUILAR </name>
+        <description><![CDATA[descripción: <br>Lugar: PLAZOLETA CAMPO MILITAR. COMISIÓN FAUSTO AGUILAR<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>PLAZOLETA CAMPO MILITAR. COMISIÓN FAUSTO AGUILAR</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3919392,-34.5776454,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA RURAL N° 5</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA RURAL N° 5<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA RURAL N° 5</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3312416,-34.5858659,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA 208 Y CLUB EL TROPEZÓN</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA 208 Y CLUB EL TROPEZÓN<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA 208 Y CLUB EL TROPEZÓN</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3147522,-34.6185622,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VILLA NUEVA</name>
+        <description><![CDATA[descripción: <br>Lugar: VILLA NUEVA<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>VILLA NUEVA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3153987,-34.6473641,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 48</name>
+        <description><![CDATA[descripción: <br>Lugar: RUTA 48<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>RUTA 48</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3890893,-34.688398,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA 4 BARRACAS</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA 4 BARRACAS<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA 4 BARRACAS</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.4203261,-34.595453,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 7 PASO DEL BOTE</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA N° 7 PASO DEL BOTE<br>Tipo: <br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA N° 7 PASO DEL BOTE</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.4137199,-34.6235599,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PEV</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: PEVS<br>Uso: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value>PEVS</value>
+          </Data>
+          <Data name="Uso">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.4013466,-34.6867564,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO LAS BRUJAS</name>
+        <description><![CDATA[descripción: ECOPUNTO LAS BRUJAS<br>Lugar: ECOPUNTO LAS BRUJAS<br>Tipo: <br>Uso: ECOPUNTO]]></description>
+        <styleUrl>#icon-1850-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>ECOPUNTO LAS BRUJAS</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ECOPUNTO LAS BRUJAS</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>ECOPUNTO</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3412991,-34.6710982,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>CAJAS: 1° SEMANA (MARTES A DOMINGO) DE CADA MES</name>
+      <Placemark>
+        <name>CAJA N° 1 CAMPO MILITAR</name>
+        <description>CAJA FIJA TODA LA SEMANA</description>
+        <styleUrl>#icon-1500-817717</styleUrl>
+        <Point>
+          <coordinates>
+            -56.392502,-34.5776685,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 2 RUTA 47 Y RUTA 36</name>
+        <description>1° SEMANA LUNES, MARTES Y MIÉRCOLES. </description>
+        <styleUrl>#icon-1500-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3854023,-34.5893596,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 3 CAMINO VERACIERTO Y RUTA 47</name>
+        <description>1° SEMANA VIERNES, SÁBADO Y DOMINGOS.</description>
+        <styleUrl>#icon-1500-C2185B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.4356779,-34.6018476,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 4 BARRIO UNIDO</name>
+        <description>1° SEMANA LUNES, MARTES Y MIÉRCOLES.</description>
+        <styleUrl>#icon-1500-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3628479,-34.6045139,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 5 CORRALON MUNICIPAL</name>
+        <description>1° SEMANA LUNES, MARTES Y MIÉRCOLES</description>
+        <styleUrl>#icon-1500-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3663992,-34.6100497,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 6 LA CITA DE MEVIR FRENTE RURA 36</name>
+        <description>CAJA FIJA TODA LA SEMANA.</description>
+        <styleUrl>#icon-1500-817717</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3612942,-34.6094966,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 7 LATERAL AL LICEO LOS CERRILLOS</name>
+        <description>FIJA TODA LA 1° SEMANA DEL MES</description>
+        <styleUrl>#icon-1500-817717</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3560098,-34.6054307,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 8 PUENTE DE CHIESA</name>
+        <description>1° SEMANA VIERNES , SÁBADO Y DOMINGOS.</description>
+        <styleUrl>#icon-1500-C2185B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3353432,-34.6302014,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAJA N° 9 RUTA 48 Y RUTA 49</name>
+        <description>1° SEMANA VIERNES, SABADO Y DOMINGOS</description>
+        <styleUrl>#icon-1500-C2185B</styleUrl>
+        <Point>
+          <coordinates>
+            -56.3701088,-34.6680128,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>BARRIDO DESCENTRALIZADO EN EL MUNICIPIO</name>
+      <Placemark>
+        <name>BARRIDO SEMANAL</name>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3632118,-34.6083722,0
+                -56.3575255,-34.6076658,0
+                -56.3536899,-34.6070477,0
+                -56.3531858,-34.6067871,0
+                -56.3533521,-34.6059703,0
+                -56.3611304,-34.607083,0
+                -56.3632118,-34.6083722,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>GENERADORES - PIS</name>
+      <Placemark>
+        <name>BARRACA BREMAR LTDA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:500 - FEBRERO:100 - MARZO:150 - ABRIL:50 - MAYO PARCIAL: 0. - TOTAL EN KG. 800<br>Lugar: BARRACA BREMAR LTDA<br>Tipo: <br>Uso: GENERADOR]]></description>
+        <styleUrl>#icon-1501-1A237E-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:500 - FEBRERO:100 - MARZO:150 - ABRIL:50 - MAYO PARCIAL: 0. - TOTAL EN KG. 800</value>
+          </Data>
+          <Data name="Lugar">
+            <value>BARRACA BREMAR LTDA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.362316,-34.607856,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DISTRIBUIDORA LOS CERRILLOS</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:50 - MARZO:0 - ABRIL:50 - MAYO PARCIAL: 0. - TOTAL EN KG. 100<br>Lugar: DISTRIBUIDORA LOS CERRILLOS<br>Tipo: <br>Uso: GENERADOR]]></description>
+        <styleUrl>#icon-1501-1A237E-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:50 - MARZO:0 - ABRIL:50 - MAYO PARCIAL: 0. - TOTAL EN KG. 100</value>
+          </Data>
+          <Data name="Lugar">
+            <value>DISTRIBUIDORA LOS CERRILLOS</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.355629,-34.607,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2 CONTENEDORES DE 120 L Y 1 COMPOSTERA - F1 – MIÉRCOLES</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA N° 123<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA N° 123</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.359514,-34.609173,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2 CONTENEDORES DE 120 L Y 1 COMPOSTERA - QUINCENAL – VIERNES</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA N°143<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA N°143</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.389094,-34.68722,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA N° 168<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA N° 168</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.332904,-34.687635,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: ESCUELA N° 208<br>Lugar: <br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>ESCUELA N° 208</value>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.314183,-34.618525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA RURAL N° 7<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA RURAL N° 7</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.413456,-34.623565,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA RURAL N° 5<br>(REPÚBLICA FRANCESA)<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA RURAL N° 5
+(REPÚBLICA FRANCESA)</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.331443,-34.58585,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: <br>Lugar: ESCUELA N° 61<br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value>ESCUELA N° 61</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.316393,-34.646109,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>1 CONTENEDOR DE 120 L Y 1 COMPOSTERA</name>
+        <description><![CDATA[descripción: LICEO<br>Lugar: <br>Tipo: <br>Uso: PIS]]></description>
+        <styleUrl>#icon-1501-A52714-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>LICEO</value>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.355487,-34.605788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>PARRILLADA EL PIQUE</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: GENERADOR]]></description>
+        <styleUrl>#icon-1501-1A237E-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.3608488,-34.6060703,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>UNIDADES TERRITORIALES</name>
+      <Placemark>
+        <name>PASO GARUGA</name>
+        <description><![CDATA[descripción: <br>UNIDAD: PASO GARUGA<br>Nombre: PASO GARUGA - 184 VIVIENDAS]]></description>
+        <styleUrl>#poly-7CB342-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>PASO GARUGA</value>
+          </Data>
+          <Data name="Nombre">
+            <value>PASO GARUGA - 184 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3784155,-34.5697587,0
+                -56.3777477,-34.5768534,0
+                -56.3326253,-34.5774057,0
+                -56.3308853,-34.5838557,0
+                -56.3200053,-34.5802727,0
+                -56.3169847,-34.585483,0
+                -56.3139133,-34.5824217,0
+                -56.3108673,-34.5799137,0
+                -56.3102528,-34.5792529,0
+                -56.3099388,-34.5781329,0
+                -56.3101689,-34.5755394,0
+                -56.3118735,-34.57146,0
+                -56.3104474,-34.5684123,0
+                -56.3096015,-34.565811,0
+                -56.3111735,-34.5625026,0
+                -56.3108673,-34.5605647,0
+                -56.3103777,-34.5593588,0
+                -56.3105962,-34.5583325,0
+                -56.3120162,-34.5564934,0
+                -56.3134783,-34.5530387,0
+                -56.3113023,-34.5501707,0
+                -56.3108673,-34.5458697,0
+                -56.3114192,-34.5452247,0
+                -56.3100773,-34.5427597,0
+                -56.3089492,-34.5416837,0
+                -56.3086913,-34.5404937,0
+                -56.3091663,-34.5397789,0
+                -56.3178232,-34.5407687,0
+                -56.3239182,-34.5434827,0
+                -56.3339313,-34.5494547,0
+                -56.3596063,-34.5598477,0
+                -56.3626523,-34.5612807,0
+                -56.3674383,-34.5623567,0
+                -56.3757073,-34.5680897,0
+                -56.3784155,-34.5697587,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>EL TROPEZÓN</name>
+        <description><![CDATA[descripción: <br>UNIDAD: EL TROMPEZON<br>Nombre: EL TROMPEZON - 130 VIVIENDAS]]></description>
+        <styleUrl>#poly-FF5252-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>EL TROMPEZON</value>
+          </Data>
+          <Data name="Nombre">
+            <value>EL TROMPEZON - 130 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.308584,-34.592794,0
+                -56.313451,-34.6120654,0
+                -56.319246,-34.635054,0
+                -56.3201589,-34.6374332,0
+                -56.321422,-34.63953,0
+                -56.319681,-34.639709,0
+                -56.317505,-34.640067,0
+                -56.316417,-34.638993,0
+                -56.314459,-34.63953,0
+                -56.312718,-34.639351,0
+                -56.310542,-34.635591,0
+                -56.30989,-34.634338,0
+                -56.30989,-34.633264,0
+                -56.308367,-34.633264,0
+                -56.307931,-34.632369,0
+                -56.308149,-34.632011,0
+                -56.307061,-34.631832,0
+                -56.305538,-34.631653,0
+                -56.302057,-34.628967,0
+                -56.299446,-34.629146,0
+                -56.297052,-34.629862,0
+                -56.297231,-34.628386,0
+                -56.2967399,-34.6275181,0
+                -56.2963693,-34.6261695,0
+                -56.295312,-34.625386,0
+                -56.293353,-34.622701,0
+                -56.287261,-34.614285,0
+                -56.286289,-34.613083,0
+                -56.2854944,-34.6126618,0
+                -56.283371,-34.611366,0
+                -56.282013,-34.611802,0
+                -56.280736,-34.612904,0
+                -56.278959,-34.6144994,0
+                -56.2773469,-34.6156646,0
+                -56.275875,-34.617443,0
+                -56.27183,-34.618114,0
+                -56.2700492,-34.6185134,0
+                -56.267925,-34.619266,0
+                -56.2698998,-34.61788,0
+                -56.2713595,-34.6159995,0
+                -56.274859,-34.614106,0
+                -56.2773725,-34.6109125,0
+                -56.288135,-34.606389,0
+                -56.2993509,-34.5969837,0
+                -56.3035395,-34.5963501,0
+                -56.308584,-34.592794,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>LOS CERRILLOS</name>
+        <description><![CDATA[descripción: <br>UNIDAD: LOS CERRILLOS<br>Nombre: LOS CERRILLOS - 1421 VIVIENDAS]]></description>
+        <styleUrl>#poly-1A237E-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>LOS CERRILLOS</value>
+          </Data>
+          <Data name="Nombre">
+            <value>LOS CERRILLOS - 1421 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3778765,-34.5770477,0
+                -56.3864361,-34.59154,0
+                -56.3903521,-34.597451,0
+                -56.3903521,-34.598525,0
+                -56.3964207,-34.6092159,0
+                -56.4018429,-34.6202684,0
+                -56.3788201,-34.627893,0
+                -56.3583681,-34.636128,0
+                -56.3559741,-34.636666,0
+                -56.3544511,-34.635949,0
+                -56.3524931,-34.635054,0
+                -56.3429191,-34.638456,0
+                -56.3346511,-34.63953,0
+                -56.3305171,-34.638098,0
+                -56.3276881,-34.638993,0
+                -56.3257301,-34.639351,0
+                -56.3242071,-34.638277,0
+                -56.3213791,-34.63953,0
+                -56.3194201,-34.635949,0
+                -56.3085411,-34.592794,0
+                -56.3150691,-34.586883,0
+                -56.3170271,-34.585629,0
+                -56.3199624,-34.5802727,0
+                -56.3309462,-34.5841253,0
+                -56.3325824,-34.5774057,0
+                -56.3778765,-34.5770477,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>VILLA NUEVA</name>
+        <description><![CDATA[descripción: <br>UNIDAD: VILLA NUEVA<br>Nombre: VILLA NUEVA - 141 VIVIENDAS]]></description>
+        <styleUrl>#poly-795548-1200-130</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>VILLA NUEVA</value>
+          </Data>
+          <Data name="Nombre">
+            <value>VILLA NUEVA - 141 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3031021,-34.6810334,0
+                -56.306191,-34.67282,0
+                -56.303797,-34.666557,0
+                -56.309019,-34.654924,0
+                -56.316635,-34.644005,0
+                -56.320986,-34.639888,0
+                -56.32425,-34.638277,0
+                -56.3258286,-34.6395099,0
+                -56.33056,-34.638098,0
+                -56.3342985,-34.6395702,0
+                -56.3368271,-34.6393912,0
+                -56.339481,-34.643468,0
+                -56.339481,-34.645079,0
+                -56.339481,-34.648122,0
+                -56.340569,-34.649554,0
+                -56.341004,-34.650449,0
+                -56.3413781,-34.653439,0
+                -56.341439,-34.654387,0
+                -56.3409518,-34.656713,0
+                -56.341439,-34.660293,0
+                -56.3427903,-34.662799,0
+                -56.344159,-34.6636771,0
+                -56.345356,-34.6644493,0
+                -56.346306,-34.6648451,0
+                -56.3252341,-34.683377,0
+                -56.319246,-34.678367,0
+                -56.3177098,-34.6819585,0
+                -56.310978,-34.683556,0
+                -56.3031021,-34.6810334,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>RINCON DEL COLORADO</name>
+        <description><![CDATA[descripción: <br>UNIDAD: RINCON DEL COLORADO<br>Nombre: RINCON DEL COLORADO - 296 VIVIENDAS]]></description>
+        <styleUrl>#poly-817717-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>RINCON DEL COLORADO</value>
+          </Data>
+          <Data name="Nombre">
+            <value>RINCON DEL COLORADO - 296 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3004911,-34.6874744,0
+                -56.3017949,-34.6855757,0
+                -56.3028841,-34.6833594,0
+                -56.3031021,-34.6810334,0
+                -56.3109351,-34.6835384,0
+                -56.3178971,-34.6821064,0
+                -56.3193377,-34.6786091,0
+                -56.3252951,-34.6835384,0
+                -56.3462631,-34.6648275,0
+                -56.348696,-34.6664342,0
+                -56.3500991,-34.6679704,0
+                -56.3531461,-34.6685074,0
+                -56.3574971,-34.6692234,0
+                -56.3581501,-34.6694024,0
+                -56.3588031,-34.6726234,0
+                -56.3575805,-34.6751284,0
+                -56.3566271,-34.6774544,0
+                -56.3565203,-34.6795006,0
+                -56.3579465,-34.6798775,0
+                -56.3600164,-34.6804662,0
+                -56.3620671,-34.6810334,0
+                -56.3629371,-34.6817494,0
+                -56.3633721,-34.6838964,0
+                -56.3627191,-34.6856854,0
+                -56.3601081,-34.6878324,0
+                -56.3601081,-34.6890844,0
+                -56.3622841,-34.6890844,0
+                -56.3638071,-34.6896214,0
+                -56.3651467,-34.6905911,0
+                -56.3662011,-34.6910524,0
+                -56.3668531,-34.6924834,0
+                -56.3679411,-34.6940934,0
+                -56.3697035,-34.693754,0
+                -56.3714104,-34.6939195,0
+                -56.3723145,-34.693932,0
+                -56.3728737,-34.6944049,0
+                -56.3742082,-34.6951726,0
+                -56.3753391,-34.6958824,0
+                -56.3762374,-34.697979,0
+                -56.3770801,-34.7007124,0
+                -56.3740829,-34.7012162,0
+                -56.3726701,-34.7015387,0
+                -56.3711285,-34.7021787,0
+                -56.3700974,-34.7028589,0
+                -56.3690662,-34.7038919,0
+                -56.3687194,-34.7088829,0
+                -56.3663091,-34.7110582,0
+                -56.3636413,-34.7131276,0
+                -56.3590268,-34.7184639,0
+                -56.3546691,-34.7248584,0
+                -56.3533607,-34.72612,0
+                -56.3516231,-34.7236064,0
+                -56.3498821,-34.7225197,0
+                -56.3481411,-34.7219974,0
+                -56.3457481,-34.7211024,0
+                -56.3446601,-34.7180624,0
+                -56.3427021,-34.7159164,0
+                -56.342034,-34.7132386,0
+                -56.3411843,-34.7129317,0
+                -56.3403347,-34.7130481,0
+                -56.3385496,-34.7147271,0
+                -56.3374048,-34.7157287,0
+                -56.3361741,-34.7160954,0
+                -56.3337333,-34.7128307,0
+                -56.3303673,-34.7108103,0
+                -56.3279456,-34.7077668,0
+                -56.327463,-34.7058535,0
+                -56.326723,-34.7042224,0
+                -56.32503,-34.7027053,0
+                -56.3233371,-34.7019644,0
+                -56.3229189,-34.6998041,0
+                -56.3219858,-34.6972205,0
+                -56.3212785,-34.6960659,0
+                -56.3206571,-34.6953347,0
+                -56.3189851,-34.6933784,0
+                -56.3144161,-34.6930204,0
+                -56.3117958,-34.6912288,0
+                -56.3105576,-34.6904819,0
+                -56.3089761,-34.6901584,0
+                -56.3068011,-34.6901584,0
+                -56.3061237,-34.6886778,0
+                -56.3057206,-34.6882551,0
+                -56.3050601,-34.6878324,0
+                -56.3020141,-34.6889054,0
+                -56.3004911,-34.6874744,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>LAS BRUJAS</name>
+        <description><![CDATA[descripción: <br>UNIDAD: LAS BRUJAS<br>Nombre: LAS BRUJAS - 473 VIVIENDAS]]></description>
+        <styleUrl>#poly-C2185B-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>LAS BRUJAS</value>
+          </Data>
+          <Data name="Nombre">
+            <value>LAS BRUJAS - 473 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3923744,-34.6237397,0
+                -56.3999904,-34.6366307,0
+                -56.4008326,-34.6371592,0
+                -56.403682,-34.6362119,0
+                -56.407247,-34.6369936,0
+                -56.4073884,-34.6373467,0
+                -56.4083215,-34.6382618,0
+                -56.4091474,-34.6393888,0
+                -56.4104286,-34.6417182,0
+                -56.4118959,-34.643927,0
+                -56.4134804,-34.6441512,0
+                -56.4167444,-34.6445067,0
+                -56.417869,-34.644634,0
+                -56.4186629,-34.6454364,0
+                -56.4189204,-34.6459387,0
+                -56.4192168,-34.6471967,0
+                -56.4195724,-34.6484447,0
+                -56.4200537,-34.6490474,0
+                -56.4214885,-34.6507717,0
+                -56.423269,-34.651528,0
+                -56.4252294,-34.6525617,0
+                -56.4267534,-34.6530987,0
+                -56.4282418,-34.6548912,0
+                -56.4288518,-34.6556778,0
+                -56.4295263,-34.6570539,0
+                -56.4301364,-34.6582005,0
+                -56.4309007,-34.6596464,0
+                -56.4311757,-34.660334,0
+                -56.4326093,-34.6609334,0
+                -56.4365444,-34.6629417,0
+                -56.4379525,-34.6635682,0
+                -56.4385024,-34.6641947,0
+                -56.439725,-34.6658057,0
+                -56.4404175,-34.6673789,0
+                -56.4405538,-34.6678532,0
+                -56.4409905,-34.6685394,0
+                -56.4422072,-34.6690645,0
+                -56.44366,-34.6694906,0
+                -56.4448124,-34.6695637,0
+                -56.4465402,-34.6702948,0
+                -56.4474687,-34.6705444,0
+                -56.4498257,-34.671388,0
+                -56.4516276,-34.6719401,0
+                -56.4452474,-34.6761847,0
+                -56.4339334,-34.6876357,0
+                -56.4282764,-34.6910347,0
+                -56.4239244,-34.6928237,0
+                -56.4180494,-34.6935397,0
+                -56.4132624,-34.6942547,0
+                -56.4030364,-34.6964017,0
+                -56.3991204,-34.6974747,0
+                -56.3917224,-34.6980117,0
+                -56.3878054,-34.6992637,0
+                -56.3804074,-34.6998007,0
+                -56.3771444,-34.7006947,0
+                -56.3762734,-34.6976537,0
+                -56.3754034,-34.6958647,0
+                -56.3736624,-34.6946127,0
+                -56.3723574,-34.6938967,0
+                -56.3697464,-34.6937187,0
+                -56.3679839,-34.6940581,0
+                -56.3662654,-34.6910347,0
+                -56.3638714,-34.6896037,0
+                -56.3623484,-34.6890667,0
+                -56.3601724,-34.6890667,0
+                -56.3601724,-34.6878147,0
+                -56.3630014,-34.6851307,0
+                -56.3636544,-34.6824467,0
+                -56.3621314,-34.6810157,0
+                -56.3569001,-34.6793679,0
+                -56.3569736,-34.6773774,0
+                -56.3574761,-34.6757398,0
+                -56.3588674,-34.6726057,0
+                -56.3586494,-34.6695637,0
+                -56.3562564,-34.6690267,0
+                -56.3532104,-34.6684897,0
+                -56.3501634,-34.6679527,0
+                -56.3490764,-34.6665217,0
+                -56.3440802,-34.6634333,0
+                -56.3429483,-34.6626623,0
+                -56.3425031,-34.661962,0
+                -56.3415926,-34.6601733,0
+                -56.3411112,-34.6573962,0
+                -56.3414604,-34.6547097,0
+                -56.3413531,-34.6517903,0
+                -56.3409581,-34.6501818,0
+                -56.3401554,-34.6488027,0
+                -56.3395024,-34.6480867,0
+                -56.3395419,-34.6470682,0
+                -56.3397204,-34.6452227,0
+                -56.3397204,-34.6437907,0
+                -56.3373264,-34.6402107,0
+                -56.3368485,-34.6393559,0
+                -56.3423314,-34.6385997,0
+                -56.3525028,-34.6352379,0
+                -56.3566114,-34.636923,0
+                -56.3783694,-34.6283521,0
+                -56.3923744,-34.6237397,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>PASO DEL BOTE Y QUINTA DE ILLA</name>
+        <description><![CDATA[descripción: <br>UNIDAD: PASO DEL BOTE Y QUINTA DE ILLA<br>Nombre: PASO DEL BOTE Y QUINTA DE ILLA - 219 VIVIENDAS]]></description>
+        <styleUrl>#poly-0097A7-1200-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>PASO DEL BOTE Y QUINTA DE ILLA</value>
+          </Data>
+          <Data name="Nombre">
+            <value>PASO DEL BOTE Y QUINTA DE ILLA - 219 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.4005504,-34.6208148,0
+                -56.3925281,-34.6235783,0
+                -56.4018429,-34.6202684,0
+                -56.3968801,-34.6097903,0
+                -56.3994911,-34.6085363,0
+                -56.4038421,-34.6053133,0
+                -56.4058011,-34.6031643,0
+                -56.407809,-34.6023493,0
+                -56.4104154,-34.6023801,0
+                -56.4115216,-34.6022451,0
+                -56.412778,-34.6011563,0
+                -56.4134161,-34.6011943,0
+                -56.4162724,-34.6007986,0
+                -56.4205532,-34.6007392,0
+                -56.4223571,-34.6005974,0
+                -56.4233895,-34.6008146,0
+                -56.4247144,-34.6009895,0
+                -56.4265998,-34.6016607,0
+                -56.4275868,-34.6026922,0
+                -56.4277761,-34.6035223,0
+                -56.4279941,-34.6042383,0
+                -56.4286471,-34.6058503,0
+                -56.4299497,-34.60612,0
+                -56.4312535,-34.6060582,0
+                -56.4321281,-34.6062083,0
+                -56.4336809,-34.6065408,0
+                -56.4349571,-34.6081783,0
+                -56.4354638,-34.6084569,0
+                -56.4366971,-34.6087163,0
+                -56.4380031,-34.6079993,0
+                -56.4390111,-34.6073845,0
+                -56.4407521,-34.6073515,0
+                -56.4419039,-34.6076578,0
+                -56.4426904,-34.6082294,0
+                -56.4433202,-34.6090013,0
+                -56.4439698,-34.6096066,0
+                -56.4443213,-34.6100657,0
+                -56.4448979,-34.6109889,0
+                -56.4477941,-34.6112233,0
+                -56.4504446,-34.6112915,0
+                -56.4532341,-34.6114023,0
+                -56.4536691,-34.6119393,0
+                -56.4545391,-34.6130133,0
+                -56.4551921,-34.6149833,0
+                -56.4556271,-34.6151623,0
+                -56.4567151,-34.6156993,0
+                -56.4573681,-34.6160583,0
+                -56.4578031,-34.6165953,0
+                -56.4569331,-34.6182063,0
+                -56.4569331,-34.6183853,0
+                -56.4571501,-34.6189233,0
+                -56.4576802,-34.6195309,0
+                -56.4593261,-34.6199973,0
+                -56.4606311,-34.6210713,0
+                -56.4604069,-34.6216074,0
+                -56.4606762,-34.6219845,0
+                -56.4614723,-34.6230213,0
+                -56.4623721,-34.6233993,0
+                -56.4642872,-34.6246523,0
+                -56.4649343,-34.6249445,0
+                -56.46586,-34.6252688,0
+                -56.4667148,-34.6256944,0
+                -56.4682471,-34.6259063,0
+                -56.4686821,-34.6259063,0
+                -56.4704231,-34.6257273,0
+                -56.4717344,-34.6255996,0
+                -56.4735393,-34.6248274,0
+                -56.4749921,-34.6255483,0
+                -56.4760801,-34.6255483,0
+                -56.4772319,-34.6246747,0
+                -56.4791261,-34.6246523,0
+                -56.4839131,-34.6379013,0
+                -56.4865241,-34.6425553,0
+                -56.4852181,-34.6482833,0
+                -56.4793441,-34.6516843,0
+                -56.4758621,-34.6550853,0
+                -56.4730341,-34.6575903,0
+                -56.4706401,-34.6634963,0
+                -56.4654181,-34.6672553,0
+                -56.4608491,-34.6686863,0
+                -56.4517111,-34.6719073,0
+                -56.4447481,-34.6695813,0
+                -56.4412671,-34.6686863,0
+                -56.4399611,-34.6660023,0
+                -56.4386561,-34.6638543,0
+                -56.4314751,-34.6600963,0
+                -56.4286471,-34.6550853,0
+                -56.4266891,-34.6531163,0
+                -56.4214671,-34.6507893,0
+                -56.4195081,-34.6484623,0
+                -56.4187181,-34.645485,0
+                -56.4178476,-34.6446516,0
+                -56.4164621,-34.6445243,0
+                -56.4118316,-34.6439446,0
+                -56.4093992,-34.6398095,0
+                -56.4083123,-34.6381279,0
+                -56.4072256,-34.6370112,0
+                -56.4047584,-34.6364413,0
+                -56.4036606,-34.6362295,0
+                -56.402906,-34.6364414,0
+                -56.4007961,-34.6370063,0
+                -56.3999261,-34.6366483,0
+                -56.3923101,-34.6237573,0
+                -56.4005504,-34.6208148,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+          <innerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.4018487,-34.6202806,0
+                -56.4018429,-34.6202684,0
+                -56.4021021,-34.6201763,0
+                -56.4018487,-34.6202806,0
+              </coordinates>
+            </LinearRing>
+          </innerBoundaryIs>
+          <innerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.4005504,-34.6208148,0
+                -56.4018487,-34.6202806,0
+                -56.4018841,-34.6203553,0
+                -56.4005504,-34.6208148,0
+              </coordinates>
+            </LinearRing>
+          </innerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>CAMPO MILITAR</name>
+        <description><![CDATA[descripción: <br>UNIDAD: CAMPO MILITAR<br>Nombre: CAMPO MILITAR - 215 VIVIENDAS]]></description>
+        <styleUrl>#poly-01579B-801-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>CAMPO MILITAR</value>
+          </Data>
+          <Data name="Nombre">
+            <value>CAMPO MILITAR - 215 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.3779036,-34.5767595,0
+                -56.380685,-34.550371,0
+                -56.395386,-34.546448,0
+                -56.393522,-34.544913,0
+                -56.394557,-34.544402,0
+                -56.396007,-34.545596,0
+                -56.399113,-34.544913,0
+                -56.399113,-34.54389,0
+                -56.398284,-34.542696,0
+                -56.402425,-34.541503,0
+                -56.402632,-34.542355,0
+                -56.403461,-34.54389,0
+                -56.404496,-34.544572,0
+                -56.405945,-34.544061,0
+                -56.40843,-34.54389,0
+                -56.40843,-34.541332,0
+                -56.408637,-34.541503,0
+                -56.410707,-34.541503,0
+                -56.412985,-34.541332,0
+                -56.412778,-34.54065,0
+                -56.412571,-34.538433,0
+                -56.414434,-34.538091,0
+                -56.416919,-34.538091,0
+                -56.419196,-34.538262,0
+                -56.421681,-34.539456,0
+                -56.421474,-34.540991,0
+                -56.422923,-34.542014,0
+                -56.426029,-34.542185,0
+                -56.4281,-34.540138,0
+                -56.427892,-34.537409,0
+                -56.427892,-34.536386,0
+                -56.4281,-34.532804,0
+                -56.429756,-34.53161,0
+                -56.433276,-34.53161,0
+                -56.434104,-34.531098,0
+                -56.436589,-34.530757,0
+                -56.444042,-34.532463,0
+                -56.44839,-34.536898,0
+                -56.448805,-34.546278,0
+                -56.449426,-34.553781,0
+                -56.448805,-34.554122,0
+                -56.446734,-34.554804,0
+                -56.4444343,-34.5551326,0
+                -56.441765,-34.555998,0
+                -56.440108,-34.557021,0
+                -56.439487,-34.558556,0
+                -56.441144,-34.559579,0
+                -56.441972,-34.560431,0
+                -56.442386,-34.561284,0
+                -56.441765,-34.562648,0
+                -56.441765,-34.562819,0
+                -56.442179,-34.565035,0
+                -56.4428,-34.566058,0
+                -56.442179,-34.567422,0
+                -56.441972,-34.568957,0
+                -56.442593,-34.571855,0
+                -56.441144,-34.572366,0
+                -56.439073,-34.572537,0
+                -56.436796,-34.572707,0
+                -56.436589,-34.573901,0
+                -56.43576,-34.574753,0
+                -56.434311,-34.575435,0
+                -56.433276,-34.578845,0
+                -56.423544,-34.579015,0
+                -56.4105,-34.577651,0
+                -56.416091,-34.590607,0
+                -56.410914,-34.589413,0
+                -56.412985,-34.595038,0
+                -56.4188561,-34.595122,0
+                -56.416505,-34.600322,0
+                -56.415677,-34.600833,0
+                -56.41402,-34.601003,0
+                -56.412778,-34.601174,0
+                -56.411536,-34.602196,0
+                -56.410914,-34.602196,0
+                -56.407809,-34.602367,0
+                -56.406152,-34.602878,0
+                -56.405324,-34.604071,0
+                -56.3995699,-34.6080795,0
+                -56.3968801,-34.609808,0
+                -56.390416,-34.598788,0
+                -56.390624,-34.597595,0
+                -56.3779036,-34.5767595,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>PARADOR TAJES</name>
+        <description><![CDATA[descripción: <br>UNIDAD: PARADOR TAJES<br>Nombre: PARADOR TAJES - 268 VIVIENDAS]]></description>
+        <styleUrl>#poly-A52714-1-76</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="UNIDAD">
+            <value>PARADOR TAJES</value>
+          </Data>
+          <Data name="Nombre">
+            <value>PARADOR TAJES - 268 VIVIENDAS</value>
+          </Data>
+        </ExtendedData>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <tessellate>1</tessellate>
+                <coordinates>
+                  -56.4105758,-34.5777001,0
+                  -56.4117648,-34.5778293,0
+                  -56.4107012,-34.5781073,0
+                  -56.4105758,-34.5777001,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <tessellate>1</tessellate>
+                <coordinates>
+                  -56.4105758,-34.5777001,0
+                  -56.4239732,-34.5790033,0
+                  -56.4333292,-34.5788243,0
+                  -56.4339334,-34.5768533,0
+                  -56.434311,-34.5754173,0
+                  -56.4346352,-34.5750623,0
+                  -56.4355052,-34.5748823,0
+                  -56.436589,-34.5738833,0
+                  -56.436796,-34.5726893,0
+                  -56.436796,-34.572707,0
+                  -56.4379155,-34.5724615,0
+                  -56.4385024,-34.5724427,0
+                  -56.4395534,-34.5723697,0
+                  -56.441144,-34.5723483,0
+                  -56.4426852,-34.5720163,0
+                  -56.4420727,-34.5700886,0
+                  -56.4420322,-34.5675373,0
+                  -56.4424682,-34.5666413,0
+                  -56.4428,-34.566058,0
+                  -56.442485,-34.5657453,0
+                  -56.442179,-34.565035,0
+                  -56.441765,-34.562819,0
+                  -56.4420727,-34.562053,0
+                  -56.442386,-34.561284,0
+                  -56.441972,-34.560431,0
+                  -56.441484,-34.5599936,0
+                  -56.4409844,-34.5595476,0
+                  -56.4404633,-34.5591193,0
+                  -56.4396358,-34.5586513,0
+                  -56.4397216,-34.5578083,0
+                  -56.4402702,-34.5568251,0
+                  -56.441248,-34.5564074,0
+                  -56.4421412,-34.5558119,0
+                  -56.4431202,-34.5557113,0
+                  -56.4444343,-34.5551326,0
+                  -56.4454927,-34.5550496,0
+                  -56.4476902,-34.5546363,0
+                  -56.4482812,-34.5544243,0
+                  -56.449426,-34.5537633,0
+                  -56.4507362,-34.5540983,0
+                  -56.4522592,-34.5540983,0
+                  -56.4535642,-34.5557113,0
+                  -56.4542172,-34.5569653,0
+                  -56.4553051,-34.5571443,0
+                  -56.4587861,-34.5580403,0
+                  -56.4607451,-34.5583993,0
+                  -56.4620501,-34.5582193,0
+                  -56.4642261,-34.5573243,0
+                  -56.4659671,-34.5569653,0
+                  -56.4668371,-34.5567863,0
+                  -56.4677071,-34.5567863,0
+                  -56.4694481,-34.5575033,0
+                  -56.4703181,-34.5591153,0
+                  -56.4709711,-34.5594743,0
+                  -56.4714061,-34.5601913,0
+                  -56.4714061,-34.5605493,0
+                  -56.4722761,-34.5610863,0
+                  -56.4727121,-34.5612663,0
+                  -56.4740171,-34.5635953,0
+                  -56.4735821,-34.5646703,0
+                  -56.4733641,-34.5652083,0
+                  -56.4735821,-34.5661033,0
+                  -56.4746701,-34.5698663,0
+                  -56.4746701,-34.5704033,0
+                  -56.4757581,-34.5712993,0
+                  -56.4774981,-34.5714783,0
+                  -56.4796741,-34.5725533,0
+                  -56.4818501,-34.5734493,0
+                  -56.4840261,-34.5747033,0
+                  -56.4846791,-34.5755993,0
+                  -56.4868541,-34.5768533,0
+                  -56.4883781,-34.5772113,0
+                  -56.4899011,-34.5777493,0
+                  -56.4918591,-34.5807943,0
+                  -56.4920761,-34.5840193,0
+                  -56.4920761,-34.5850943,0
+                  -56.4927291,-34.5876013,0
+                  -56.4927291,-34.5901093,0
+                  -56.4927291,-34.5931543,0
+                  -56.4918591,-34.5956623,0
+                  -56.4903361,-34.5972743,0
+                  -56.4881601,-34.5990653,0
+                  -56.4853311,-34.6010353,0
+                  -56.4831561,-34.6021093,0
+                  -56.4803271,-34.6028263,0
+                  -56.4783691,-34.6042593,0
+                  -56.4774981,-34.6049753,0
+                  -56.4761931,-34.6069453,0
+                  -56.4755401,-34.6092733,0
+                  -56.4753231,-34.6112433,0
+                  -56.4757581,-34.6133923,0
+                  -56.4761931,-34.6160783,0
+                  -56.4768461,-34.6182263,0
+                  -56.4779341,-34.6214493,0
+                  -56.4783691,-34.6219873,0
+                  -56.4791261,-34.62467,0
+                  -56.4772319,-34.6246924,0
+                  -56.4760801,-34.625566,0
+                  -56.4749921,-34.625566,0
+                  -56.4744521,-34.6252093,0
+                  -56.4734899,-34.6247531,0
+                  -56.4718411,-34.6255683,0
+                  -56.4686571,-34.6258709,0
+                  -56.4664357,-34.6255354,0
+                  -56.4640081,-34.6244933,0
+                  -56.4625953,-34.6236626,0
+                  -56.4613971,-34.6230613,0
+                  -56.4603091,-34.6216283,0
+                  -56.4606311,-34.621089,0
+                  -56.4597656,-34.6204307,0
+                  -56.4593261,-34.620015,0
+                  -56.4585691,-34.6198383,0
+                  -56.4573582,-34.6193719,0
+                  -56.4569331,-34.618224,0
+                  -56.4578031,-34.616613,0
+                  -56.4573681,-34.616076,0
+                  -56.4560834,-34.6154343,0
+                  -56.4551921,-34.615001,0
+                  -56.4545391,-34.613031,0
+                  -56.453868,-34.612176,0
+                  -56.4532852,-34.6113581,0
+                  -56.4509532,-34.6112433,0
+                  -56.4479072,-34.6112433,0
+                  -56.4450792,-34.6108853,0
+                  -56.4430129,-34.6082642,0
+                  -56.4419039,-34.6076754,0
+                  -56.4407521,-34.6073692,0
+                  -56.4387263,-34.6074045,0
+                  -56.4374202,-34.6080804,0
+                  -56.4366971,-34.608734,0
+                  -56.435554,-34.6084809,0
+                  -56.4348068,-34.6077721,0
+                  -56.4337832,-34.6065098,0
+                  -56.4326308,-34.6062012,0
+                  -56.4317691,-34.6060198,0
+                  -56.4303917,-34.6060463,0
+                  -56.4293489,-34.6059081,0
+                  -56.4287256,-34.60581,0
+                  -56.4285422,-34.6051543,0
+                  -56.4281326,-34.6041934,0
+                  -56.4275868,-34.6026922,0
+                  -56.4266549,-34.6015794,0
+                  -56.4247144,-34.6010071,0
+                  -56.4223571,-34.6005974,0
+                  -56.4198711,-34.6007528,0
+                  -56.4162724,-34.6008162,0
+                  -56.4188561,-34.595122,0
+                  -56.412985,-34.595038,0
+                  -56.4114332,-34.589822,0
+                  -56.4161402,-34.5908263,0
+                  -56.4109376,-34.5786304,0
+                  -56.4105758,-34.5777001,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>MUNICIPIO</name>
+      <Placemark>
+        <name>MUNICIPIO DE LOS CERRILLOS</name>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.2697125,-34.618625,0
+                -56.2679465,-34.619266,0
+                -56.2698875,-34.618283,0
+                -56.2709095,-34.616499,0
+                -56.2752295,-34.613776,0
+                -56.2768375,-34.611283,0
+                -56.2881565,-34.606389,0
+                -56.3003835,-34.596749,0
+                -56.3049545,-34.59638,0
+                -56.3068935,-34.594831,0
+                -56.3099285,-34.592003,0
+                -56.3133645,-34.588619,0
+                -56.3152475,-34.586869,0
+                -56.3173585,-34.585943,0
+                -56.3149155,-34.584258,0
+                -56.3141075,-34.583666,0
+                -56.3132745,-34.581793,0
+                -56.3123255,-34.580924,0
+                -56.3105295,-34.579546,0
+                -56.3100755,-34.578861,0
+                -56.3101135,-34.575985,0
+                -56.3118735,-34.57146,0
+                -56.3106175,-34.568624,0
+                -56.3096015,-34.565811,0
+                -56.3099605,-34.564668,0
+                -56.3112255,-34.562148,0
+                -56.3108355,-34.560508,0
+                -56.3103235,-34.559579,0
+                -56.3106265,-34.558483,0
+                -56.3116595,-34.557163,0
+                -56.3122445,-34.556206,0
+                -56.3130455,-34.555899,0
+                -56.3133945,-34.555508,0
+                -56.3131195,-34.554269,0
+                -56.3126105,-34.553829,0
+                -56.3124465,-34.552409,0
+                -56.3123585,-34.551804,0
+                -56.3117185,-34.550689,0
+                -56.3117565,-34.549967,0
+                -56.3103415,-34.548762,0
+                -56.3107145,-34.547608,0
+                -56.3108645,-34.546757,0
+                -56.3109455,-34.546198,0
+                -56.3112905,-34.545207,0
+                -56.3103415,-34.544116,0
+                -56.3100795,-34.542685,0
+                -56.3088205,-34.541666,0
+                -56.3086875,-34.540502,0
+                -56.3090785,-34.540116,0
+                -56.3088945,-34.539814,0
+                -56.3176945,-34.540751,0
+                -56.3209985,-34.542465,0
+                -56.3237895,-34.543465,0
+                -56.3302575,-34.547261,0
+                -56.3468965,-34.554135,0
+                -56.3575555,-34.558681,0
+                -56.3599415,-34.559654,0
+                -56.3614585,-34.561222,0
+                -56.3677365,-34.562899,0
+                -56.3713325,-34.56682,0
+                -56.3780165,-34.569741,0
+                -56.3800335,-34.551817,0
+                -56.3805915,-34.550893,0
+                -56.3957345,-34.546751,0
+                -56.3947395,-34.545381,0
+                -56.3942575,-34.544465,0
+                -56.3951295,-34.544329,0
+                -56.3964045,-34.545307,0
+                -56.3982285,-34.545233,0
+                -56.3994895,-34.544111,0
+                -56.3985325,-34.543459,0
+                -56.3982895,-34.542673,0
+                -56.4003495,-34.5424,0
+                -56.4012945,-34.541477,0
+                -56.4025615,-34.541208,0
+                -56.4024115,-34.542456,0
+                -56.4030475,-34.543353,0
+                -56.4035975,-34.54425,0
+                -56.4050285,-34.544777,0
+                -56.4061805,-34.544209,0
+                -56.4072635,-34.543613,0
+                -56.4085225,-34.543916,0
+                -56.4091005,-34.543941,0
+                -56.4093005,-34.54335,0
+                -56.4086495,-34.542594,0
+                -56.4082325,-34.54133,0
+                -56.4084315,-34.540683,0
+                -56.4098295,-34.541407,0
+                -56.4122085,-34.541451,0
+                -56.4132625,-34.541446,0
+                -56.4129805,-34.540069,0
+                -56.4124295,-34.53906,0
+                -56.4132395,-34.538297,0
+                -56.4142905,-34.538038,0
+                -56.4166025,-34.538252,0
+                -56.4187755,-34.537931,0
+                -56.4212255,-34.538369,0
+                -56.4219815,-34.539518,0
+                -56.4217215,-34.541178,0
+                -56.4232215,-34.541789,0
+                -56.4248845,-34.541556,0
+                -56.4275455,-34.540338,0
+                -56.4286915,-34.538119,0
+                -56.4278545,-34.534948,0
+                -56.4274865,-34.532448,0
+                -56.4292185,-34.5309,0
+                -56.4334095,-34.531552,0
+                -56.4368905,-34.530668,0
+                -56.4405005,-34.531418,0
+                -56.4448145,-34.533031,0
+                -56.4471545,-34.534943,0
+                -56.4488225,-34.54013,0
+                -56.4490965,-34.545517,0
+                -56.4487905,-34.551003,0
+                -56.4492785,-34.553983,0
+                -56.4534825,-34.556174,0
+                -56.4572165,-34.557789,0
+                -56.4622205,-34.558243,0
+                -56.4661645,-34.556971,0
+                -56.4694215,-34.557049,0
+                -56.4717695,-34.559827,0
+                -56.4738815,-34.562124,0
+                -56.4748485,-34.566641,0
+                -56.4754615,-34.570486,0
+                -56.4767515,-34.571826,0
+                -56.4783825,-34.572106,0
+                -56.4807045,-34.571612,0
+                -56.4843345,-34.574574,0
+                -56.4881915,-34.576766,0
+                -56.4913405,-34.577806,0
+                -56.4926475,-34.581166,0
+                -56.4926855,-34.585688,0
+                -56.4935285,-34.589147,0
+                -56.4934485,-34.593477,0
+                -56.4916135,-34.596759,0
+                -56.4884965,-34.599663,0
+                -56.4845525,-34.601129,0
+                -56.4787485,-34.602893,0
+                -56.4771355,-34.604826,0
+                -56.4769405,-34.609542,0
+                -56.4766175,-34.612719,0
+                -56.4780685,-34.619446,0
+                -56.4799885,-34.626555,0
+                -56.4810685,-34.630494,0
+                -56.4869835,-34.642006,0
+                -56.4866655,-34.645857,0
+                -56.4852875,-34.648077,0
+                -56.4824215,-34.64989,0
+                -56.4785675,-34.65206,0
+                -56.4736045,-34.657475,0
+                -56.4725935,-34.662099,0
+                -56.4700575,-34.665192,0
+                -56.4656505,-34.667429,0
+                -56.4594915,-34.669098,0
+                -56.4541465,-34.67057,0
+                -56.4497365,-34.672518,0
+                -56.4455705,-34.676004,0
+                -56.4381805,-34.684221,0
+                -56.4325125,-34.68935,0
+                -56.4254335,-34.69285,0
+                -56.4215945,-34.693543,0
+                -56.4139105,-34.69416,0
+                -56.4079835,-34.696017,0
+                -56.4021685,-34.697393,0
+                -56.3925035,-34.697826,0
+                -56.3897185,-34.699378,0
+                -56.3834295,-34.699601,0
+                -56.3784245,-34.700299,0
+                -56.3736535,-34.701091,0
+                -56.3710985,-34.702161,0
+                -56.3698275,-34.703707,0
+                -56.3695005,-34.706979,0
+                -56.3691675,-34.709386,0
+                -56.3675485,-34.711222,0
+                -56.3636015,-34.713357,0
+                -56.3535545,-34.726777,0
+                -56.3510865,-34.723709,0
+                -56.3487465,-34.722277,0
+                -56.3466445,-34.721516,0
+                -56.3461645,-34.719498,0
+                -56.3440505,-34.71691,0
+                -56.3421675,-34.714032,0
+                -56.3407625,-34.712979,0
+                -56.3385535,-34.713759,0
+                -56.3363535,-34.715885,0
+                -56.3337755,-34.713684,0
+                -56.3309635,-34.711098,0
+                -56.3293255,-34.710143,0
+                -56.3277945,-34.707456,0
+                -56.3270785,-34.704861,0
+                -56.3253185,-34.702848,0
+                -56.3240315,-34.701988,0
+                -56.3238495,-34.7011,0
+                -56.3237235,-34.700067,0
+                -56.3221005,-34.697858,0
+                -56.3211955,-34.696188,0
+                -56.3195145,-34.694275,0
+                -56.3190935,-34.693686,0
+                -56.3180195,-34.693444,0
+                -56.3174805,-34.6932,0
+                -56.3156335,-34.693208,0
+                -56.3132435,-34.692381,0
+                -56.3113875,-34.69101,0
+                -56.3097135,-34.690279,0
+                -56.3081625,-34.690088,0
+                -56.3064855,-34.688766,0
+                -56.3050495,-34.687886,0
+                -56.3047505,-34.687739,0
+                -56.3034435,-34.688385,0
+                -56.3026105,-34.688733,0
+                -56.3015945,-34.688245,0
+                -56.3008725,-34.687066,0
+                -56.3015785,-34.685586,0
+                -56.3054955,-34.673063,0
+                -56.3047445,-34.667059,0
+                -56.3085555,-34.656802,0
+                -56.3169205,-34.64405,0
+                -56.3206915,-34.641112,0
+                -56.3223155,-34.639682,0
+                -56.3203135,-34.64019,0
+                -56.3197205,-34.639456,0
+                -56.3189565,-34.639394,0
+                -56.3180085,-34.640397,0
+                -56.3167465,-34.639574,0
+                -56.3162535,-34.639752,0
+                -56.3154795,-34.640005,0
+                -56.3142745,-34.639531,0
+                -56.3128385,-34.639615,0
+                -56.3122325,-34.638405,0
+                -56.3119645,-34.637342,0
+                -56.3109575,-34.635927,0
+                -56.3099515,-34.634858,0
+                -56.3104385,-34.633711,0
+                -56.3096375,-34.633066,0
+                -56.3085705,-34.633482,0
+                -56.3079855,-34.633495,0
+                -56.3076835,-34.633064,0
+                -56.3081395,-34.632321,0
+                -56.3074515,-34.631687,0
+                -56.3067205,-34.632286,0
+                -56.3057345,-34.631735,0
+                -56.3039895,-34.631259,0
+                -56.3030375,-34.630275,0
+                -56.3014735,-34.628759,0
+                -56.3000575,-34.629228,0
+                -56.2987475,-34.628606,0
+                -56.2982565,-34.629729,0
+                -56.2971095,-34.629466,0
+                -56.2972525,-34.628386,0
+                -56.2966585,-34.626763,0
+                -56.2959165,-34.62548,0
+                -56.2947065,-34.625063,0
+                -56.2936375,-34.623973,0
+                -56.2933415,-34.623587,0
+                -56.2927095,-34.621934,0
+                -56.2916575,-34.620755,0
+                -56.2900595,-34.617717,0
+                -56.2896285,-34.616892,0
+                -56.2875785,-34.614267,0
+                -56.2863105,-34.613083,0
+                -56.2844025,-34.612012,0
+                -56.2833925,-34.611366,0
+                -56.2820345,-34.611802,0
+                -56.2807575,-34.612904,0
+                -56.2785345,-34.614705,0
+                -56.2768605,-34.615955,0
+                -56.2763775,-34.61667,0
+                -56.2758965,-34.617443,0
+                -56.2737965,-34.617777,0
+                -56.2718515,-34.618114,0
+                -56.2697125,-34.618625,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
