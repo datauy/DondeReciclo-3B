@@ -1,0 +1,3857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>MUNICIPIO DE SAUCE</name>
+    <description/>
+    <Style id="icon-1500-1A237E-normal">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-1A237E-highlight">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-1A237E">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-1A237E-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-1A237E-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-9C27B0-nodesc-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1500-9C27B0-nodesc-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1500-9C27B0-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-9C27B0-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-9C27B0-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1500-E65100-normal">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1500-E65100-highlight">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1500-E65100">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1500-E65100-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1500-E65100-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1501-A52714-normal">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1501-A52714-highlight">
+      <IconStyle>
+        <color>ff1427a5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1501-A52714">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1501-A52714-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1501-A52714-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1722-3949AB-normal">
+      <IconStyle>
+        <color>ffab4939</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1722-3949AB-highlight">
+      <IconStyle>
+        <color>ffab4939</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1722-3949AB">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1722-3949AB-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1722-3949AB-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1722-9C27B0-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1722-9C27B0-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1722-9C27B0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1722-9C27B0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1722-9C27B0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1850-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1850-FFD600-normal">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1850-FFD600-highlight">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1850-FFD600">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1850-FFD600-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1850-FFD600-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-006064-nodesc-normal">
+      <IconStyle>
+        <color>ff646000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-006064-nodesc-highlight">
+      <IconStyle>
+        <color>ff646000</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-006064-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-006064-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-006064-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-006064-5456-nodesc-normal">
+      <LineStyle>
+        <color>ff646000</color>
+        <width>5.456</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-006064-5456-nodesc-highlight">
+      <LineStyle>
+        <color>ff646000</color>
+        <width>8.184</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-006064-5456-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-006064-5456-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-006064-5456-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-0097A7-5263-normal">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>5.263</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-0097A7-5263-highlight">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>7.8945</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-0097A7-5263">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-0097A7-5263-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-0097A7-5263-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-0097A7-5263-nodesc-normal">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>5.263</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-0097A7-5263-nodesc-highlight">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>7.8945</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-0097A7-5263-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-0097A7-5263-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-0097A7-5263-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-0288D1-4294-nodesc-normal">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>4.294</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-0288D1-4294-nodesc-highlight">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>6.441</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-0288D1-4294-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-0288D1-4294-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-0288D1-4294-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-1A237E-5069-nodesc-normal">
+      <LineStyle>
+        <color>ff7e231a</color>
+        <width>5.069</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-1A237E-5069-nodesc-highlight">
+      <LineStyle>
+        <color>ff7e231a</color>
+        <width>7.6035</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-1A237E-5069-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-1A237E-5069-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-1A237E-5069-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-673AB7-6038-normal">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>6.038</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-673AB7-6038-highlight">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>9.057</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-673AB7-6038">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-673AB7-6038-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-673AB7-6038-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-A52714-5263-nodesc-normal">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>5.263</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-A52714-5263-nodesc-highlight">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>7.8945</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-A52714-5263-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-A52714-5263-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-A52714-5263-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-AFB42B-6813-nodesc-normal">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>6.813</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-AFB42B-6813-nodesc-highlight">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>10.2195</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-AFB42B-6813-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-AFB42B-6813-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-AFB42B-6813-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-E65100-4294-normal">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>4.294</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-E65100-4294-highlight">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>6.441</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-E65100-4294">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-E65100-4294-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-E65100-4294-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-FF5252-5263-nodesc-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>5.263</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-FF5252-5263-nodesc-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>7.8945</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-FF5252-5263-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-FF5252-5263-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-FF5252-5263-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-000000-1200-76-nodesc-normal">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-000000-1200-76-nodesc-highlight">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-000000-1200-76-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-000000-1200-76-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-000000-1200-76-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0097A7-1200-76-normal">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-0097A7-1200-76-highlight">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-0097A7-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0097A7-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0097A7-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0097A7-1200-76-nodesc-normal">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-0097A7-1200-76-nodesc-highlight">
+      <LineStyle>
+        <color>ffa79700</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4ca79700</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-0097A7-1200-76-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0097A7-1200-76-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0097A7-1200-76-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-01579B-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-01579B-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff9b5701</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d9b5701</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-01579B-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-01579B-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-01579B-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-0288D1-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4dd18802</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-0288D1-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ffd18802</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4dd18802</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-0288D1-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-0288D1-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-0288D1-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-097138-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff387109</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d387109</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-097138-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff387109</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d387109</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-097138-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-097138-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-097138-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-795548-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff485579</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d485579</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-795548-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff485579</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d485579</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-795548-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-795548-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-795548-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-7CB342-1200-105-nodesc-normal">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>6942b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-7CB342-1200-105-nodesc-highlight">
+      <LineStyle>
+        <color>ff42b37c</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>6942b37c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-7CB342-1200-105-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-7CB342-1200-105-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-7CB342-1200-105-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-880E4F-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff4f0e88</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d4f0e88</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-880E4F-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff4f0e88</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d4f0e88</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-880E4F-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-880E4F-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-880E4F-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-9C27B0-1200-76-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4cb0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-9C27B0-1200-76-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4cb0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-9C27B0-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-9C27B0-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-9C27B0-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-9C27B0-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4db0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-9C27B0-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4db0279c</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-9C27B0-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-9C27B0-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-9C27B0-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-AFB42B-1000-43-nodesc-normal">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>2b2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-AFB42B-1000-43-nodesc-highlight">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>2b2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-AFB42B-1000-43-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-AFB42B-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-AFB42B-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff2bb4af</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2bb4af</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-AFB42B-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-AFB42B-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-AFB42B-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-CE93D8-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ffd893ce</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4dd893ce</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-CE93D8-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ffd893ce</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4dd893ce</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-CE93D8-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-CE93D8-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-CE93D8-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-E65100-1200-76-normal">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c0051e6</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-E65100-1200-76-highlight">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c0051e6</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-E65100-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-E65100-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-E65100-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-E65100-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d0051e6</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-E65100-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff0051e6</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d0051e6</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-E65100-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-E65100-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-E65100-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-F9A825-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-F9A825-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff25a8f9</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d25a8f9</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-F9A825-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-F9A825-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-F9A825-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FBC02D-1001-59-normal">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.001</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3b2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FBC02D-1001-59-highlight">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.5015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>3b2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FBC02D-1001-59">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FBC02D-1001-59-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FBC02D-1001-59-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FBC02D-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-FBC02D-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff2dc0fb</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d2dc0fb</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-FBC02D-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FF5252-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d5252ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-FF5252-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff5252ff</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d5252ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-FF5252-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FF5252-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FF5252-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFD600-1200-76-normal">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c00d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-FFD600-1200-76-highlight">
+      <LineStyle>
+        <color>ff00d6ff</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4c00d6ff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-FFD600-1200-76">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFD600-1200-76-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFD600-1200-76-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-FFEA00-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff00eaff</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d00eaff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-FFEA00-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff00eaff</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d00eaff</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-FFEA00-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-FFEA00-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-FFEA00-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>RECOLECCIÓN DE RESIDUOS</name>
+      <Placemark>
+        <name>PÚBLICOS: LUNES A SÁBADOS - NOCTURNO</name>
+        <description>1239 VIVIENDAS.</description>
+        <styleUrl>#poly-9C27B0-1200-76</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0692884,-34.6467939,0
+                -56.0665291,-34.6525751,0
+                -56.0642117,-34.6543005,0
+                -56.0601669,-34.6527957,0
+                -56.0591485,-34.648168,0
+                -56.0586121,-34.6467249,0
+                -56.0578502,-34.6449905,0
+                -56.056949,-34.6437769,0
+                -56.055925,-34.6424382,0
+                -56.0692884,-34.6467939,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>DOMICILIARIOS: LUNES Y JUEVES VESPERTINO.</name>
+        <description>886 VIVIENDAS.</description>
+        <styleUrl>#poly-FFD600-1200-76</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.055925,-34.6424647,0
+                -56.0550774,-34.6413084,0
+                -56.0646176,-34.6413681,0
+                -56.0644286,-34.6393028,0
+                -56.0641522,-34.6361905,0
+                -56.0662055,-34.6360188,0
+                -56.0647356,-34.6239507,0
+                -56.0623878,-34.6242096,0
+                -56.061669,-34.6193978,0
+                -56.07216,-34.6183267,0
+                -56.0729862,-34.6230326,0
+                -56.0662913,-34.6237565,0
+                -56.0681795,-34.6376515,0
+                -56.0699406,-34.6375181,0
+                -56.0703682,-34.6405207,0
+                -56.0803783,-34.6399293,0
+                -56.0692884,-34.6467939,0
+                -56.055925,-34.6424647,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>DOMICILIARIOS: MARTES Y VIERNES (VESPERTINO)</name>
+        <description>862 VIVIENDAS.</description>
+        <styleUrl>#poly-0097A7-1200-76</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0689753,-34.6476149,0
+                -56.0783094,-34.6508982,0
+                -56.0787171,-34.6543226,0
+                -56.0747367,-34.6545521,0
+                -56.0712713,-34.6551698,0
+                -56.0660785,-34.6638183,0
+                -56.0557359,-34.6584175,0
+                -56.0551351,-34.6566172,0
+                -56.055023,-34.641429,0
+                -56.0577504,-34.6448573,0
+                -56.0588782,-34.6474365,0
+                -56.0592919,-34.6487613,0
+                -56.0601669,-34.6527957,0
+                -56.0642439,-34.6543579,0
+                -56.0665291,-34.6525751,0
+                -56.0689753,-34.6476149,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>MIÉRCOLES Y SÁBADO - VESPERTINO</name>
+        <styleUrl>#line-FF5252-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0561955,-34.5689083,0
+            -56.0568838,-34.5723939,0
+            -56.057228,-34.575188,0
+            -56.0569714,-34.5785475,0
+            -56.0564028,-34.5810914,0
+            -56.0555338,-34.5837059,0
+            -56.0535811,-34.5889351,0
+            -56.0516499,-34.5944815,0
+            -56.0501908,-34.6000985,0
+            -56.0492895,-34.6037148,0
+            -56.0483508,-34.6075386,0
+            -56.0482985,-34.6082549,0
+            -56.0483212,-34.60898,0
+            -56.0483842,-34.6097295,0
+            -56.0485224,-34.6104701,0
+            -56.0489568,-34.6135826,0
+            -56.0492573,-34.6154302,0
+            -56.0495577,-34.6174809,0
+            -56.050105,-34.6215029,0
+            -56.0509388,-34.627329,0
+            -56.051268,-34.6292999,0
+            -56.0519191,-34.6332393,0
+            -56.0524014,-34.6360986,0
+            -56.0530125,-34.6389756,0
+            -56.0499918,-34.6447012,0
+            -56.0496443,-34.6455986,0
+            -56.0494685,-34.6463548,0
+            -56.0494235,-34.6472052,0
+            -56.0495364,-34.6478642,0
+            -56.0496774,-34.648346,0
+            -56.0499149,-34.6488896,0
+            -56.0512281,-34.6511858,0
+            -56.0516165,-34.6519015,0
+            -56.0521229,-34.6526833,0
+            -56.0544866,-34.6556871,0
+            -56.0551046,-34.6567605,0
+            -56.0556047,-34.6580677,0
+            -56.0560967,-34.6594301,0
+            -56.0564492,-34.6604704,0
+            -56.0571757,-34.6620833,0
+            -56.057419,-34.6627424,0
+            -56.0576087,-34.663428,0
+            -56.0576769,-34.6645477,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MIÉRCOLES Y SÁBADO - VESPERTINO</name>
+        <styleUrl>#line-FF5252-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.1592387,-34.5810915,0
+            -56.1619866,-34.585757,0
+            -56.1625716,-34.5868073,0
+            -56.1636772,-34.5890758,0
+            -56.171093,-34.6045467,0
+            -56.1719729,-34.6097566,0
+            -56.172504,-34.6134387,0
+            -56.1727803,-34.6148206,0
+            -56.1734213,-34.6162731,0
+            -56.1755562,-34.6217029,0
+            -56.177069,-34.6317234,0
+            -56.1773908,-34.634557,0
+            -56.1774981,-34.6400742,0
+            -56.1787842,-34.6496881,0
+            -56.1789016,-34.6514939,0
+            -56.1787185,-34.6534409,0
+            -56.1722077,-34.6735297,0
+            -56.1706193,-34.6719279,0
+            -56.1698935,-34.6712052,0
+            -56.1694743,-34.6708031,0
+            -56.1691883,-34.6706263,0
+            -56.1688835,-34.6704936,0
+            -56.1682703,-34.670362,0
+            -56.1679209,-34.670347,0
+            -56.1675875,-34.6703629,0
+            -56.1526796,-34.6723619,0
+            -56.1475256,-34.6730739,0
+            -56.1424305,-34.6737283,0
+            -56.1324417,-34.6750096,0
+            -56.1314572,-34.6751582,0
+            -56.1313082,-34.6753737,0
+            -56.1309983,-34.6754833,0
+            -56.129824,-34.6750453,0
+            -56.1238112,-34.6718631,0
+            -56.1142839,-34.6667629,0
+            -56.1117971,-34.6644238,0
+            -56.110063,-34.6625991,0
+            -56.1097773,-34.6621687,0
+            -56.1083287,-34.6568949,0
+            -56.1068964,-34.6504868,0
+            -56.1059793,-34.6437787,0
+            -56.1090055,-34.63452,0
+            -56.1106847,-34.629058,0
+            -56.1116824,-34.6264652,0
+            -56.1127861,-34.615121,0
+            -56.1103059,-34.6088727,0
+            -56.1090231,-34.6055543,0
+            -56.1078905,-34.6025891,0
+            -56.1054418,-34.5974043,0
+            -56.1039495,-34.5925334,0
+            -56.1028007,-34.5876624,0
+            -56.1005676,-34.5737156,0
+            -56.1022479,-34.5626705,0
+            -56.1030449,-34.5565294,0
+            -56.1024043,-34.5516784,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MIÉRCOLES Y SÁBADO - VESPERTINO</name>
+        <styleUrl>#line-FF5252-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.1592387,-34.5810915,0
+            -56.1538858,-34.583874,0
+            -56.1430387,-34.5921677,0
+            -56.1368374,-34.5963187,0
+            -56.1350347,-34.5977847,0
+            -56.1333178,-34.5998866,0
+            -56.1316443,-34.6027302,0
+            -56.1295415,-34.6055737,0
+            -56.1249064,-34.6106954,0
+            -56.1237746,-34.611755,0
+            -56.1227286,-34.6133091,0
+            -56.1208941,-34.6166997,0
+            -56.1163609,-34.6212381,0
+            -56.1111308,-34.6244341,0
+            -56.1062596,-34.6279302,0
+            -56.1041355,-34.6293781,0
+            -56.1029018,-34.6301462,0
+            -56.1014803,-34.6306317,0
+            -56.0980256,-34.631797,0
+            -56.0941712,-34.6338362,0
+            -56.0921634,-34.6345997,0
+            -56.0903541,-34.6352662,0
+            -56.0887261,-34.6358003,0
+            -56.0863255,-34.6363873,0
+            -56.0841154,-34.6369434,0
+            -56.082506,-34.6376054,0
+            -56.0778712,-34.6400064,0
+            -56.0740587,-34.6421733,0
+            -56.0718553,-34.6429631,0
+            -56.0705304,-34.6434011,0
+            -56.0692591,-34.6438524,0
+            -56.0688179,-34.6440907,0
+            -56.0683633,-34.6444438,0
+            -56.0679126,-34.6450087,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MIÉRCOLES Y SÁBADO - VESPERTINO</name>
+        <styleUrl>#line-FF5252-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.142076,-34.7114571,0
+            -56.1412136,-34.7087767,0
+            -56.1403084,-34.7059904,0
+            -56.1371742,-34.6947593,0
+            -56.1366822,-34.6932219,0
+            -56.1357396,-34.6895584,0
+            -56.1341979,-34.6844721,0
+            -56.1327208,-34.6814706,0
+            -56.1322094,-34.6795983,0
+            -56.1316939,-34.6775476,0
+            -56.1309961,-34.6755235,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y SÁBADOS - MATUTINO</name>
+        <description>SERVICIO ECOTECNO</description>
+        <styleUrl>#line-673AB7-6038</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.1061924,-34.6981587,0
+            -56.1069139,-34.6961099,0
+            -56.1074853,-34.6940611,0
+            -56.10796,-34.691739,0
+            -56.1084776,-34.6898226,0
+            -56.1100656,-34.6873612,0
+            -56.110417,-34.6868274,0
+            -56.1105967,-34.6862054,0
+            -56.1109347,-34.6847321,0
+            -56.1120504,-34.6794917,0
+            -56.1124956,-34.6779631,0
+            -56.1130482,-34.6767345,0
+            -56.1144536,-34.6739794,0
+            -56.1145756,-34.6736883,0
+            -56.1146547,-34.6734324,0
+            -56.1147137,-34.6730794,0
+            -56.1147433,-34.6724419,0
+            -56.1145904,-34.6707168,0
+            -56.114432,-34.6685749,0
+            -56.1143463,-34.6674278,0
+            -56.1142068,-34.6669139,0
+            -56.1131553,-34.6660083,0
+            -56.1121039,-34.6649615,0
+            -56.1110042,-34.6637668,0
+            -56.109993,-34.6627619,0
+            -56.109863,-34.6626532,0
+            -56.1097034,-34.6625843,0
+            -56.1094003,-34.6624464,0
+            -56.1088478,-34.6623582,0
+            -56.1082952,-34.662345,0
+            -56.1073082,-34.6623428,0
+            -56.1068321,-34.6623241,0
+            -56.1064579,-34.6622568,0
+            -56.1060247,-34.6621763,0
+            -56.1048941,-34.6618509,0
+            -56.0982745,-34.6596733,0
+            -56.0937282,-34.6581796,0
+            -56.0900778,-34.6570433,0
+            -56.0887474,-34.6566021,0
+            -56.0877577,-34.6564212,0
+            -56.0866713,-34.6563197,0
+            -56.0848287,-34.6560372,0
+            -56.0840361,-34.6558475,0
+            -56.0833991,-34.6556577,0
+            -56.0779427,-34.6540684,0
+            -56.076617,-34.6537057,0
+            -56.0731012,-34.6527489,0
+            -56.0713916,-34.6522219,0
+            -56.0700146,-34.6517214,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES, JUEVES Y SÁBADO - VESPERTINO</name>
+        <styleUrl>#line-006064-5456-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -55.9633462,-34.6336015,0
+            -55.963772,-34.6319154,0
+            -55.9642837,-34.6295406,0
+            -55.9647805,-34.6266891,0
+            -55.9647554,-34.6256473,0
+            -55.9645908,-34.6244025,0
+            -55.9644352,-34.6227648,0
+            -55.9645371,-34.6219172,0
+            -55.9647195,-34.6210829,0
+            -55.9656636,-34.6164916,0
+            -55.9659855,-34.6143902,0
+            -55.9657494,-34.613366,0
+            -55.9650414,-34.6108759,0
+            -55.9646444,-34.6092688,0
+            -55.9646336,-34.607803,0
+            -55.9647302,-34.6067609,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES MATUTINO</name>
+        <styleUrl>#line-AFB42B-6813-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.110431,-34.6863599,0
+            -56.1071801,-34.6844896,0
+            -56.1056405,-34.6837044,0
+            -56.1036502,-34.6823369,0
+            -56.1016387,-34.6808724,0
+            -56.10118,-34.6801754,0
+            -56.1003794,-34.6794342,0
+            -56.0996753,-34.6788872,0
+            -56.0963332,-34.6764388,0
+            -56.0944878,-34.6755808,0
+            -56.0932916,-34.6749929,0
+            -56.0930609,-34.6747492,0
+            -56.0916419,-34.67284,0
+            -56.0905986,-34.6712131,0
+            -56.0888016,-34.6682417,0
+            -56.0874068,-34.6657996,0
+            -56.0869616,-34.6651433,0
+            -56.0864734,-34.6645753,0
+            -56.0858994,-34.6641583,0
+            -56.0853898,-34.6639884,0
+            -56.084966,-34.6637656,0
+            -56.0848051,-34.6633883,0
+            -56.0843652,-34.6611336,0
+            -56.0836571,-34.6557945,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>DOMICILIARIOS: LUNES Y JUEVES VESPERTINO</name>
+        <styleUrl>#line-A52714-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0399085,-34.6885264,0
+            -56.037892,-34.6805983,0
+            -56.0373127,-34.6778279,0
+            -56.0379886,-34.6747133,0
+            -56.0380637,-34.6698692,0
+            -56.0358964,-34.666516,0
+            -56.0345446,-34.6633746,0
+            -56.0320125,-34.6588209,0
+            -56.0297811,-34.6541613,0
+            -56.0295879,-34.6493954,0
+            -56.0282038,-34.6448938,0
+            -56.0277854,-34.6392978,0
+            -56.0256397,-34.6329067,0
+            -56.0271954,-34.6308056,0
+            -56.0274207,-34.6288458,0
+            -56.0282147,-34.6244315,0
+            -56.0291373,-34.6226305,0
+            -56.0270397,-34.6208293,0
+            -56.0260579,-34.6194518,0
+            -56.0252961,-34.6154961,0
+            -56.0235583,-34.606525,0
+            -56.0233008,-34.6058893,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>DOMICILIARIOS: LUNES Y JUEVES VESPERTINO</name>
+        <styleUrl>#line-A52714-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0535033,-34.6863502,0
+            -56.0399085,-34.6885264,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>DOMICILIARIOS: LUNES Y JUEVES VESPERTINO</name>
+        <styleUrl>#line-A52714-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0522556,-34.6366328,0
+            -56.0476717,-34.6354852,0
+            -56.0462489,-34.6350879,0
+            -56.0451694,-34.6346023,0
+            -56.0291373,-34.6226305,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>SÁBADO VESPERTINO</name>
+        <styleUrl>#line-0288D1-4294-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.1428635,-34.7125579,0
+            -56.1407468,-34.7126009,0
+            -56.1398532,-34.7126792,0
+            -56.1378976,-34.7133193,0
+            -56.1369091,-34.7136922,0
+            -56.1364148,-34.7138698,0
+            -56.1357382,-34.7137388,0
+            -56.1321653,-34.7130972,0
+            -56.1292148,-34.7120233,0
+            -56.1286833,-34.7106915,0
+            -56.1270897,-34.7098183,0
+            -56.1061924,-34.6981587,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES VESPERTINO</name>
+        <styleUrl>#line-1A237E-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.1422159,-34.6736929,0
+            -56.1410179,-34.6688991,0
+            -56.1407872,-34.6669709,0
+            -56.1403419,-34.6655017,0
+            -56.1400952,-34.6602335,0
+            -56.1400952,-34.6583979,0
+            -56.1388721,-34.6573389,0
+            -56.1380353,-34.6555032,0
+            -56.1349025,-34.6454594,0
+            -56.1343016,-34.6414784,0
+            -56.1342158,-34.639157,0
+            -56.1395803,-34.6394748,0
+            -56.1436364,-34.6287134,0
+            -56.1464903,-34.6279098,0
+            -56.1479277,-34.6233985,0
+            -56.1484746,-34.6178935,0
+            -56.1466882,-34.6113619,0
+            -56.1359458,-34.6106749,0
+            -56.1259761,-34.6098458,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y SÁBADOS VESPERTINO</name>
+        <description>CAMINO TOMÁS BERETA</description>
+        <styleUrl>#line-0097A7-5263</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0601194,-34.6609836,0
+            -56.0612996,-34.6668783,0
+            -56.0629089,-34.6714491,0
+            -56.0655054,-34.6739903,0
+            -56.0694321,-34.681878,0
+            -56.0713633,-34.6861481,0
+            -56.0731657,-34.6902415,0
+            -56.0759767,-34.6945287,0
+            -56.0785843,-34.6981655,0
+            -56.0800732,-34.7005371,0
+            -56.0810622,-34.7021322,0
+            -56.0819527,-34.7036493,0
+            -56.0827144,-34.7057308,0
+            -56.0835512,-34.7096292,0
+            -56.083893,-34.7127183,0
+            -56.084441,-34.7149404,0
+            -56.0849674,-34.7164883,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES, JUEVES Y SÁBADOS VESPERTINO</name>
+        <description>CONTENEDORES PÚBLICOS. SERVICIO ECOTECNO</description>
+        <styleUrl>#poly-E65100-1200-76</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -55.9816355,-34.6532612,0
+                -55.9827513,-34.6533142,0
+                -55.9915275,-34.6540203,0
+                -55.9910769,-34.6564208,0
+                -55.9937377,-34.6567738,0
+                -55.9958405,-34.6613099,0
+                -56.0008187,-34.6645573,0
+                -56.006226,-34.6713872,0
+                -55.9968705,-34.6706107,0
+                -55.9971709,-34.6670811,0
+                -55.9918493,-34.666534,0
+                -55.9915919,-34.664072,0
+                -55.9910984,-34.6617334,0
+                -55.988502,-34.6599862,0
+                -55.9816355,-34.6532612,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y SÁBADOS - MATUTINO </name>
+        <styleUrl>#poly-000000-1200-76-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.1127757,-34.6791205,0
+                -56.1225604,-34.6843082,0
+                -56.1196422,-34.6882252,0
+                -56.1100721,-34.6833553,0
+                -56.111145,-34.6781323,0
+                -56.1127757,-34.6791205,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y SÁBADOS VESPERTINO</name>
+        <styleUrl>#line-0097A7-5263-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.057419,-34.6627424,0
+            -56.0577413,-34.664583,0
+            -56.0574461,-34.6658355,0
+            -56.056829,-34.6674586,0
+            -56.0560067,-34.669105,0
+            -56.0550985,-34.670169,0
+            -56.0523095,-34.6726682,0
+            -56.0516023,-34.6735979,0
+            -56.0512862,-34.6744862,0
+            -56.0511847,-34.6757275,0
+            -56.0517533,-34.6787097,0
+            -56.0530193,-34.6840386,0
+            -56.0541672,-34.6887759,0
+            -56.0553153,-34.6934427,0
+            -56.0572074,-34.7013493,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>MARTES Y SÁBADOS VESPERTINO</name>
+        <styleUrl>#poly-0097A7-1200-76-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -55.9652662,-34.6297568,0
+                -55.9648156,-34.632564,0
+                -55.973227,-34.633641,0
+                -55.9725189,-34.6365718,0
+                -55.9652019,-34.6356184,0
+                -55.9644079,-34.6379489,0
+                -55.9582281,-34.6370661,0
+                -55.9560823,-34.6335704,0
+                -55.9594726,-34.6330761,0
+                -55.9623051,-34.6322462,0
+                -55.9630132,-34.6294213,0
+                -55.9652662,-34.6297568,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>RECOLECCIÓN DE RESTOS VEGETALES</name>
+      <Placemark>
+        <name>3° SEMANA  (VIERNES Y SÁBADO) - 4° SEMANA (LUNES Y MARTES) DE CADA MES.</name>
+        <description><![CDATA[<br><br>RADIO: SAUCE<br>FRECUENCIA: 2DA SEMANA SABADO - 3ER SEMANA - LUNES Y MARTES]]></description>
+        <styleUrl>#poly-FBC02D-1001-59</styleUrl>
+        <ExtendedData>
+          <Data name="RADIO">
+            <value>SAUCE</value>
+          </Data>
+          <Data name="FRECUENCIA">
+            <value>2DA SEMANA SABADO - 3ER SEMANA - LUNES Y MARTES</value>
+          </Data>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.069887,-34.637368,0
+                -56.0721488,-34.6523522,0
+                -56.077384,-34.653816,0
+                -56.0769,-34.65554,0
+                -56.077303,-34.655739,0
+                -56.077948,-34.656468,0
+                -56.078432,-34.657662,0
+                -56.075369,-34.661309,0
+                -56.074562,-34.661176,0
+                -56.070854,-34.666879,0
+                -56.055698,-34.659121,0
+                -56.057875,-34.65355,0
+                -56.057713,-34.653152,0
+                -56.056746,-34.652622,0
+                -56.056504,-34.652489,0
+                -56.056182,-34.651826,0
+                -56.055779,-34.650831,0
+                -56.05594,-34.6505,0
+                -56.05594,-34.650102,0
+                -56.055859,-34.649372,0
+                -56.055859,-34.64924,0
+                -56.055456,-34.648776,0
+                -56.054972,-34.648378,0
+                -56.054811,-34.648046,0
+                -56.054569,-34.647648,0
+                -56.054408,-34.647051,0
+                -56.054166,-34.646255,0
+                -56.054086,-34.646123,0
+                -56.053683,-34.645725,0
+                -56.053602,-34.645658,0
+                -56.053199,-34.645327,0
+                -56.05336,-34.644796,0
+                -56.05336,-34.64473,0
+                -56.053441,-34.644199,0
+                -56.05336,-34.643735,0
+                -56.052473,-34.643072,0
+                -56.051748,-34.63823,0
+                -56.054569,-34.639623,0
+                -56.057068,-34.639159,0
+                -56.057149,-34.637832,0
+                -56.063357,-34.638296,0
+                -56.064243,-34.637965,0
+                -56.064405,-34.635709,0
+                -56.06771,-34.635643,0
+                -56.067791,-34.637368,0
+                -56.069887,-34.637368,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>ECOPUNTOS - GENERADORES</name>
+      <Placemark>
+        <name>COOP.ERATIVA DE VIVIENDAS</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:50 - FEBRERO:85 - MARZO:45 - ABRIL:120 - MAYO PARCIAL:100- TOTAL EN KG. 400<br>Lugar: COOP. VIVIENDAS<br>Tipo: MODULO NUEVO 2018<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:50 - FEBRERO:85 - MARZO:45 - ABRIL:120 - MAYO PARCIAL:100- TOTAL EN KG. 400</value>
+          </Data>
+          <Data name="Lugar">
+            <value>COOP. VIVIENDAS</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.067153,-34.636242,60.45
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESPACIO PÚBLICO</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:75 - FEBRERO:85 - MARZO:30 - ABRIL:70 - MAYO PARCIAL:110- TOTAL EN KG. 370<br>Lugar: ESPACIO PÚBLICO<br>Tipo: BOL C/ ARO<br>Uso: VECINOS<br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:75 - FEBRERO:85 - MARZO:30 - ABRIL:70 - MAYO PARCIAL:110- TOTAL EN KG. 370</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ESPACIO PÚBLICO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>BOL C/ ARO</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0692794,-34.6447459,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LICEO</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:100 - FEBRERO:85 - MARZO:70 - ABRIL:135 - MAYO PARCIAL:85- TOTAL EN KG. 475<br>Lugar: LICEO<br>Tipo: BOL C/ ARO<br>Uso: VECINOS<br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:100 - FEBRERO:85 - MARZO:70 - ABRIL:135 - MAYO PARCIAL:85- TOTAL EN KG. 475</value>
+          </Data>
+          <Data name="Lugar">
+            <value>LICEO</value>
+          </Data>
+          <Data name="Tipo">
+            <value>BOL C/ ARO</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0622004,-34.6443573,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SUPER LA FAMILIA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:120 - FEBRERO:110 - MARZO:150 - ABRIL:210 - MAYO PARCIAL:150- TOTAL EN KG. 740<br>Lugar: SUPER LA FAMILIA<br>Tipo: MODULO NUEVO 2018<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:120 - FEBRERO:110 - MARZO:150 - ABRIL:210 - MAYO PARCIAL:150- TOTAL EN KG. 740</value>
+          </Data>
+          <Data name="Lugar">
+            <value>SUPER LA FAMILIA</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0609507,-34.6470375,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SUPER LA FAMILIA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:110 - FEBRERO:110 - MARZO:150 - ABRIL:210 - MAYO PARCIAL:150- TOTAL EN KG. 730<br>Lugar: SUPER LA FAMILIA<br>Tipo: MODULO NUEVO 2018<br>Uso: VECINOS<br>Estado: BUENO<br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:110 - FEBRERO:110 - MARZO:150 - ABRIL:210 - MAYO PARCIAL:150- TOTAL EN KG. 730</value>
+          </Data>
+          <Data name="Lugar">
+            <value>SUPER LA FAMILIA</value>
+          </Data>
+          <Data name="Tipo">
+            <value>MODULO NUEVO 2018</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value>BUENO</value>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0606934,-34.647668,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>COOPERATIVA DE VIVIENDAS</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:60 - FEBRERO:110 - MARZO:60 - ABRIL:150 - MAYO PARCIAL:80- TOTAL EN KG. 460<br>Lugar: VIVIENDAS COVISA<br>Tipo: BOL C/ ARO<br>Uso: VECINOS<br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:60 - FEBRERO:110 - MARZO:60 - ABRIL:150 - MAYO PARCIAL:80- TOTAL EN KG. 460</value>
+          </Data>
+          <Data name="Lugar">
+            <value>VIVIENDAS COVISA</value>
+          </Data>
+          <Data name="Tipo">
+            <value>BOL C/ ARO</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0591219,-34.6568921,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MEVIR</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:75 - FEBRERO:85 - MARZO:60 - ABRIL:60 - MAYO PARCIAL:85- TOTAL EN KG. 365<br>Lugar: MEVIR<br>Tipo: BOL C/ ARO<br>Uso: VECINOS<br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:75 - FEBRERO:85 - MARZO:60 - ABRIL:60 - MAYO PARCIAL:85- TOTAL EN KG. 365</value>
+          </Data>
+          <Data name="Lugar">
+            <value>MEVIR</value>
+          </Data>
+          <Data name="Tipo">
+            <value>BOL C/ ARO</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0649008,-34.6589946,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ECOPUNTO</name>
+        <description><![CDATA[<img src="https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/a0umfo29c15h2ll047agjmails/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGroYGw8g8SFkxCavndzXNvyHkMPm0VlhrI8aI8C7nmgqgYN4LpujlUCkzRCR0Rdow1Fe9o38Vbe_YMTmhKIa1dozXlPDeVD02QHrMQSgZZH6pM6up2lWhwUgKR-uxSz8yR-FVrKzk2hZz7bZDMgFWfLKus5anL_V3u8WzdZyCyia6fYPdd8_bKxaCPkXpJtPIo?session=0&fife" height="200" width="auto" /><br><br>descripción: CAPTADO POR MES EN KG: <br>ENERO:550 - FEBRERO:500 - MARZO:800 - ABRIL:900 - MAYO PARCIAL:350- TOTAL EN KG. 365<br>Lugar: ECOPUNTO<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: ECOPUNTO]]></description>
+        <styleUrl>#icon-1850-097138</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:550 - FEBRERO:500 - MARZO:800 - ABRIL:900 - MAYO PARCIAL:350- TOTAL EN KG. 365</value>
+          </Data>
+          <Data name="Lugar">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>ECOPUNTO</value>
+          </Data>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/a0umfo29c15h2ll047agjmails/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGroYGw8g8SFkxCavndzXNvyHkMPm0VlhrI8aI8C7nmgqgYN4LpujlUCkzRCR0Rdow1Fe9o38Vbe_YMTmhKIa1dozXlPDeVD02QHrMQSgZZH6pM6up2lWhwUgKR-uxSz8yR-FVrKzk2hZz7bZDMgFWfLKus5anL_V3u8WzdZyCyia6fYPdd8_bKxaCPkXpJtPIo?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0619977,-34.6492748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>COOPERATIVA DE VIVIENDAS</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:100 - FEBRERO:110 - MARZO:85 - ABRIL:150 - MAYO PARCIAL:95- TOTAL EN KG. 540<br>Lugar: MEVIR<br>Tipo: BOL C/ ARO<br>Uso: VECINOS<br>Estado: <br>Concepto: PEVS]]></description>
+        <styleUrl>#icon-1850-FFD600</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:100 - FEBRERO:110 - MARZO:85 - ABRIL:150 - MAYO PARCIAL:95- TOTAL EN KG. 540</value>
+          </Data>
+          <Data name="Lugar">
+            <value>MEVIR</value>
+          </Data>
+          <Data name="Tipo">
+            <value>BOL C/ ARO</value>
+          </Data>
+          <Data name="Uso">
+            <value>VECINOS</value>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PEVS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0580709,-34.6590713,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>AGROPECUARIA S. ROSA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:150 - FEBRERO:100 - MARZO:650 - ABRIL:150 - MAYO PARCIAL:60- TOTAL EN KG. 1110<br>Lugar: AGROPECUARIA SANTA ROSA<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:150 - FEBRERO:100 - MARZO:650 - ABRIL:150 - MAYO PARCIAL:60- TOTAL EN KG. 1110</value>
+          </Data>
+          <Data name="Lugar">
+            <value>AGROPECUARIA SANTA ROSA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0655257,-34.6451702,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DE LA CAROLINA</name>
+        <description><![CDATA[descripción: CAPTADO POR MES EN KG: <br>ENERO:0 - FEBRERO:0 - MARZO:900 - ABRIL:750 - MAYO PARCIAL:0- TOTAL EN KG. 1650<br>Lugar: DE LA CAROLINA<br>Tipo: <br>Uso: <br>Estado: <br>Concepto: GENERADOR]]></description>
+        <styleUrl>#icon-1501-A52714</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value>CAPTADO POR MES EN KG: 
+ENERO:0 - FEBRERO:0 - MARZO:900 - ABRIL:750 - MAYO PARCIAL:0- TOTAL EN KG. 1650</value>
+          </Data>
+          <Data name="Lugar">
+            <value>DE LA CAROLINA</value>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>GENERADOR</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0811262,-34.655451,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LICEO N° 1</name>
+        <description><![CDATA[descripción: <br>Lugar: <br>Tipo: <br>Uso: <br>Estado: <br>Concepto: PIS]]></description>
+        <styleUrl>#icon-1500-1A237E</styleUrl>
+        <ExtendedData>
+          <Data name="descripción">
+            <value/>
+          </Data>
+          <Data name="Lugar">
+            <value/>
+          </Data>
+          <Data name="Tipo">
+            <value/>
+          </Data>
+          <Data name="Uso">
+            <value/>
+          </Data>
+          <Data name="Estado">
+            <value/>
+          </Data>
+          <Data name="Concepto">
+            <value>PIS</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0623702,-34.6442818,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>CONTENEDORES PÚBLICOS</name>
+      <Placemark>
+        <name>SANTA ISABEL CASI CANELONES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0688219,-34.6466515,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMEN ENTRE CANELONES Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.067446,-34.6471039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE CARMELO GONZÁLEZ Y MONTEVIDEO</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0668505,-34.6460116,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMEN ENTRE MONTEVIDEO Y VICENTE PONCE DE LEÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0654289,-34.6464706,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE MONTEVIDEO Y VICENTE PONCE DE LEÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0656757,-34.6456232,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE VICENTE PONCE DE LEÓN Y CONSTITUCIÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0645814,-34.6452128,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE CONSTITUCIÓN Y FRANCISCA P. DE ARTIGAS</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.063605,-34.6448951,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE SANTA LUCÍA Y BRIG. GRAL. MANUEL ORIBE</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0614395,-34.6441904,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL ENTRE BRIG. MANUEL ORIBE Y TREINTA Y TRES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0604159,-34.6439021,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CASCARILLA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0588462,-34.6418167,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMEN ENTRE BRIG. GRAL. MANUEL ORIBE Y TREINTA Y TRES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0601871,-34.6447001,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ Y CANELONES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0678267,-34.6482179,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0663818,-34.6476918,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZALEZ ENTRE VICENTE PONCE DE LEÓN Y CONSTITUCIÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0640805,-34.6469107,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ CONSTITUCIÓN Y FRANCISCA P. DE ARTIGAS</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0627555,-34.6465223,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ ENTRE FRANCISCA P. DE ARTIGAS Y SANTA LUCÍA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0617148,-34.6461957,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ BRIG. GRAL. MANUEL ORIBE</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0607599,-34.6459309,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO GONZÁLEZ Y TREINTA Y TRES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0596656,-34.6455691,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANSINA Y CANELONES</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0673995,-34.6489731,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANSINA Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0659457,-34.648523,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANSINA Y VICENTE PONCE DE LEÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0643364,-34.6479846,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ANSINA Y BRIG. GRAL. MANUEL ORIBE</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0603131,-34.646643,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CORONEL PEIRAN ENTRE CANELONES Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0662596,-34.6495556,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CORONEL PEIRAN Y CONSTITUCIÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0631755,-34.6485568,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CORONEL PEIRAN Y FRANCISCA P. DE ARTIGAS</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0619551,-34.6481287,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CORONEL PEIRAN Y SANTA LUCIA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0609252,-34.6478507,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CORONEL PEIRAN Y BRIG. GRAL. MANUEL ORIBE</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0598952,-34.6475065,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CANELONES Y CORONEL PEIRAN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0665257,-34.6501278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO RENE GONZÁLEZ Y CORONEL PEIRAN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0655659,-34.6497916,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>VICENTE PONCE DE LEÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0635569,-34.6493106,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL Y SAN MIGUEL</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0668396,-34.6516505,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAN MIGUEL ENTRE CANELONES Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.065528,-34.6512291,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CARMELO RENE GONZÁLEZ Y SAN MIGUEL</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0651391,-34.6506752,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CONSTITUCIÓN Y SAN MIGUEL</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0622029,-34.6497066,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>FRANCISCA P. DE ARNAL ENTRE AVDA. ARTIGAS Y SAN MIGUEL</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0611944,-34.6493138,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA LUCIA ENTRE AVDA. ARTIGAS Y SAN MIGUEL</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0601805,-34.6490485,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CANELONES ENTRE SAN MIGUEL Y LUIS A. DE HERRERA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0658056,-34.651779,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LUIS. A. DE HERRERA Y CARMELO RENE GONZÁLEZ</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0644565,-34.6517393,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LUIS A. DE HERRERA Y VICENTE PONCE DE LEÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0627345,-34.6512428,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LUIS A. DE HERRERA Y CONSTITUCIÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0617716,-34.650903,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LUIS A. DE HERRERA Y FRANCISCA P. DE ARTIGAS</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0607094,-34.6505456,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LUIS A. DE HERRERA Y SANTA LUCÍA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0597385,-34.650208,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAUCE Y MONTEVIDEO</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0635687,-34.6525248,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAUCE Y CASA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0622302,-34.6522821,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAUCE Y CONSTITUCIÓN</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0612137,-34.6519313,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAUCE Y FRANCISCA P. DE ARTIGAS</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0602856,-34.651373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO A CUCHILLA DE ROCHA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0577978,-34.6469249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO A CUCHILLA DE ROCHA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0555341,-34.6472427,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO A CUCHILLA DE ROCHA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0531442,-34.6479343,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO A CUCHILLA DE ROCHA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0509125,-34.6486977,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CASA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0613122,-34.6530913,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CUCHILLA DE ROCHA</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0398227,-34.68835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0280103,-34.6416953,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0282142,-34.6442705,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0287583,-34.6467356,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ESCUELA N° 54</name>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0482569,-34.6107603,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0510307,-34.5978373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <styleUrl>#icon-1500-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.055783,-34.5834324,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>CAJAS</name>
+      <Placemark>
+        <name>MEVIR</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0581406,-34.6585429,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>J. P. VARELA Y LARRAÑAGA</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0685363,-34.6403462,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>L. PREZA Y RUTA 67</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0683186,-34.6513554,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>FRANCISCA P. DE ARTIGAS CASI SANTA ISABEL</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0631087,-34.6448636,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAUCE ESQUINA MONTEVIDEO</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0633732,-34.6523549,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CAMINO BONOMI DONDE SE ABREN LAS DOS VÍAS A LA DERECHA. CALLE A</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0674502,-34.6387696,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SANTA ISABEL Y CONTINUACIÓN LAVALLEJA</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0590901,-34.6435096,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EX ANSINA (MANUEL LEDESMA) CASI DR. MARIO RODRÍGUEZ ZORRILLA</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.070386,-34.6499585,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RUTA 33 KM. 29. PRIMER ENTRADA CONTRA LA RUTA 33</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.1093239,-34.6618709,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CALLE INGRESO DESDE SAUCE, CASI RUTA 6 VIEJA</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0617555,-34.655668,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CNO. TARALLO PRÓXIMO A RUTA 33</name>
+        <description>1° SEMANA (MARTES A DOMINGOS) DE CADA MES</description>
+        <styleUrl>#icon-1500-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            -56.1096067,-34.6858205,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>BARRIDO</name>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0594725,-34.6483346,0
+            -56.0692894,-34.6515914,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0677068,-34.6501168,0
+            -56.0597352,-34.6474778,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0673492,-34.6461054,0
+            -56.0640636,-34.6528392,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.066049,-34.6486556,0
+            -56.062015,-34.6472434,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0658977,-34.6466116,0
+            -56.0636232,-34.6514659,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>BARRIDO</name>
+        <description>DE LUNES A VIERNES</description>
+        <styleUrl>#line-E65100-4294</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -56.0649751,-34.6463379,0
+            -56.063001,-34.6503979,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>BARREDORA MECÁNICA Y CAMIÓN LAVADOR</name>
+      <Placemark>
+        <name>2° SÁBADO DE CADA MES</name>
+        <description><![CDATA[<img src="https://doc-0g-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/fsr7v4igrl1k59hqhe1pmn1dlc/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpxdRYk9UidiwuMAAGiE_QuiRWvQ6mHdufHf-9sUEXwPjRYTRemd5o7lJ7fj_0A0BKygluO-S2vDTI7Akyzey5mYRoToOVaDUpm5gfZFUdzom7qmegm6rDrh6THwA7ZBB-Dw2bgFCPY27sT77o5Xci-tJI_8t8lt0cFvAzCk0Ly42VDYBDsNOXhv9nnhnXGRV0?session=0&fife" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1722-9C27B0</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0g-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/fsr7v4igrl1k59hqhe1pmn1dlc/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGpxdRYk9UidiwuMAAGiE_QuiRWvQ6mHdufHf-9sUEXwPjRYTRemd5o7lJ7fj_0A0BKygluO-S2vDTI7Akyzey5mYRoToOVaDUpm5gfZFUdzom7qmegm6rDrh6THwA7ZBB-Dw2bgFCPY27sT77o5Xci-tJI_8t8lt0cFvAzCk0Ly42VDYBDsNOXhv9nnhnXGRV0?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0657537,-34.6475084,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3° JUEVES DE CADA MES</name>
+        <description><![CDATA[<img src="https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/rsevdoc7bqinlun8jaejl1j78c/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrPS_qARKd1g9_2u74sIbxE447z0S3EijW9_ySF8HLkvMdWu7rxrw8woRVKdOfX8Pn0e8mSb-7LSTnHmoIscYDnb_1hiALzOBxUC8a5kQrYXbfe8OFab0RfhUmMRei0GF5fnQfVO53uqwqe8LhqX9-R-f8YDLvNJ8-b88WUfi_hF13oTcPH4vFO-YT5etgDc-c?session=0&fife" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1722-3949AB</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-88-mymaps.googleusercontent.com/untrusted/hostedimage/j960dlbn7btc9icn6hk50ec2us/rsevdoc7bqinlun8jaejl1j78c/1696594695250/q6VeZAkMqCvY7mO2owtHuv3ZVUCD7GDr/13243034576496477077/5AJ9UNGrPS_qARKd1g9_2u74sIbxE447z0S3EijW9_ySF8HLkvMdWu7rxrw8woRVKdOfX8Pn0e8mSb-7LSTnHmoIscYDnb_1hiALzOBxUC8a5kQrYXbfe8OFab0RfhUmMRei0GF5fnQfVO53uqwqe8LhqX9-R-f8YDLvNJ8-b88WUfi_hF13oTcPH4vFO-YT5etgDc-c?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -56.0618484,-34.6462021,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>INSTITUCIONES SUSTENTABLES</name>
+      <Placemark>
+        <name>ESCUELA N° 109</name>
+        <styleUrl>#icon-1899-006064-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -56.0663226,-34.6492058,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>UNIDADES BARRIALES</name>
+      <Placemark>
+        <name>BARRIO BLANCO</name>
+        <styleUrl>#poly-FF5252-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0711688,-34.6431463,0
+                -56.0696239,-34.6437024,0
+                -56.0692591,-34.6438524,0
+                -56.0689373,-34.6440201,0
+                -56.0686127,-34.6442231,0
+                -56.0683633,-34.6444438,0
+                -56.0681058,-34.644702,0
+                -56.0679126,-34.6450087,0
+                -56.0669631,-34.6447174,0
+                -56.0662121,-34.6382561,0
+                -56.0703749,-34.6378324,0
+                -56.0711688,-34.6431463,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>COVISA 1</name>
+        <styleUrl>#poly-FBC02D-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0672099,-34.6358904,0
+                -56.0674566,-34.6380354,0
+                -56.0647852,-34.6383444,0
+                -56.0644633,-34.6362082,0
+                -56.0672099,-34.6358904,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>JARDINES DEL LICEO</name>
+        <styleUrl>#poly-0288D1-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0614395,-34.6441904,0
+                -56.0559357,-34.6424647,0
+                -56.0547877,-34.6409024,0
+                -56.058929,-34.6407876,0
+                -56.0596318,-34.6426898,0
+                -56.0613537,-34.6430385,0
+                -56.0614395,-34.6441904,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO LIBERTADOR</name>
+        <styleUrl>#poly-CE93D8-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0687178,-34.6186915,0
+                -56.0694903,-34.6232826,0
+                -56.0627526,-34.6239712,0
+                -56.0619801,-34.6194155,0
+                -56.0687178,-34.6186915,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO URANGA</name>
+        <styleUrl>#poly-FFEA00-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0662418,-34.6391792,0
+                -56.067025,-34.6459846,0
+                -56.0652118,-34.6453579,0
+                -56.06489,-34.6423039,0
+                -56.0644393,-34.6393028,0
+                -56.0662418,-34.6391792,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO SIAV - SANTA ISABEL</name>
+        <styleUrl>#poly-7CB342-1200-105-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0647801,-34.6452351,0
+                -56.0615454,-34.6441847,0
+                -56.061422,-34.6424635,0
+                -56.0645334,-34.643152,0
+                -56.0647801,-34.6452351,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>COVISOLAR</name>
+        <styleUrl>#poly-E65100-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0538759,-34.6397936,0
+                -56.0520949,-34.6378869,0
+                -56.0464301,-34.6365452,0
+                -56.0365274,-34.6283088,0
+                -56.0415806,-34.6286355,0
+                -56.0483183,-34.6343913,0
+                -56.0531463,-34.6353093,0
+                -56.0541977,-34.6367041,0
+                -56.0538759,-34.6397936,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO LA CUCHILLA</name>
+        <styleUrl>#poly-F9A825-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0642605,-34.6451186,0
+                -56.0627264,-34.6484813,0
+                -56.0577159,-34.6468396,0
+                -56.0500609,-34.6489536,0
+                -56.0497293,-34.648294,0
+                -56.0495263,-34.6476697,0
+                -56.0495496,-34.6461388,0
+                -56.0503687,-34.6438183,0
+                -56.051406,-34.6420987,0
+                -56.0517619,-34.6416376,0
+                -56.0521178,-34.6414237,0
+                -56.0537034,-34.6416497,0
+                -56.054659,-34.6419793,0
+                -56.0642605,-34.6451186,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO HUMEDAD</name>
+        <styleUrl>#poly-097138-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0596326,-34.6492576,0
+                -56.0649667,-34.6510418,0
+                -56.0634415,-34.6540102,0
+                -56.0605124,-34.653035,0
+                -56.0596326,-34.6492576,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO ROMAN</name>
+        <styleUrl>#poly-01579B-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0718553,-34.6429631,0
+                -56.0723703,-34.6439252,0
+                -56.0702781,-34.6446137,0
+                -56.0703532,-34.6469704,0
+                -56.0692267,-34.6467762,0
+                -56.0673492,-34.6461054,0
+                -56.0679607,-34.6449889,0
+                -56.0681727,-34.6446744,0
+                -56.068417,-34.6444306,0
+                -56.0688701,-34.6441338,0
+                -56.0693125,-34.6438899,0
+                -56.0708575,-34.6432986,0
+                -56.0718553,-34.6429631,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>BARRIO CONGRESAL</name>
+        <styleUrl>#poly-880E4F-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0634415,-34.6540102,0
+                -56.06531,-34.6503004,0
+                -56.0699663,-34.6518538,0
+                -56.0689792,-34.6536366,0
+                -56.0666564,-34.6529261,0
+                -56.0659645,-34.6528334,0
+                -56.0648164,-34.6544838,0
+                -56.0634415,-34.6540102,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>JARDINES DE SAUCE</name>
+        <styleUrl>#poly-9C27B0-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0653207,-34.6503004,0
+                -56.0673063,-34.6461672,0
+                -56.0693326,-34.6468872,0
+                -56.0685602,-34.6485465,0
+                -56.081939,-34.6518739,0
+                -56.0823467,-34.65536,0
+                -56.0653207,-34.6503004,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>CENTRO</name>
+        <styleUrl>#poly-795548-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0673492,-34.6461054,0
+                -56.0649384,-34.6509685,0
+                -56.0596169,-34.6491856,0
+                -56.0588552,-34.6472527,0
+                -56.0627479,-34.6484813,0
+                -56.064282,-34.6451186,0
+                -56.0673492,-34.6461054,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>LA ROSADA Y CAMINO BERRUTI</name>
+        <styleUrl>#poly-0288D1-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0581062,-34.6520513,0
+                -56.0648164,-34.6544838,0
+                -56.0727617,-34.657929,0
+                -56.0684701,-34.6650948,0
+                -56.0611316,-34.6659596,0
+                -56.0577413,-34.664583,0
+                -56.0576126,-34.6633123,0
+                -56.0549948,-34.6564288,0
+                -56.0571191,-34.6535694,0
+                -56.0581062,-34.6520513,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>CUCHILLA DE ROCHA</name>
+        <styleUrl>#poly-AFB42B-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -56.0339512,-34.6362244,0
+                -56.0359253,-34.6459693,0
+                -56.0364832,-34.6495704,0
+                -56.018845,-34.649641,0
+                -56.0147251,-34.6383429,0
+                -56.0139955,-34.6356594,0
+                -56.0339512,-34.6362244,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>MUNICIPIO</name>
+      <Placemark>
+        <name>MUNICIPIO DE SAUCE</name>
+        <styleUrl>#poly-AFB42B-1000-43-nodesc</styleUrl>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <tessellate>1</tessellate>
+                <coordinates>
+                  -56.233206,-34.743675,0
+                  -56.233207,-34.743679,0
+                  -56.233176,-34.743799,0
+                  -56.233206,-34.743675,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <tessellate>1</tessellate>
+                <coordinates>
+                  -55.991014,-34.659042,0
+                  -55.980846,-34.650618,0
+                  -55.97944,-34.649671,0
+                  -55.975607,-34.647883,0
+                  -55.973331,-34.646318,0
+                  -55.971447,-34.642534,0
+                  -55.956065,-34.629276,0
+                  -55.94749,-34.62202,0
+                  -55.938135,-34.61401,0
+                  -55.932287,-34.611153,0
+                  -55.933694,-34.6107,0
+                  -55.935017,-34.610289,0
+                  -55.934961,-34.609168,0
+                  -55.932901,-34.609125,0
+                  -55.932357,-34.608005,0
+                  -55.933439,-34.606614,0
+                  -55.932841,-34.605494,0
+                  -55.933435,-34.604193,0
+                  -55.933209,-34.601974,0
+                  -55.934477,-34.601252,0
+                  -55.936142,-34.600922,0
+                  -55.93479,-34.598497,0
+                  -55.934785,-34.595874,0
+                  -55.934069,-34.594498,0
+                  -55.930621,-34.592861,0
+                  -55.929695,-34.590955,0
+                  -55.92594,-34.585537,0
+                  -55.925984,-34.584983,0
+                  -55.927411,-34.585092,0
+                  -55.927586,-34.582621,0
+                  -55.928341,-34.580591,0
+                  -55.927269,-34.579781,0
+                  -55.926822,-34.578638,0
+                  -55.926284,-34.577089,0
+                  -55.928066,-34.576017,0
+                  -55.931499,-34.575239,0
+                  -55.932657,-34.574574,0
+                  -55.93228,-34.573351,0
+                  -55.931448,-34.571366,0
+                  -55.932292,-34.570747,0
+                  -55.933344,-34.569407,0
+                  -55.933192,-34.568723,0
+                  -55.932005,-34.567277,0
+                  -55.932342,-34.566763,0
+                  -55.933714,-34.565999,0
+                  -55.933469,-34.565423,0
+                  -55.930914,-34.564169,0
+                  -55.931077,-34.563418,0
+                  -55.932656,-34.562872,0
+                  -55.933238,-34.562404,0
+                  -55.932729,-34.561767,0
+                  -55.931638,-34.56169,0
+                  -55.93049,-34.560976,0
+                  -55.930263,-34.560431,0
+                  -55.932172,-34.558459,0
+                  -55.933368,-34.557588,0
+                  -55.932894,-34.556328,0
+                  -55.931699,-34.554942,0
+                  -55.931452,-34.553778,0
+                  -55.930737,-34.552817,0
+                  -55.930899,-34.552378,0
+                  -55.931592,-34.551854,0
+                  -55.930345,-34.550268,0
+                  -55.929126,-34.5495,0
+                  -55.928572,-34.548648,0
+                  -55.927246,-34.547538,0
+                  -55.925757,-34.548727,0
+                  -55.92421,-34.548455,0
+                  -55.924687,-34.547343,0
+                  -55.924447,-34.546581,0
+                  -55.924538,-34.54582,0
+                  -55.928364,-34.544841,0
+                  -55.928933,-34.544079,0
+                  -55.928509,-34.543486,0
+                  -55.927001,-34.544005,0
+                  -55.926227,-34.543488,0
+                  -55.926603,-34.541616,0
+                  -55.925928,-34.54035,0
+                  -55.926722,-34.539235,0
+                  -55.928214,-34.537707,0
+                  -55.928308,-34.536245,0
+                  -55.930633,-34.535787,0
+                  -55.952346,-34.528418,0
+                  -55.978662,-34.560354,0
+                  -55.990572,-34.574954,0
+                  -55.999257,-34.593861,0
+                  -55.999861,-34.594851,0
+                  -56.00029,-34.595275,0
+                  -56.001501,-34.59542,0
+                  -56.001428,-34.594507,0
+                  -56.001889,-34.593829,0
+                  -56.003222,-34.593076,0
+                  -56.004838,-34.591145,0
+                  -56.005157,-34.590629,0
+                  -56.004136,-34.588376,0
+                  -56.004004,-34.586335,0
+                  -56.004062,-34.584241,0
+                  -56.005733,-34.581857,0
+                  -56.00608,-34.581411,0
+                  -56.006204,-34.580181,0
+                  -56.006106,-34.578951,0
+                  -56.00718,-34.578164,0
+                  -56.008127,-34.577247,0
+                  -56.008632,-34.576722,0
+                  -56.009041,-34.575937,0
+                  -56.009684,-34.575449,0
+                  -56.010112,-34.573841,0
+                  -56.011028,-34.573473,0
+                  -56.012703,-34.572554,0
+                  -56.012985,-34.57169,0
+                  -56.013205,-34.570983,0
+                  -56.014564,-34.570431,0
+                  -56.015796,-34.569775,0
+                  -56.016489,-34.568622,0
+                  -56.016613,-34.567549,0
+                  -56.01661,-34.56624,0
+                  -56.016606,-34.56467,0
+                  -56.01692,-34.563936,0
+                  -56.017962,-34.56328,0
+                  -56.021496,-34.563977,0
+                  -56.029234,-34.565562,0
+                  -56.037045,-34.567116,0
+                  -56.042705,-34.569006,0
+                  -56.041467,-34.571961,0
+                  -56.042489,-34.57212,0
+                  -56.055466,-34.568714,0
+                  -56.060886,-34.567402,0
+                  -56.076955,-34.563216,0
+                  -56.081087,-34.567403,0
+                  -56.085272,-34.572089,0
+                  -56.094179,-34.562553,0
+                  -56.101515,-34.563407,0
+                  -56.102397,-34.557214,0
+                  -56.102132,-34.553351,0
+                  -56.105402,-34.551458,0
+                  -56.109849,-34.550647,0
+                  -56.112032,-34.551185,0
+                  -56.111665,-34.552324,0
+                  -56.113654,-34.55393,0
+                  -56.114882,-34.554049,0
+                  -56.118352,-34.556054,0
+                  -56.118971,-34.556673,0
+                  -56.119283,-34.557492,0
+                  -56.117822,-34.558925,0
+                  -56.120021,-34.560172,0
+                  -56.137685,-34.562069,0
+                  -56.146053,-34.563071,0
+                  -56.151068,-34.563134,0
+                  -56.149065,-34.555742,0
+                  -56.144516,-34.537626,0
+                  -56.150719,-34.539791,0
+                  -56.183082,-34.551437,0
+                  -56.182391,-34.553775,0
+                  -56.183869,-34.558124,0
+                  -56.184629,-34.562007,0
+                  -56.184171,-34.564959,0
+                  -56.18639,-34.568381,0
+                  -56.188925,-34.572061,0
+                  -56.189513,-34.574403,0
+                  -56.189636,-34.578135,0
+                  -56.188442,-34.580873,0
+                  -56.188072,-34.580397,0
+                  -56.186913,-34.579402,0
+                  -56.185598,-34.578538,0
+                  -56.18397,-34.57824,0
+                  -56.182815,-34.578156,0
+                  -56.181982,-34.579635,0
+                  -56.181299,-34.579333,0
+                  -56.181191,-34.578682,0
+                  -56.180456,-34.578641,0
+                  -56.179518,-34.579946,0
+                  -56.178575,-34.580253,0
+                  -56.178624,-34.579558,0
+                  -56.178253,-34.578778,0
+                  -56.177099,-34.578825,0
+                  -56.175995,-34.578438,0
+                  -56.174895,-34.578658,0
+                  -56.172647,-34.580662,0
+                  -56.170391,-34.580712,0
+                  -56.169766,-34.581582,0
+                  -56.166886,-34.583066,0
+                  -56.166478,-34.585714,0
+                  -56.165014,-34.586804,0
+                  -56.163485,-34.585116,0
+                  -56.161946,-34.586653,0
+                  -56.162969,-34.588163,0
+                  -56.170872,-34.605371,0
+                  -56.171821,-34.613101,0
+                  -56.17509,-34.622061,0
+                  -56.175211,-34.622162,0
+                  -56.175822,-34.625901,0
+                  -56.176845,-34.633561,0
+                  -56.176871,-34.639282,0
+                  -56.178407,-34.65072,0
+                  -56.178419,-34.653479,0
+                  -56.176466,-34.659002,0
+                  -56.173905,-34.666979,0
+                  -56.171522,-34.673409,0
+                  -56.170234,-34.67203,0
+                  -56.169376,-34.671143,0
+                  -56.168793,-34.67075,0
+                  -56.168365,-34.670412,0
+                  -56.167288,-34.670401,0
+                  -56.165428,-34.670661,0
+                  -56.163327,-34.670935,0
+                  -56.159042,-34.671569,0
+                  -56.155993,-34.671963,0
+                  -56.15238,-34.6724,0
+                  -56.149891,-34.672683,0
+                  -56.145277,-34.673299,0
+                  -56.142029,-34.673709,0
+                  -56.138477,-34.674171,0
+                  -56.137017,-34.674352,0
+                  -56.136201,-34.674453,0
+                  -56.134349,-34.674659,0
+                  -56.132072,-34.674992,0
+                  -56.13104,-34.675145,0
+                  -56.130921,-34.675647,0
+                  -56.131909,-34.67981,0
+                  -56.132193,-34.680771,0
+                  -56.132825,-34.682075,0
+                  -56.133733,-34.683875,0
+                  -56.134037,-34.684728,0
+                  -56.134368,-34.68585,0
+                  -56.134774,-34.687123,0
+                  -56.135024,-34.6881,0
+                  -56.135318,-34.689115,0
+                  -56.135636,-34.690351,0
+                  -56.136226,-34.692509,0
+                  -56.136906,-34.694777,0
+                  -56.137314,-34.696345,0
+                  -56.137928,-34.698799,0
+                  -56.138517,-34.700827,0
+                  -56.138773,-34.701689,0
+                  -56.139015,-34.702506,0
+                  -56.139378,-34.703797,0
+                  -56.140126,-34.706158,0
+                  -56.140648,-34.708,0
+                  -56.141722,-34.71166,0
+                  -56.142488,-34.712602,0
+                  -56.139821,-34.712688,0
+                  -56.135824,-34.713827,0
+                  -56.131725,-34.713104,0
+                  -56.129011,-34.712235,0
+                  -56.128222,-34.710753,0
+                  -56.105824,-34.698008,0
+                  -56.104287,-34.703042,0
+                  -56.104558,-34.706252,0
+                  -56.103955,-34.706801,0
+                  -56.101904,-34.705722,0
+                  -56.09778,-34.712366,0
+                  -56.097314,-34.714319,0
+                  -56.091561,-34.720837,0
+                  -56.084827,-34.71721,0
+                  -56.084667,-34.716647,0
+                  -56.083926,-34.714958,0
+                  -56.083657,-34.712877,0
+                  -56.083165,-34.707198,0
+                  -56.082421,-34.704685,0
+                  -56.080674,-34.700396,0
+                  -56.080163,-34.698292,0
+                  -56.079225,-34.698343,0
+                  -56.078713,-34.697354,0
+                  -56.078697,-34.696448,0
+                  -56.079095,-34.696056,0
+                  -56.079441,-34.69549,0
+                  -56.079376,-34.694636,0
+                  -56.079186,-34.69371,0
+                  -56.078561,-34.692991,0
+                  -56.07814,-34.692791,0
+                  -56.077578,-34.692553,0
+                  -56.077305,-34.69206,0
+                  -56.076744,-34.692002,0
+                  -56.076219,-34.692212,0
+                  -56.074428,-34.6925,0
+                  -56.072836,-34.692908,0
+                  -56.071859,-34.693104,0
+                  -56.070827,-34.693047,0
+                  -56.070466,-34.693212,0
+                  -56.06957,-34.693874,0
+                  -56.068541,-34.694868,0
+                  -56.067533,-34.69489,0
+                  -56.066234,-34.694925,0
+                  -56.065651,-34.69368,0
+                  -56.064323,-34.69259,0
+                  -56.062792,-34.693111,0
+                  -56.060247,-34.693336,0
+                  -56.055291,-34.694684,0
+                  -56.059292,-34.71235,0
+                  -56.041122,-34.702154,0
+                  -56.027422,-34.690312,0
+                  -56.004832,-34.670994,0
+                  -55.991014,-34.659042,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

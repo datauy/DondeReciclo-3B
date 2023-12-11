@@ -190,36 +190,61 @@ namespace :importer do
     end
   end
   #
-  task :import_kmls, [:dir, :program_id] => [:environment] do |_, args|
+  task :import_canelones, [:dir, :program_id] => [:environment] do |_, args|
     dir = args[:dir].present? ? args[:dir] : 'canelones_uy'
     program_id = args[:program_id].present? ? args[:program_id] : 65
-    geo_factory = RGeo::Cartesian.factory()
-    #Dir.glob("#{Rails.root}/db/data/import_files/kmls/#{dir}/*") do |file|
-    #  puts File.read( file ) ).inspect
-    #end
-    kml = Nokogiri::XML(File.open("/home/fernando/PROJECTS/DATA/DondeReciclo-3B/db/data/import_files/kmls/canelones_uy/MUNICIPIO DE CIUDAD DE LA COSTA.kml"))
-    #puts kml.inspect
-    name = kml.css("Document name").first.text
-    i = 0
-    kml.css("Placemark").each do |pm|
-      i += 1
-      geo_name = pm.css("name").first.text
-      sub_prog = {
-        program_id: program_id,
-        name: name,
-        full_name: name
-      }
-      sub_program = SubProgram.find_or_create_by(sub_prog)
-      if !sub_program.validate!
-        puts "ERROR: #{sub_program.errors.full_messages}\n next..."
-        next
+    Dir.glob("#{Rails.root}/db/data/import_files/kmls/#{dir}/*") do |file|
+      #file = "/home/fernando/PROJECTS/DATA/DondeReciclo-3B/db/data/import_files/kmls/canelones_uy/MUNICIPIO DE CIUDAD DE LA COSTA.kml"
+      kml = Nokogiri::XML(File.open(file))
+      #puts kml.inspect
+      #name = kml.css("Document name").first.text
+      i = 0
+      kml.css("Folder").each do |fol|
+        sub_name = fol.css("name").first.text.strip
+        if sub_name.include?('RECOLECCIÓN DE RESTOS VEGETALES') || sub_name.include?('RECICLAJE - ECOPUNTOS')
+          if sub_name.include? 'RECICLAJE - ECOPUNTOS'
+            sub_name = 'RECICLAJE - ECOPUNTOS'
+            materials = Material.find([1,2,3])
+            material = 6
+          else
+            sub_name = 'RECOLECCIÓN DE RESTOS VEGETALES'
+            materials = [Material.find(7)]
+            material = 7
+          end
+          sub_prog = {
+            program_id: 65,
+            name: sub_name,
+            full_name: sub_name,
+            material_id: material,
+          }
+          sub_program = SubProgram.find_or_create_by(sub_prog)
+          if !sub_program.validate!
+            puts "ERROR: #{sub_program.errors.full_messages}\n next..."
+            next
+          else
+            sub_program.materials = materials
+            sub_program.save
+          end
+          puts "Processing #{sub_name} in #{file}" 
+          process_kml_folder(fol, sub_program)
+        end
       end
+    end
+  end
+    
+  def process_kml_folder(kml, sub_program)
+    geo_factory = RGeo::Cartesian.factory()
+    kml.css("Placemark").each do |pm|
+      geo_name = pm.css("name").first.text
+      geo_desc = pm.css("description").first.present? ? pm.css("description").first.text : ''
+      
       zone_data = {
         location: nil,
         route: nil,
         sub_program: sub_program,
         is_route: false,
-        pick_up_type: 1
+        pick_up_type: 1,
+        information: geo_desc
       }
       polygon = pm.css("Polygon")
       if polygon.present?
@@ -230,16 +255,20 @@ namespace :importer do
           text.split("\n").
           map {|l| l.strip.split(',')}.
           reject! { |c| c.empty? }.each do |coord|
-            ring << geo_factory.point(coord[1], coord[0]) 
+            ring << geo_factory.point(coord[0], coord[1]) 
           end
           outerring = geo_factory.linear_ring(ring)
           poly = geo_factory.polygon(outerring)
           geometry = geo_factory.multi_polygon([poly])
           loc = {
             name: geo_name,
-            geometry: geometry
+            geometry: geometry,
+            country_id: 1,
+            loc_type: 5
           }
           loc = Location.find_or_create_by(loc)
+          #asume area, adding municipality
+          add_location_parent(loc, 3, 1)
           zone_data[:location] = loc
           zone = Zone.find_or_create_by(zone_data)
           if !zone.validate!
@@ -258,7 +287,7 @@ namespace :importer do
             text.split("\n").
             map {|l| l.strip.split(',')}.
             reject! { |c| c.empty? }.each do |coord|
-              line_points << geo_factory.point(coord[1], coord[0])
+              line_points << geo_factory.point(coord[0], coord[1])
             end
             line_string = geo_factory.line_string(line_points)
             geometry = geo_factory.multi_line_string([line_string])
@@ -280,24 +309,41 @@ namespace :importer do
           point_data = pm.css("Point coordinates").first
           if point_data.present?
             coord = point_data.text.strip.split(',')
-            point = geo_factory.point(coord[1], coord[0])
-          end
-          container = Container.find_or_create_by({
-            sub_program_id: sub_program.id,
-            latitude: coord[1],
-            longitude: coord[0],
-            container_type_id: 1,#ctypes[row[8]],
-            public_site: 1,
-            #site_type: row[6],
-            site: geo_name,
-          })
-          if !container.validate!
-            puts "ERROR: #{zone.errors.full_messages}\n next..."
-            next
+            container = Container.find_or_create_by({
+              sub_program_id: sub_program.id,
+              latitude: coord[1],
+              longitude: coord[0],
+              container_type_id: 1,#ctypes[row[8]],
+              public_site: 1,
+              #site_type: row[6],
+              site: geo_name,
+              information: geo_desc
+            })
+            if !container.validate!
+              puts "ERROR: #{zone.errors.full_messages}\n next..."
+              next
+            end
           end
         end
       end
       #puts poly.inspect
+    end
+  end
+  def add_location_parent(loc, parent_type, cid)
+    if loc.parent_location_id.nil?
+      p "Processing parent location: #{loc.id} - #{loc.loc_type} - #{loc.name}"
+      parent_id = Location.
+      where( loc_type: parent_type, country_id: cid ).
+      where( "ST_Intersects( st_buffer(geometry, -0.001), (select geometry from locations where id = :loc) )", loc: loc.id).
+      pluck(:id)
+      if ( parent_id.present? )
+        p "Updating Parent location #{parent_id}"
+        loc.update(parent_location_id: parent_id.first)
+      else
+        p "No state found"
+      end
+    else
+      p "Parent location already set: #{loc.id} - #{loc.loc_type} - #{loc.name}"
     end
   end
 end
