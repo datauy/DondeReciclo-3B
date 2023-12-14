@@ -5,7 +5,7 @@ ActiveAdmin.register Location do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :geometry
+  permit_params :name, :geometry, :loc_type, :code, :parent_location, :country_id, :parent_location_id
   #
   # or
   #
@@ -38,6 +38,10 @@ ActiveAdmin.register Location do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :loc_type
+      f.input :code
+      f.input :parent_location
+      f.input :country_id
       f.input :geometry, :as => :text
     end
     f.actions

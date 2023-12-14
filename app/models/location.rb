@@ -3,6 +3,7 @@ class Location < ApplicationRecord
 
   has_many :location_relations
   has_many :sub_programs, through: :location_relations
+  belongs_to :parent_location, class_name: 'Location'
 
   has_many :zones
 
