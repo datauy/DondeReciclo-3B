@@ -28,10 +28,14 @@ class UserApiController < ApplicationController
   def report
     begin
       user = current_resource_owner
+      message = "#{params[:comment]}<br><br>-----------------<br>Admin:#{request.host}/admin/containers/#{params[:id]}/edit"
+      if params[:id].include? ','
+        message = "#{params[:comment]}<br><br>-----------------#{request.client}<br>Location:https://dondereciclo.uy/lugar/#{params[:id]}"
+      end
       req_params = [
         ['name', user.name],
         ['from', user.email],
-        ['message', "#{params[:comment]}<br><br>-----------------<br>Admin:#{request.host}/admin/containers/#{params[:id]}/edit"],
+        ['message', message],
         ['subject', "DR: Reportan #{params[:subject]}"],
         ['actAsType', "customer"]
       ]
