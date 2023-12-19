@@ -77,7 +77,7 @@ class UtilsController < ApplicationController
       if params[:email] && params[:name]
         message = "#{params[:comment]}<br><br>-----------------<br>Admin:#{request.host}/admin/containers/#{params[:id]}/edit"
         if params[:id].include? ','
-          message = "#{params[:comment]}<br><br>-----------------#{request.client}<br>Location:https://dondereciclo.uy/lugar/#{params[:id]}"
+          message = "#{params[:comment]}<br><br>-----------------<br>Location:https://dondereciclo.uy/lugar/#{params[:id]}"
         end
         req_params = [
           ['name', params[:name]],
