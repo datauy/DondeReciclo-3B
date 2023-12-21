@@ -1,6 +1,8 @@
 #Donde Reciclo 3 Backend 2.0
 Repositorio del backend de Dónde Reciclo en su última edición con Rails con objetos editables para el manejo de datos por parte de los programas y nuevas interacciones.
-## Versión 2.2.0
+## Versión 2.2.3
+Se pasan reportes a público. Se agregan localidades de Canelones y se corrige admin de Localidades
+### Versión 2.2.0
 Se agregan funciones de materiales para contenedores, de forma de soportar tales búsquedas
 ### Versión 2.1.0
 Esta versión agrega funcionalidades de dimensiones de economía circular y versionador para la API 

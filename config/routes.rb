@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'api/user', to: "user_api#me"
   post 'api/user/update', to: 'user_api#update'
   post 'api/user/delete', to: 'user_api#delete'
-  post 'api/report', to: "user_api#report"
+  post 'api/report', to: "utils#report"
   post 'api/collect', to: "user_api#collect"
   post 'password/forgot', to: 'utils#forgot'
   post 'password/reset', to: 'utils#reset'
