@@ -116,9 +116,11 @@ def add_route(name, feature, sub_id, pick_up_type = 2, color = nil, custom_activ
       zone.schedule_ids = days_time(feature.properties['DIAS_DE_RE'], feature.properties['HORARIO_DE'])
     end
     zone.color = color if color.present?
-    zone.custom_active = custom_active
-    zone.icon_start.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
-    zone.icon_end.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
+    if custom_active
+      zone.custom_active = custom_active
+      zone.icon_start.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
+      zone.icon_end.attach(io: File.open("#{Rails.root}/app/assets/images/motocargueros.svg"), filename: 'motocargueros.svg', content_type: 'image/svg+xml')
+    end
     zone.save()
   end
 end
@@ -126,20 +128,21 @@ end
 ###### IMPORTER ###########3
 #
 namespace :importer do
-  task :routes,  [:country_id, :filename] => [:environment] do |_, args|
-    #Params
-    file = args[:filename].present? ? args[:filename] : 'motorecicladores-CO.geojson'
-    #Set default to COL
-    country = args[:country].present? ? args[:country] : 2
-    #Load file
-    f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
-    #mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
-    subprogram = SubProgram.find(1009)
-    f.each do |feature|
-      if true #feature.properties['SUBPROGRAM'].present?
-        #subprogram = SubProgram.find(feature.properties['SUBPROGRAM'])
-        name = feature.properties['Name'].present? ? "Motocargueros #{feature.properties['Name']}" : "Motocargueros #{feature.properties['BARRIO']}"
-        add_route(name, feature, subprogram.id)
+  task :routes,  [:subp_id, :filename] => [:environment] do |_, args|
+    if args[:subp_id].present?
+      subp_id = args[:subp_id]
+      #Params
+      file = args[:filename].present? ? args[:filename] : 'limpieza-de-playas1-rutas-CO.geojson'
+      #Load file
+      f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+      #mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
+      #subprogram = SubProgram.find(1009)
+      f.each do |feature|
+        if true #feature.properties['SUBPROGRAM'].present?
+          #subprogram = SubProgram.find(feature.properties['SUBPROGRAM'])
+          name = feature.properties['Name'].present? ? feature.properties['Name'] : "Motocargueros"
+          add_route(name, feature, subp_id)
+        end
       end
     end
   end
@@ -231,7 +234,36 @@ namespace :importer do
       end
     end
   end
-    
+  task :containers_json, [:subp_id, :filename] => [:environment] do |_, args|
+    if args[:subp_id].present?
+      subp_id = args[:subp_id]
+      file = args[:filename].present? ? args[:filename] : 'limpieza-de-playas1-puntos-CO.geojson'
+      #Load file
+      f = RGeo::GeoJSON.decode(File.read( "db/data/#{file}" ))
+      #mainMaterial = Material.find_by({:name => 'Materiales reciclables'})
+      f.each do |feature|
+        container = {
+          site: feature.properties["Name"].present? ? feature.properties["Name"] : '',
+          latlon: feature.geometry,
+          latitude: feature.geometry.coordinates[1],
+          longitude: feature.geometry.coordinates[0],
+          location:  feature.properties["ciudad"].present? ? feature.properties["ciudad"]: '',
+          address: feature.properties["Dirección"].present? ? feature.properties["Dirección"] : '',
+          public_site: 1,
+          sub_program_id: subp_id,
+          site_type: feature.properties["site_type"] == "Espacio Público" ? "En vía pública" : "",
+          container_type_id: feature.properties["CT"].present? ? feature.properties["CT"] : 3,
+        }
+        container = Container.find_or_create_by(container)
+        if !container.validate!
+          puts "ERROR: #{container.errors.full_messages}\n exiting..."
+          next
+        end
+      end
+    else
+      puts "ERROR: no suprogram selected\n exiting..."
+    end
+  end
   def process_kml_folder(kml, sub_program)
     geo_factory = RGeo::Cartesian.factory()
     kml.css("Placemark").each do |pm|
