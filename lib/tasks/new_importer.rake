@@ -105,7 +105,7 @@ def add_route(name, feature, sub_id, pick_up_type = 2, color = nil, custom_activ
     pick_up_type: pick_up_type,
     #information: zone_info,
   }
-  
+
   zone = Zone.find_or_create_by(zone_data)
   if !zone.validate!
     puts "ERROR: #{zone.errors.full_messages}\n next..."
@@ -143,6 +143,59 @@ namespace :importer do
           name = feature.properties['Name'].present? ? feature.properties['Name'] : "Motocargueros"
           add_route(name, feature, subp_id)
         end
+      end
+    end
+  end
+  #
+  task :zones, [:file, :pick_up_type, :subp_id] => :environment do |_, args|
+    puts "SATRTING ZONES #{args[:file]}"
+    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
+    if !args[:file].present?
+      exit
+    end
+    f = RGeo::GeoJSON.decode(File.read("db/data/#{args[:file]}.geojson"))
+    f.each do |feature|
+      puts "FEATURE ZONES #{feature.properties["name"]}"
+      loc = {
+        name: feature.properties["name"],
+        geometry: feature.geometry,
+        loc_type: 'area',
+        country_id: 1,
+        parent_location_id: 362
+      }
+      begin
+        loc = Location.find_or_create_by(loc)
+      rescue
+        puts "FEATURE ZONES LOC ERROR #{$!.message}"
+        next
+      end
+      #todo make it general
+      #add_location_parent(loc, 3, 1)
+      if ( !args[:subp_id] )
+        sub_prog = {
+          program_id: 1,
+          city:  feature.properties["Ciudad"],
+          address: feature.properties["Dirección"],
+          email: feature.properties["Correo"],
+          phone: feature.properties["Teléfono"],
+          name: feature.properties["Organizaci"],
+          full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"]
+        }
+        sub_program = SubProgram.find_or_create_by(sub_prog)
+        subp_id = sub_program.id
+      else
+        subp_id = args[:subp_id]
+      end
+      zone_data = {
+        location: loc,
+        sub_program_id: subp_id.to_i,
+        is_route: FALSE,
+        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type].to_i : 1
+      }
+      zone = Zone.find_or_create_by(zone_data)
+      if !zone.validate!
+        puts "ERROR: #{zone.errors.full_messages}\n next..."
+        next
       end
     end
   end
@@ -228,12 +281,38 @@ namespace :importer do
             sub_program.materials = materials
             sub_program.save
           end
-          puts "Processing #{sub_name} in #{file}" 
+          puts "Processing #{sub_name} in #{file}"
           process_kml_folder(fol, sub_program)
         end
       end
     end
   end
+  #
+  task :containers, [:filename] => [:environment] do |_, args|
+    if args[:filename].present?
+      containers = []
+      CSV.foreach("db/data/#{args[:filename]}.csv", headers: true) do |row|
+        containers << {
+          public_site: 1,
+          hidden: 0,
+          state: 'Rivera',
+          site: row[2],
+          #address: row[1],
+          #location: nil,
+          #external_id: nil,
+          sub_program_id: 12,
+          #site_type: 'Farmacia',
+          latitude: row[1],
+          longitude: row[0],
+          container_type_id: 5,
+          information: row[3]
+        }
+      end
+      #puts containers.inspect
+      Container.import containers
+    end
+  end
+  #
   task :containers_json, [:subp_id, :filename] => [:environment] do |_, args|
     if args[:subp_id].present?
       subp_id = args[:subp_id]
@@ -269,7 +348,7 @@ namespace :importer do
     kml.css("Placemark").each do |pm|
       geo_name = pm.css("name").first.text
       geo_desc = pm.css("description").first.present? ? pm.css("description").first.text : ''
-      
+
       zone_data = {
         location: nil,
         route: nil,
@@ -287,7 +366,7 @@ namespace :importer do
           text.split("\n").
           map {|l| l.strip.split(',')}.
           reject! { |c| c.empty? }.each do |coord|
-            ring << geo_factory.point(coord[0], coord[1]) 
+            ring << geo_factory.point(coord[0], coord[1])
           end
           outerring = geo_factory.linear_ring(ring)
           poly = geo_factory.polygon(outerring)

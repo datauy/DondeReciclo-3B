@@ -232,39 +232,6 @@ namespace :importer_col do
     puts "\n\nSe importaron #{i} contenedores_colombia\n"
   end
   #
-  task :zones, [:file, :pick_up_type] => :environment do |_, args|
-    #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
-    file = args[:file].present? ? args[:file] : 'cobertura-Colombia-4326.geojson'
-    f = RGeo::GeoJSON.decode(File.read("db/data/#{file}"))
-    f.each do |feature|
-      loc = {
-        name: feature.properties["Cobertura"],
-        geometry: feature.geometry
-      }
-      loc = Location.find_or_create_by(loc)
-      sub_prog = {
-        program_id: 1,
-        city:  feature.properties["Ciudad"],
-        address: feature.properties["Dirección"],
-        email: feature.properties["Correo"],
-        phone: feature.properties["Teléfono"],
-        name: feature.properties["Organizaci"],
-        full_name: feature.properties["OR_"].present? ? feature.properties["OR_"] : feature.properties["Organizaci"]
-      }
-      sub_program = SubProgram.find_or_create_by(sub_prog)
-      zone_data = {
-        location: loc,
-        sub_program: sub_program,
-        is_route: FALSE,
-        pick_up_type: args[:pick_up_type].present? ? args[:pick_up_type] : 1
-      }
-      zone = Zone.find_or_create_by(zone_data)
-      if !zone.validate!
-        puts "ERROR: #{zone.errors.full_messages}\n next..."
-        next
-      end
-    end
-  end
   task :update_zones  => :environment do
     #@geo_factory = RGeo::Geographic.spherical_factory(srid: 4326)
     SubProgram.
