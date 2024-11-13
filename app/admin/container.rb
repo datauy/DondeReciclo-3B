@@ -86,7 +86,7 @@ ActiveAdmin.register Container do
       f.input :custom_icon, as: :file
       if f.object.custom_icon.attached?
         span image_tag(f.object.custom_icon)
-          a "Borrar", src: delete_image_admin_container_path(image_id: f.object.custom_icon.id), method: :delete, "data-confirm": "Confirme que desea eliminarla"
+          a "Borrar", href: delete_image_admin_container_path(image_id: f.object.custom_icon.id), method: :delete, "data-confirm": "Confirme que desea eliminarla"
       end
       f.input :custom_icon_active
 
@@ -114,9 +114,10 @@ ActiveAdmin.register Container do
     end
   end
   #
-  member_action :delete_image, method: :delete do
-    #@pic = ActiveStorage::Attachment.find(params[:id])
-    #@pic.purge_later
+  member_action :delete_image, method: [:delete, :get] do
+    if resource.icon.attached?
+      resource.icon.delete
+    end
     puts "\n\nPASA MEMBER DELETE\n\n"
     #edirect_to collection_path, notice: "Imagen borrada"
   end
