@@ -128,6 +128,18 @@ end
 ###### IMPORTER ###########3
 #
 namespace :importer do
+  task :run_operation,  [:op, :subp_id, :filename] => [:environment] do |_, args|
+    filename = args[:filename].present? ? args[:filename] : 'db/data/import_files/kmls/plan_vale/Islas_reciclables_rocha.kml'
+    subid = args[:subp_id].present? ? args[:subp_id] : 12
+    op = args[:op].present? ? args[:op] : 'process_kml'
+    puts "Run operation start #{op}"
+    if op == 'process_kml'
+      kml = Nokogiri::XML(File.open(filename))
+      subprogram = SubProgram.find(subid)
+      process_kml(kml, subprogram, 5)
+    end
+    puts "Run operation end #{op}"
+  end
   task :routes,  [:subp_id, :filename] => [:environment] do |_, args|
     if args[:subp_id].present?
       subp_id = args[:subp_id]
@@ -282,7 +294,7 @@ namespace :importer do
             sub_program.save
           end
           puts "Processing #{sub_name} in #{file}"
-          process_kml_folder(fol, sub_program)
+          process_kml(fol, sub_program, 1)
         end
       end
     end
@@ -343,7 +355,7 @@ namespace :importer do
       puts "ERROR: no suprogram selected\n exiting..."
     end
   end
-  def process_kml_folder(kml, sub_program)
+  def process_kml(kml, sub_program, type)
     geo_factory = RGeo::Cartesian.factory()
     kml.css("Placemark").each do |pm|
       geo_name = pm.css("name").first.text
@@ -424,7 +436,7 @@ namespace :importer do
               sub_program_id: sub_program.id,
               latitude: coord[1],
               longitude: coord[0],
-              container_type_id: 1,#ctypes[row[8]],
+              container_type_id: type,#ctypes[row[8]],
               public_site: 1,
               #site_type: row[6],
               site: geo_name,
