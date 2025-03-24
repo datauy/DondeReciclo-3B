@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1r7AjgQKvHAG9VH0C18tGqB9772ZsNVcu">
+	<name>Coop. 3R</name>
+	<Schema name="__managed_schema" id="__managed_schema">
+		<SimpleField type="int" name="COL53C2703B4EB8DDC8">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E56711E">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4ECF7AE1">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E3E21B4">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E47E10A">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E357F0E">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E489A5E">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E1FB10C">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E2F9598">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4EFB2B97">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E6FFE1B">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4E90AD38">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F3EBBAD">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FBA9681">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F37F743">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FAAF3C1">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F615469">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FE13031">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F3654AF">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FE9F0F8">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F6780F8">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FE770AE">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F986AE9">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F67002A">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F21CF55">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F9F069B">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F835631">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F969335">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F45D920">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F14C07D">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FD32F3A">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FC7EADB">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F9A37C6">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FE60675">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F64FF05">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4FBBC97E">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL53C2703B4F96EED1">
+			<displayName>Precisión (m)</displayName>
+		</SimpleField>
+	</Schema>
+	<gx:CascadingStyle kml:id="__managed_style_1264A4DC9736E4C0E26E">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_232C11641736E4C0E26E">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.1825</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0BCD8FF41F36E4C0E26E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1264A4DC9736E4C0E26E</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_232C11641736E4C0E26E</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_2D04F35A6936E4C0E26D">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1A7E978A6136E4C0E26D">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_01F602A9E236E4C0E26D">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1A7E978A6136E4C0E26D</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2D04F35A6936E4C0E26D</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder id="53C270398E000001">
+		<name>Islas coop. 3R</name>
+		<open>1</open>
+		<styleUrl>#__managed_style_01F602A9E236E4C0E26D</styleUrl>
+		<Placemark id="53C270398E000002">
+			<name>El kiosko</name>
+			<LookAt>
+				<longitude>-54.32278128969414</longitude>
+				<latitude>-34.49825918820373</latitude>
+				<altitude>24.50872781788091</altitude>
+				<heading>74.11356382734915</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>198.8659348459623</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F96EED1">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32264298583264,-34.49822079764201,24.62644478247181</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398E000003">
+			<name>2</name>
+			<LookAt>
+				<longitude>-54.32069129670096</longitude>
+				<latitude>-34.49478463456066</latitude>
+				<altitude>26.24228112057301</altitude>
+				<heading>51.50749528739117</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>374.4647816210272</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FBBC97E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32047513035315,-34.49467766335156,26.07335352746779</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398E000004">
+			<name>Escuela 75</name>
+			<LookAt>
+				<longitude>-54.31996283842093</longitude>
+				<latitude>-34.49360558726838</latitude>
+				<altitude>23.19166722608351</altitude>
+				<heading>51.50711926485596</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>313.6078688892667</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F64FF05">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.31968731164829,-34.493369465496,24.3600625435943</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398E000005">
+			<name>La palma</name>
+			<LookAt>
+				<longitude>-54.30610741877308</longitude>
+				<latitude>-34.47360769134313</latitude>
+				<altitude>43.05314986300416</altitude>
+				<heading>340.0084979193221</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>277.5495736388984</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FE60675">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.30629790164667,-34.47336800058172,43.05315148419123</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000006">
+			<name>5</name>
+			<LookAt>
+				<longitude>-54.31215984913686</longitude>
+				<latitude>-34.47128769620352</latitude>
+				<altitude>31.95527480198688</altitude>
+				<heading>246.8360061737073</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>643.7902245014993</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F9A37C6">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.31289375539738,-34.47133590484507,31.61744341016248</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000007">
+			<name>distribuidora</name>
+			<LookAt>
+				<longitude>-54.31268692424506</longitude>
+				<latitude>-34.47483171848437</latitude>
+				<altitude>26.51661834471614</altitude>
+				<heading>149.7263516788003</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>675.9651825119364</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FC7EADB">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.3122532246066,-34.47528192920043,26.78749082048974</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000008">
+			<name>rotondita</name>
+			<LookAt>
+				<longitude>-54.3260039</longitude>
+				<latitude>-34.4795455</latitude>
+				<altitude>25.13641637166972</altitude>
+				<heading>267.0183715820312</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FD32F3A">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32610847739879,-34.47972249435615,24.97234311059212</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000009">
+			<name>Vet. lo de Dany</name>
+			<LookAt>
+				<longitude>-54.32735016619367</longitude>
+				<latitude>-34.47857822825861</latitude>
+				<altitude>22.50035945393896</altitude>
+				<heading>303.6597538226978</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>959.3213010528416</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F14C07D">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.3283760688406,-34.47787329782729,22.57749720517205</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000A">
+			<name>Michael</name>
+			<LookAt>
+				<longitude>-54.32739341625491</longitude>
+				<latitude>-34.47859324660645</latitude>
+				<altitude>22.17713725778484</altitude>
+				<heading>303.6597782675119</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>959.6444894983144</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F45D920">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32876575156975,-34.47799297628325,23.4247814883833</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000B">
+			<name>Liceo 3</name>
+			<LookAt>
+				<longitude>-54.32846572745161</longitude>
+				<latitude>-34.48059401246812</latitude>
+				<altitude>26.06367994386351</altitude>
+				<heading>222.2189328891753</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>431.6067191946058</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F969335">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32854198294644,-34.48056615518076,25.99539740920943</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000C">
+			<name>Desarrollo Social </name>
+			<LookAt>
+				<longitude>-54.32681851569809</longitude>
+				<latitude>-34.48162679988462</latitude>
+				<altitude>23.11600539308562</altitude>
+				<heading>89.91754614877225</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>406.4996773985331</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F835631">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32690315582451,-34.48191658423338,22.45406257409964</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000D">
+			<name>Henry</name>
+			<LookAt>
+				<longitude>-54.33421707753467</longitude>
+				<latitude>-34.47398427527105</latitude>
+				<altitude>24.9684837182714</altitude>
+				<heading>307.061330445466</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.9999999999999</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F9F069B">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33405449598588,-34.47383986763997,24.77067773839707</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000E">
+			<name>barraca Ituzaingó </name>
+			<LookAt>
+				<longitude>-54.33903024763718</longitude>
+				<latitude>-34.47063600543694</latitude>
+				<altitude>20.54487992722356</altitude>
+				<heading>307.7900444576727</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>335.5084752347102</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F21CF55">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33938877441052,-34.47030245439517,18.63173050438362</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F00000F">
+			<name>almacén </name>
+			<LookAt>
+				<longitude>-54.3409321650324</longitude>
+				<latitude>-34.46999171492945</latitude>
+				<altitude>17.42039871045159</altitude>
+				<heading>157.9075284283476</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.9999999999999</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F67002A">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.34113241107185,-34.46999883935381,17.33280957977598</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000010">
+			<name>La Liceal</name>
+			<LookAt>
+				<longitude>-54.33798099565816</longitude>
+				<latitude>-34.47480675344212</latitude>
+				<altitude>28.32336935387362</altitude>
+				<heading>155.9372728494177</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>344.6001667147721</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F986AE9">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33804808009365,-34.47493749976132,28.372160932212</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000011">
+			<name>hospital </name>
+			<LookAt>
+				<longitude>-54.34018614740638</longitude>
+				<latitude>-34.47654885209035</latitude>
+				<altitude>25.64598288478664</altitude>
+				<heading>155.9383543138015</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>392.9582576829853</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FE770AE">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.34019905660656,-34.47655989698847,25.47867760480613</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000012">
+			<name>edificios</name>
+			<LookAt>
+				<longitude>-54.3412708390936</longitude>
+				<latitude>-34.47786921523064</latitude>
+				<altitude>22.69553047524231</altitude>
+				<heading>217.0012213160962</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>448.8185898999656</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F6780F8">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.34129463399091,-34.47797865927911,22.65428878203953</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000013">
+			<name>Los hermanos</name>
+			<LookAt>
+				<longitude>-54.3386259</longitude>
+				<latitude>-34.4783212</latitude>
+				<altitude>25.98609506188182</altitude>
+				<heading>36.44475936889648</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FE9F0F8">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33866153277074,-34.47844651105251,22.65428878203953</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000014">
+			<name>almacén </name>
+			<LookAt>
+				<longitude>-54.34739253145712</longitude>
+				<latitude>-34.48185134855747</latitude>
+				<altitude>14.34931893113918</altitude>
+				<heading>264.5200900979814</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>719.0067262062075</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F3654AF">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.34732609496565,-34.48224182559042,13.37274879058941</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000015">
+			<name>luzmila</name>
+			<LookAt>
+				<longitude>-54.35013144037812</longitude>
+				<latitude>-34.48566471571866</latitude>
+				<altitude>13.9246626349792</altitude>
+				<heading>168.9964508796564</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.9999999999999</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FE13031">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.35028532387619,-34.4855761919171,15.12958515043544</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270398F000016">
+			<name>panadería corazón </name>
+			<LookAt>
+				<longitude>-54.33757262308809</longitude>
+				<latitude>-34.49039929172108</latitude>
+				<altitude>19.25267692595515</altitude>
+				<heading>44.66819356231446</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>546.5500897539459</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F615469">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33743703461167,-34.49026050139509,19.09996166608589</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000017">
+			<name>Escuela 4</name>
+			<LookAt>
+				<longitude>-54.33602338727175</longitude>
+				<latitude>-34.48960785744978</latitude>
+				<altitude>18.95489420765575</altitude>
+				<heading>44.66721401506944</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>546.8478755505203</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FAAF3C1">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33582686190022,-34.48966133978382,18.96600426626859</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000018">
+			<name>20</name>
+			<LookAt>
+				<longitude>-54.33187794353421</longitude>
+				<latitude>-34.48547661834611</latitude>
+				<altitude>27.01077492731517</altitude>
+				<heading>47.3148567907935</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.7954482870409</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F37F743">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33178050956582,-34.48539571967061,26.98134902544498</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000019">
+			<name>21</name>
+			<LookAt>
+				<longitude>-54.3299834</longitude>
+				<latitude>-34.4861661</latitude>
+				<altitude>25.13643208134019</altitude>
+				<heading>121.7701187133789</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4FBA9681">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33005153323897,-34.48646953718492,24.97235857694307</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001A">
+			<name>tornillería </name>
+			<LookAt>
+				<longitude>-54.3289329</longitude>
+				<latitude>-34.4853305</latitude>
+				<altitude>23.90014450379013</altitude>
+				<heading>25.72566032409668</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4F3EBBAD">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32888487087467,-34.48532124749276,23.87479004206022</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001B">
+			<name>vírgen </name>
+			<LookAt>
+				<longitude>-54.32795973229007</longitude>
+				<latitude>-34.48696901174675</latitude>
+				<altitude>26.87928279308677</altitude>
+				<heading>163.7810272521705</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.9999999999999</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E90AD38">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32802456992797,-34.48716292169144,26.45765458853082</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001C">
+			<name>Santa Ana</name>
+			<LookAt>
+				<longitude>-54.33088488877981</longitude>
+				<latitude>-34.48863756968156</latitude>
+				<altitude>26.05015076858625</altitude>
+				<heading>188.6275512103674</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>963.2419310501427</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E6FFE1B">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33183740606577,-34.48947627292651,23.44898259717652</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001D">
+			<name>coviro</name>
+			<LookAt>
+				<longitude>-54.32669024808635</longitude>
+				<latitude>-34.48958039706719</latitude>
+				<altitude>26.06369754057094</altitude>
+				<heading>121.2862079924371</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500.0000000000001</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4EFB2B97">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32668860647223,-34.48949609834994,26.07484019278688</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001E">
+			<name>C8</name>
+			<LookAt>
+				<longitude>-54.3259972</longitude>
+				<latitude>-34.4900709</latitude>
+				<altitude>27.24627414110591</altitude>
+				<heading>132.0078887939453</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E2F9598">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32574100852592,-34.49034309762146,27.01458143351803</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C270399000001F">
+			<name>25</name>
+			<LookAt>
+				<longitude>-54.3297691</longitude>
+				<latitude>-34.4892414</latitude>
+				<altitude>24.72943489649979</altitude>
+				<heading>227.8298187255859</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E1FB10C">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.32979624270629,-34.48911453810758,24.87211095971551</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000020">
+			<name>complejo</name>
+			<LookAt>
+				<longitude>-54.33045542127247</longitude>
+				<latitude>-34.48988080153902</latitude>
+				<altitude>24.79799262412146</altitude>
+				<heading>218.8170676665628</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>255.6304715691658</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E489A5E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33055320381497,-34.48983820744672,24.73622916841309</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000021">
+			<name>DAC</name>
+			<LookAt>
+				<longitude>-54.33403320047962</longitude>
+				<latitude>-34.48411154532956</latitude>
+				<altitude>28.81459071363303</altitude>
+				<heading>310.5812640426577</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.5419780604426</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E357F0E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33442445996022,-34.48371503879056,29.3672254856718</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000022">
+			<name>30</name>
+			<LookAt>
+				<longitude>-54.33697368320576</longitude>
+				<latitude>-34.48190444787908</latitude>
+				<altitude>29.06065048001273</altitude>
+				<heading>34.48854114436276</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>413.3939006832953</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E47E10A">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33654201086828,-34.4817890431636,29.47765132695356</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000023">
+			<name>Repromax</name>
+			<LookAt>
+				<longitude>-54.33574518077241</longitude>
+				<latitude>-34.48099285167267</latitude>
+				<altitude>29.29544725579983</altitude>
+				<heading>34.49425638435768</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>413.1402913911006</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E3E21B4">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33553207630355,-34.48075768519809,28.99029421651534</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000024">
+			<name>La banca </name>
+			<LookAt>
+				<longitude>-54.33712784671649</longitude>
+				<latitude>-34.48098613879412</latitude>
+				<altitude>30.64870912026345</altitude>
+				<heading>228.1693409955728</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>341.2645856805103</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4ECF7AE1">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33741616423811,-34.48116156505946,29.76298515773725</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000025">
+			<name>Tienda Simger</name>
+			<LookAt>
+				<longitude>-54.33766972153118</longitude>
+				<latitude>-34.48007887853589</latitude>
+				<altitude>29.00548006106833</altitude>
+				<heading>39.47430667266725</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>499.7183132363716</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4E56711E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.33732072793017,-34.47983847967933,29.38561743984227</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="53C2703990000026">
+			<name>vamos que vamos</name>
+			<LookAt>
+				<longitude>-54.340674</longitude>
+				<latitude>-34.4944172</latitude>
+				<altitude>18.43414915138239</altitude>
+				<heading>137.4126739501953</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>500</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0BCD8FF41F36E4C0E26E</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="COL53C2703B4EB8DDC8">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-54.34038468510818,-34.49419933578042,18.7214171064322</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
