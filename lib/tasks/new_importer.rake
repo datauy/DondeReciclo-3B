@@ -300,6 +300,60 @@ namespace :importer do
     end
   end
   #
+  task :import_montevideo, [:dir, :program_id] =>  [:environment] do |_, args|
+    dir = args[:dir].present? ? args[:dir] : 'canelones_uy'
+    program_id = args[:program_id].present? ? args[:program_id] : 65
+    Dir.glob("#{Rails.root}/db/data/import_files/kmls/montevideo_uy/*") do |file|
+      kml = Nokogiri::XML(File.open(file))
+      #puts kml.inspect
+      i = 0
+      kml.css("Folder").each do |fol|
+        sub_name = fol.css("name").first.text.strip
+        #Ecocentros fijos.csv - Montevideo Más Verde - Ecocentros - Depósito
+        #Ecocentros móviles.csv - Montevideo Más Verde - Ecocentros móviles - Estación CEMPRE
+        #Envases de plástico, vidrio y latas.csv - Plan Vale - Plan Vale - MUPI
+        #Estación de podas.csv - Montevideo Más Verde - Montevideo más verde (podas)
+        #Islas de reciclables.csv - Plan Vale - Plan Vale - Contenedor boca ancha
+        #Municipios.csv - NO SE CARGA
+        #Pilas.csv - Plan Vale - Plan Vale - Paleta pilas
+        #Puntos de entrega voluntaria de reciclables.csv - Plan Vale - Plan Vale - Contenedor plástico
+        #Puntos de recepción de aceite doméstico.csv - La Energía se Transforma - La Energía se Transforma - Contenedor plástico
+        case sub_name
+        when 'Puntos de recepción de aceite doméstico'
+          sub_id = 3
+          type = 3
+        when 'Materiales reciclables'
+          sub_id = 12
+          type = 3
+        when 'Pilas'
+          sub_id = 12
+          type = 2
+        when 'Municipios'
+          next
+        when 'Islas de reciclables'
+          sub_id = 12
+          type = 4
+        when 'Estación de podas'
+          sub_id = 992
+          type = 16
+        when 'Envases de plástico, vidrio y latas'
+          sub_id = 12
+          type = 1
+        when 'Ecocentros móviles'
+          sub_id = 1041
+          type = 19
+        when 'Ecocentros fijos'
+          sub_id = 1010
+          type = 15
+        end
+        
+        sub_program = SubProgram.find(sub_id)
+        puts "Processing #{sub_name} in #{file}"
+        process_kml(fol, sub_program, type)
+      end
+    end
+  end
+
   task :containers, [:filename] => [:environment] do |_, args|
     if args[:filename].present?
       containers = []
@@ -307,20 +361,20 @@ namespace :importer do
         containers << {
           public_site: 1,
           hidden: 0,
-          state: 'Rivera',
-          site: row[2],
-          #address: row[1],
-          #location: nil,
+          state: 'Flores',
+          site: row[0],
+          address: row[1],
+          location: row[2],
           #external_id: nil,
           sub_program_id: 12,
-          #site_type: 'Farmacia',
-          latitude: row[1],
-          longitude: row[0],
-          container_type_id: 5,
-          information: row[3]
+          site_type: row[5],
+          latitude: row[4],
+          longitude: row[3],
+          container_type_id: row[5].include?("Isla") ? 5 : 10,#contiene isla
+          #information: row[3]
         }
       end
-      #puts containers.inspect
+      puts containers.inspect
       Container.import containers
     end
   end
@@ -443,7 +497,7 @@ namespace :importer do
               information: geo_desc
             })
             if !container.validate!
-              puts "ERROR: #{zone.errors.full_messages}\n next..."
+              puts "ERROR: #{container.errors.full_messages}\n next..."
               next
             end
           end
