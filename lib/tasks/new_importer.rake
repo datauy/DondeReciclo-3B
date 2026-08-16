@@ -311,33 +311,35 @@ namespace :importer do
         sub_name = fol.css("name").first.text.strip
         #Ecocentros fijos.csv - Montevideo Más Verde - Ecocentros - Depósito
         #Ecocentros móviles.csv - Montevideo Más Verde - Ecocentros móviles - Estación CEMPRE
-        #Envases de plástico, vidrio y latas.csv - Plan Vale - Plan Vale - MUPI
+        #Envases de plástico, vidrio y latas.csv - Plan Vale - JCDecaux - MUPI
         #Estación de podas.csv - Montevideo Más Verde - Montevideo más verde (podas)
-        #Islas de reciclables.csv - Plan Vale - Plan Vale - Contenedor boca ancha
+        #Islas de reciclables.csv - Plan Vale - Municipio B - Contenedor boca ancha
         #Municipios.csv - NO SE CARGA
-        #Pilas.csv - Plan Vale - Plan Vale - Paleta pilas
-        #Puntos de entrega voluntaria de reciclables.csv - Plan Vale - Plan Vale - Contenedor plástico
-        #Puntos de recepción de aceite doméstico.csv - La Energía se Transforma - La Energía se Transforma - Contenedor plástico
+        #Pilas.csv - Plan Vale - JCDecaux (pilas) - Paleta pilas
+        #Puntos de entrega voluntaria de reciclables.csv - Plan Vale - Plan Vale Montevideo- Contenedor plástico
+        #Puntos de recepción de aceite doméstico.csv - Montevideo Más Verde - Reciclaje de aceite doméstico usado - Contenedor plástico
+
+        sub_id = nil
         case sub_name
         when 'Puntos de recepción de aceite doméstico'
-          sub_id = 3
+          sub_id = 1052
           type = 3
         when 'Materiales reciclables'
-          sub_id = 12
+          sub_id = 1053
           type = 3
         when 'Pilas'
-          sub_id = 12
+          sub_id = 13
           type = 2
         when 'Municipios'
           next
         when 'Islas de reciclables'
-          sub_id = 12
+          sub_id = 10
           type = 4
         when 'Estación de podas'
           sub_id = 992
           type = 16
         when 'Envases de plástico, vidrio y latas'
-          sub_id = 12
+          sub_id = 14
           type = 1
         when 'Ecocentros móviles'
           sub_id = 1041
@@ -346,10 +348,11 @@ namespace :importer do
           sub_id = 1010
           type = 15
         end
-        
-        sub_program = SubProgram.find(sub_id)
-        puts "Processing #{sub_name} in #{file}"
-        process_kml(fol, sub_program, type)
+        if sub_id.present?
+          sub_program = SubProgram.find(sub_id)
+          puts "Processing #{sub_name} in #{file}"
+          process_kml(fol, sub_program, type)
+        end
       end
     end
   end
