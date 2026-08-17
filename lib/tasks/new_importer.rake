@@ -324,7 +324,7 @@ namespace :importer do
         when 'Puntos de recepción de aceite doméstico'
           sub_id = 1052
           type = 3
-        when 'Materiales reciclables'
+        when 'Puntos de entrega voluntaria de reciclables'
           sub_id = 1053
           type = 3
         when 'Pilas'
