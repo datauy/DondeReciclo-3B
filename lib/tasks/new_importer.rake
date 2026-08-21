@@ -321,7 +321,7 @@ namespace :importer do
 
         sub_id = nil
         case sub_name
-        when 'Puntos de recepción de aceite doméstico'
+        when 'Puntos de recepción de aceite doméstico'
           sub_id = 1052
           type = 3
         when 'Puntos de entrega voluntaria de reciclables'
@@ -335,13 +335,13 @@ namespace :importer do
         when 'Islas de reciclables'
           sub_id = 10
           type = 4
-        when 'Estación de podas'
+        when 'Estación de podas'
           sub_id = 992
           type = 16
-        when 'Envases de plástico, vidrio y latas'
+        when 'Envases de plástico, vidrio y latas'
           sub_id = 14
           type = 1
-        when 'Ecocentros móviles'
+        when 'Ecocentros móviles'
           sub_id = 1041
           type = 19
         when 'Ecocentros fijos'
@@ -412,7 +412,7 @@ namespace :importer do
       puts "ERROR: no suprogram selected\n exiting..."
     end
   end
-  def process_kml(kml, sub_program, type)
+  def process_kml(kml, sub_program, type, state = 'Montevideo')
     geo_factory = RGeo::Cartesian.factory()
     kml.css("Placemark").each do |pm|
       geo_name = pm.css("name").first.text
@@ -497,7 +497,8 @@ namespace :importer do
               public_site: 1,
               #site_type: row[6],
               site: geo_name,
-              information: geo_desc
+              information: geo_desc,
+              state: state
             })
             if !container.validate!
               puts "ERROR: #{container.errors.full_messages}\n next..."
