@@ -23,6 +23,13 @@ def working_days_sched
   return [schedule.id]
 end
 
+def state_for_points()
+  monte = Location.where(loc_type: 'state', name: 'Montevideo').first
+  Container.where(sub_program_id: 12).from_state(monte.geometry.as_json).delete_all
+  Container.where(sub_program_id: [10,13,14,992,1041,1010], state: 'Montevideo').delete_all
+
+end
+
 def days_time(rdays, rtime)
   ids = []
   wdays = ['Todos', 'L', 'M', 'Mi', 'J', 'V', 'S', 'D' ]

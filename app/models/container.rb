@@ -20,6 +20,9 @@ class Container < ApplicationRecord
     where( "ST_Distance(:point::geometry, ST_SetSRID( ST_Point( containers.latitude, containers.longitude), 4326)) < 6", point: "SRID=4326;POINT(#{lat} #{lon})" ).
     order(distance: :asc)
   }
+  scope :from_state, ->(wkt) {
+    where("ST_Contains( ST_SetSRID( ST_GeomFromText(:state), 4326), ST_SetSRID( ST_Point( containers.longitude, containers.latitude), 4326) ) = true", state: wkt)
+  }
 
   def custom_icon_url
     self.custom_icon.attached? && self.custom_icon_active ? url_for(self.custom_icon) : ''
