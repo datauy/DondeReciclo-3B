@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_154557) do
+ActiveRecord::Schema.define(version: 2023_04_01_120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.geography "latlon", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.text "information"
     t.boolean "custom_icon_active"
+    t.index "st_setsrid(st_makepoint((longitude)::double precision, (latitude)::double precision), 4326)", name: "index_containers_on_point_gist", using: :gist
     t.index ["container_type_id"], name: "index_containers_on_container_type_id"
     t.index ["latitude", "longitude"], name: "index_containers_on_latitude_and_longitude"
     t.index ["sub_program_id"], name: "index_containers_on_sub_program_id"
@@ -107,7 +108,6 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.datetime "updated_at", precision: 6, null: false
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
     t.string "contact"
-    t.geometry "center", limit: {:srid=>0, :type=>"st_point"}
     t.string "code"
     t.string "locale"
     t.decimal "lat"
@@ -149,6 +149,10 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.geometry "geometry", limit: {:srid=>0, :type=>"multi_polygon"}
     t.integer "loc_type"
     t.string "code"
+    t.bigint "parent_location_id"
+    t.bigint "country_id", default: 2, null: false
+    t.index ["country_id"], name: "index_locations_on_country_id"
+    t.index ["parent_location_id"], name: "index_locations_on_parent_location_id"
   end
 
   create_table "material_translations", force: :cascade do |t|
@@ -170,6 +174,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "dimension_id", default: 1, null: false
+    t.string "contrast_color"
     t.index ["dimension_id"], name: "index_materials_on_dimension_id"
   end
 
@@ -195,6 +200,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
   create_table "materials_sub_programs", id: false, force: :cascade do |t|
     t.bigint "sub_program_id", null: false
     t.bigint "material_id", null: false
+    t.index ["material_id"], name: "index_materials_sub_programs_on_material_id"
     t.index ["sub_program_id", "material_id"], name: "index_materials_sub_programs_on_sub_program_id_and_material_id"
   end
 
@@ -322,6 +328,14 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.geometry "route", limit: {:srid=>0, :type=>"multi_line_string"}, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.integer "weekday"
     t.time "start"
@@ -368,6 +382,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
     t.bigint "waste_id", null: false
     t.bigint "sub_program_id", null: false
     t.index ["sub_program_id", "waste_id"], name: "index_sub_programs_wastes_on_sub_program_id_and_waste_id"
+    t.index ["waste_id"], name: "index_sub_programs_wastes_on_waste_id"
   end
 
   create_table "supporters", force: :cascade do |t|
@@ -447,13 +462,17 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
 
   create_table "zones", force: :cascade do |t|
     t.bigint "sub_program_id", null: false
-    t.bigint "location_id", null: false
+    t.bigint "location_id"
     t.boolean "is_route"
     t.integer "pick_up_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "information"
+    t.string "color"
+    t.boolean "custom_active"
+    t.bigint "route_id"
     t.index ["location_id"], name: "index_zones_on_location_id"
+    t.index ["route_id"], name: "index_zones_on_route_id"
     t.index ["sub_program_id"], name: "index_zones_on_sub_program_id"
   end
 
@@ -466,6 +485,8 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
   add_foreign_key "location_relations", "locations"
   add_foreign_key "location_relations", "programs"
   add_foreign_key "location_relations", "sub_programs"
+  add_foreign_key "locations", "countries"
+  add_foreign_key "locations", "locations", column: "parent_location_id"
   add_foreign_key "materials", "dimensions"
   add_foreign_key "materials_relations", "dimensions"
   add_foreign_key "materials_relations", "materials"
@@ -495,5 +516,6 @@ ActiveRecord::Schema.define(version: 2022_09_17_154557) do
   add_foreign_key "wastes_relations", "reports"
   add_foreign_key "wastes_relations", "wastes"
   add_foreign_key "zones", "locations"
+  add_foreign_key "zones", "routes"
   add_foreign_key "zones", "sub_programs"
 end

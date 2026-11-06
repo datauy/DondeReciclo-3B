@@ -31,32 +31,7 @@ rails db:seed
 rails s
 ```
 
-##Services
-  get 'api/location4Polygon'
-  get 'api/country4Point'
-  get 'api/subprograms4location'
-  get 'api/subprogram4location'
-  get 'api/zone4point'
-  get 'api/materials'
-  get 'api/wastes'
-  get 'api/container_types'
-  get 'api/container/:id', to: 'api#container'
-  get 'api/containers'
-  get 'api/containers_bbox'
-  get 'api/containers_bbox4materials'
-  get 'api/containers_nearby'
-  get 'api/containers4materials'
-  get 'api/search'
-  get 'api/search_predefined'
-  get 'api/programs'
-  get 'api/programs_sum'
-  get 'api/news'
-  get "api/new/:id", to: "api#new"
-  post 'api/contact', to: "utils#contact_email"
-  get 'api/user', to: "user_api#me"
-  post 'api/user/update', to: 'user_api#update'
-  post 'api/report', to: "user_api#report"
-  post 'api/collect', to: "user_api#collect"
-  post 'password/forgot', to: 'utils#forgot'
-  post 'password/reset', to: 'utils#reset'
+## Documentación de la API
 
+Consulta la [documentación de la API](docs/api.md) para ver los servicios y
+la búsqueda de contenedores por área.

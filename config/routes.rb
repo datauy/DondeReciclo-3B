@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get 'api/containers4materials'
     get 'api/containers_bbox'
     get 'api/containers_bbox4materials'
+    get 'api/cluster_details'
     get 'api/stats/totals', to: "api_stats#totals"
     get 'api/stats/programs', to: "api_stats#programs"
     get 'api/stats/containers', to: "api_stats#containers"

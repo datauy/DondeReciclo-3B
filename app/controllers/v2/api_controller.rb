@@ -1,5 +1,7 @@
 module V2
   class ApiController < ApplicationController
+    include BboxClustering
+
     before_action :set_locale
     #
     def subprograms
@@ -108,13 +110,27 @@ module V2
       end
       render json: ptags
     end
+    # Details for the members of a cluster, to list them in the cluster modal.
+    def cluster_details
+      containers = Container
+        .with_attached_custom_icon
+        .includes(:sub_program)
+        .where(id: @cluster_detail_ids, hidden: false, public_site: true)
+        .order(:id)
+      render json: containers.map { |cont|
+        format_pins([cont]).first.merge(
+          sub_program_id: cont.sub_program_id,
+          sub_program_name: cont.sub_program.name
+        )
+      }
+    end
     #
     def containers_bbox
       @cont = Container
-        .within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+        .in_bbox(*bbox_bounds)
         .includes( :sub_program, :custom_icon_attachment )
         .where(:hidden => false, :public_site => true)
-      render json: format_pins(@cont)
+      render_bbox_containers(@cont)
     end
     #
     def containers_bbox4materials
@@ -124,13 +140,13 @@ module V2
         #materials = Dimension.joins(:materials).select(:"materials.id").where( id: params[:dimensions].split(',') ).flat_map(&:id)
         wastes = Waste.includes(:material).where("materials.id": mids).pluck(:id)
         @cont = Container.distinct.
-        within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ]).
+        in_bbox(*bbox_bounds).
         includes(:sub_program, :custom_icon_attachment).
         joins(sub_program: [:materials, :wastes]).
         where( :hidden => false, :public_site => true, "materials_sub_programs.material_id": mids ).
         or(
           Container.distinct.
-          within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ]).
+          in_bbox(*bbox_bounds).
           includes(:sub_program, :custom_icon_attachment).
           joins(sub_program: [:materials, :wastes]).
           where( :hidden => false, :public_site => true, "sub_programs_wastes.waste_id": wastes )
@@ -139,7 +155,7 @@ module V2
       else
         cont = Container.
           includes(:sub_program, :custom_icon_attachment).
-          within_bounding_box([ params[:sw].split(','), params[:ne].split(',') ])
+          in_bbox(*bbox_bounds)
         if (params[:materials])
           @cont = cont.
             joins( sub_program: [:materials] ).
@@ -152,7 +168,7 @@ module V2
           return self.containers_bbox
         end
       end
-      render json: format_pins(@cont)
+      render_bbox_containers(@cont)
     end
     #Se tuvo que hacer la carga por partes dado que la consulta de near no responde en caso que el where opere sobre toda la consulta
     #Por o que se hace la primer carga de subprogramas eager y las consultas de materiales lazy
