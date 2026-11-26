@@ -104,7 +104,7 @@ module V2
             }
           end
         end
-        ptags << {name: tag.name, programs: programs}
+        ptags << {id: tag.id, name: tag.name, programs: programs}
       end
       render json: ptags
     end
